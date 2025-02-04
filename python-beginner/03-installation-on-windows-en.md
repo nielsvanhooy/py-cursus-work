@@ -57,7 +57,7 @@ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
 ```
-## Setup Pyenv pt2
+
 close your ubuntu shell and start a new one.
 check if pyenv gives output. you should see the following
 
@@ -69,7 +69,7 @@ Usage: pyenv <command> [<args>]
 
 then we install a new python interpreter
 
-## Setup Pyenv pt3
+
 ```sh
 pyenv install 3.13.0
 ```
@@ -84,10 +84,43 @@ pyenv global 3.13.0
 curl -LsSf https://astral.sh/uv/install.sh | sh >/dev/null 2>&1
 ```
 
-## hoe kom je bij je ubuntu files
+## How to get to your ubuntu files from windows
 
-- folder heet linux -> ubuntu  zo kom je vanuit windows bij all je subsystem files.
+- folder name is called Linux (scroll way down) -> ubuntu -> home -> username -> git
 
+
+## Getting the exercises repo, and course repo
+In the browser go to git.kpn.org.
+Login with your kpn credentials (ruisnaam en password).
+
+At the top click Projects.
+in the searchbar type:  A-Team
+
+scroll down to either of these projects:
+
+- python-cursus
+- python-cursus-exercises
+
+Click project. Then in the left bar select the computer with an arrow down symbol.
+Switch from SSH to HTTP. copy the url
+
+We will use git to get the exercises repository that i made.
+We are going to use "Git" for this.  (dont be afraid we will only use git pull and git update when needed)
+
+- git clone      (downloads a copy of a project that you or someone else created)
+- git pull       (updates the project with the latest changes) 
+
+In WSL (or on mac) we create a new dir called: git
+- my personal recommendation for this is to create a new folder in your home dir called git
+- yes there are some people that object to this but for now it is fine.
+
+navigate to your home folder:
+```sh
+cd ~/git
+
+git clone https://git.kpn.org/scm/ateam/python-cursus.git
+git clone https://git.kpn.org/scm/ateam/python-cursus-exercises.git
+```
 
 ## Setup Pycharm
 
@@ -123,34 +156,4 @@ type python
 python path (hierin zou je zichtbaar \home\user\bin\python moeten zien staan.)
 
 
-makefile aanpassen zodat pytho nenv geactiveerd wordt.
-
 open de exercisees repo. settings. interpreter. add exising. navigeer naar folder maar in windows moet je een . zetten om de hidden venv folder te zien.
-
-
-## git.kpn.org
-
-2 repos we need for the course
-- python-cursus
-- python-cursus-exercises
-
-
-## Getting the exercises repo
-
-klik project. dan computer met pijltje naar beneden .switch van ssh naar http
-git clone url   gevolgd door je werkplek username en wachtwoord.
-vervolgens moet ie downloaden.
-
-We will use git to get the exercises repository that i made.
-We are going to use "Git" for this.  (dont be afraid we will only use git pull and git update when needed)
-
-- git clone      (downloads a copy of a project that you or someone else created)
-- git pull       (updates the project with the latest changes) 
-
-In WSL (or on mac) we create a new dir called: git
-- my personal recommendation for this is to create a new folder in your home dir called git
-- yes there are some people that object to this but for now it is fine.
-
-```sh
-
-```

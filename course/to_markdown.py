@@ -12,7 +12,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 def convert_markdown_to_html(md_text):
     """Convert Markdown to HTML with Prism.js-compatible syntax highlighting."""
     # Convert markdown to HTML
-    html = markdown.markdown(md_text, extensions=["fenced_code"])
+    html = markdown.markdown(md_text, extensions=["fenced_code", "nl2br"])
 
     # Ensure <code> blocks have Prism.js class names
     html = re.sub(r'<code class="(\w+)"', r'<code class="language-\1"', html)
@@ -38,6 +38,13 @@ def convert_markdown_to_html(md_text):
                 background: #2d2d2d;
                 color: #ccc;
                 overflow-x: auto;
+            }}
+            details summary {{
+                font-weight: bold;
+                color: #1829a3;
+            }}
+            details p {{
+                font-weight: bold
             }}
         </style>
     </head>

@@ -19,6 +19,13 @@
                 color: #ccc;
                 overflow-x: auto;
             }
+            details summary {
+                font-weight: bold;
+                color: #1829a3;
+            }
+            details p {
+                font-weight: bold
+            }
         </style>
     </head>
     <body class="markdown-body">
@@ -33,24 +40,33 @@
 <p>options:</p>
 <ul>
 <li>local installation</li>
-<li>online notebooks (Jupyter) (not used in here)</li>
 </ul>
 <h2>Local Python console</h2>
 <p>launching the Python console / shell:</p>
 <ul>
 <li>command <code>python</code> or <code>python3</code> if using installation is custom in the command prompt</li>
 <li>from the start menu (e.g. <em>Python 3.9</em>) (windows)</li>
+<li>from within Pycharm. the python logo (usually the top of the bottom left logo's)</li>
 </ul>
 <p>quitting:</p>
 <pre><code class="language-py">exit()
 </code></pre>
+<p>or </p>
+<pre><code class="language-py">quit()
+</code></pre>
+<p>or press the stop button in Pycharm.</p>
+<p>we will mostly work in pycharm and later vscode in this course.</p>
+<p>Try the variant options given and see if it works.<br />
+just enter it and quit.</p>
+<h2>use cases for interactive console</h2>
+<ul>
+<li>trying small things out.</li>
+<li>environments where you can't run a script (e.g. on a server)</li>
+<li>environments in docker containers where "stuff" is isolated or when parts cannot be started directly</li>
+</ul>
 <h2>Online Python consoles</h2>
 <p>simple:</p>
-<p>https://www.python.org/shell/</p>
-<p><em>Jupyter notebooks</em>:</p>
-<ul>
-<li>https://jupyter.org/try-jupyter/ (runs locally in the browser)</li>
-</ul></div>
+<p>https://www.python.org/shell/</p></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

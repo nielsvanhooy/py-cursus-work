@@ -1,4 +1,4 @@
-# Installation on Windows
+# Installation on Windows / Macos / and setting up Pycharm
 
 Download from <https://python.org>
 
@@ -26,15 +26,15 @@ after this reboot
 again: open an administrator privilege shell (like terminal) start menu. type in terminal. right click run as administrator
 
 ```sh
-wsl --install Ubuntu
+wsl --install -d Ubuntu
 ```
 you get a question about username and password.
 for both use your `ruisnaam`
 
 ## Setup Ubuntu Windows
 
-when done open start menu and type ubuntu. click on it.
-you are now presented with a new shell. type
+When done. open start menu and type ubuntu. Click on it.
+You are now presented with a new shell. Type the following
 
 ```sh
 sudo apt update
@@ -78,12 +78,27 @@ then we set the global python interpreter
 pyenv global 3.13.0
 ```
 
+--- nieuwe steps vanaf Jan  Eelke heeft deze al gedaan
 ## Setup uv 
 ```sh
 curl -LsSf https://astral.sh/uv/install.sh | sh >/dev/null 2>&1
 ```
 
+## hoe kom je bij je ubuntu files
+
+- folder heet linux -> ubuntu  zo kom je vanuit windows bij all je subsystem files.
+
+
 ## Setup Pycharm
+
+download url
+- https://www.jetbrains.com/pycharm/
+
+During installation you get a windows with certain install options:
+- update context menu: yes
+- create associations: yes
+- update PAth variable: yes
+
 when all is said and done we open Pycharm
 
 we go to settings -> project -> python interpreter -> add interpreter (to the top right) -> on wsl
@@ -97,3 +112,45 @@ then again we go to settings -> type in the top left search bar. shell path. it 
 we type in:  wsl.exe
 
 when we have done this we can start coding.
+
+
+new project.  locatie veranderen naar \\wsl.localhost\Ubuntu\home\username\git\my_firstproject
+
+vink niet aan create git repo en ook neit create welcome script
+
+interpreter type custom environment.
+type python
+python path (hierin zou je zichtbaar \home\user\bin\python moeten zien staan.)
+
+
+makefile aanpassen zodat pytho nenv geactiveerd wordt.
+
+open de exercisees repo. settings. interpreter. add exising. navigeer naar folder maar in windows moet je een . zetten om de hidden venv folder te zien.
+
+
+## git.kpn.org
+
+2 repos we need for the course
+- python-cursus
+- python-cursus-exercises
+
+
+## Getting the exercises repo
+
+klik project. dan computer met pijltje naar beneden .switch van ssh naar http
+git clone url   gevolgd door je werkplek username en wachtwoord.
+vervolgens moet ie downloaden.
+
+We will use git to get the exercises repository that i made.
+We are going to use "Git" for this.  (dont be afraid we will only use git pull and git update when needed)
+
+- git clone      (downloads a copy of a project that you or someone else created)
+- git pull       (updates the project with the latest changes) 
+
+In WSL (or on mac) we create a new dir called: git
+- my personal recommendation for this is to create a new folder in your home dir called git
+- yes there are some people that object to this but for now it is fine.
+
+```sh
+
+```

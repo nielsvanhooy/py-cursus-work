@@ -19,10 +19,17 @@
                 color: #ccc;
                 overflow-x: auto;
             }
+            details summary {
+                font-weight: bold;
+                color: #1829a3;
+            }
+            details p {
+                font-weight: bold
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Installation on Windows</h1>
+        <div class="markdown-content"><h1>Installation on Windows / Macos / and setting up Pycharm</h1>
 <p>Download from <a href="https://python.org">https://python.org</a></p>
 <p>during installation, check the option "Add Python 3.x to PATH"</p>
 <!--
@@ -40,13 +47,13 @@ why not use windows store version?
 </code></pre>
 <p>after this reboot</p>
 <p>again: open an administrator privilege shell (like terminal) start menu. type in terminal. right click run as administrator</p>
-<pre><code class="language-sh">wsl --install Ubuntu
+<pre><code class="language-sh">wsl --install -d Ubuntu
 </code></pre>
-<p>you get a question about username and password.
+<p>you get a question about username and password.<br />
 for both use your <code>ruisnaam</code></p>
 <h2>Setup Ubuntu Windows</h2>
-<p>when done open start menu and type ubuntu. click on it.
-you are now presented with a new shell. type</p>
+<p>When done. open start menu and type ubuntu. Click on it.<br />
+You are now presented with a new shell. Type the following</p>
 <pre><code class="language-sh">sudo apt update
 sudo apt upgrade
 sudo apt install build-essential libssl-dev zlib1g-dev \
@@ -64,7 +71,7 @@ echo '[[ -d $PYENV_ROOT/bin ]] &amp;&amp; export PATH=&quot;$PYENV_ROOT/bin:$PAT
 echo 'eval &quot;$(pyenv init - bash)&quot;' &gt;&gt; ~/.bashrc
 </code></pre>
 <h2>Setup Pyenv pt2</h2>
-<p>close your ubuntu shell and start a new one.
+<p>close your ubuntu shell and start a new one.<br />
 check if pyenv gives output. you should see the following</p>
 <pre><code class="language-sh">pyenv
 pyenv 2.5.1
@@ -77,19 +84,56 @@ Usage: pyenv &lt;command&gt; [&lt;args&gt;]
 <p>then we set the global python interpreter</p>
 <pre><code class="language-sh">pyenv global 3.13.0
 </code></pre>
+<p>--- nieuwe steps vanaf Jan  Eelke heeft deze al gedaan</p>
 <h2>Setup uv</h2>
 <pre><code class="language-sh">curl -LsSf https://astral.sh/uv/install.sh | sh &gt;/dev/null 2&gt;&amp;1
 </code></pre>
+<h2>hoe kom je bij je ubuntu files</h2>
+<ul>
+<li>folder heet linux -&gt; ubuntu  zo kom je vanuit windows bij all je subsystem files.</li>
+</ul>
 <h2>Setup Pycharm</h2>
+<p>download url<br />
+- https://www.jetbrains.com/pycharm/</p>
+<p>During installation you get a windows with certain install options:<br />
+- update context menu: yes<br />
+- create associations: yes<br />
+- update PAth variable: yes</p>
 <p>when all is said and done we open Pycharm</p>
-<p>we go to settings -&gt; project -&gt; python interpreter -&gt; add interpreter (to the top right) -&gt; on wsl
+<p>we go to settings -&gt; project -&gt; python interpreter -&gt; add interpreter (to the top right) -&gt; on wsl<br />
 now we look carefully. ill show you the path to the python interpreter.</p>
-<p>when we have selected the interpreter we press ok. and we are done.
-then we go to settings new project -&gt; python -&gt; create new project -&gt; select the interpreter we just added -&gt; create
+<p>when we have selected the interpreter we press ok. and we are done.<br />
+then we go to settings new project -&gt; python -&gt; create new project -&gt; select the interpreter we just added -&gt; create<br />
 make sure to name the project  python-cursus-niels.</p>
-<p>then again we go to settings -&gt; type in the top left search bar. shell path. it should go to and highlight this field.
+<p>then again we go to settings -&gt; type in the top left search bar. shell path. it should go to and highlight this field.<br />
 we type in:  wsl.exe</p>
-<p>when we have done this we can start coding.</p></div>
+<p>when we have done this we can start coding.</p>
+<p>new project.  locatie veranderen naar \wsl.localhost\Ubuntu\home\username\git\my_firstproject</p>
+<p>vink niet aan create git repo en ook neit create welcome script</p>
+<p>interpreter type custom environment.<br />
+type python<br />
+python path (hierin zou je zichtbaar \home\user\bin\python moeten zien staan.)</p>
+<p>makefile aanpassen zodat pytho nenv geactiveerd wordt.</p>
+<p>open de exercisees repo. settings. interpreter. add exising. navigeer naar folder maar in windows moet je een . zetten om de hidden venv folder te zien.</p>
+<h2>git.kpn.org</h2>
+<p>2 repos we need for the course<br />
+- python-cursus<br />
+- python-cursus-exercises</p>
+<h2>Getting the exercises repo</h2>
+<p>klik project. dan computer met pijltje naar beneden .switch van ssh naar http<br />
+git clone url   gevolgd door je werkplek username en wachtwoord.<br />
+vervolgens moet ie downloaden.</p>
+<p>We will use git to get the exercises repository that i made.<br />
+We are going to use "Git" for this.  (dont be afraid we will only use git pull and git update when needed)</p>
+<ul>
+<li>git clone      (downloads a copy of a project that you or someone else created)</li>
+<li>git pull       (updates the project with the latest changes) </li>
+</ul>
+<p>In WSL (or on mac) we create a new dir called: git<br />
+- my personal recommendation for this is to create a new folder in your home dir called git<br />
+- yes there are some people that object to this but for now it is fine.</p>
+<pre><code class="language-sh">
+</code></pre></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

@@ -1,0 +1,110 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #1829a3;
+            }
+            details p {
+                font-weight: bold
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Printing, Variables</h1>
+<h1>Printing in python.</h1>
+<p>We begin our python journey with a command that most of you already now.</p>
+<p><strong>the print statement.</strong></p>
+<p>you can use it to display formatted messages onto the screen and perhaps find some bugs</p>
+<p>The classic "my first program" in Python:</p>
+<pre><code class="language-py">print(&quot;Hello World&quot;)
+</code></pre>
+<p>what you may notice is that print gets another (syntax highlighting) color in Pycharm.<br />
+<strong>Why is that??</strong></p>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+This is because it is a built-in function in python. 
+And functions always start with a word. followed bij parantheses ()  <---- (more on functions later in the course)
+</p>
+</details>
+
+<p>Create a new file in pycharm<br />
+Type the following in pycharm (dont run it yet)</p>
+<pre><code class="language-py">print(&quot;Hello World)
+</code></pre>
+<p>What do you notice (hint. check the colors in pycharms) (not perse on the web document i show you).<br />
+The squiggly red line means there is a syntax error. <br />
+This can be a cause of many. but in this case it is because we forgot to close the string with a double quote.<br />
+You can also see this when you mouse over in pycharm. it will give you a hint.</p>
+<p>Now run the code. There are several ways to do this</p>
+<ul>
+<li>press the green play button in the top right corner (make sure in the dropdown it is on current file)</li>
+<li>right click in the editor and press run</li>
+</ul>
+<pre><code class="language-py">  File &quot;/Users/nielsvanhooij/git/python_cursus_exercises/1/printing/exercise_one.py&quot;, line 1
+    print(&quot;Hello world)
+          ^
+SyntaxError: unterminated string literal (detected at line 1)
+</code></pre>
+<p>SyntaxError: Unterminated string literal it says. ok thats nice. but what does it mean?</p>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+A string literal is just an oldschool programmer word (from ancient programming languages).
+that says: "a string that is not closed properly"
+
+will that help us solve this??.
+The MEGA hint here is in the SyntaxError. this is generated because it does not follow the rules that python wants
+</p>
+</details>
+
+<p>Lets do Exercise 1 now. (from the git.kpn repo that we downloaded earlier.)</p>
+<h2>Variables</h2>
+<p>Variables are containers for storing data values.</p>
+<pre><code class="language-py">birth_year = 1970
+current_year = 2020
+age = current_year - birth_year
+</code></pre>
+<p>Names of variables are usually written in lower case, separating words by underscores</p>
+<p>Variable names may only consist of letters, digits and underscores</p>
+<h2>Variables</h2>
+<p>Overwriting (reassigning) variables:</p>
+<pre><code class="language-py">name = &quot;John&quot;
+name = &quot;Jane&quot;
+a = 3
+a = a + 1
+</code></pre>
+<h2>Conventions</h2>
+<pre><code class="language-py">NIELS_BIRTH_YEAR = 1987  # we call this a CONSTANT. because my birth year will never change
+_current_year = 2025     # we call this a PRIVATE variable. it is not enforced by the language, but it is a convention for data the developer doenst want touched.
+NIELS_BIRTH_YEAR_1987 = &quot;1987&quot; # we dont use numbers in variable names. this is a bad example.
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

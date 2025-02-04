@@ -4,7 +4,7 @@
 - [02 Language Overview.Html](02-language-overview.html)
 - [03 Installation On Windows.Html](03-installation-on-windows.html)
 - [04 Interactive Console.Html](04-interactive-console.html)
-- [05 Variables.Html](05-variables.html)
+- [05 String And Variables.Html](05-string-and-variables.html)
 - [10 Basic Types.Html](10-basic-types.html)
 - [11 Types And Type Conversions.Html](11-types-and-type-conversions.html)
 - [12 Functions.Html](12-functions.html)

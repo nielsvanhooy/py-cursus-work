@@ -21,4 +21,4 @@
 
 Cant edit the roadmap anymore but this is globally what we will do this year.
 
-[Click voor Roadmap](../img/roadmap.png)
+![Click voor Roadmap](../img/roadmap.png)

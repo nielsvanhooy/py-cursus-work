@@ -1,8 +1,7 @@
 {
   "type": "topic",
-  "languages": ["de", "en"],
+  "languages": ["en"],
   "titles": {
     "en": "Python Basics",
-    "de": "Python Grundlagen"
   }
 }

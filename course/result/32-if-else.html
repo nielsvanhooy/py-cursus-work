@@ -1,0 +1,61 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>If / else</h1>
+<h2>If / else</h2>
+<p>example:</p>
+<pre><code class="language-py">age = 30
+age_seconds = age * 365 * 24 * 60 * 60
+
+if age_seconds &lt; 1000000000:
+    print(&quot;You are less than 1 billion seconds old&quot;)
+else:
+    print(&quot;You are older than 1 billion seconds&quot;)
+</code></pre>
+<h2>If / elif / else</h2>
+<pre><code class="language-py">if age_seconds &lt; 100000000:
+    print(&quot;You are less than 100 million seconds old&quot;)
+elif age_seconds &lt; 1000000000:
+    print(&quot;You are less than 1 billion seconds old&quot;)
+elif age_seconds &lt; 2000000000:
+    print(&quot;You are less than 2 billion seconds old&quot;)
+else:
+    print(&quot;You are older than 2 billion seconds&quot;)
+</code></pre>
+<h2>Code blocks</h2>
+<p>code block = a group of lines that belong together - for example the code that gets executed when an if condition is true</p>
+<p>In Python the line before the code block ends with a <code>:</code> and the code block is indented (usually by 4 spaces)</p>
+<h2>Exercise: coin flip</h2>
+<p>Simulate a random coin flip via <code>random.choice(["heads", "tails"])</code></p>
+<p>Let the user guess the outcome and tell them if they were right</p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

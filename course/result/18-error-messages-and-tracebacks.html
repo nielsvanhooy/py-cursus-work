@@ -1,0 +1,71 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Error messages and tracebacks</h1>
+<h2>Error messages and tracebacks</h2>
+<p>example code that creates an error message:</p>
+<pre><code class="language-py">open(&quot;foo.txt&quot;)
+</code></pre>
+<p>error message:</p>
+<pre><code class="language-txt">Traceback (most recent call last):
+  File &quot;xyz.py&quot;, line 1, in &lt;module&gt;
+    open(&quot;foo.txt&quot;)
+FileNotFoundError: [Errno 2] No such file or directory: 'foo.txt'
+</code></pre>
+<p>Last line: description of the error</p>
+<p>above: where the error came from</p>
+<h2>Error messages and tracebacks</h2>
+<p>example code with a chain of function calls:</p>
+<pre><code class="language-py">import shutil
+def demo_remove_dir_error():
+    shutil.rmtree(&quot;./does_not_exist&quot;)
+
+demo_remove_dir_error()
+</code></pre>
+<h2>Error messages and tracebacks</h2>
+<p>error message involving a chain of function calls:</p>
+<pre><code class="language-txt">Traceback (most recent call last):
+  File &quot;...\demo_remove_dir_error.py&quot;, line 5, in &lt;module&gt;
+    demo_remove_dir_error()
+  File &quot;...\demo_remove_dir_error.py&quot;, line 3, in demo_remove_dir_error
+    shutil.rmtree(&quot;./does_not_exist&quot;)
+  File &quot;...\lib\shutil.py&quot;, line 748, in rmtree
+    return _rmtree_unsafe(path, onerror)
+  File &quot;...\lib\shutil.py&quot;, line 607, in _rmtree_unsafe
+    onerror(os.scandir, path, sys.exc_info())
+  File &quot;...\lib\shutil.py&quot;, line 604, in _rmtree_unsafe
+    with os.scandir(path) as scandir_it:
+FileNotFoundError: [WinError 3] The system cannot find the
+    path specified: './does_not_exist'
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

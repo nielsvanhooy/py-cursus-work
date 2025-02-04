@@ -1,0 +1,102 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Installation on Windows</h1>
+<p>Download from <a href="https://python.org">https://python.org</a></p>
+<p>during installation, check the option "Add Python 3.x to PATH"</p>
+<!--
+why not use windows store version?
+
+- does not automatically resolve the maximum path limit (260 characters)
+  manual fix: regedit: set `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled` to `1`
+- does not put executables on PATH (instead of "flask" we have to run "python -m flask")
+-->
+
+<h2>Installation on Windows</h2>
+<p>open an administrator privilege shell (like terminal) start menu. type in terminal. right click run as administrator</p>
+<p>type in</p>
+<pre><code class="language-sh">wsl --install
+</code></pre>
+<p>after this reboot</p>
+<p>again: open an administrator privilege shell (like terminal) start menu. type in terminal. right click run as administrator</p>
+<pre><code class="language-sh">wsl --install Ubuntu
+</code></pre>
+<p>you get a question about username and password.
+for both use your <code>ruisnaam</code></p>
+<h2>Setup Ubuntu Windows</h2>
+<p>when done open start menu and type ubuntu. click on it.
+you are now presented with a new shell. type</p>
+<pre><code class="language-sh">sudo apt update
+sudo apt upgrade
+sudo apt install build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev curl git \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+</code></pre>
+<p>press Y when asked.</p>
+<h2>Setup Pyenv</h2>
+<p>now we install <code>pyenv</code></p>
+<pre><code class="language-sh">curl -fsSL https://pyenv.run | bash
+</code></pre>
+<p>when its done we do the following</p>
+<pre><code class="language-sh">echo 'export PYENV_ROOT=&quot;$HOME/.pyenv&quot;' &gt;&gt; ~/.bashrc
+echo '[[ -d $PYENV_ROOT/bin ]] &amp;&amp; export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;' &gt;&gt; ~/.bashrc
+echo 'eval &quot;$(pyenv init - bash)&quot;' &gt;&gt; ~/.bashrc
+</code></pre>
+<h2>Setup Pyenv pt2</h2>
+<p>close your ubuntu shell and start a new one.
+check if pyenv gives output. you should see the following</p>
+<pre><code class="language-sh">pyenv
+pyenv 2.5.1
+Usage: pyenv &lt;command&gt; [&lt;args&gt;]
+</code></pre>
+<p>then we install a new python interpreter</p>
+<h2>Setup Pyenv pt3</h2>
+<pre><code class="language-sh">pyenv install 3.13.0
+</code></pre>
+<p>then we set the global python interpreter</p>
+<pre><code class="language-sh">pyenv global 3.13.0
+</code></pre>
+<h2>Setup uv</h2>
+<pre><code class="language-sh">curl -LsSf https://astral.sh/uv/install.sh | sh &gt;/dev/null 2&gt;&amp;1
+</code></pre>
+<h2>Setup Pycharm</h2>
+<p>when all is said and done we open Pycharm</p>
+<p>we go to settings -&gt; project -&gt; python interpreter -&gt; add interpreter (to the top right) -&gt; on wsl
+now we look carefully. ill show you the path to the python interpreter.</p>
+<p>when we have selected the interpreter we press ok. and we are done.
+then we go to settings new project -&gt; python -&gt; create new project -&gt; select the interpreter we just added -&gt; create
+make sure to name the project  python-cursus-niels.</p>
+<p>then again we go to settings -&gt; type in the top left search bar. shell path. it should go to and highlight this field.
+we type in:  wsl.exe</p>
+<p>when we have done this we can start coding.</p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

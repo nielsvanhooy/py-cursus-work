@@ -1,0 +1,42 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Text output</h1>
+<h2>Text output</h2>
+<p>in the interactive console / notebook:</p>
+<p>if the last command in a cell produces a value, it will be automatically written ("printed") as the output</p>
+<h2>Text output</h2>
+<p>general way to create text output from anywhere: <code>print()</code></p>
+<pre><code class="language-py">print(&quot;Hello, world!&quot;)
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

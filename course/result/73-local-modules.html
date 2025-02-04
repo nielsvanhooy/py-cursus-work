@@ -1,0 +1,57 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Local modules</h1>
+<h2>Local modules</h2>
+<p>we can import local Python files as modules</p>
+<p>example: local file <em>messages.py</em></p>
+<pre><code class="language-py">import messages
+
+print(messages.message1)
+</code></pre>
+<h2>Local modules</h2>
+<p>we can create so-called <em>packages</em> as folders</p>
+<p>example: folder <em>phrases/</em>, files <em>phrases/messages.py</em> and <em>phrases/greetings.py</em></p>
+<pre><code class="language-py">from phrases import greetings
+
+print(greetings.greeting1)
+</code></pre>
+<h2>Resolving imports</h2>
+<p>Search order of imports:</p>
+<ul>
+<li>directory of the Python script that was originally executed</li>
+<li>standard library</li>
+<li>external libraries</li>
+</ul>
+<p>Avoid name clashes with existing modules / packages!</p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

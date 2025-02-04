@@ -1,0 +1,136 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Composite types: dict, list, tuple</h1>
+<h2>dict</h2>
+<p>Dicts (<em>dictionaries</em>) are mappings that contain "named" entries with associated values.</p>
+<pre><code class="language-py">person = {
+    &quot;first_name&quot;: &quot;John&quot;,
+    &quot;last_name&quot;: &quot;Doe&quot;,
+    &quot;nationality&quot;: &quot;Canada&quot;,
+    &quot;birth_year&quot;: 1980
+}
+</code></pre>
+<h2>dict</h2>
+<p>Retrieving and setting elements:</p>
+<pre><code class="language-py">person[&quot;first_name&quot;]
+</code></pre>
+<pre><code class="language-py">person[&quot;first_name&quot;] = &quot;Jane&quot;
+</code></pre>
+<h2>dict</h2>
+<p>exercise:</p>
+<p>create and modify dictionaries that represent various objects, e.g.:</p>
+<ul>
+<li>a date (e.g. October 23, 1971)</li>
+<li>a calendar event</li>
+<li>a person</li>
+<li>a product in an online shop</li>
+<li>...</li>
+</ul>
+<h2>list</h2>
+<p>A list represents a sequence of objects</p>
+<pre><code class="language-py">primes = [2, 3, 5, 7, 11]
+
+users = [&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;]
+
+products = [
+    {&quot;name&quot;: &quot;IPhone 12&quot;, &quot;price&quot;: 949},
+    {&quot;name&quot;: &quot;Fairphone&quot;, &quot;price&quot;: 419},
+    {&quot;name&quot;: &quot;Pixel 5&quot;, &quot;price&quot;: 799}
+]
+</code></pre>
+<h2>list</h2>
+<p>Retrieving list elements via their index (starting at 0):</p>
+<pre><code class="language-py">users = [&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;]
+
+users[0]
+users[1]
+users[-1] # last element
+</code></pre>
+<h2>list</h2>
+<p>Overwriting a list element</p>
+<pre><code class="language-py">users[0] = &quot;Andrew&quot;
+</code></pre>
+<h2>list</h2>
+<p>Appending an element</p>
+<pre><code class="language-py">users.append(&quot;Dora&quot;)
+</code></pre>
+<h2>list</h2>
+<p>Removing the last element:</p>
+<pre><code class="language-py">users.pop()
+</code></pre>
+<p>Removing by index:</p>
+<pre><code class="language-py">users.pop(0)
+</code></pre>
+<h2>list</h2>
+<p>Determining the length</p>
+<pre><code class="language-py">len(users)
+</code></pre>
+<h2>list</h2>
+<p>exercise:</p>
+<p>create and modify data consisting of <em>dicts</em> and <em>lists</em> that represents various objects, e.g.:</p>
+<ul>
+<li>todos</li>
+<li>calendar events</li>
+<li>products in an online shop / shopping basket</li>
+<li>transactions on a bank account</li>
+</ul>
+<h2>Tuple</h2>
+<pre><code class="language-py">date = (1973, 10, 23)
+</code></pre>
+<ul>
+<li>area of application: similar to dicts</li>
+<li>behavior: similar to lists</li>
+</ul>
+<h2>Tuples</h2>
+<p>Area of application: similar to dicts:</p>
+<pre><code class="language-py">point_dict = {&quot;x&quot;: 2, &quot;y&quot;: 4}
+point_tuple = (2, 4)
+
+date_dict = {
+  &quot;year&quot;: 1973,
+  &quot;month&quot;: 10,
+  &quot;day&quot;: 23
+}
+date_tuple = (1973, 10, 23)
+</code></pre>
+<p>Each entry in a tuple has a specific meaning</p>
+<h2>Tuples</h2>
+<p>Behavior: similar to lists:</p>
+<pre><code class="language-py">date_tuple[0] # 1973
+len(date_tuple) # 3
+</code></pre>
+<p>Unlike lists, tuples are immutable (no <code>.append</code> / <code>.pop</code> / ...)</p>
+<h2>Data types - exercises</h2>
+<p>create and modify data structures that include <em>dicts</em>, <em>lists</em> and <em>tuples</em></p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

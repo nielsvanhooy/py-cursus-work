@@ -1,0 +1,66 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Our first Python program</h1>
+<h2>Our first Python program</h2>
+<p>We'll create a file called <code>greeting.py</code></p>
+<p>Our program will ask the user their name and greet them.</p>
+<h2>Input and output of text</h2>
+<p>Input: via <code>input()</code>:</p>
+<pre><code class="language-py">print(&quot;What is your name?&quot;)
+name = input()
+</code></pre>
+<p><code>input</code> will always return a string</p>
+<h2>Input and output of text</h2>
+<p>writing the greeting</p>
+<pre><code class="language-py">print(&quot;Nice to meet you, &quot; + name)
+</code></pre>
+<h2>Comments</h2>
+<p>Comments are a useful tool for developers to describe what the code is doing. They don't influence the program itself.</p>
+<p>A comment starts with a <code>#</code> and extends to the line end.</p>
+<p>Usually comments are placed <em>above</em> the code they describe</p>
+<pre><code class="language-py"># determine the length of the name
+name_length = len(name)
+</code></pre>
+<h2>Executing programs</h2>
+<p>on the command line via <code>python greeting.py</code></p>
+<p>in VS Code (Python extension must be installed):</p>
+<p>green <em>play</em> button in the editor view</p>
+<p>or</p>
+<p><em>Run</em> - <em>Run Without Debugging</em> (Ctrl + F5)</p>
+<h2>Exercise: age from birth year</h2>
+<p>Write a program called <code>age.py</code> which will ask the user for their birth year and will respond with the user's age in the year 2022.</p>
+<h2>Exercise: length of the name</h2>
+<p>Write a program which asks the user for their name. It should respond with the number of letters in the user's name.</p>
+<p>For this purpose use the function <code>len(...)</code> to determine the length of a string.</p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

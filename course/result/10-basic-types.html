@@ -1,0 +1,124 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Basic (primitive) data types</h1>
+<h2>Basic (primitive) data types</h2>
+<ul>
+<li><code>int</code> (integer)</li>
+<li><code>float</code> (floating point number)</li>
+<li><code>str</code> (string): text</li>
+<li><code>bool</code> (boolean): yes / no</li>
+<li><code>None</code> : missing / unknown value</li>
+</ul>
+<h2>int and float</h2>
+<p>Integers whole numbers (positive or negative) 
+4
+57
+-10</p>
+<p>Floating point numbers (real numbers)
+3.14
+6.1
+1.3333
+0.0
+-1.0</p>
+<h2>int and float pt2</h2>
+<p>Example</p>
+<pre><code class="language-py">(7 - 3) * 0.5 / 3.5
+</code></pre>
+<p>if i do the following</p>
+<pre><code class="language-py">1.0 + 4
+</code></pre>
+<p>what do you think the result will be?
+and why is the result like this?</p>
+<h2>int and float pt 3</h2>
+<p>Whenever doing math with both floats and ints, the result is a float. Otherwise, 
+we would potentially lose any of our data after the decimal point.</p>
+<h2>order of operations</h2>
+<p>the acronym PEMDAS is a common way to remember the order of operations.
+Parentheses, Exponents, Multiplication and Division (same level), and Addition and Subtraction (same level)</p>
+<p>the symbols used in python are (from PEMDAS):
+- <code>()</code> for Parentheses
+- <code>**</code> for exponentiation
+- <code>*</code> for multiplication
+- <code>/</code> for division
+- <code>+</code> for addition
+- <code>-</code> for subtraction</p>
+<p>and the special one is "modulo" which is the remainder of a division
+- <code>%</code> for modulo (remainder)</p>
+<h2>order of operations pt2</h2>
+<p>Example:</p>
+<pre><code class="language-py">(7 - 3) * 0.5 / 3.5
+</code></pre>
+<h2>str</h2>
+<p>A <em>string</em> represents text</p>
+<p>Strings can be enclosed in single or double quotes</p>
+<pre><code class="language-py">greeting = &quot;Hello&quot;
+name = 'John'
+</code></pre>
+<h2>Building strings</h2>
+<pre><code class="language-py">name = &quot;John&quot;
+</code></pre>
+<p>Inserting a variable (f-strings):</p>
+<pre><code class="language-py">message1 = f&quot;Hello, {name}!&quot;
+</code></pre>
+<p>Joining strings:</p>
+<pre><code class="language-py">message2 = &quot;Hello, &quot; + name + &quot;!&quot;
+</code></pre>
+<h2>Strings - escape sequences</h2>
+<p>Problem: how do we include characters like <code>"</code> in a string?</p>
+<p>this is invalid:</p>
+<pre><code class="language-py">text = &quot;He said: &quot;hi!&quot;&quot;
+</code></pre>
+<h2>Strings - escape sequences</h2>
+<p>solution:</p>
+<pre><code class="language-py">text = &quot;He said: \&quot;hi!\&quot;&quot;
+</code></pre>
+<p>Python treats the sequence <code>\"</code> like a single <code>"</code></p>
+<h2>Strings - escape sequences</h2>
+<p>Line break: <code>\n</code></p>
+<pre><code class="language-py">a = 'line 1\nline 2'
+</code></pre>
+<p>single Backslash: <code>\\</code></p>
+<pre><code class="language-py">b = 'C:\\docs'
+</code></pre>
+<h2>bool</h2>
+<p>boolean value: yes/no</p>
+<p>In Python: <code>True</code> or <code>False</code></p>
+<p>note the capitalization</p>
+<h2>None</h2>
+<p>None represents a value that is unknown or missing</p>
+<pre><code class="language-py">first_name = &quot;John&quot;
+middle_name = None
+last_name = &quot;Doe&quot;
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

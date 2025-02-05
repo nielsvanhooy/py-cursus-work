@@ -29,8 +29,15 @@ def convert_markdown_to_html(md_text):
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
         <style>
             body {{
-                font-family: Arial, sans-serif;
-                margin: 20px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #44475A; /* Optional: Dark theme background */
+            color: white;
             }}
             pre {{
                 padding: 10px;
@@ -41,10 +48,25 @@ def convert_markdown_to_html(md_text):
             }}
             details summary {{
                 font-weight: bold;
-                color: #1829a3;
+                color: #FF79C6;
             }}
             details p {{
-                font-weight: bold
+                font-weight: bold;
+                margin-left: 40px;
+            }}
+            
+            .markdown-content {{
+                max-width: 900px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A; /* Match code background */
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }}
+            .markdown-body hr {{
+                height: 0.50em;
+                background-color: #8BE9FD;
             }}
         </style>
     </head>
@@ -95,7 +117,7 @@ def create_index_md():
     """Generate an index.md file linking to all converted HTML files."""
     html_files = sorted(f for f in os.listdir(OUTPUT_DIR) if f.endswith(".html") and f != "index.html")
 
-    index_md_content = "# Index of Converted Pages\n\n"
+    index_md_content = "# Index (links are clickable)\n\n"
 
     for html_file in html_files:
         # Remove '-En' from the filename and format it for display in the link

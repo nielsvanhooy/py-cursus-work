@@ -1,4 +1,4 @@
-# Index of Converted Pages
+# Index (links are clickable)
 
 - [01 Title Topics.Html](01-title-topics.html)
 - [02 Language Overview.Html](02-language-overview.html)

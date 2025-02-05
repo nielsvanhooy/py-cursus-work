@@ -9,8 +9,15 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
         <style>
             body {
-                font-family: Arial, sans-serif;
-                margin: 20px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #44475A; /* Optional: Dark theme background */
+            color: white;
             }
             pre {
                 padding: 10px;
@@ -21,16 +28,33 @@
             }
             details summary {
                 font-weight: bold;
-                color: #1829a3;
+                color: #FF79C6;
             }
             details p {
-                font-weight: bold
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+            .markdown-content {
+                max-width: 900px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A; /* Match code background */
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
             }
         </style>
     </head>
     <body class="markdown-body">
         <div class="markdown-content"><h1>Printing, Variables</h1>
+<hr />
 <h1>Printing in python.</h1>
+<hr />
 <p>We begin our python journey with a command that most of you already now.</p>
 <p><strong>the print function.</strong></p>
 <p>We will use the  <code>print()</code> function.<br />
@@ -38,7 +62,7 @@ you can use it to display formatted messages onto the screen and perhaps find so
 <p>The classic "my first program" in Python:</p>
 <pre><code class="language-py">print(&quot;Hello World&quot;)
 </code></pre>
-<p>what you may notice is that print gets another (syntax highlighting) color in Pycharm.<br />
+<p>what you may notice is that the word <strong>print</strong> gets another (syntax highlighting) color in Pycharm.<br />
 <strong>Why is that??</strong></p>
 <details>
     <summary>Click to reveal more</summary>
@@ -48,9 +72,16 @@ And functions always start with a word. followed bij parantheses ()  <---- (more
 </p>
 </details>
 
-<p>Create a new file in pycharm<br />
-Type the following in pycharm (dont run it yet)</p>
-<pre><code class="language-py">print(&quot;Hello World)
+<p>You may also have the question what is inside the <code>print()</code> function.<br />
+In this case we call that a <code>string</code>.  a string is a sequence of characters.<br />
+that either start with 2 single quotes or 2 double quotes. (more on that later)</p>
+<pre><code class="language-py">
+
+Create a new file in pycharm
+Type the following in pycharm (dont run it yet)
+
+```py
+print(&quot;Hello World)
 </code></pre>
 <p>What do you notice (hint. check the colors in pycharms) (not perse on the web document i show you).<br />
 The squiggly red line means there is a syntax error. <br />
@@ -66,7 +97,7 @@ You can also see this when you mouse over in pycharm. it will give you a hint.</
           ^
 SyntaxError: unterminated string literal (detected at line 1)
 </code></pre>
-<p>SyntaxError: Unterminated string literal it says. ok thats nice. but what does it mean?</p>
+<p>SyntaxError: Unterminated string literal, it says. ok thats nice. but what does it mean?</p>
 <details>
     <summary>Click to reveal more</summary>
 <p>
@@ -95,7 +126,9 @@ os.linesep
 </code></pre>
 <p>it should spit out your linesep per your operating system.</p>
 <p>To make software portable we have to take this in consideration (Does it ring a bell with our CPE configurations?)</p>
+<hr />
 <h2>Printing Strings</h2>
+<hr />
 <p>with the information we learned earlier we can now do more things when printing.<br />
 for example my linesep is \n</p>
 <pre><code class="language-py">print(&quot;Hello\nWorld&quot;)
@@ -109,7 +142,9 @@ print() always adds a newline at the end of the string.
 </p>
 </details>
 
+<hr />
 <h2>Combining strings</h2>
+<hr />
 <p>we can also combine strings by using the + symbol.</p>
 <p>How would this work do you think?</p>
 <details>
@@ -124,6 +159,27 @@ Example
 </details>
 
 <p>What would the result look like? is that what you expected?</p>
+<hr />
+<h2>Escaping strings</h2>
+<hr />
+<p>What if we want to print a string that contains a double quote?</p>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+We could build the string starting with single quotes and use double quotes inside the string.
+</p>
+</details>
+<p>What if we want to print a string that contains a single and double quotes?</p>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+We will need to escape the quotes inside the string with a backslash. `\` 
+</p>
+</details>
+
+<hr />
+<h1>Getting user input</h1>
+<hr />
 <h2>Input and output of text</h2>
 <p>We can get user input for our program by using the <code>input()</code> function.</p>
 <pre><code class="language-py">input(&quot;What is your name?&quot;)
@@ -160,11 +216,13 @@ Example
 <p>One of the most usefull skills as a programmer is to be able to google.<br />
 If you are stuck on something. try to google it.</p>
 <p>Exercise!: How do i get the length of a string in python?. <br />
-(use google) and combine your knew knowledge with the input function.</p>
+(use google) and combine your new knowledge with the input function.</p>
 <hr />
 <p>As you can see the code is starting to get "Muddy" with all the different strings and plusses and syntax.<br />
 On to the world of Variables!</p>
+<hr />
 <h2>Variables</h2>
+<hr />
 <p>Variables are containers for storing data values.</p>
 <pre><code class="language-py">birth_year = 1970
 current_year = 2020
@@ -176,7 +234,7 @@ But "functions" or the result of "functions" can also be stored in variables. (l
 </code></pre>
 <p>Names of variables are usually written in lower case, separating words by underscores<br />
 <strong>Variable names may only consist of letters, digits and underscores</strong></p>
-<h2>Variables</h2>
+<h2>Variables continued</h2>
 <p>Overwriting (reassigning) variables example 1:</p>
 <pre><code class="language-py">name = &quot;John&quot;
 name = &quot;Jane&quot;
@@ -202,7 +260,9 @@ Variables names follow the same conventions as for functions in python</p>
 _current_year = 2025     # we call this a PRIVATE variable. it is not enforced by the language, but it is a convention for data the developer doenst want touched.
 NIELS_BIRTH_YEAR_1987 = &quot;1987&quot; # we dont use numbers in variable names. this is a bad example.
 </code></pre>
+<hr />
 <h2>Exercise: Variable naming</h2>
+<hr />
 <p>What would be a good name for the variable below</p>
 <ul>
 <li>p1_user_name = "jackbauer"</li>
@@ -213,8 +273,8 @@ NIELS_BIRTH_YEAR_1987 = &quot;1987&quot; # we dont use numbers in variable names
 <details>
     <summary>Click to reveal more</summary>
 <p>
-the third one. it follows lowercase letters for variable names, and also is descriptive.
-dont be they guy that in a full code base uses, x, y ,z ,j, l everywhere (Eric smid example :P)
+The third one. it follows lowercase letters for variable names, and also is descriptive.
+dont be the guy that in a full code base uses, x, y ,z ,j,l everywhere.
 </p>
 </details></div>
 

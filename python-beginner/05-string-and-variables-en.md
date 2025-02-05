@@ -1,8 +1,8 @@
 # Printing, Variables
 
-
+---
 # Printing in python.
-
+---
 We begin our python journey with a command that most of you already now.
 
 **the print function.**
@@ -14,7 +14,7 @@ The classic "my first program" in Python:
 ```py
 print("Hello World")
 ```
-what you may notice is that print gets another (syntax highlighting) color in Pycharm.
+what you may notice is that the word **print** gets another (syntax highlighting) color in Pycharm.
 **Why is that??**
 
 <details>
@@ -25,6 +25,12 @@ And functions always start with a word. followed bij parantheses ()  <---- (more
 </p>
 </details>
 
+
+You may also have the question what is inside the `print()` function.
+In this case we call that a `string`.  a string is a sequence of characters.
+that either start with 2 single quotes or 2 double quotes. (more on that later)
+
+```py
 
 
 Create a new file in pycharm
@@ -50,7 +56,7 @@ Now run the code. There are several ways to do this
 SyntaxError: unterminated string literal (detected at line 1)
 ```
 
-SyntaxError: Unterminated string literal it says. ok thats nice. but what does it mean?
+SyntaxError: Unterminated string literal, it says. ok thats nice. but what does it mean?
 
 <details>
     <summary>Click to reveal more</summary>
@@ -91,9 +97,9 @@ it should spit out your linesep per your operating system.
 
 To make software portable we have to take this in consideration (Does it ring a bell with our CPE configurations?)
 
-
+---
 ## Printing Strings
-
+---
 with the information we learned earlier we can now do more things when printing.
 for example my linesep is \n
 
@@ -111,9 +117,9 @@ print() always adds a newline at the end of the string.
 </p>
 </details>
 
-
+---
 ## Combining strings
-
+---
 we can also combine strings by using the + symbol.
 
 How would this work do you think?
@@ -129,6 +135,30 @@ print("Hello" + "World")
 </details>
 
 What would the result look like? is that what you expected?
+
+---
+## Escaping strings
+---
+
+What if we want to print a string that contains a double quote?
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+We could build the string starting with single quotes and use double quotes inside the string.
+</p>
+</details>
+What if we want to print a string that contains a single and double quotes?
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+We will need to escape the quotes inside the string with a backslash. `\` 
+</p>
+</details>
+
+---
+# Getting user input
+---
+
 
 ## Input and output of text
 We can get user input for our program by using the `input()` function.
@@ -177,13 +207,15 @@ One of the most usefull skills as a programmer is to be able to google.
 If you are stuck on something. try to google it.
 
 Exercise!: How do i get the length of a string in python?. 
-(use google) and combine your knew knowledge with the input function.
+(use google) and combine your new knowledge with the input function.
 ---
 
 As you can see the code is starting to get "Muddy" with all the different strings and plusses and syntax.
 On to the world of Variables!
 
+---
 ## Variables
+---
 
 Variables are containers for storing data values.
 
@@ -202,7 +234,7 @@ name = input("What is your name?")
 Names of variables are usually written in lower case, separating words by underscores
 **Variable names may only consist of letters, digits and underscores**
 
-## Variables
+## Variables continued
 
 Overwriting (reassigning) variables example 1:
 
@@ -243,7 +275,9 @@ _current_year = 2025     # we call this a PRIVATE variable. it is not enforced b
 NIELS_BIRTH_YEAR_1987 = "1987" # we dont use numbers in variable names. this is a bad example.
 ```
 
+---
 ## Exercise: Variable naming
+---
 
 What would be a good name for the variable below
 
@@ -256,7 +290,7 @@ What would be a good name for the variable below
 <details>
     <summary>Click to reveal more</summary>
 <p>
-the third one. it follows lowercase letters for variable names, and also is descriptive.
-dont be they guy that in a full code base uses, x, y ,z ,j, l everywhere (Eric smid example :P)
+The third one. it follows lowercase letters for variable names, and also is descriptive.
+dont be the guy that in a full code base uses, x, y ,z ,j,l everywhere.
 </p>
 </details>

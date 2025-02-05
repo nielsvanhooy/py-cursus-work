@@ -9,8 +9,15 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
         <style>
             body {
-                font-family: Arial, sans-serif;
-                margin: 20px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #44475A; /* Optional: Dark theme background */
+            color: white;
             }
             pre {
                 padding: 10px;
@@ -21,15 +28,31 @@
             }
             details summary {
                 font-weight: bold;
-                color: #1829a3;
+                color: #FF79C6;
             }
             details p {
-                font-weight: bold
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+            .markdown-content {
+                max-width: 900px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A; /* Match code background */
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
             }
         </style>
     </head>
     <body class="markdown-body">
         <div class="markdown-content"><h1>Installation on Windows / Macos / and setting up Pycharm</h1>
+<hr />
 <p>Download from <a href="https://python.org">https://python.org</a></p>
 <p>during installation, check the option "Add Python 3.x to PATH"</p>
 <!--
@@ -40,7 +63,9 @@ why not use windows store version?
 - does not put executables on PATH (instead of "flask" we have to run "python -m flask")
 -->
 
+<hr />
 <h2>Installation on Windows</h2>
+<hr />
 <p>open an administrator privilege shell (like terminal) start menu. type in terminal. right click run as administrator</p>
 <p>type in</p>
 <pre><code class="language-sh">wsl --install
@@ -51,7 +76,9 @@ why not use windows store version?
 </code></pre>
 <p>you get a question about username and password.<br />
 for both use your <code>ruisnaam</code></p>
+<hr />
 <h2>Setup Ubuntu Windows</h2>
+<hr />
 <p>When done. open start menu and type ubuntu. Click on it.<br />
 You are now presented with a new shell. Type the following</p>
 <pre><code class="language-sh">sudo apt update
@@ -61,7 +88,9 @@ libbz2-dev libreadline-dev libsqlite3-dev curl git \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 </code></pre>
 <p>press Y when asked.</p>
+<hr />
 <h2>Setup Pyenv</h2>
+<hr />
 <p>now we install <code>pyenv</code></p>
 <pre><code class="language-sh">curl -fsSL https://pyenv.run | bash
 </code></pre>
@@ -86,11 +115,15 @@ Usage: pyenv &lt;command&gt; [&lt;args&gt;]
 <h2>Setup uv</h2>
 <pre><code class="language-sh">curl -LsSf https://astral.sh/uv/install.sh | sh &gt;/dev/null 2&gt;&amp;1
 </code></pre>
+<hr />
 <h2>How to get to your ubuntu files from windows</h2>
+<hr />
 <ul>
 <li>folder name is called Linux (scroll way down) -&gt; ubuntu -&gt; home -&gt; username -&gt; git</li>
 </ul>
+<hr />
 <h2>Getting the exercises repo, and course repo</h2>
+<hr />
 <p>In the browser go to git.kpn.org.<br />
 Login with your kpn credentials (ruisnaam en password).</p>
 <p>At the top click Projects.<br />
@@ -117,7 +150,9 @@ We are going to use "Git" for this.  (dont be afraid we will only use git pull a
 git clone https://git.kpn.org/scm/ateam/python-cursus.git
 git clone https://git.kpn.org/scm/ateam/python-cursus-exercises.git
 </code></pre>
+<hr />
 <h2>Setup Pycharm</h2>
+<hr />
 <p>download url<br />
 - https://www.jetbrains.com/pycharm/</p>
 <p>During installation you get a windows with certain install options:<br />

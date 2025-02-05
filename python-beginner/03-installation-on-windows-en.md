@@ -1,5 +1,5 @@
 # Installation on Windows / Macos / and setting up Pycharm
-
+---
 Download from <https://python.org>
 
 during installation, check the option "Add Python 3.x to PATH"
@@ -13,8 +13,9 @@ why not use windows store version?
 - does not put executables on PATH (instead of "flask" we have to run "python -m flask")
 -->
 
+---
 ## Installation on Windows
-
+---
 open an administrator privilege shell (like terminal) start menu. type in terminal. right click run as administrator
 
 type in
@@ -31,7 +32,9 @@ wsl --install -d Ubuntu
 you get a question about username and password.
 for both use your `ruisnaam`
 
+---
 ## Setup Ubuntu Windows
+---
 
 When done. open start menu and type ubuntu. Click on it.
 You are now presented with a new shell. Type the following
@@ -45,7 +48,9 @@ libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-d
 ```
 press Y when asked.
 
+---
 ## Setup Pyenv
+---
 
 now we install `pyenv`
 ```sh
@@ -84,12 +89,14 @@ pyenv global 3.13.0
 curl -LsSf https://astral.sh/uv/install.sh | sh >/dev/null 2>&1
 ```
 
+---
 ## How to get to your ubuntu files from windows
-
+---
 - folder name is called Linux (scroll way down) -> ubuntu -> home -> username -> git
 
-
+---
 ## Getting the exercises repo, and course repo
+---
 In the browser go to git.kpn.org.
 Login with your kpn credentials (ruisnaam en password).
 
@@ -122,7 +129,9 @@ git clone https://git.kpn.org/scm/ateam/python-cursus.git
 git clone https://git.kpn.org/scm/ateam/python-cursus-exercises.git
 ```
 
+---
 ## Setup Pycharm
+---
 
 download url
 - https://www.jetbrains.com/pycharm/

@@ -1,6 +1,8 @@
 # Python beginner
 
+---
 ## Topics
+---
 
 - overview and comparison to other programming languages
 - installation
@@ -16,8 +18,9 @@
 - code quality and linting
 - debugging
 
-
+---
 ## roadmap
+---
 
 Cant edit the roadmap anymore but this is globally what we will do this year.
 

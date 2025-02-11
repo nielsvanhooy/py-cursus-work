@@ -11,11 +11,34 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def convert_markdown_to_html(md_text):
     """Convert Markdown to HTML with Prism.js-compatible syntax highlighting."""
-    # Convert markdown to HTML
-    html = markdown.markdown(md_text, extensions=["fenced_code", "nl2br"])
+    # Convert markdown to HTML with added "tables" extension
+    html = markdown.markdown(md_text, extensions=["fenced_code", "nl2br", "tables"])
 
     # Ensure <code> blocks have Prism.js class names
     html = re.sub(r'<code class="(\w+)"', r'<code class="language-\1"', html)
+
+    # Add some CSS for table styling
+    table_css = """
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin: 1em 0;
+            }
+            th, td {
+                border: 1px solid #666;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #2d2d2d;
+            }
+            tr:nth-child(even) {
+                background-color: #383a46;
+            }
+            tr:nth-child(odd) {
+                background-color: #2d2d2d;
+            }
+    """
 
     # Wrap HTML in a full template with Prism.js
     html_output = f"""
@@ -29,15 +52,15 @@ def convert_markdown_to_html(md_text):
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
         <style>
             body {{
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #44475A; /* Optional: Dark theme background */
-            color: white;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
             }}
             pre {{
                 padding: 10px;
@@ -54,12 +77,12 @@ def convert_markdown_to_html(md_text):
                 font-weight: bold;
                 margin-left: 40px;
             }}
-            
+            {table_css}
             .markdown-content {{
                 max-width: 900px;
                 width: 90%;
                 padding: 20px;
-                background: #44475A; /* Match code background */
+                background: #44475A;
                 color: #ccc;
                 border-radius: 8px;
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);

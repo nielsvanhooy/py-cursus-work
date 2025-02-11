@@ -60,6 +60,8 @@ the symbols used in python are (from PEMDAS):
 and the special one is "modulo" which is the remainder of a division
 - `%` for modulo (remainder)
 
+also the special one "floor division" which is the result of a division rounded down to the nearest whole number
+- `//` for floor division
 
 Example:
 ```py
@@ -171,3 +173,8 @@ What do you think the will be the output?
 
 Just remember that the function `isinstance()` exists. we are going to use it later. when we learn about control
 structures. (if, elif, else, finally)
+
+
+## Methods on primitive types
+
+Guide them trough the python website and let them play around with it.

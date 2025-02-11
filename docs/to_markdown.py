@@ -4,7 +4,7 @@ import os
 
 # Define paths
 SOURCE_DIR = os.path.abspath(os.path.join(os.getcwd(), "../python-beginner"))  # One level up
-OUTPUT_DIR = os.path.join(os.getcwd(), "result")  # "result" folder in script's directory
+OUTPUT_DIR = os.path.join(os.getcwd())  # "result" folder in script's directory
 
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)

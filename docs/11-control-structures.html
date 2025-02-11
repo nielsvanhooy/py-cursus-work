@@ -1,0 +1,422 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin: 1em 0;
+            }
+            th, td {
+                border: 1px solid #666;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #2d2d2d;
+            }
+            tr:nth-child(even) {
+                background-color: #383a46;
+            }
+            tr:nth-child(odd) {
+                background-color: #2d2d2d;
+            }
+    
+            .markdown-content {
+                max-width: 900px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Control Structures/Flow</h1>
+<h2>Control structures</h2>
+<p>Our life is full of conditions even if we don’t notice them most of the time. Let’s look at a few examples:</p>
+<p>If tomorrow it doesn't rain, I’ll go out with my friends in the park. <br />
+Otherwise, I’ll stay home with a cup of hot tea and watch TV.</p>
+<p>If tomorrow it isn't too hot, I’ll go to the sea, but if it is, I’ll have a walk in the forest. <br />
+However, if it rains, I’ll stay home.</p>
+<h2>Basic if Statement</h2>
+<p>In Python, if statements are a starting point to implement a condition. Let’s look at the simplest example:</p>
+<pre><code class="language-shell">if &lt;condition&gt;:
+    &lt;expression&gt;
+</code></pre>
+<p>When <code>&lt;condition&gt;</code> is evaluated by Python, it’ll become either True or False (Booleans). <br />
+Thus, if the condition is True (i.e, it is met), the <code>&lt;expression&gt;</code> will be executed, <br />
+but if <condition> is False (i.e., it is not met), the <code>&lt;expression&gt;</code> won’t be executed.</p>
+<p>We are pretty free to decide what conditions and expressions can be because Python is very flexible.</p>
+<p>for conditions we will need the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>equal to</td>
+<td>x == y</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>not equal to</td>
+<td>x != y</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>greater then</td>
+<td>x &gt; y</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>greater then or equal to</td>
+<td>x &gt;= y</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>less than</td>
+<td>x &lt; y</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>less then or equal</td>
+<td>x &lt;= y</td>
+</tr>
+</tbody>
+</table>
+<p>and for the logical operators we need the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>and</code></td>
+<td>True if both are true</td>
+<td>x and y</td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td>True if at least one is true</td>
+<td>x or y</td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>True only if false</td>
+<td>not x</td>
+</tr>
+</tbody>
+</table>
+<p>We now the concept of True and False right?<br />
+But in programming languages we also have <code>Truthy</code> and <code>Falsy</code> values.</p>
+<h1>Falsy values in python:</h1>
+<p>some below here. we haven't discussed yet. ill point them out when we get there.</p>
+<p>🔸 Falsy Values<br />
+Sequences and Collections:</p>
+<ul>
+<li>Empty lists []</li>
+<li>Empty tuples ()</li>
+<li>Empty dictionaries {}</li>
+<li>Empty sets set()</li>
+<li>Empty strings ""</li>
+<li>Empty ranges range(0)</li>
+<li>Numbers</li>
+</ul>
+<p>Zero of any numeric type:</p>
+<ul>
+<li>Integer: 0</li>
+<li>Float: 0.0</li>
+<li>Complex: 0j</li>
+</ul>
+<p>Constants:</p>
+<ul>
+<li>None</li>
+<li>False</li>
+</ul>
+<h1>Playing with if statements</h1>
+<p>Now Let’s look at a concrete example.</p>
+<pre><code class="language-py"># Basic if statement
+x = 3
+y = 10
+
+if x &lt; y:
+    print(&quot;x is smaller than y.&quot;)
+</code></pre>
+<p>the condition here is: x is smaller than y.</p>
+<p>First of all, we define two variables, x and y. <br />
+Then we say that if variable x is smaller than variable y, print out x is smaller than y). <br />
+Indeed, if we execute this code, we’ll print out this output because 3 is smaller than 10.</p>
+<p>Output: x is smaller than y.</p>
+<pre><code class="language-pycon"># A slightly more complex example
+x = 3
+y = 10
+z = None
+
+if x &lt; y:
+    z = 13
+print(f&quot;Variable z is now {z}.&quot;)
+</code></pre>
+<p>Variable z is now 13.</p>
+<p>In this case, if the condition is met, <br />
+then a value of 13 will be assigned to the variable z. <br />
+Then Variable z is now 13. will be printed out (note that the print statement can be used both outside and inside the if statement).</p>
+<p>As you can see, we aren't restrained in the choice of an expression to execute. <br />
+You can now practice more by writing more complex code.</p>
+<pre><code class="language-py"># What happens here?
+x = 3
+y = 10
+
+if x &gt; y:
+    print(&quot;x is greater than y.&quot;)
+</code></pre>
+<h2>Else Statement</h2>
+<p>What if we want to execute some code if the condition isn't met? <br />
+We add an else statement below the if statement. <br />
+Let’s look at an example.</p>
+<pre><code class="language-py"># else statement
+x = 3
+y = 10
+
+if x &gt; y:
+    print(&quot;x is greater than y.&quot;)
+else:
+    print(&quot;x is smaller than y.&quot;)
+</code></pre>
+<p>What would be the answer here?</p>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+Here, Python first executes the if condition and checks if it’s True. 
+Since 3 is not greater than 10, the condition isn't met, 
+so we don’t print out “x is greater than y.” 
+Then we say that in all other cases we should execute the code under the else statement: x is smaller than y.
+</p>
+</details>
+
+<pre><code class="language-py"># x is equal to y
+x = 3
+y = 3
+
+if x &lt; y:
+    print(&quot;x is smaller than y.&quot;)
+else:
+    print(&quot;x is greater than y.&quot;)
+</code></pre>
+<p>what would happen here??</p>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+The output is clearly wrong because 3 is equal to 3! 
+We have another condition outside the greater or less than comparison symbols; 
+thus, we have to use the elif statement.
+</p>
+</details>
+
+<h2>elif Statement</h2>
+<p>Let’s rewrite the above example and add an elif statement.</p>
+<pre><code class="language-py"># x is equal to y with elif statement
+x = 3
+y = 3
+
+if x &lt; y:
+    print(&quot;x is smaller than y.&quot;)
+elif x == y:
+    print(&quot;x is equal to y.&quot;)
+else:
+    print(&quot;x is greater than y.&quot;)
+</code></pre>
+<p>Python first checks if the condition x &lt; y is met. <br />
+It isn't, so it goes on to the second condition, <br />
+which in Python, we write as elif, which is short for else if. <br />
+If the first condition isn't met, check the second condition, and if it’s met,<br />
+execute the expression. <br />
+Else, do something else. </p>
+<p>The output is “x is equal to y.”</p>
+<hr />
+<p>Let’s now get back to one of our first examples of conditional statements:</p>
+<p>If tomorrow it isn't too hot, I’ll go to the sea, but if it is, I’ll have a walk in the forest. However, if it rains, I’ll stay home.</p>
+<p>Here, our first condition is that tomorrow it’s not too hot (if statement). <br />
+If this condition isn't met, then we go for a walk in the forest (elif statement). <br />
+Finally, if neither condition is met, we’ll stay home (else statement).</p>
+<p>Now let’s translate this sentence into Python.</p>
+<pre><code class="language-py"># elif condition
+tomorrow = &quot;warm&quot;
+
+if tomorrow == &quot;warm&quot;:
+    print(&quot;I'll go to the sea.&quot;)
+elif tomorrow == &quot;very hot&quot;:
+    print(&quot;I'll go to the forest.&quot;)
+else:
+    print(&quot;I'll stay home.&quot;)
+</code></pre>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+Python first checks if the variable tomorrow is equal to “warm” and if it is, 
+then it prints out I'll go to the sea. 
+and stops the execution. 
+</p>
+</details>
+
+<p>What happens if the first condition isn't met?</p>
+<pre><code class="language-py"># Tomorrow is very hot
+tomorrow = &quot;very hot&quot;
+
+if tomorrow == &quot;warm&quot;:
+    print(&quot;I'll go to the sea.&quot;)
+elif tomorrow == &quot;very hot&quot;:
+    print(&quot;I'll go to the forest.&quot;)
+else:
+    print(&quot;I'll stay home.&quot;)
+</code></pre>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+In this case, 
+Python evaluates the first condition to False and goes to the second condition. 
+This condition is True, so it prints out I'll go to the forest. 
+and stops the execution.
+
+If neither of the two conditions is met, then it’ll print out I’ll stay home.
+</p>
+</details>
+
+<p>Of course, you can use whatever number of elif statements you want. <br />
+Let’s add more conditions and also change what is printed out under the else statement to Weather not recognized. <br />
+(for example, if tomorrow is “f”, we don’t know what it means).</p>
+<pre><code class="language-py"># Several elif conditions
+tomorrow = &quot;snowy&quot;
+
+if tomorrow == &quot;warm&quot;:
+    print(&quot;I'll go to the sea.&quot;)
+elif tomorrow == &quot;very hot&quot;:
+    print(&quot;I'll go to the forest.&quot;)
+elif tomorrow == &quot;snowy&quot;:
+    print(&quot;I'll build a snowman.&quot;)
+elif tomorrow == &quot;rainy&quot;:
+    print(&quot;I'll stay home.&quot;)
+else:
+    print(&quot;Weather not recognized.&quot;)
+</code></pre>
+<p>guess what would be printed now?</p>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+I'll build a snowman.
+</p>
+</details>
+
+<h2>Multiple Conditions</h2>
+<p>Let’s now add some complexity. <br />
+What if we want to meet multiple conditions in one if statement?</p>
+<p>Let’s say we want to predict a biome (i.e., desert or tropical forest) based on two climate measurements: temperature and humidity. </p>
+<p>For example, if it’s hot and dry, then it’s a hot desert, but if it’s cold and dry, then it’s an arctic desert. </p>
+<p>You can see that we cannot classify these two biomes based only on their humidity (they are both dry) so we also have to add the temperature measure.</p>
+<p>In Python, we can use logical operators (i.e., and, or) to use multiple conditions in the same if statement.</p>
+<p>Look at the code below.</p>
+<pre><code class="language-py"># Biome prediction with and logical operator
+humidity = &quot;low&quot;
+temperature = &quot;high&quot;
+
+if humidity == &quot;low&quot; and temperature == &quot;high&quot;:
+    print(&quot;It's a hot desert.&quot;)
+elif humidity == &quot;low&quot; and temperature == &quot;low&quot;:
+    print(&quot;It's an arctic desert.&quot;)
+elif humidity == &quot;high&quot; and temperature == &quot;high&quot;:
+    print(&quot;It's a tropical forest.&quot;)
+else:
+    print(&quot;I don't know!&quot;)
+</code></pre>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+The output will be It's a hot desert.<br>
+because only when humidity is low and temperature is high, the combined condition is True.
+<br>
+It’s not sufficient to have only one of the conditions to be True.
+<br>
+Formally, Python checks if the first condition of humidity is True (indeed, it is),
+<br>
+then it checks if the second condition of temperature is True (and it is) and only in this case the combined condition is True. 
+<br>
+If at least one of these conditions isn't met, then the combined condition evaluates to False.
+
+</p>
+</details>
+
+<p>most important control structures in programming languages:</p>
+<ul>
+<li>if / elif / else</li>
+<li>loops</li>
+<li>while loop</li>
+<li>do while loop</li>
+<li>for loop (counting loop)</li>
+<li>foreach loop</li>
+</ul>
+<h2>Control structures in Python</h2>
+<ul>
+<li><code>if ... else ...</code></li>
+<li>loops:</li>
+<li><code>while</code></li>
+<li><code>for ... in ...</code></li>
+<li><code>for ... in range(...)</code></li>
+</ul></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

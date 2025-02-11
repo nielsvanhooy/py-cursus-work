@@ -6,5 +6,6 @@
 - [04 Interactive Console.Html](04-interactive-console.html)
 - [05 String And Variables.Html](05-string-and-variables.html)
 - [10 Basic Types.Html](10-basic-types.html)
+- [11 Control Structures Exercises 2.Html](11-control-structures-exercises-2.html)
 - [11 Control Structures Exercises.Html](11-control-structures-exercises.html)
 - [11 Control Structures.Html](11-control-structures.html)

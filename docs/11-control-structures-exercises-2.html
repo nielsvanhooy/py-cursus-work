@@ -71,18 +71,53 @@
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Index (links are clickable)</h1>
-<ul>
-<li><a href="01-title-topics.html">01 Title Topics.Html</a></li>
-<li><a href="02-language-overview.html">02 Language Overview.Html</a></li>
-<li><a href="03-installation-on-windows.html">03 Installation On Windows.Html</a></li>
-<li><a href="04-interactive-console.html">04 Interactive Console.Html</a></li>
-<li><a href="05-string-and-variables.html">05 String And Variables.Html</a></li>
-<li><a href="10-basic-types.html">10 Basic Types.Html</a></li>
-<li><a href="11-control-structures-exercises-2.html">11 Control Structures Exercises 2.Html</a></li>
-<li><a href="11-control-structures-exercises.html">11 Control Structures Exercises.Html</a></li>
-<li><a href="11-control-structures.html">11 Control Structures.Html</a></li>
-</ul></div>
+        <div class="markdown-content"><h1>Python Exercises: Practice with 'and' &amp; 'or'</h1>
+<h2>Exercise 1: Number Range Checker</h2>
+<p>Write a program that checks if a number is in a specific range OR is a special number:</p>
+<p>Between 20-50 OR equals 77<br />
+Print "Valid number!" if condition is met<br />
+Print "Invalid number!" otherwise</p>
+<p>Your code should start like this:</p>
+<pre><code class="language-py">number = int(input(&quot;Enter a number: &quot;))
+# Check if number is between 20-50 OR equals 77
+</code></pre>
+<h2>Exercise 2: Login System</h2>
+<p>Create a simple login system where:</p>
+<p>Valid username is "admin" OR "user"<br />
+Password must be longer than 6 characters AND contain the number "1"<br />
+Print "Access granted" or an appropriate error message.</p>
+<p>Your code should start like this:</p>
+<pre><code class="language-py">username = input(&quot;Enter username: &quot;)
+password = input(&quot;Enter password: &quot;)
+# Check username AND password conditions
+</code></pre>
+<h2>Exercise 3: Game Player Eligibility</h2>
+<p>Check if someone can join a game where they need to be:</p>
+<p>Between 13 and 19 years old (teenager) OR<br />
+Have parental permission AND be over 10 years old</p>
+<p>Your code should start like this:</p>
+<pre><code class="language-py">age = int(input(&quot;Enter your age: &quot;))
+has_permission = input(&quot;Do you have parental permission? (yes/no): &quot;).lower()
+# Check age AND permission conditions
+</code></pre>
+<h2>Exercise 4: Fruit Ripeness Checker</h2>
+<p>Create a program that checks if a fruit is ready to eat:</p>
+<p>Banana: Should be yellow OR brown<br />
+Should NOT be green AND should NOT be black</p>
+<p>Your code should start like this:</p>
+<pre><code class="language-py">fruit_color = input(&quot;What color is the banana? (green/yellow/brown/black): &quot;).lower()
+# Check color conditions using AND/OR
+</code></pre>
+<h2>Exercise 5: Special Order Discount</h2>
+<p>Write a program for a special discount where:</p>
+<p>Customer gets a discount if:</p>
+<p>Order is over $200 AND customer is a member, OR<br />
+Order is over $500 (regardless of membership)</p>
+<p>Your code should start like this:</p>
+<pre><code class="language-py">order_amount = float(input(&quot;Enter order amount: $&quot;))
+is_member = input(&quot;Are you a member? (yes/no): &quot;).lower() == &quot;yes&quot;
+# Check discount conditions using AND/OR
+</code></pre></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

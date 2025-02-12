@@ -9,3 +9,4 @@
 - [11 Control Structures Exercises 2.Html](11-control-structures-exercises-2.html)
 - [11 Control Structures Exercises.Html](11-control-structures-exercises.html)
 - [11 Control Structures.Html](11-control-structures.html)
+- [12 Lists.Html](12-lists.html)

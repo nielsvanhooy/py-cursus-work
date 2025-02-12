@@ -1,0 +1,241 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin: 1em 0;
+            }
+            th, td {
+                border: 1px solid #666;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #2d2d2d;
+            }
+            tr:nth-child(even) {
+                background-color: #383a46;
+            }
+            tr:nth-child(odd) {
+                background-color: #2d2d2d;
+            }
+    
+            .markdown-content {
+                max-width: 900px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Lists, Loops &amp; More</h1>
+<h2>Lists</h2>
+<p>Lists are one of the most powerful data types in Python.<br />
+With some fictive data we are going to analyze data about mobile apps.</p>
+<p>We will be working with this data:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Currency</th>
+<th>Rating Count</th>
+<th>Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Facebook</td>
+<td>0.0</td>
+<td>USD</td>
+<td>2,974,676</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>Instagram</td>
+<td>0.0</td>
+<td>USD</td>
+<td>2,161,558</td>
+<td>4.5</td>
+</tr>
+<tr>
+<td>Clash of Clans</td>
+<td>0.0</td>
+<td>USD</td>
+<td>2,130,805</td>
+<td>4.5</td>
+</tr>
+<tr>
+<td>Temple Run</td>
+<td>0.0</td>
+<td>USD</td>
+<td>1,724,546</td>
+<td>4.5</td>
+</tr>
+<tr>
+<td>Pandora - Music &amp; Radio</td>
+<td>0.0</td>
+<td>USD</td>
+<td>1,126,879</td>
+<td>4.0</td>
+</tr>
+</tbody>
+</table>
+<p>We will call each value in the table a data point. <br />
+For instance, the first row (after the column titles) has five data points:</p>
+<ul>
+<li>Facebook</li>
+<li>0.0</li>
+<li>USD</li>
+<li>2974676</li>
+<li>3.5</li>
+</ul>
+<p>lets call this collection of data a <code>dataset</code>.<br />
+our dataset has 5 rows and 5 columns.</p>
+<p>With all the knowledge up to know we could store this data in variables like this:</p>
+<pre><code class="language-py">app_one_name = &quot;Facebook&quot;
+app_one_price = 0.0
+app_one_currency = &quot;USD&quot;
+app_one_rating_count = 2974676
+app_one_rating = 3.5
+</code></pre>
+<details>
+    <summary>Click to reveal more</summary>
+<p>
+The text "Facebook" as a string<br>
+The price 0.0 as a float<br>
+The text "USD" as a string<br>
+The rating count 2,974,676 as an integer<br>
+The user rating 3.5 as a float<br>
+</p>
+</details>
+
+<p>Creating a variable for each data point in our data set would be a cumbersome process. Fortunately, <br />
+we can store data more efficiently using lists. <br />
+This is how we can create a list of data points for the first row:</p>
+<pre><code class="language-py">row_one = [&quot;Facebook&quot;, 0.0, &quot;USD&quot;, 2974676, 3.5]
+print(row_one)
+type_row_one = type(row_one)
+</code></pre>
+<p>To create the <code>list</code> above, we:</p>
+<p>Typed out a sequence of data points and separated each with a comma: 'Facebook', 0.0, 'USD', 2974676, 3.5<br />
+Surrounded the sequence with brackets: <code>['Facebook', 0.0, 'USD', 2974676, 3.5]</code><br />
+After we created the list, we stored it in the computer's memory by assigning it to a variable named row_one.</p>
+<p>To create a list of data points, we only need to:</p>
+<p>Separate the data points with a comma.<br />
+Surround the sequence of data points with brackets.</p>
+<h2>A note on lists</h2>
+<p>There are 2 ways to create an empty list in python:</p>
+<ul>
+<li>list()</li>
+<li>[]</li>
+</ul>
+<p>Functionally there the same. <br />
+However there a speed tradeoffs and that is due to implementation details in the C compiler behind python.</p>
+<p>To see the speed difference we can use the <code>timeit</code> module.</p>
+<pre><code class="language-py">from timeit import timeit
+
+timeit(&quot;[]&quot;)
+0.040084982867934334
+
+timeit(&quot;list()&quot;)
+0.17704233359267718
+</code></pre>
+<p>We can see that the <code>[]</code> is faster than the <code>list()</code> function. By a big margin.</p>
+<h1>Let's move on.</h1>
+<p>Now let's create five lists, one for each row in our dataset:</p>
+<pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+row_three = ['Clash of Clans', 0.0, 'USD', 2130805, 4.5]
+row_four  = ['Temple Run', 0.0, 'USD', 1724546, 4.5]
+row_five  = ['Pandora - Music &amp; Radio', 0.0, 'USD', 1126879, 4.0]
+</code></pre>
+<h2>Indexing python lists</h2>
+<p>A list can contain a variety of data types. A list like [4, 5, 6] has identical data types (only integers), <br />
+while the list ['Facebook', 0.0, 'USD', 2974676, 3.5] has mixed data types:</p>
+<ul>
+<li>Two strings ('Facebook', 'USD')</li>
+<li>Two floats (0.0, 3.5)</li>
+<li>
+<p>One integer (2974676)</p>
+</li>
+<li>
+<p>The ['Facebook', 0.0, 'USD', 2974676, 3.5] list has five data points. <br />
+To find the length of a list, we can use the <code>len()</code> command we discussed earlier:</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+print(len(row_one))
+
+list_one = [1, 2, 3]
+print(len(list_one))
+
+list_two = []
+print(len(list_two))
+</code></pre>
+<p>Output would be:<br />
+- 5<br />
+- 3<br />
+- 0</p>
+<p>For small lists, we can just count the data points on our screens to find the length, <br />
+but the len() command will prove very useful whenever you work with lists containing many elements, <br />
+or need to write code for data where you don't know the length ahead of time.</p>
+<p>Each element (data point) in a list has a specific number associated with it, <br />
+called an index number. The indexing always starts at 0, <br />
+so the first element will have the index number 0, <br />
+the second element the index number 1, and so on.</p>
+<p><img alt="Click voor Roadmap" src="img/lists-indexing.svg" /></p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

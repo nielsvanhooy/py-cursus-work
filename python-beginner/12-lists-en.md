@@ -146,12 +146,74 @@ called an index number. The indexing always starts at 0,
 so the first element will have the index number 0, 
 the second element the index number 1, and so on.
 
-![Click voor Roadmap](img/lists-indexing.svg)
+![indexing plaatje](img/lists-indexing.svg)
+
+To quickly find the index of a list element, 
+identify its position number in the list, and then subtract 1. 
+
+For example, the string 'USD' is the third element of the list (position number 3), 
+so its index number must be 2 since 3 - 1 = 2.
+
+or what i find easier. just remember that the first element is 0 and the second is 1 and so on
+
+The index numbers help us retrieve individual elements from a list. 
+Looking back at the list row_one from the code example above, 
+
+we can retrieve the first element (the string 'Facebook') with the index number 0 by running the code row_one[0].
 
 
+```py
+row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+print(row_one[0])
+```
+Gives us the output: "Facebook"
+
+The syntax for retrieving individual list elements follows the model `list_name[index_number]`. 
+
+For instance, the name of our list above is row_one and the index number of the first element is 0 
+— following the `list_name[index_number]` model, we get row_one[0], 
+where the index number 0 is in square brackets after the variable name row_one.
+
+![indexing plaatje 2](img/lists-indexing-two.svg)
+
+This is how we can retrieve each element in row_one:
+
+```py
+row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+
+print(row_one[0])
+print(row_one[1])
+print(row_one[2])
+print(row_one[3])
+print(row_one[4])
+```
+
+output:
+
+- Facebook
+- 0.0
+- USD
+- 2974676
+- 3.5
+
+Retrieving list elements makes it easier to perform operations. 
+For instance, we can select the ratings for Facebook and Instagram, 
+and find the average or the difference between the two:
 
 
+```py
+row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
 
+difference = row_one[4] - row_two[4]
+average_rating = (row_one[4] + row_two[4]) / 2
 
+print(difference)
+print(average_rating)
+```
+Output:
+
+- 1.0
+- 4.0
 
 

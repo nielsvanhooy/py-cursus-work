@@ -228,7 +228,139 @@ or need to write code for data where you don't know the length ahead of time.</p
 called an index number. The indexing always starts at 0, <br />
 so the first element will have the index number 0, <br />
 the second element the index number 1, and so on.</p>
-<p><img alt="Click voor Roadmap" src="img/lists-indexing.svg" /></p></div>
+<p><img alt="indexing plaatje" src="img/lists-indexing.svg" /></p>
+<p>To quickly find the index of a list element, <br />
+identify its position number in the list, and then subtract 1. </p>
+<p>For example, the string 'USD' is the third element of the list (position number 3), <br />
+so its index number must be 2 since 3 - 1 = 2.</p>
+<p>or what i find easier. just remember that the first element is 0 and the second is 1 and so on</p>
+<p>The index numbers help us retrieve individual elements from a list. <br />
+Looking back at the list row_one from the code example above, </p>
+<p>we can retrieve the first element (the string 'Facebook') with the index number 0 by running the code row_one[0].</p>
+<pre><code class="language-py">row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+print(row_one[0])
+</code></pre>
+<p>Gives us the output: "Facebook"</p>
+<p>The syntax for retrieving individual list elements follows the model <code>list_name[index_number]</code>. </p>
+<p>For instance, the name of our list above is row_one and the index number of the first element is 0 <br />
+— following the <code>list_name[index_number]</code> model, we get row_one[0], <br />
+where the index number 0 is in square brackets after the variable name row_one.</p>
+<p><img alt="indexing plaatje 2" src="img/lists-indexing-two.svg" /></p>
+<p>This is how we can retrieve each element in row_one:</p>
+<pre><code class="language-py">row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+
+print(row_one[0])
+print(row_one[1])
+print(row_one[2])
+print(row_one[3])
+print(row_one[4])
+</code></pre>
+<p>output:</p>
+<ul>
+<li>Facebook</li>
+<li>0.0</li>
+<li>USD</li>
+<li>2974676</li>
+<li>3.5</li>
+</ul>
+<p>Retrieving list elements makes it easier to perform operations. <br />
+For instance, we can select the ratings for Facebook and Instagram, <br />
+and find the average or the difference between the two:</p>
+<pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+
+difference = row_one[4] - row_two[4]
+average_rating = (row_one[4] + row_two[4]) / 2
+
+print(difference)
+print(average_rating)
+</code></pre>
+<p>Output:</p>
+<ul>
+<li>1.0</li>
+<li>4.0</li>
+</ul>
+<p>Let's use list indexing to extract the number of ratings from the first three rows <br />
+and then average them:</p>
+<pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+row_three = ['Clash of clans', 0.0, 'USD', 2130805, 4.5]
+
+ratings_one = row_one[3]
+ratings_two = row_two[3]
+ratings_three = row_three[3]
+
+total = ratings_one + ratings_two + ratings_three
+average = total / 3
+
+print(average)
+</code></pre>
+<p>Output</p>
+<ul>
+<li>2422346.3333333335</li>
+</ul>
+<h1>Negative Indexing</h1>
+<p>In Python, we have two indexing systems for lists:</p>
+<ul>
+<li>Positive indexing: the _first element has the index number 0, the second element has the index number 1, and so on.</li>
+<li>Negative indexing: the last element has the index number -1, the second to last element has the index number -2, and so on.</li>
+</ul>
+<p>Negative indexing is a feature in Python that allows us to access elements from the end of a list.</p>
+<p>here is an image to help you visually:</p>
+<p><img alt="indexing plaatje 3" src="img/lists-indexing-three.svg" /></p>
+<p>In practice, we almost always use positive indexing to retrieve list elements. <br />
+Negative indexing is useful when we want to select the last element of a list.<br />
+especially if the list is long, and we can't tell the length by normal counting.</p>
+<p>Example:</p>
+<pre><code class="language-py">row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+
+print(row_one[-1])
+print(row_one[-4])
+</code></pre>
+<p>What do you think the output will be?<br />
+its the same number: 3.5</p>
+<p>from the beginning we count 0, 1, 2, 3, 4<br />
+from the end we count -1, -2, -3, -4, -5</p>
+<p>What would happend if you use an index that is out of range?</p>
+<pre><code class="language-py">row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+print(row_one[5])
+
+Traceback (most recent call last):
+  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: list index out of range   &lt;------------
+</code></pre>
+<p>Yes an IndexError!! so thats helpfull isn't it?</p>
+<h2>Slicing Python Lists</h2>
+<p>Instead of selecting list elements individually, <br />
+we can use a syntax shortcut to select two or more consecutive elements:</p>
+<pre><code class="language-py">row_three = ['Clash of Clans', 0.0, 'USD', 2130805, 4.5]
+
+coc_pricing_data = row_three[0:3]
+print(coc_pricing_data)
+</code></pre>
+<p>Output:</p>
+<ul>
+<li><code>['Clash of Clans', 0.0, 'USD']</code></li>
+</ul>
+<p>When we select the first n elements (n stands for a number) from a list named a_list, <br />
+we can use the syntax <code>shortcut a_list[0:n]</code>. <br />
+In the example above, we needed to select the first three elements from the list row_three,<br />
+so we used <code>row_three[0:3]</code>.</p>
+<p>When we selected the first three elements, <br />
+we sliced a part of the list. <br />
+For this reason, the process of selecting a part of a list is called list slicing.</p>
+<p>There are many ways that we might want to slice a list:</p>
+<p><img alt="slicing plaatje 1" src="img/lists-slicing.svg" /></p>
+<p>To retrieve any list slice we want:</p>
+<ol>
+<li>We first need to identify the first and the last element of the slice.</li>
+<li>We then need to identify the index numbers of the first and the last element of the slice.</li>
+<li>Finally we can retrieve the list slice we want by using the syntax a_list[m:n], where:<ul>
+<li>m represents the index number of the first element of the slice; and</li>
+<li>n represents the index number of the last element of the slice plus one (if the last element has the index number 2, then we n will be 3, if the last element has the index number 4, then n will be 5, and so on).</li>
+</ul>
+</li>
+</ol></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

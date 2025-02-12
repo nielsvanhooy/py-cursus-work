@@ -1,3 +1,5 @@
+from docs.to_markdown import OUTPUT_DIR
+
 # Lists, Loops & More
 
 ## Lists
@@ -217,3 +219,228 @@ Output:
 - 4.0
 
 
+Let's use list indexing to extract the number of ratings from the first three rows 
+and then average them:
+
+```py
+row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+row_three = ['Clash of clans', 0.0, 'USD', 2130805, 4.5]
+
+ratings_one = row_one[3]
+ratings_two = row_two[3]
+ratings_three = row_three[3]
+
+total = ratings_one + ratings_two + ratings_three
+average = total / 3
+
+print(average)
+```
+Output
+
+- 2422346.3333333335
+
+# Negative Indexing
+
+In Python, we have two indexing systems for lists:
+
+- Positive indexing: the _first element has the index number 0, the second element has the index number 1, and so on.
+- Negative indexing: the last element has the index number -1, the second to last element has the index number -2, and so on.
+
+Negative indexing is a feature in Python that allows us to access elements from the end of a list.
+
+here is an image to help you visually:
+
+![indexing plaatje 3](img/lists-indexing-three.svg)
+
+In practice, we almost always use positive indexing to retrieve list elements. 
+Negative indexing is useful when we want to select the last element of a list.
+especially if the list is long, and we can't tell the length by normal counting.
+
+Example:
+
+```py
+row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+
+print(row_one[-1])
+print(row_one[-4])
+```
+What do you think the output will be?
+its the same number: 3.5
+
+from the beginning we count 0, 1, 2, 3, 4
+from the end we count -1, -2, -3, -4, -5
+
+What would happend if you use an index that is out of range?
+
+```py
+row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+print(row_one[5])
+
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+IndexError: list index out of range   <------------
+```
+
+Yes an IndexError!! so thats helpfull isn't it?
+
+## Slicing Python Lists
+
+Instead of selecting list elements individually, 
+we can use a syntax shortcut to select two or more consecutive elements:
+
+```py
+row_three = ['Clash of Clans', 0.0, 'USD', 2130805, 4.5]
+
+coc_pricing_data = row_three[0:3]
+print(coc_pricing_data)
+```
+
+Output:
+
+- `['Clash of Clans', 0.0, 'USD']`
+
+When we select the first n elements (n stands for a number) from a list named a_list, 
+we can use the syntax `shortcut a_list[0:n]`. 
+In the example above, we needed to select the first three elements from the list row_three,
+so we used `row_three[0:3]`.
+
+When we selected the first three elements, 
+we sliced a part of the list. 
+For this reason, the process of selecting a part of a list is called list slicing.
+
+There are many ways that we might want to slice a list:
+
+![slicing plaatje 1](img/lists-slicing.svg)
+
+To retrieve any list slice we want:
+
+1. We first need to identify the first and the last element of the slice.
+2. We then need to identify the index numbers of the first and the last element of the slice.
+3. Finally we can retrieve the list slice we want by using the syntax `a_list[m:n]`, where:
+    - m represents the index number of the first element of the slice; and
+    - n represents the index number of the last element of the slice plus one (if the last element has the index number 2, then we n will be 3, if the last element has the index number 4, then n will be 5, and so on).
+
+![slicing plaatje 2](img/lists-slicing-two.svg)
+
+# Extra (i dont see it used much)
+
+When we need to select the first or last x elements (x stands for a number), 
+we can use even simpler syntax shortcuts:
+
+- `a_list[:x]` when we want to select the first x elements.
+- `a_list[-x:]` when we want to select the last x elements.
+
+Example:
+
+```py
+row_three = ['Clash of Clans', 0.0, 'USD', 2130805, 4.5]
+    
+first_three = row_three[:3]
+last_three = row_three[-3:]
+```
+
+Just know it exists. if you ever come across it you know what it does.
+
+
+# List of lists
+
+Python List of Lists
+Previously, we introduced lists as a better alternative to using one variable per data point. 
+Instead of having a separate variable for each of the five data points 'Facebook', 0.0, 'USD', 2974676, 3.5, 
+we can bundle the data points together into a list, and then store the list in a single variable.
+
+So far, we've been working with a data set having five rows, 
+and we've been storing each row as a list in a separate variable (the variables row_1, row_2, row_3, row_4, and row_5). 
+If we had a data set with 5,000 rows, however, we'd end up with 5,000 variables, 
+which will make our code messy and almost impossible to work with.
+
+To solve this problem, we can store our five variables in a single list:
+
+```py
+row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+row_three = ['Clash of Clans', 0,0, 'USD', 2130805, 4.5]
+row_four  = ['Temple Run', 0.0, 'USD', 1724546, 4.5]
+row_five  = ['Pandora - Music & Radio', 0.0, 'USD', 1126879, 4.0]
+
+data_set = [row_one, row_two, row_three, row_four, row_five]
+data_set
+
+[
+   ['Facebook', 0.0, 'USD', 2974676, 3.5], 
+   ['Instagram', 0.0, 'USD', 2161558, 4.5], 
+   ['Clash of Clans', 0, 0, 'USD', 2130805, 4.5], 
+   ['Temple Run', 0.0, 'USD', 1724546, 4.5], 
+   ['Pandora - Music & Radio', 0.0, 'USD', 1126879, 4.0]
+]
+```
+As we can see, data_set is a list that stores five other lists (row_1, row_2, row_3, row_4, and row_5). 
+A list that contains other lists is called a list of lists.
+
+The data_set variable is still a list, 
+which means we can retrieve individual list elements and perform list slicing using the syntax we learned. Below, we:
+
+- Retrieve the first list element (row_1) using data_set[0].
+- Retrieve the last list element (row_5) using data_set[-1].
+- Retrieve the first two list elements (row_1 and row_2) by performing list slicing using `data_set[:2]`.
+
+```py
+row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+row_three = ['Clash of Clans', 0,0, 'USD', 2130805, 4.5]
+row_four  = ['Temple Run', 0.0, 'USD', 1724546, 4.5]
+row_five  = ['Pandora - Music & Radio', 0.0, 'USD', 1126879, 4.0]
+
+data_set = [row_one, row_two, row_three, row_four, row_five]
+
+print(data_set[0])
+print(data_set[-1])
+print(data_set[:2])
+
+
+['Facebook', 0.0, 'USD', 2974676, 3.5]
+['Pandora - Music & Radio', 0.0, 'USD', 1126879, 4.0]
+[['Facebook', 0.0, 'USD', 2974676, 3.5], ['Instagram', 0.0, 'USD', 2161558, 4.5]]
+```
+
+We'll often need to retrieve individual elements from a list that's part of a list of lists — for instance, 
+we may want to retrieve the value 3.5 from `['Facebook', 0.0, 'USD', 2974676, 3.5]`, 
+which is part of the data_set list of lists. 
+Below, we extract 3.5 from data_set using what we've learned:
+
+- We retrieve row_1 using data_set[0], and assign the result to a variable named fb_row.
+- We print fb_row, which outputs ['Facebook', 0.0, 'USD', 2974676, 3.5].
+- We retrieve the last element from fb_row using fb_row[-1] (since fb_row is a list), and assign the result to a variable named fb_rating.
+- Print fb_rating, which outputs 3.5
+
+```py
+row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+row_three = ['Clash of Clans', 0,0, 'USD', 2130805, 4.5]
+row_four  = ['Temple Run', 0.0, 'USD', 1724546, 4.5]
+row_five  = ['Pandora - Music & Radio', 0.0, 'USD', 1126879, 4.0]
+
+data_set = [row_one, row_two, row_three, row_four, row_five]
+
+fb_row = data_set[0]
+print(fb_row)
+
+fb_rating = fb_row[-1]
+print(fb_rating)
+
+['Facebook', 0.0, 'USD', 2974676, 3.5]
+3.5
+```
+
+Above, we retrieved 3.5 in two steps: we first retrieved data_set[0], 
+and then we retrieved fb_row[-1]. 
+
+However, there's an easier way to retrieve the same value of 3.5 by chaining the two indices ([0] and [-1]) — the code data_set[0][-1] retrieves 3.5:
+
+![slicing plaatje 3](img/lists-slicing-three.svg)
+
+Above, we've seen two ways of retrieving the value 3.5. 
+Both ways lead to the same output (3.5), 
+but the second way involves less typing because it elegantly combines the steps we see in the first case. 
+While you can choose either option, people generally choose the second one.

@@ -71,7 +71,8 @@
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Lists, Loops &amp; More</h1>
+        <div class="markdown-content"><p>from docs.to_markdown import OUTPUT_DIR</p>
+<h1>Lists, Loops &amp; More</h1>
 <h2>Lists</h2>
 <p>Lists are one of the most powerful data types in Python.<br />
 With some fictive data we are going to analyze data about mobile apps.</p>
@@ -355,12 +356,115 @@ For this reason, the process of selecting a part of a list is called list slicin
 <ol>
 <li>We first need to identify the first and the last element of the slice.</li>
 <li>We then need to identify the index numbers of the first and the last element of the slice.</li>
-<li>Finally we can retrieve the list slice we want by using the syntax a_list[m:n], where:<ul>
+<li>Finally we can retrieve the list slice we want by using the syntax <code>a_list[m:n]</code>, where:<ul>
 <li>m represents the index number of the first element of the slice; and</li>
 <li>n represents the index number of the last element of the slice plus one (if the last element has the index number 2, then we n will be 3, if the last element has the index number 4, then n will be 5, and so on).</li>
 </ul>
 </li>
-</ol></div>
+</ol>
+<p><img alt="slicing plaatje 2" src="img/lists-slicing-two.svg" /></p>
+<h1>Extra (i dont see it used much)</h1>
+<p>When we need to select the first or last x elements (x stands for a number), <br />
+we can use even simpler syntax shortcuts:</p>
+<ul>
+<li><code>a_list[:x]</code> when we want to select the first x elements.</li>
+<li><code>a_list[-x:]</code> when we want to select the last x elements.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-py">row_three = ['Clash of Clans', 0.0, 'USD', 2130805, 4.5]
+
+first_three = row_three[:3]
+last_three = row_three[-3:]
+</code></pre>
+<p>Just know it exists. if you ever come across it you know what it does.</p>
+<h1>List of lists</h1>
+<p>Python List of Lists<br />
+Previously, we introduced lists as a better alternative to using one variable per data point. <br />
+Instead of having a separate variable for each of the five data points 'Facebook', 0.0, 'USD', 2974676, 3.5, <br />
+we can bundle the data points together into a list, and then store the list in a single variable.</p>
+<p>So far, we've been working with a data set having five rows, <br />
+and we've been storing each row as a list in a separate variable (the variables row_1, row_2, row_3, row_4, and row_5). <br />
+If we had a data set with 5,000 rows, however, we'd end up with 5,000 variables, <br />
+which will make our code messy and almost impossible to work with.</p>
+<p>To solve this problem, we can store our five variables in a single list:</p>
+<pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+row_three = ['Clash of Clans', 0,0, 'USD', 2130805, 4.5]
+row_four  = ['Temple Run', 0.0, 'USD', 1724546, 4.5]
+row_five  = ['Pandora - Music &amp; Radio', 0.0, 'USD', 1126879, 4.0]
+
+data_set = [row_one, row_two, row_three, row_four, row_five]
+data_set
+
+[
+   ['Facebook', 0.0, 'USD', 2974676, 3.5], 
+   ['Instagram', 0.0, 'USD', 2161558, 4.5], 
+   ['Clash of Clans', 0, 0, 'USD', 2130805, 4.5], 
+   ['Temple Run', 0.0, 'USD', 1724546, 4.5], 
+   ['Pandora - Music &amp; Radio', 0.0, 'USD', 1126879, 4.0]
+]
+</code></pre>
+<p>As we can see, data_set is a list that stores five other lists (row_1, row_2, row_3, row_4, and row_5). <br />
+A list that contains other lists is called a list of lists.</p>
+<p>The data_set variable is still a list, <br />
+which means we can retrieve individual list elements and perform list slicing using the syntax we learned. Below, we:</p>
+<ul>
+<li>Retrieve the first list element (row_1) using data_set[0].</li>
+<li>Retrieve the last list element (row_5) using data_set[-1].</li>
+<li>Retrieve the first two list elements (row_1 and row_2) by performing list slicing using <code>data_set[:2]</code>.</li>
+</ul>
+<pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+row_three = ['Clash of Clans', 0,0, 'USD', 2130805, 4.5]
+row_four  = ['Temple Run', 0.0, 'USD', 1724546, 4.5]
+row_five  = ['Pandora - Music &amp; Radio', 0.0, 'USD', 1126879, 4.0]
+
+data_set = [row_one, row_two, row_three, row_four, row_five]
+
+print(data_set[0])
+print(data_set[-1])
+print(data_set[:2])
+
+
+['Facebook', 0.0, 'USD', 2974676, 3.5]
+['Pandora - Music &amp; Radio', 0.0, 'USD', 1126879, 4.0]
+[['Facebook', 0.0, 'USD', 2974676, 3.5], ['Instagram', 0.0, 'USD', 2161558, 4.5]]
+</code></pre>
+<p>We'll often need to retrieve individual elements from a list that's part of a list of lists — for instance, <br />
+we may want to retrieve the value 3.5 from <code>['Facebook', 0.0, 'USD', 2974676, 3.5]</code>, <br />
+which is part of the data_set list of lists. <br />
+Below, we extract 3.5 from data_set using what we've learned:</p>
+<ul>
+<li>We retrieve row_1 using data_set[0], and assign the result to a variable named fb_row.</li>
+<li>We print fb_row, which outputs ['Facebook', 0.0, 'USD', 2974676, 3.5].</li>
+<li>We retrieve the last element from fb_row using fb_row[-1] (since fb_row is a list), and assign the result to a variable named fb_rating.</li>
+<li>Print fb_rating, which outputs 3.5</li>
+</ul>
+<pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
+row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
+row_three = ['Clash of Clans', 0,0, 'USD', 2130805, 4.5]
+row_four  = ['Temple Run', 0.0, 'USD', 1724546, 4.5]
+row_five  = ['Pandora - Music &amp; Radio', 0.0, 'USD', 1126879, 4.0]
+
+data_set = [row_one, row_two, row_three, row_four, row_five]
+
+fb_row = data_set[0]
+print(fb_row)
+
+fb_rating = fb_row[-1]
+print(fb_rating)
+
+['Facebook', 0.0, 'USD', 2974676, 3.5]
+3.5
+</code></pre>
+<p>Above, we retrieved 3.5 in two steps: we first retrieved data_set[0], <br />
+and then we retrieved fb_row[-1]. </p>
+<p>However, there's an easier way to retrieve the same value of 3.5 by chaining the two indices ([0] and [-1]) — the code data_set[0][-1] retrieves 3.5:</p>
+<p><img alt="slicing plaatje 3" src="img/lists-slicing-three.svg" /></p>
+<p>Above, we've seen two ways of retrieving the value 3.5. <br />
+Both ways lead to the same output (3.5), <br />
+but the second way involves less typing because it elegantly combines the steps we see in the first case. <br />
+While you can choose either option, people generally choose the second one.</p></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

@@ -72,7 +72,7 @@ def wrap_html_template(content):
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Markdown to HTML</title>
+        <title>Python Course</title>
         <link rel="stylesheet" href="github-markdown-dark.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
         <style>

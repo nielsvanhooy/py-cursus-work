@@ -1,6 +1,7 @@
 import markdown
 import re
 import os
+from bs4 import BeautifulSoup  # Required for modifying index structure
 
 # Define paths
 SOURCE_DIR = os.path.abspath(os.path.join(os.getcwd(), "../python-beginner"))  # One level up
@@ -9,39 +10,63 @@ OUTPUT_DIR = os.path.join(os.getcwd())  # "result" folder in script's directory
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-def convert_markdown_to_html(md_text):
-    """Convert Markdown to HTML with Prism.js-compatible syntax highlighting."""
-    # Convert markdown to HTML with added "tables" extension
+def convert_markdown_to_html(md_text, filename=None):
+    """Convert Markdown to HTML. Special handling for index.md."""
     html = markdown.markdown(md_text, extensions=["fenced_code", "nl2br", "tables"])
 
     # Ensure <code> blocks have Prism.js class names
     html = re.sub(r'<code class="(\w+)"', r'<code class="language-\1"', html)
 
-    # Add some CSS for table styling
+    # Apply special formatting only if processing the index page
+    if filename and filename.lower() == "index.md":
+        html = modify_index_structure(html)
+
+    return wrap_html_template(html)
+
+def modify_index_structure(html):
+    """Modify the structure of index.html to separate 'Exercises'."""
+    soup = BeautifulSoup(html, "html.parser")
+
+    exercise_items = []
+    general_items = []
+
+    for li in soup.find_all("li"):
+        if "Exercise" in li.get_text() or "Exercises" in li.get_text():
+            exercise_items.append(li)
+        else:
+            general_items.append(li)
+
+    # Build modified HTML with separate sections
+    index_html = f"<h2>Index</h2><ul>{''.join(str(item) for item in general_items)}</ul>"
+    exercises_html = f"<h2>Exercises</h2><ul>{''.join(str(item) for item in exercise_items)}</ul>" if exercise_items else ""
+
+    return index_html + exercises_html
+
+def wrap_html_template(content):
+    """Wrap content in a styled HTML template with Prism.js."""
     table_css = """
-            table {
-                border-collapse: collapse;
-                width: 100%;
-                margin: 1em 0;
-            }
-            th, td {
-                border: 1px solid #666;
-                padding: 8px;
-                text-align: left;
-            }
-            th {
-                background-color: #2d2d2d;
-            }
-            tr:nth-child(even) {
-                background-color: #383a46;
-            }
-            tr:nth-child(odd) {
-                background-color: #2d2d2d;
-            }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
     """
 
-    # Wrap HTML in a full template with Prism.js
-    html_output = f"""
+    return f"""
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -79,7 +104,7 @@ def convert_markdown_to_html(md_text):
             }}
             {table_css}
             .markdown-content {{
-                max-width: 900px;
+                max-width: 1000px;
                 width: 90%;
                 padding: 20px;
                 background: #44475A;
@@ -94,7 +119,7 @@ def convert_markdown_to_html(md_text):
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content">{html}</div>
+        <div class="markdown-content">{content}</div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
@@ -105,7 +130,6 @@ def convert_markdown_to_html(md_text):
     </body>
     </html>
     """
-    return html_output
 
 def process_markdown_files():
     """Find all '*.en.md' files, convert them to HTML, and save them in 'result/'."""
@@ -120,9 +144,7 @@ def process_markdown_files():
         return
 
     for file in files:
-        # Remove '-En' from the filename (case-insensitive match)
         file_name = re.sub(r'[-_]en\.md$', '', file, flags=re.IGNORECASE)
-
         input_path = os.path.join(SOURCE_DIR, file)
         output_path = os.path.join(OUTPUT_DIR, f"{file_name}.html")
 
@@ -143,30 +165,24 @@ def create_index_md():
     index_md_content = "# Index (links are clickable)\n\n"
 
     for html_file in html_files:
-        # Remove '-En' from the filename and format it for display in the link
         display_name = re.sub(r'[-_]en\.html$', '', html_file, flags=re.IGNORECASE)
         display_name = display_name.replace("-", " ").title()
-
         index_md_content += f"- [{display_name}]({html_file})\n"
 
-    # Write index.md
     index_md_path = os.path.join(OUTPUT_DIR, "index.md")
     with open(index_md_path, "w", encoding="utf-8") as f:
         f.write(index_md_content)
 
     print("✅ Created index.md")
-
-    # Convert index.md to index.html using the convert_markdown_to_html function
     convert_index_md_to_html(index_md_path)
 
 def convert_index_md_to_html(md_file):
-    """Convert the index.md file to an HTML page with proper styling."""
+    """Convert the index.md file to an HTML page with separate 'Exercises' section."""
     with open(md_file, "r", encoding="utf-8") as f:
         md_content = f.read()
 
-    html_content = convert_markdown_to_html(md_content)
+    html_content = convert_markdown_to_html(md_content, filename="index.md")
 
-    # Save as index.html in OUTPUT_DIR
     index_html_path = os.path.join(OUTPUT_DIR, "index.html")
     with open(index_html_path, "w", encoding="utf-8") as f:
         f.write(html_content)

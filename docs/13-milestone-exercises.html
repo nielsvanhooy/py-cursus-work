@@ -71,28 +71,52 @@
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Python: Overview</h1>
-<hr />
-<h2>Overview</h2>
-<hr />
-<ul>
-<li>simple syntax, relatively easy to learn</li>
-<li>useful in many areas (science, web development, GUI programming)</li>
-<li>big standard library, many additional packages</li>
-</ul>
-<h2>Python development and versions</h2>
-<p>Python 3: new minor version (e.g. 3.13) released every October</p>
-<p>Python 2: support ended in 2019, <a href="https://www.jetbrains.com/lp/python-developers-survey-2019/">10% of developers</a> were still using it by then</p>
-<p>Our projects: Mix of 3.10, 3.11,3.12, 3.13    This is due that some packages have not yet been updated or deprecated.</p>
-<h2>Code examples</h2>
-<pre><code class="language-py"># this is a comment
+        <div class="markdown-content"><h2>1. User Registration System</h2>
+<h3><strong>Exercise:</strong></h3>
+<p>Write a program that asks the user for their name, age, and email. Validate the inputs:<br />
+- The name should not be empty.<br />
+- The age should be a number between <strong>10 and 120</strong>.<br />
+- The email should contain an <strong>'@'</strong> symbol.<br />
+- Print a confirmation message if all inputs are valid. Otherwise, print an error message.</p>
+<pre><code class="language-python">name = input(&quot;Enter your name: &quot;)
+age_input = input(&quot;Enter your age: &quot;)
+email = input(&quot;Enter your email: &quot;)
 
-a = 3
-b = 4
-print(a * b)
+# your code below
 
-if a * b &gt; 10:
-    print('greater')
+</code></pre>
+<hr />
+<h2>2. Simple Grade Categorizer</h2>
+<h3><strong>Exercise:</strong></h3>
+<p>Write a program that asks the user for a numerical grade (0–100) and categorizes it:<br />
+- 90+ → "Excellent"<br />
+- 75–89 → "Good"<br />
+- 50–74 → "Pass"<br />
+- Below 50 → "Fail"<br />
+- If the number is out of range, print an error message.</p>
+<pre><code class="language-python"># your code below
+
+</code></pre>
+<hr />
+<h2>3. Contact List Manager</h2>
+<h3><strong>Exercise:</strong></h3>
+<p>Write a program that stores up to <strong>five names</strong> in a list and allows the user to:<br />
+1. Manually enter five names.<br />
+2. Display the total number of contacts.<br />
+3. Search for a name in the list.<br />
+4. Remove a name from the list.</p>
+<pre><code class="language-python"># your code below
+
+</code></pre>
+<hr />
+<h2>4. Simple Authentication System</h2>
+<h3><strong>Exercise:</strong></h3>
+<p>Write a program that prompts the user for a username and password.<br />
+- The username must be <strong>at least 4 characters long</strong>.<br />
+- The password must be <strong>at least 6 characters long</strong> and <strong>cannot be "password" (case-insensitive)</strong>.<br />
+- If valid, print "Login successful"; otherwise, print an error message.</p>
+<pre><code class="language-python"># your code below
+
 </code></pre></div>
 
         <!-- Load Prism.js -->

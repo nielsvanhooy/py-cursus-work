@@ -1,7 +1,7 @@
 # Control Structures/Flow
-
+---
 ## Control structures
-
+---
 Our life is full of conditions even if we don’t notice them most of the time. Let’s look at a few examples:
 
 If tomorrow it doesn't rain, I’ll go out with my friends in the park. 
@@ -91,7 +91,7 @@ Truthy values include:
 
 🔸 The Built-in bool() Function
 You can check if a value is either truthy or falsy with the built-in `bool()` function.
-
+---
 # Playing with if statements
 Now Let’s look at a concrete example.
 ```py
@@ -139,7 +139,7 @@ y = 10
 if x > y:
     print("x is greater than y.")
 ```
-
+---
 ## Else Statement
 
 What if we want to execute some code if the condition isn't met? 
@@ -189,7 +189,7 @@ thus, we have to use the elif statement.
 </p>
 </details>
 
-
+---
 ## elif Statement
 Let’s rewrite the above example and add an elif statement.
 
@@ -301,6 +301,7 @@ I'll build a snowman.
 </p>
 </details>
 
+---
 ## Multiple Conditions
 Let’s now add some complexity. 
 What if we want to meet multiple conditions in one if statement?
@@ -346,7 +347,7 @@ If at least one of these conditions isn't met, then the combined condition evalu
 </p>
 </details>
 
-
+---
 # Nested if Statements
 
 Python is a very flexible programming language, and it allows you to use if statements inside other if statements, 
@@ -394,7 +395,7 @@ For example, what if the mark is higher than 100? If the first condition (number
 Try to assign different numbers to the mark variable to understand the logic of this code.
 </p>
 </details>
-
+---
 ## Pattern Matching in Python
 
 The pattern matching was added in Python 3.10, released in October, 2021. 
@@ -451,7 +452,7 @@ If a case is matched (that's equivalent of a double equal sign), then the print 
 Note the last case statement, 
 it's the _ case, which is equivalent to else: if no cases are matched, then we print Weather not recognized.
 
-
+---
 ## pass Statement
 
 As you start writing more complex code, you may find yourself in the situation where you have to use a placeholder instead of the code you want to implement later. 
@@ -487,26 +488,3 @@ print("I'll write this code later.")
 If instead you place pass in the if statement, 
 Python won’t throw any error and will pass to any code you have below the if statement. 
 This works even if you have other conditions below the first if statement.
-
-
-
-
-
-
-
-most important control structures in programming languages:
-
-- if / elif / else
-- loops
-  - while loop
-  - do while loop
-  - for loop (counting loop)
-  - foreach loop
-
-## Control structures in Python
-
-- `if ... else ...`
-- loops:
-  - `while`
-  - `for ... in ...`
-  - `for ... in range(...)`

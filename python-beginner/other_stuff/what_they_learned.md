@@ -45,12 +45,17 @@ Checking number ranges
 Validating string inputs
 Converting input types (int(), float())
 
+Working with lists:
+list indexing
+list slicing
+list methods (append, insert) etc
+lists of lists
+
 
 
 They have NOT yet learned (based on our conversation):
 
 Loops (while, for)
-Lists or other data structures
 Functions/methods
 Classes/objects
 File operations

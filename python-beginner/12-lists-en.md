@@ -1,7 +1,7 @@
 from docs.to_markdown import OUTPUT_DIR
 
 # Lists, Loops & More
-
+---
 ## Lists
 
 Lists are one of the most powerful data types in Python.
@@ -74,7 +74,7 @@ To create a list of data points, we only need to:
 Separate the data points with a comma.
 Surround the sequence of data points with brackets.
 
-
+---
 ## A note on lists
 
 There are 2 ways to create an empty list in python:
@@ -96,7 +96,13 @@ timeit("list()")
 0.17704233359267718
 ```
 We can see that the `[]` is faster than the `list()` function. By a big margin.
+content in a list is seperated by a comma.
+Example:
+```py
+["item1", "item2", "item3"]
+```
 
+---
 # Let's move on.
 Now let's create five lists, one for each row in our dataset:
 
@@ -108,6 +114,7 @@ row_four  = ['Temple Run', 0.0, 'USD', 1724546, 4.5]
 row_five  = ['Pandora - Music & Radio', 0.0, 'USD', 1126879, 4.0]
 ```
 
+---
 ## Indexing python lists
 
 A list can contain a variety of data types. A list like [4, 5, 6] has identical data types (only integers), 
@@ -240,6 +247,7 @@ Output
 
 - 2422346.3333333335
 
+---
 # Negative Indexing
 
 In Python, we have two indexing systems for lists:
@@ -285,7 +293,19 @@ IndexError: list index out of range   <------------
 Yes an IndexError!! so thats helpfull isn't it?
 
 ## Slicing Python Lists
+---
+# Syntax
 
+`list_name[start : end : step]`
+
+Parameters:
+
+- start (optional): Index to begin the slice (inclusive). Defaults to 0 if omitted.
+- end (optional): Index to end the slice (exclusive). Defaults to the length of list if omitted.
+- step (optional): Step size, specifying the interval between elements. Defaults to 1 if omitted
+
+
+---
 Instead of selecting list elements individually, 
 we can use a syntax shortcut to select two or more consecutive elements:
 
@@ -323,7 +343,7 @@ To retrieve any list slice we want:
 
 ![slicing plaatje 2](img/lists-slicing-two.svg)
 
-# Extra (i dont see it used much)
+
 
 When we need to select the first or last x elements (x stands for a number), 
 we can use even simpler syntax shortcuts:
@@ -342,7 +362,7 @@ last_three = row_three[-3:]
 
 Just know it exists. if you ever come across it you know what it does.
 
-
+---
 # List of lists
 
 Python List of Lists
@@ -444,3 +464,168 @@ Above, we've seen two ways of retrieving the value 3.5.
 Both ways lead to the same output (3.5), 
 but the second way involves less typing because it elegantly combines the steps we see in the first case. 
 While you can choose either option, people generally choose the second one.
+
+## Python List Methods Reference Guide
+
+## Adding Elements
+
+### append()
+Adds an element to the end of the list
+```py
+fruits = ["apple", "banana"]
+fruits.append("orange")
+# fruits is now ["apple", "banana", "orange"]
+```
+
+### extend()
+Adds multiple elements from an iterable (list, tuple, etc.) to the end
+```py
+fruits = ["apple", "banana"]
+more_fruits = ["orange", "grape"]
+fruits.extend(more_fruits)
+# fruits is now ["apple", "banana", "orange", "grape"]
+```
+
+### insert()
+Adds an element at a specific position
+```py
+fruits = ["apple", "banana"]
+fruits.insert(1, "orange")
+# fruits is now ["apple", "orange", "banana"]
+```
+
+## Removing Elements
+
+### remove()
+Removes the first occurrence of a specific value
+```py
+fruits = ["apple", "banana", "apple", "grape"]
+fruits.remove("apple")
+# fruits is now ["banana", "apple", "grape"]
+```
+
+### pop()
+Removes and returns an element at a specific index (or last element if no index given)
+```py
+fruits = ["apple", "banana", "grape"]
+last_fruit = fruits.pop()     # removes and returns "grape"
+first_fruit = fruits.pop(0)   # removes and returns "apple"
+```
+
+### clear()
+Removes all elements from the list
+```py
+fruits = ["apple", "banana", "grape"]
+fruits.clear()
+# fruits is now []
+```
+
+## Finding Elements
+
+### index()
+Returns the index of the first occurrence of a value
+```py
+fruits = ["apple", "banana", "grape", "banana"]
+banana_index = fruits.index("banana")    # returns 1
+```
+
+### count()
+Returns the number of occurrences of a value
+```py
+fruits = ["apple", "banana", "grape", "banana"]
+banana_count = fruits.count("banana")    # returns 2
+```
+
+## Ordering Elements
+
+### sort()
+Sorts the list in place (modifies original list)
+```py
+numbers = [3, 1, 4, 1, 5]
+numbers.sort()
+# numbers is now [1, 1, 3, 4, 5]
+
+# Sort with reverse order
+numbers.sort(reverse=True)
+# numbers is now [5, 4, 3, 1, 1]
+
+# Sort strings
+fruits = ["banana", "apple", "Cherry"]
+fruits.sort()                 # Case-sensitive sort
+# fruits is now ["Cherry", "apple", "banana"]
+
+fruits.sort(key=str.lower)    # Case-insensitive sort
+# fruits is now ["apple", "banana", "Cherry"]
+```
+
+### reverse()
+Reverses the order of elements in place
+```py
+fruits = ["apple", "banana", "grape"]
+fruits.reverse()
+# fruits is now ["grape", "banana", "apple"]
+```
+
+## Copying Lists
+
+### copy()
+Creates a shallow copy of the list
+```py
+fruits = ["apple", "banana", "grape"]
+fruits_copy = fruits.copy()
+```
+
+## Other Common Operations
+
+### len()
+Returns the length of the list (not a method, but a built-in function)
+```py
+fruits = ["apple", "banana", "grape"]
+length = len(fruits)    # returns 3
+```
+
+### in operator
+Checks if an element exists in the list (not a method, but an operator)
+```py
+fruits = ["apple", "banana", "grape"]
+has_apple = "apple" in fruits    # returns True
+```
+
+## Advanced Usage Examples
+
+### Combining Multiple Methods
+```py
+fruits = ["apple", "banana", "grape", "banana", "cherry"]
+# Remove last banana and insert orange in its place
+last_banana_index = fruits.index("banana", fruits.index("banana") + 1)
+fruits.pop(last_banana_index)
+fruits.insert(last_banana_index, "orange")
+```
+
+### Using Methods with List Slicing
+```py
+numbers = [1, 2, 3, 4, 5]
+# Replace middle elements with new values
+numbers[1:4] = [8, 9, 10]
+# numbers is now [1, 8, 9, 10, 5]
+```
+
+### Common Patterns
+```py
+# Remove duplicates while preserving order
+fruits = ["apple", "banana", "apple", "cherry"]
+unique_fruits = list(dict.fromkeys(fruits))
+# unique_fruits is ["apple", "banana", "cherry"]
+
+# Find all indices of an element
+fruits = ["apple", "banana", "apple", "cherry", "apple"]
+apple_indices = [i for i in range(len(fruits)) if fruits[i] == "apple"]
+# apple_indices is [0, 2, 4]
+```
+
+## Important Notes:
+1. Most list methods modify the list in-place and return None
+2. Methods like sort() and reverse() modify the original list
+3. Python lists are zero-indexed
+4. Lists can contain elements of different types
+5. Lists are mutable (can be changed after creation)

@@ -1,0 +1,218 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Markdown to HTML</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Python Lists of Lists Exercises</h1>
+<h2>Beginner Level</h2>
+<ol>
+<li><strong>Shopping Cart Items and Prices</strong></li>
+</ol>
+<pre><code class="language-py"># Given this shopping cart where each item has [name, price, quantity]:
+cart = [
+    [&quot;milk&quot;, 2.50, 2],
+    [&quot;bread&quot;, 1.80, 1],
+    [&quot;eggs&quot;, 3.20, 1],
+    [&quot;cheese&quot;, 4.50, 1]
+]
+# Write code to:
+# - Print the first item's name
+# - Print the price of eggs
+# - Print the quantity of milk
+
+# Solution:
+first_item = cart[0][0]        # Should print: &quot;milk&quot;
+eggs_price = cart[2][1]        # Should print: 3.20
+milk_quantity = cart[0][2]     # Should print: 2
+</code></pre>
+<ol>
+<li><strong>Restaurant Menu Categories</strong></li>
+</ol>
+<pre><code class="language-py"># Given this menu where each category has [name, price, spicy_level]:
+menu = [
+    [&quot;Pizza Margherita&quot;, 12.99, 0],
+    [&quot;Spicy Chicken Wings&quot;, 9.99, 2],
+    [&quot;Buffalo Wings&quot;, 10.99, 3],
+    [&quot;Garden Salad&quot;, 7.99, 0]
+]
+# Write code to:
+# - Print the name of the second dish
+# - Print all information about the last dish
+# - Create a list of just the prices
+
+# Solution:
+second_dish = menu[1][0]        # Should print: &quot;Spicy Chicken Wings&quot;
+last_dish = menu[-1]            # Should print: [&quot;Garden Salad&quot;, 7.99, 0]
+prices = [menu[0][1], menu[1][1], menu[2][1], menu[3][1]]  
+# Should print: [12.99, 9.99, 10.99, 7.99]
+</code></pre>
+<ol>
+<li><strong>Weekly Grocery List</strong></li>
+</ol>
+<pre><code class="language-py"># Given this grocery list where each item has [name, quantity, bought(True/False)]:
+groceries = [
+    [&quot;apples&quot;, 6, False],
+    [&quot;bananas&quot;, 4, True],
+    [&quot;milk&quot;, 2, False],
+    [&quot;bread&quot;, 1, True]
+]
+# Write code to:
+# - Create a list of items not bought yet
+# - Print the quantities of all items
+# - Print the status of milk
+
+# Solution:
+not_bought = [groceries[0][0], groceries[2][0]]  # Should be: [&quot;apples&quot;, &quot;milk&quot;]
+quantities = [groceries[0][1], groceries[1][1], groceries[2][1], groceries[3][1]]
+# Should be: [6, 4, 2, 1]
+milk_status = groceries[2][2]   # Should be: False
+</code></pre>
+<h2>Intermediate Level</h2>
+<ol>
+<li><strong>Monthly Budget Tracker</strong></li>
+</ol>
+<pre><code class="language-py"># Given this budget where each item has [category, budget, spent]:
+budget = [
+    [&quot;groceries&quot;, 500.00, 420.50],
+    [&quot;transport&quot;, 200.00, 150.75],
+    [&quot;entertainment&quot;, 150.00, 145.00],
+    [&quot;utilities&quot;, 300.00, 300.00]
+]
+# Write code to:
+# - Create a list of categories
+# - Find how much is left in groceries budget
+# - Create a list of amounts spent
+
+# Solution:
+categories = [budget[0][0], budget[1][0], budget[2][0], budget[3][0]]
+# Should be: [&quot;groceries&quot;, &quot;transport&quot;, &quot;entertainment&quot;, &quot;utilities&quot;]
+
+groceries_left = budget[0][1] - budget[0][2]  # Should be: 79.50
+
+spent = [budget[0][2], budget[1][2], budget[2][2], budget[3][2]]
+# Should be: [420.50, 150.75, 145.00, 300.00]
+</code></pre>
+<ol>
+<li><strong>Online Store Products</strong></li>
+</ol>
+<pre><code class="language-py"># Given these products where each has [name, price, stock, rating]:
+products = [
+    [&quot;Gaming Mouse&quot;, 29.99, 50, 4.5],
+    [&quot;Keyboard&quot;, 59.99, 30, 4.8],
+    [&quot;Headphones&quot;, 99.99, 15, 4.7],
+    [&quot;Mousepad&quot;, 19.99, 100, 4.3]
+]
+# Write code to:
+# - Find the most expensive product (without loops)
+# - Create a list of products that cost less than 50.00
+# - Find the product with the highest rating
+
+# Solution:
+sorted_by_price = sorted(products, key=lambda x: x[1])
+most_expensive = sorted_by_price[-1][0]  # Should be: &quot;Headphones&quot;
+
+cheap_products = [products[0][0], products[3][0]]  
+# Should be: [&quot;Gaming Mouse&quot;, &quot;Mousepad&quot;]
+
+sorted_by_rating = sorted(products, key=lambda x: x[3])
+best_rated = sorted_by_rating[-1][0]  # Should be: &quot;Keyboard&quot;
+</code></pre>
+<h2>Important Tips:</h2>
+<ol>
+<li>Remember to use double square brackets: list[row][column]</li>
+<li>First index selects the item, second index selects the property</li>
+<li>You can store different types in the same inner list (strings, numbers, booleans)</li>
+<li>Drawing the data as a table can help visualize the structure</li>
+</ol>
+<h2>Practice Suggestions:</h2>
+<ol>
+<li>Try to write the code without looking at the solutions</li>
+<li>Predict what each piece of code will output</li>
+<li>Try creating your own similar examples with different data</li>
+<li>Practice with different data types in the inner lists<br />
+```</li>
+</ol>
+<p>Would you like more examples focusing on any particular real-world scenario? I can create more exercises based on:<br />
+- Restaurant orders<br />
+- School grades and subjects<br />
+- Product inventory<br />
+- Movie/Book ratings and reviews<br />
+- Sports scores and statistics</p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

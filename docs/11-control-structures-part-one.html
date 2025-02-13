@@ -35,28 +35,28 @@
                 margin-left: 40px;
             }
             
-            table {
-                border-collapse: collapse;
-                width: 100%;
-                margin: 1em 0;
-            }
-            th, td {
-                border: 1px solid #666;
-                padding: 8px;
-                text-align: left;
-            }
-            th {
-                background-color: #2d2d2d;
-            }
-            tr:nth-child(even) {
-                background-color: #383a46;
-            }
-            tr:nth-child(odd) {
-                background-color: #2d2d2d;
-            }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
     
             .markdown-content {
-                max-width: 900px;
+                max-width: 1000px;
                 width: 90%;
                 padding: 20px;
                 background: #44475A;
@@ -72,7 +72,9 @@
     </head>
     <body class="markdown-body">
         <div class="markdown-content"><h1>Control Structures/Flow</h1>
+<hr />
 <h2>Control structures</h2>
+<hr />
 <p>Our life is full of conditions even if we don’t notice them most of the time. Let’s look at a few examples:</p>
 <p>If tomorrow it doesn't rain, I’ll go out with my friends in the park. <br />
 Otherwise, I’ll stay home with a cup of hot tea and watch TV.</p>
@@ -193,6 +195,7 @@ But in programming languages we also have <code>Truthy</code> and <code>Falsy</c
 <h2>How to check this?</h2>
 <p>🔸 The Built-in bool() Function<br />
 You can check if a value is either truthy or falsy with the built-in <code>bool()</code> function.</p>
+<hr />
 <h1>Playing with if statements</h1>
 <p>Now Let’s look at a concrete example.</p>
 <pre><code class="language-py"># Basic if statement
@@ -229,6 +232,7 @@ y = 10
 if x &gt; y:
     print(&quot;x is greater than y.&quot;)
 </code></pre>
+<hr />
 <h2>Else Statement</h2>
 <p>What if we want to execute some code if the condition isn't met? <br />
 We add an else statement below the if statement. <br />
@@ -272,6 +276,7 @@ thus, we have to use the elif statement.
 </p>
 </details>
 
+<hr />
 <h2>elif Statement</h2>
 <p>Let’s rewrite the above example and add an elif statement.</p>
 <pre><code class="language-py"># x is equal to y with elif statement
@@ -366,6 +371,7 @@ I'll build a snowman.
 </p>
 </details>
 
+<hr />
 <h2>Multiple Conditions</h2>
 <p>Let’s now add some complexity. <br />
 What if we want to meet multiple conditions in one if statement?</p>
@@ -404,6 +410,7 @@ If at least one of these conditions isn't met, then the combined condition evalu
 </p>
 </details>
 
+<hr />
 <h1>Nested if Statements</h1>
 <p>Python is a very flexible programming language, and it allows you to use if statements inside other if statements, <br />
 so called nested if statements. Let’s look at an example.</p>
@@ -448,7 +455,7 @@ For example, what if the mark is higher than 100? If the first condition (number
 Try to assign different numbers to the mark variable to understand the logic of this code.
 </p>
 </details>
-
+<hr />
 <h2>Pattern Matching in Python</h2>
 <p>The pattern matching was added in Python 3.10, released in October, 2021. <br />
 In short, it can be seen a different syntax for if..elif statements. </p>
@@ -492,6 +499,7 @@ The rest of the code is similar. <br />
 If a case is matched (that's equivalent of a double equal sign), then the print expression is executed.</p>
 <p>Note the last case statement, <br />
 it's the _ case, which is equivalent to else: if no cases are matched, then we print Weather not recognized.</p>
+<hr />
 <h2>pass Statement</h2>
 <p>As you start writing more complex code, you may find yourself in the situation where you have to use a placeholder instead of the code you want to implement later. <br />
 The pass statement is this placeholder. Let’s look at an example with and without the pass statement.</p>
@@ -518,24 +526,7 @@ print(&quot;I'll write this code later.&quot;)
 </code></pre>
 <p>If instead you place pass in the if statement, <br />
 Python won’t throw any error and will pass to any code you have below the if statement. <br />
-This works even if you have other conditions below the first if statement.</p>
-<p>most important control structures in programming languages:</p>
-<ul>
-<li>if / elif / else</li>
-<li>loops</li>
-<li>while loop</li>
-<li>do while loop</li>
-<li>for loop (counting loop)</li>
-<li>foreach loop</li>
-</ul>
-<h2>Control structures in Python</h2>
-<ul>
-<li><code>if ... else ...</code></li>
-<li>loops:</li>
-<li><code>while</code></li>
-<li><code>for ... in ...</code></li>
-<li><code>for ... in range(...)</code></li>
-</ul></div>
+This works even if you have other conditions below the first if statement.</p></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

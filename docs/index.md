@@ -1,5 +1,6 @@
 # Index (links are clickable)
 
+- [00 Course Screenshots Whiteboard.Html](00-course-screenshots-whiteboard.html)
 - [01 Title Topics.Html](01-title-topics.html)
 - [02 Language Overview.Html](02-language-overview.html)
 - [03 Installation On Windows.Html](03-installation-on-windows.html)

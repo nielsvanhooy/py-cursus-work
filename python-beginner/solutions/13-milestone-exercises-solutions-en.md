@@ -1,4 +1,7 @@
+## Milestone tot en met 12 - lists
+
 ## 1. User Registration System
+
 
 ### **Exercise:**
 Write a program that asks the user for their name, age, and email. Validate the inputs:

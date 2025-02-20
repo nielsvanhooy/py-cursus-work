@@ -1,3 +1,6 @@
+## Milestone tot en met 12 - lists
+
+
 ## Milestone Project 1: Simple Voting System
 
 ### Project Description
@@ -9,8 +12,6 @@ Create a simple voting system where users can vote for one of three candidates. 
 - Allow the user to vote by entering the candidate's name.
 - Store the votes in a list.
 - Display the total votes for each candidate at the end.
-
-### Solution
 
 ---
 
@@ -25,7 +26,6 @@ Create an event registration system where users can:
 - Confirm their registration.
 - Display their registration details at the end.
 
-### Solution
 
 ---
 
@@ -39,7 +39,4 @@ Create a basic contact list program where the user can:
 - View all saved contacts.
 - Search for a contact by name.
 
-### Solution
-
-```
 

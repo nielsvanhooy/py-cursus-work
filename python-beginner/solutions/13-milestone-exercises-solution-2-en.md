@@ -1,4 +1,7 @@
+## Milestone tot en met 12 - lists
+
 ## Milestone Project 1: Simple Voting System
+
 
 ### Project Description
 

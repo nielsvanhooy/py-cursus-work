@@ -103,7 +103,8 @@ mixed_list = [42, "hello", True, "world"]
 
 9. **List Modification**
 ```py
-# Given this list: colors = ["red", "blue", "green", "yellow"]
+# Given this list: 
+colors = ["red", "blue", "green", "yellow"]
 # Write code to:
 # - Add "purple" to the end
 # - Insert "orange" at index 2
@@ -116,7 +117,8 @@ mixed_list = [42, "hello", True, "world"]
 
 10. **List Operations**
 ```py
-# Given: list1 = [1, 2, 3] and list2 = [4, 5, 6]
+# Given: 
+list1 = [1, 2, 3] and list2 = [4, 5, 6]
 # Write code to:
 # - Combine the lists into list3
 # - Create list4 with list1 repeated 3 times
@@ -131,7 +133,8 @@ mixed_list = [42, "hello", True, "world"]
 
 11. **List Analysis**
 ```py
-# Given: grades = [85, 92, 78, 95, 88, 90]
+# Given: 
+grades = [85, 92, 78, 95, 88, 90]
 # Write code to:
 # - Find the highest grade without using max()
 # - Find the lowest grade without using min()
@@ -143,7 +146,8 @@ mixed_list = [42, "hello", True, "world"]
 
 12. **List Manipulation Challenge**
 ```py
-# Given: text = "Hello World"
+# Given: 
+text = "Hello World"
 # Write code to:
 # - Create a list of characters from the text
 # - Remove all spaces
@@ -158,7 +162,8 @@ mixed_list = [42, "hello", True, "world"]
 
 13. **Advanced String and List Operations**
 ```py
-# Given: sentence = "Python Programming Is Fun"
+# Given: 
+sentence = "Python Programming Is Fun"
 # Write code to:
 # - Create a list of words
 # - Create a new list with the length of each word

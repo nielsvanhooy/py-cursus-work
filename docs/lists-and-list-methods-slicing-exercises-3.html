@@ -76,7 +76,8 @@
 <ol>
 <li><strong>Basic List Slicing</strong></li>
 </ol>
-<pre><code class="language-python"># Given: numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+<pre><code class="language-py"># Given: 
+numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90]
 # Write code to:
 # - Get the first four numbers
 # - Get the last three numbers using negative indexing
@@ -93,7 +94,8 @@
 <ol>
 <li><strong>Simple Slice Operations</strong></li>
 </ol>
-<pre><code class="language-python"># Given: colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;purple&quot;, &quot;orange&quot;]
+<pre><code class="language-py"># Given: 
+colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;purple&quot;, &quot;orange&quot;]
 # Write code to:
 # - Get colors from index 1 to 4 (inclusive)
 # - Get the last four colors using negative indexing
@@ -111,7 +113,8 @@
 <ol>
 <li><strong>Reverse Slicing</strong></li>
 </ol>
-<pre><code class="language-python"># Given: letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+<pre><code class="language-py"># Given: 
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 # Write code to:
 # - Get all letters in reverse order
 # - Get every second letter in reverse order
@@ -120,15 +123,13 @@
 # Your code below:
 
 
-# Expected output:
-# ['g', 'f', 'e', 'd', 'c', 'b', 'a']
-# ['g', 'e', 'c', 'a']
-# ['c', 'd', 'e']
+
 </code></pre>
 <ol>
 <li><strong>Mixed Data Slicing</strong></li>
 </ol>
-<pre><code class="language-python"># Given: mixed = [1, &quot;A&quot;, 2, &quot;B&quot;, 3, &quot;C&quot;, 4, &quot;D&quot;, 5, &quot;E&quot;]
+<pre><code class="language-py"># Given: 
+mixed = [1, &quot;A&quot;, 2, &quot;B&quot;, 3, &quot;C&quot;, 4, &quot;D&quot;, 5, &quot;E&quot;]
 # Write code to:
 # - Get all numbers (using step slicing)
 # - Get all letters (using step slicing)
@@ -137,21 +138,18 @@
 # Your code below:
 
 
-# Expected output:
-# [1, 2, 3, 4, 5]
-# ['A', 'B', 'C', 'D', 'E']
-# [2, 3, 4]
 </code></pre>
 <h2>Advanced Level</h2>
 <ol>
 <li><strong>Nested List Slicing</strong></li>
 </ol>
-<pre><code class="language-python"># Given: matrix = [
-#     [1, 2, 3, 4],
-#     [5, 6, 7, 8],
-#     [9, 10, 11, 12],
-#     [13, 14, 15, 16]
-# ]
+<pre><code class="language-py"># Given: 
+matrix = [
+   [1, 2, 3, 4],
+   [5, 6, 7, 8],
+   [9, 10, 11, 12],
+   [13, 14, 15, 16]
+]
 # Write code to:
 # - Get the first two rows
 # - Get the last two columns of all rows
@@ -160,20 +158,18 @@
 # Your code below:
 
 
-# Expected output:
-# [[1, 2, 3, 4], [5, 6, 7, 8]]
-# [[3, 4], [7, 8], [11, 12], [15, 16]]
-# [[6, 7], [10, 11]]
+
 </code></pre>
 <ol>
 <li><strong>Complex List Slicing</strong></li>
 </ol>
-<pre><code class="language-python"># Given: data = [
-#     [&quot;Jan&quot;, [1, 2, 3]],
-#     [&quot;Feb&quot;, [4, 5, 6]],
-#     [&quot;Mar&quot;, [7, 8, 9]],
-#     [&quot;Apr&quot;, [10, 11, 12]]
-# ]
+<pre><code class="language-py"># Given: 
+data = [
+    [&quot;Jan&quot;, [1, 2, 3]],
+    [&quot;Feb&quot;, [4, 5, 6]],
+    [&quot;Mar&quot;, [7, 8, 9]],
+    [&quot;Apr&quot;, [10, 11, 12]]
+]
 # Write code to:
 # - Get the first two months' names only
 # - Get the numbers from the last two months
@@ -182,20 +178,17 @@
 # Your code below:
 
 
-# Expected output:
-# ['Jan', 'Feb']
-# [[7, 8, 9], [10, 11, 12]]
-# [2, 5, 8, 11]
 </code></pre>
 <h2>Bonus Challenge</h2>
 <ol>
 <li><strong>Advanced Matrix Operations</strong></li>
 </ol>
-<pre><code class="language-python"># Given: cube = [
-#     [[1, 2], [3, 4]],
-#     [[5, 6], [7, 8]],
-#     [[9, 10], [11, 12]]
-# ]
+<pre><code class="language-py">#Given: 
+cube = [
+    [[1, 2], [3, 4]],
+    [[5, 6], [7, 8]],
+    [[9, 10], [11, 12]]
+]
 # Write code to:
 # - Get the first element of each sublist in the first two lists
 # - Get the second column of each 2x2 matrix
@@ -204,37 +197,23 @@
 # Your code below:
 
 
-# Expected output:
-# [1, 3, 5, 7]
-# [[2, 4], [6, 8], [10, 12]]
-# [[6, 7], [10, 11]]
 </code></pre>
 <h2>Practice Tips</h2>
-<ol>
-<li>Before writing code:</li>
-<li>Write down what you expect the slice notation to do</li>
-<li>Predict the output</li>
-<li>
-<p>Consider edge cases</p>
-</li>
-<li>
-<p>Common slicing patterns:</p>
-</li>
-<li><code>list[start:end]</code> - Elements from start to end-1</li>
-<li><code>list[start:]</code> - Elements from start to the end</li>
-<li><code>list[:end]</code> - Elements from beginning to end-1</li>
-<li><code>list[::step]</code> - Every step-th element</li>
-<li>
-<p><code>list[::-1]</code> - Reverse the list</p>
-</li>
-<li>
-<p>Remember:</p>
-</li>
-<li>Negative indices count from the end</li>
-<li>The end index is exclusive</li>
-<li>Step can be negative for reverse direction</li>
-<li>Slicing never raises an IndexError</li>
-</ol></div>
+<p>Before writing code:<br />
+   - Write down what you expect the slice notation to do<br />
+   - Predict the output<br />
+   - Consider edge cases</p>
+<p>Common slicing patterns:<br />
+   - <code>list[start:end]</code> - Elements from start to end-1<br />
+   - <code>list[start:]</code> - Elements from start to the end<br />
+   - <code>list[:end]</code> - Elements from beginning to end-1<br />
+   - <code>list[::step]</code> - Every step-th element<br />
+   - <code>list[::-1]</code> - Reverse the list</p>
+<p>Remember:<br />
+   - Negative indices count from the end<br />
+   - The end index is exclusive<br />
+   - Step can be negative for reverse direction<br />
+   - Slicing never raises an IndexError</p></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

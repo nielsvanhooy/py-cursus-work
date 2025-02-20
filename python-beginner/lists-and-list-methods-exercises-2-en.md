@@ -102,8 +102,8 @@ products = [
 4. Drawing the data as a table can help visualize the structure
 
 ## Practice Suggestions:
-1. Try to write the code without looking at the solutions
-2. Predict what each piece of code will output
-3. Try creating your own similar examples with different data
-4. Practice with different data types in the inner lists
+1. Predict what each piece of code will output
+2. Try creating your own similar examples with different data
+2. Practice with different data types in the inner lists
+
 ```

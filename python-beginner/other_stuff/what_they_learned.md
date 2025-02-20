@@ -53,14 +53,18 @@ list methods (append, insert) etc
 lists of lists
 
 
+working with loops:
+While
+For
+
+and the functions: range, len, break, continue .
+
 
 They have NOT yet learned (based on our conversation):
 
-Loops (while, for)
+
 Functions/methods
 Classes/objects
 File operations
 More complex string operations
 Exception handling (try/except)
-
-Would you like me to confirm any specific aspects of what they've learned, or shall we use this as a base for discussing what to teach next?

@@ -1,0 +1,452 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h2>Loops</h2>
+<p>Life is full of routines. In programming we also do lots of repetitive tasks. In order to handle repetitive task programming languages use loops. Python programming language also provides the following types of two loops:</p>
+<ol>
+<li>while loop</li>
+<li>for loop</li>
+</ol>
+<h3>While Loop</h3>
+<p>if we think back to the if/elif/else lesson </p>
+<pre><code class="language-shell"># syntax
+if &lt;condition&gt;:
+    &lt;expression&gt;
+</code></pre>
+<p>When <code>&lt;condition&gt;</code> is evaluated by Python, it’ll become either True or False (Booleans). <br />
+Thus, if the condition is True (i.e, it is met), the <code>&lt;expression&gt;</code> will be executed, <br />
+but if <condition> is False (i.e., it is not met), the <code>&lt;expression&gt;</code> won’t be executed.</p>
+<p><code>while</code> loops are bit of the same.</p>
+<p>We use the reserved word <code>while</code> to make a while loop. <br />
+It is used to execute a block of statements repeatedly until a given condition is satisfied. <br />
+When the condition becomes false, the lines of code after the loop will be continued to be executed.</p>
+<p>looping in programming is also called "iteration". <br />
+and the thing you are going to loop over is called an "iterable" <br />
+so what things we learned up until now are "iterables" ??</p>
+<p>another way to think of it is iterating over sequences.<br />
+sequences are lists, tuples, strings, dictionaries, sets, etc.</p>
+<p>whereas int, float, bool, None, etc are not sequences.<br />
+if you want to proof this:</p>
+<pre><code class="language-py">from collections.abc import Sequence      # what is Sequence?
+
+def is_sequence(obj):
+    return isinstance(obj, Sequence)
+
+# Test cases
+print(is_sequence([1, 2, 3]))        # True (list)
+print(is_sequence((1, 2, 3)))       # True (tuple)
+print(is_sequence(&quot;hello&quot;))         # True (str)
+print(is_sequence(range(5)))        # True (range)
+print(is_sequence({1, 2, 3}))       # False (set)
+print(is_sequence({&quot;a&quot;: 1}))        # False (dict)
+print(is_sequence(42))             # False (int)
+</code></pre>
+<p>but you dont have to remember this. just know that you can loop over sequences.</p>
+<h1>lets go looping!</h1>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">count = 0                # we need to use this to keep track of the while loop
+while count &lt; 5:
+    print(count)
+    count = count + 1    # we increase the count by 1 each time the loop is executed
+#prints from 0 to 4
+</code></pre>
+<p>In the above while loop, the condition becomes false when count is 5. That is when the loop stops.</p>
+<p>In these examples we made a variable with the intention to keep track of the loop.<br />
+obviously you can also do this with a boolean value. and later set it to False.</p>
+<p>If we are interested to run block of code once the condition is no longer true, we can use <em>else</em>.</p>
+<pre><code class="language-py">  # syntax
+while condition:
+    code goes here
+else:
+    code goes here
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">count = 0
+while count &lt; 5:
+    print(count)
+    count = count + 1
+else:
+    print(count)
+</code></pre>
+<p>The above loop condition will be false when count is 5 and the loop stops, <br />
+and execution starts the else statement. <br />
+As a result 5 will be printed.</p>
+<p>We can also nest control structures in while loops.</p>
+<pre><code class="language-py">count = 0                         # we keep track of the count
+while count &lt; 5:
+   if count == 3:
+       print(&quot;count is 3&quot;)
+   elif count == 4:
+       print(&quot;count is 4&quot;)
+   count = count + 1              # we increase the count by 1 each time the loop is executed
+else:
+    print(count)
+</code></pre>
+<h3>Break and Continue - Part 1</h3>
+<ul>
+<li>Break: We use break when we like to get out of or stop the loop.</li>
+<li>i like to think of it as: jumping out of the loop.</li>
+</ul>
+<pre><code class="language-py"># syntax
+while condition:
+    code goes here
+    if another_condition:
+        break
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">count = 0
+while count &lt; 5:
+    print(count)
+    count = count + 1
+    if count == 3:
+        break
+</code></pre>
+<p>The above while loop only prints 0, 1, 2, but when it reaches 3 it stops.</p>
+<ul>
+<li>Continue: With the continue statement we can skip the current iteration, and continue with the next:</li>
+</ul>
+<pre><code class="language-py">  # syntax
+while condition:
+    code goes here
+    if another_condition:
+        continue
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">count = 0
+while count &lt; 5:
+    if count == 3:
+        count = count + 1
+        continue
+    print(count)
+    count = count + 1
+</code></pre>
+<p>The above while loop only prints 0, 1, 2 and 4 (skips 3).</p>
+<h3>For Loop</h3>
+<p>A <code>for</code> keyword is used to make a for loop, <br />
+similar with other programming languages, but with some syntax differences. </p>
+<p>a <code>for</code> Loop is also used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).</p>
+<ul>
+<li>For loop with list</li>
+</ul>
+<pre><code class="language-py"># syntax
+for iterator in lst:
+    code goes here
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">numbers = [0, 1, 2, 3, 4, 5]
+for number in numbers: # number is temporary name to refer to the list's items, valid only inside this loop
+    print(number)       # the numbers will be printed line by line, from 0 to 5
+</code></pre>
+<p>another example:</p>
+<pre><code class="language-py">names = ['Lily', 'Brad', 'Fatima', 'Zining']
+
+for name in names:
+    print(&quot;Hello, &quot; + name + &quot;!&quot;)
+</code></pre>
+<p>This code in this simple loop raises a question, though: where did the variable name come from? <br />
+We haven't defined it previously in our code! <br />
+But loops iterate through sequences :lists, tuples, etc. <br />
+This variable can actually be called almost anything. <br />
+Python will interpret any variable name we put in that spot as referring to each list entry in sequence as the loop executes.</p>
+<p>So, in the code above:</p>
+<ul>
+<li>name points to 'Lily' on the first iteration of the loop...</li>
+<li>...then 'Brad' on the second iteration of the loop...</li>
+<li>...and so on.</li>
+</ul>
+<p>This will be the case regardless what we call that variable. <br />
+So if, for example, we rewrite our code to replace name with x, we'll get the same exact result:</p>
+<pre><code class="language-py">names = ['Lily', 'Brad', 'Fatima', 'Zining']
+
+for x in names:
+    print(x)
+</code></pre>
+<p>will print:<br />
+- Lily<br />
+- Brad<br />
+- Fatima<br />
+- Zining</p>
+<p>For loop with string</p>
+<pre><code class="language-py"># syntax
+for iterator in string:
+    code goes here
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">language = 'Python'
+for letter in language:
+    print(letter)
+
+# this would print each letter of the string on a new line
+
+for i in range(len(language)):
+    print(language[i])
+
+# above does the same thing as the first loop
+# we peel it back as always
+
+# len(language)  gets the human range notation of the word Python (so 6 letters)
+# range(6)  gets the computer range notation of the word Python (so 0 to 5)
+
+# and then we loop over the range of the length of the word Python (and i is the index of the letter)
+# then we print the letter
+</code></pre>
+<p>we will go more into len() and range() later on. and in the exercises.</p>
+<p>Lets do a thought experiment:</p>
+<pre><code class="language-py">language = 'Python'
+for i in len(&quot;Python&quot;):
+    print(language[i])
+</code></pre>
+<p>what do you expect?<br />
+why did this happened?</p>
+<p>this happened because len("Python") is 6 (and an int is not iterable (not a sequence))<br />
+and range(6) is 0 to 5 (so that is a sequence)</p>
+<p>it's getting harder he?</p>
+<h1>other examples (iterating on collections/data structure/sequeces) we have not yet discussed</h1>
+<ul>
+<li>For loop with tuple  (tuples havent been discussed yet) but is also a sequence and can be looped over. (collection)</li>
+</ul>
+<pre><code class="language-py"># syntax
+for iterator in tpl:
+    code goes here
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">numbers = (0, 1, 2, 3, 4, 5)
+for number in numbers:
+    print(number)
+</code></pre>
+<ul>
+<li>For loop with dictionary<br />
+  Looping through a dictionary gives you the key of the dictionary.</li>
+</ul>
+<pre><code class="language-py">  # syntax
+for iterator in dct:
+    code goes here
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">person = {
+    'first_name':'Asabeneh',
+    'last_name':'Yetayeh',
+    'age':250,
+    'country':'Finland',
+    'is_marred':True,
+    'skills':['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
+    'address':{
+        'street':'Space street',
+        'zipcode':'02210'
+    }
+}
+for key in person:
+    print(key)
+
+for key, value in person.items():
+    print(key, value) # this way we get both keys and values printed out
+</code></pre>
+<ul>
+<li>Loops in set</li>
+</ul>
+<pre><code class="language-py"># syntax
+for iterator in st:
+    code goes here
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">it_companies = {'Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon'}
+for company in it_companies:
+    print(company)
+</code></pre>
+<h1>Let's move on</h1>
+<h3>Break and Continue - Part 2</h3>
+<p>Short reminder:<br />
+<em>Break</em>: We use break when we like to stop our loop before it is completed.</p>
+<pre><code class="language-py"># syntax
+for iterator in sequence:
+    code goes here
+    if condition:
+        break
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">numbers = (0,1,2,3,4,5)
+for number in numbers:
+    print(number)
+    if number == 3:
+        break
+</code></pre>
+<p>In the above example, the loop stops when it reaches 3.</p>
+<p>Continue: We use continue when we like to skip some of the steps in the iteration of the loop.</p>
+<pre><code class="language-py">  # syntax
+for iterator in sequence:
+    code goes here
+    if condition:
+        continue
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">numbers = (0,1,2,3,4,5)
+for number in numbers:
+    print(number)
+    if number == 3:
+        continue
+    print('Next number should be ', number + 1) if number != 5 else print(&quot;loop's end&quot;) # for short hand conditions need both if and else statements
+print('outside the loop')
+</code></pre>
+<p>In the example above, if the number equals 3, the step <em>after</em> the condition (but inside the loop) is skipped and the execution of the loop continues if there are any iterations left.</p>
+<h3>The Range Function</h3>
+<p>The <em>range()</em> function gives a list of numbers. <br />
+The <em>range(start, end, step)</em> takes three parameters: starting, ending and increment. <br />
+By default it starts from 0 and the increment is 1. <br />
+The range sequence needs at least 1 argument (end).</p>
+<p>Creating sequences using range</p>
+<pre><code class="language-py">lst = list(range(11)) 
+print(lst) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+st = set(range(1, 11))    # 2 arguments indicate start and end of the sequence, step set to default 1
+print(st) # {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+lst = list(range(0,11,2))
+print(lst) # [0, 2, 4, 6, 8, 10]
+st = set(range(0,11,2))
+print(st) #  {0, 2, 4, 6, 8, 10}
+</code></pre>
+<pre><code class="language-py"># syntax
+for iterator in range(start, end, step):
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">for number in range(11):
+    print(number)   # prints 0 to 10, not including 11
+</code></pre>
+<h3>Nested For Loop</h3>
+<p>We can write loops inside a loop.</p>
+<pre><code class="language-py"># syntax
+for x in y:
+    for t in x:
+        print(t)
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-py">ev_data = [['vehicle', 'range', 'price'], 
+           ['Tesla Model 3 LR', '310', '49900'], 
+           ['Hyundai Ioniq EV', '124', '30315'],
+           ['Chevy Bolt', '238', '36620']]
+
+for ev in ev_data:
+    for ev_specs in ev:
+        print(ev_specs)
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">person = {
+    'first_name': 'Asabeneh',
+    'last_name': 'Yetayeh',
+    'age': 250,
+    'country': 'Finland',
+    'is_marred': True,
+    'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
+    'address': {
+        'street': 'Space street',
+        'zipcode': '02210'
+    }
+}
+for key in person:
+    if key == 'skills':
+        for skill in person['skills']:
+            print(skill)
+</code></pre>
+<h3>For Else</h3>
+<p>If we want to execute some message when the loop ends, we use else.</p>
+<pre><code class="language-py"># syntax
+for iterator in range(start, end, step):
+    do something
+else:
+    print('The loop ended')
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">for number in range(11):
+    print(number)   # prints 0 to 10, not including 11
+else:
+    print('The loop stops at', number)
+</code></pre>
+<h3>Pass</h3>
+<p>In python when statement is required (after semicolon), but we don't like to execute any code there, we can write the word <em>pass</em> to avoid errors. Also we can use it as a placeholder, for future statements.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-py">for number in range(6):
+    pass
+</code></pre>
+<p>If you understand everything up until now.<br />
+You established a big milestone. trough practice you will get better and better.</p>
+<h1>Note:</h1>
+<p>With all that knowledge up until know you can already make some beefy programs.</p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

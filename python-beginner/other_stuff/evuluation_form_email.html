@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .rating-scale {
+            margin: 10px 0;
+            font-style: italic;
+            color: #666;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .checkbox-group {
+            margin: 10px 0;
+        }
+        textarea {
+            width: 100%;
+            min-height: 80px;
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        .optional {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Python Cursus Evaluatieformulier</h1>
+
+    <div class="section">
+        <h2>Studentgegevens</h2>
+        <p class="optional">Je mag anoniem blijven als je dat wilt</p>
+        <div class="form-group">
+            <label>Naam: (optioneel)</label><br>
+            <input type="text" style="width: 300px;">
+        </div>
+        <div class="form-group">
+            <label>Datum:</label><br>
+            <input type="date" style="width: 300px;">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Cursus Beoordeling</h2>
+        <p class="rating-scale">Beoordeel elk aspect van 1 (Helemaal mee oneens) tot 5 (Helemaal mee eens)</p>
+
+        <h3>Cursusorganisatie en Uitvoering</h3>
+        <div class="form-group">
+            <label>1. De cursusinhoud was goed georganiseerd</label><br>
+            <input type="radio" name="org1" value="1">1
+            <input type="radio" name="org1" value="2">2
+            <input type="radio" name="org1" value="3">3
+            <input type="radio" name="org1" value="4">4
+            <input type="radio" name="org1" value="5">5
+        </div>
+        <!-- Similar radio groups for other rating questions -->
+    </div>
+
+    <div class="section">
+        <h2>Leerervaring</h2>
+        <p>Geef alstublieft gedetailleerde antwoorden om ons te helpen verbeteren</p>
+
+        <h3>Onderwijsmethodiek</h3>
+        <div class="form-group">
+            <label>1. Hoe verschilde deze trainingsmethode van je eerdere leerervaringen?</label>
+            <textarea placeholder="Jouw antwoord hier"></textarea>
+        </div>
+        <!-- Similar textareas for other open questions -->
+    </div>
+
+    <div class="section">
+        <h2>Praktijk en Oefeningen</h2>
+        <h3>Moeilijkheidsgraad van de Oefeningen</h3>
+        <div class="checkbox-group">
+            <input type="radio" name="difficulty" value="easy"> Te Makkelijk<br>
+            <input type="radio" name="difficulty" value="good"> Precies Goed<br>
+            <input type="radio" name="difficulty" value="hard"> Te Moeilijk
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Leeromgeving</h2>
+        <p>Selecteer alles wat van toepassing is</p>
+        <div class="checkbox-group">
+            <input type="checkbox"> Lesstijl<br>
+            <input type="checkbox"> Praktijkoefeningen<br>
+            <input type="checkbox"> Praktijkvoorbeelden<br>
+            <input type="checkbox"> Interactieve Sessies<br>
+            <input type="checkbox"> Cursusmateriaal<br>
+            <input type="checkbox"> Tempo van de Les<br>
+            <input type="checkbox"> Anders: <input type="text">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Zelfvertrouwen Beoordeling</h2>
+        <div class="checkbox-group">
+            <input type="radio" name="confidence" value="very"> Zeer zelfverzekerd<br>
+            <input type="radio" name="confidence" value="reasonable"> Redelijk zelfverzekerd<br>
+            <input type="radio" name="confidence" value="neutral"> Neutraal<br>
+            <input type="radio" name="confidence" value="practice"> Meer oefening nodig<br>
+            <input type="radio" name="confidence" value="unsure"> Nog onzeker
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Aanbevelingen en Verbeteringen</h2>
+        <div class="form-group">
+            <label>1. Wat kan er verbeterd worden aan de cursus sessies?</label>
+            <textarea placeholder="Jouw antwoord hier"></textarea>
+        </div>
+        <div class="form-group">
+            <label>2. Welke aanvullende onderwerpen zou je graag behandeld zien?</label>
+            <textarea placeholder="Jouw antwoord hier"></textarea>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Extra Opmerkingen</h2>
+        <p>Deel eventuele andere gedachten of suggesties</p>
+        <textarea placeholder="Jouw extra opmerkingen hier"></textarea>
+    </div>
+</body>
+</html>

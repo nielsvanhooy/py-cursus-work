@@ -12,7 +12,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def convert_markdown_to_html(md_text, filename=None):
     """Convert Markdown to HTML. Special handling for index.md."""
-    html = markdown.markdown(md_text, extensions=["fenced_code", "nl2br", "tables"])
+    html = markdown.markdown(md_text, extensions=["fenced_code", "nl2br", "tables", "extra"])
 
     # Ensure <code> blocks have Prism.js class names
     html = re.sub(r'<code class="(\w+)"', r'<code class="language-\1"', html)

@@ -111,7 +111,7 @@ Indeed, if we execute this code, we’ll print out this output because 3 is smal
 
 Output: x is smaller than y.
 
-```pycon
+```py
 # A slightly more complex example
 x = 3
 y = 10

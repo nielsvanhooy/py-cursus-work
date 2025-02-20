@@ -56,7 +56,7 @@ Datum: _________________
 [Jouw antwoord hier]
 ```
 
-3. Hoe denk je dat deze cursus je zal helpen in je Python carrière?
+3. Hoe denk je dat deze cursus je zal helpen in je Python carrière/Werk doelen?
 ```
 [Jouw antwoord hier]
 ```
@@ -95,7 +95,7 @@ Wat vond je het beste aan de cursus?
 ## Zelfvertrouwen Beoordeling
 *Selecteer één optie*
 
-Hoeveel vertrouwen heb je in je Python vaardigheden na deze cursus?
+Hoeveel vertrouwen heb je in je Python vaardigheden na deze sessies?
 - [ ] Zeer zelfverzekerd
 - [ ] Redelijk zelfverzekerd
 - [ ] Neutraal
@@ -106,7 +106,7 @@ Hoeveel vertrouwen heb je in je Python vaardigheden na deze cursus?
 
 ## Aanbevelingen en Verbeteringen
 
-1. Wat kan er verbeterd worden aan de cursus?
+1. Wat kan er verbeterd worden aan de cursus sessies?
 ```
 [Jouw antwoord hier]
 ```
@@ -116,12 +116,6 @@ Hoeveel vertrouwen heb je in je Python vaardigheden na deze cursus?
 [Jouw antwoord hier]
 ```
 
-3. Zou je deze cursus aan anderen aanbevelen? Waarom wel of niet?
-```
-[Jouw antwoord hier]
-```
-
----
 
 ## Extra Opmerkingen
 *Deel eventuele andere gedachten of suggesties*

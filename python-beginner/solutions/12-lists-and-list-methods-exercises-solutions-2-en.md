@@ -17,8 +17,9 @@ cart = [
 # - Print the quantity of milk
 
 # Solution:
-
-
+first_item = cart[0][0]        # Should print: "milk"
+eggs_price = cart[2][1]        # Should print: 3.20
+milk_quantity = cart[0][2]     # Should print: 2
 ```
 
 2. **Restaurant Menu Categories**
@@ -36,7 +37,10 @@ menu = [
 # - Create a list of just the prices
 
 # Solution:
-
+second_dish = menu[1][0]        # Should print: "Spicy Chicken Wings"
+last_dish = menu[-1]            # Should print: ["Garden Salad", 7.99, 0]
+prices = [menu[0][1], menu[1][1], menu[2][1], menu[3][1]]  
+# Should print: [12.99, 9.99, 10.99, 7.99]
 ```
 
 3. **Weekly Grocery List**
@@ -54,7 +58,10 @@ groceries = [
 # - Print the status of milk
 
 # Solution:
-
+not_bought = [groceries[0][0], groceries[2][0]]  # Should be: ["apples", "milk"]
+quantities = [groceries[0][1], groceries[1][1], groceries[2][1], groceries[3][1]]
+# Should be: [6, 4, 2, 1]
+milk_status = groceries[2][2]   # Should be: False
 ```
 
 ## Intermediate Level
@@ -74,7 +81,13 @@ budget = [
 # - Create a list of amounts spent
 
 # Solution:
+categories = [budget[0][0], budget[1][0], budget[2][0], budget[3][0]]
+# Should be: ["groceries", "transport", "entertainment", "utilities"]
 
+groceries_left = budget[0][1] - budget[0][2]  # Should be: 79.50
+
+spent = [budget[0][2], budget[1][2], budget[2][2], budget[3][2]]
+# Should be: [420.50, 150.75, 145.00, 300.00]
 ```
 
 5. **Online Store Products**
@@ -92,7 +105,14 @@ products = [
 # - Find the product with the highest rating
 
 # Solution:
+sorted_by_price = sorted(products, key=lambda x: x[1])
+most_expensive = sorted_by_price[-1][0]  # Should be: "Headphones"
 
+cheap_products = [products[0][0], products[3][0]]  
+# Should be: ["Gaming Mouse", "Mousepad"]
+
+sorted_by_rating = sorted(products, key=lambda x: x[3])
+best_rated = sorted_by_rating[-1][0]  # Should be: "Keyboard"
 ```
 
 ## Important Tips:
@@ -107,3 +127,10 @@ products = [
 3. Try creating your own similar examples with different data
 4. Practice with different data types in the inner lists
 ```
+
+Would you like more examples focusing on any particular real-world scenario? I can create more exercises based on:
+- Restaurant orders
+- School grades and subjects
+- Product inventory
+- Movie/Book ratings and reviews
+- Sports scores and statistics

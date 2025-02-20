@@ -22,6 +22,7 @@ Logical Operators:
 AND
 OR
 NOT
+x in list
 
 
 Conditional Statements:

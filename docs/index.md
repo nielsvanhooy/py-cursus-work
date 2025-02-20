@@ -12,5 +12,7 @@
 - [11 Control Structures Part One.Html](11-control-structures-part-one.html)
 - [12 Lists And List Methods Exercises 2.Html](12-lists-and-list-methods-exercises-2.html)
 - [12 Lists And List Methods Exercises.Html](12-lists-and-list-methods-exercises.html)
+- [12 Lists And List Methods Slicing Exercises 3.Html](12-lists-and-list-methods-slicing-exercises-3.html)
 - [12 Lists.Html](12-lists.html)
+- [13 Milestone Exercises 2.Html](13-milestone-exercises-2.html)
 - [13 Milestone Exercises.Html](13-milestone-exercises.html)

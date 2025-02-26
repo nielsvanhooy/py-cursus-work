@@ -1,0 +1,370 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Beginner Network Engineering Python Exercises</h1>
+<p>These simple exercises will help you practice Python basics while introducing network engineering concepts:<br />
+- Variables and data types<br />
+- Conditional statements (if/elif/else)<br />
+- Lists and loops<br />
+- Input/output</p>
+<h2>Exercise 1: Device Name Generator</h2>
+<h3>Instructions:</h3>
+<p>Create a program that generates network device names based on user input.<br />
+1. Ask for the device type (Router, Switch, or Firewall)<br />
+2. Ask for a location code (3 letters)<br />
+3. Ask for a number<br />
+4. Generate a device name by combining these elements<br />
+   - Example: Router + NYC + 01 = RTR-NYC-01</p>
+<h3>Starter Code:</h3>
+<pre><code class="language-python"># ===== EXERCISE 1: DEVICE NAME GENERATOR =====
+
+def device_name_generator():
+    print(&quot;=== DEVICE NAME GENERATOR ===&quot;)
+    print(&quot;Generate standardized network device names&quot;)
+
+    generate_another = True
+
+    while generate_another:
+        # Get device information from user
+        print(&quot;\nDevice types:&quot;)
+        print(&quot;1. Router&quot;)
+        print(&quot;2. Switch&quot;)
+        print(&quot;3. Firewall&quot;)
+
+        device_choice = input(&quot;Enter device type (1-3): &quot;)
+
+        # TODO: Convert the choice to a device code (RTR, SWT, FWL)
+        # If choice is 1, device_code should be &quot;RTR&quot;
+        # If choice is 2, device_code should be &quot;SWT&quot;
+        # If choice is 3, device_code should be &quot;FWL&quot;
+        # For any other input, set device_code to &quot;DEV&quot;
+
+        # Get location from user
+        location = input(&quot;Enter location code (3 letters, e.g. NYC): &quot;).upper()
+
+        # TODO: Check if location is valid (3 letters)
+        # If not valid, set it to &quot;LOC&quot;
+
+        # Get device number
+        number = input(&quot;Enter device number (2 digits, e.g. 01): &quot;)
+
+        # TODO: Check if number is valid (2 digits)
+        # If not valid, set it to &quot;00&quot;
+
+        # TODO: Create the device name by combining the three parts
+        # Format should be: &lt;device_code&gt;-&lt;location&gt;-&lt;number&gt;
+        # Example: RTR-NYC-01
+
+        # TODO: Display the generated device name
+
+        # Ask if user wants to generate another name
+        another = input(&quot;\nGenerate another device name? (yes/no): &quot;).lower()
+        if another != &quot;yes&quot; and another != &quot;y&quot;:
+            generate_another = False
+
+    print(&quot;Thank you for using the Device Name Generator!&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# device_name_generator()
+</code></pre>
+<h2>Exercise 2: IP Address Counter</h2>
+<h3>Instructions:</h3>
+<p>Create a program that helps network technicians count through IP addresses.<br />
+1. Ask for a starting IP address (last octet only, e.g., 192.168.1.X)<br />
+2. Ask how many addresses to count<br />
+3. Display the list of addresses in sequence</p>
+<h3>Starter Code:</h3>
+<pre><code class="language-python"># ===== EXERCISE 2: IP ADDRESS COUNTER =====
+
+def ip_address_counter():
+    print(&quot;=== IP ADDRESS COUNTER ===&quot;)
+    print(&quot;Generate a sequence of IP addresses&quot;)
+
+    count_again = True
+
+    while count_again:
+        # Get the first three octets of the IP address
+        base_ip = input(&quot;\nEnter the first three octets (e.g., 192.168.1): &quot;)
+
+        # Get the starting value for the last octet
+        try:
+            start_octet = int(input(&quot;Enter the starting value for the last octet (0-255): &quot;))
+
+            # TODO: Validate that start_octet is between 0 and 255
+            # If invalid, print an error message and continue to the next loop iteration
+
+            # Get the number of addresses to generate
+            count = int(input(&quot;How many addresses do you want to count? &quot;))
+
+            # TODO: Validate that count is positive
+            # If invalid, print an error message and continue
+
+            # TODO: Generate and display the list of IP addresses
+            # Be careful not to exceed 255 for the last octet
+            # Format each address as: base_ip.last_octet
+            # Example: 192.168.1.10, 192.168.1.11, etc.
+
+        except ValueError:
+            print(&quot;Please enter valid numbers!&quot;)
+            continue
+
+        # Ask if user wants to count again
+        another = input(&quot;\nCount another sequence? (yes/no): &quot;).lower()
+        if another != &quot;yes&quot; and another != &quot;y&quot;:
+            count_again = False
+
+    print(&quot;Thank you for using the IP Address Counter!&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# ip_address_counter()
+</code></pre>
+<h2>Exercise 3: Network Device List Manager</h2>
+<h3>Instructions:</h3>
+<p>Create a program that manages a list of network devices.<br />
+1. Allow adding and removing devices<br />
+2. Display the complete list<br />
+3. Count how many of each type of device you have</p>
+<h3>Starter Code:</h3>
+<pre><code class="language-python"># ===== EXERCISE 3: NETWORK DEVICE LIST MANAGER =====
+
+def device_list_manager():
+    # Initialize an empty list to store devices
+    devices = []
+
+    print(&quot;=== NETWORK DEVICE LIST MANAGER ===&quot;)
+    print(&quot;Keep track of your network devices&quot;)
+
+    while True:
+        # Display menu
+        print(&quot;\nWhat would you like to do?&quot;)
+        print(&quot;1. Add a device&quot;)
+        print(&quot;2. Remove a device&quot;)
+        print(&quot;3. View all devices&quot;)
+        print(&quot;4. Count devices by type&quot;)
+        print(&quot;5. Exit&quot;)
+
+        # Get user choice
+        choice = input(&quot;Enter your choice (1-5): &quot;)
+
+        if choice == &quot;1&quot;:
+            # Add a device
+            device_name = input(&quot;Enter device name: &quot;)
+
+            print(&quot;Device types:&quot;)
+            print(&quot;1. Router&quot;)
+            print(&quot;2. Switch&quot;)
+            print(&quot;3. Firewall&quot;)
+            print(&quot;4. Server&quot;)
+            print(&quot;5. Other&quot;)
+
+            type_choice = input(&quot;Enter device type (1-5): &quot;)
+
+            # TODO: Convert type_choice to a device type string
+            # Add the device name and type as a list to the devices list
+            # Example: devices.append([device_name, device_type])
+
+            # TODO: Print a confirmation message
+
+        elif choice == &quot;2&quot;:
+            # Remove a device
+            if len(devices) == 0:
+                print(&quot;No devices to remove!&quot;)
+                continue
+
+            # TODO: Display devices with numbers
+            # Ask user which one to remove
+            # Remove the selected device
+            # Print a confirmation message
+
+        elif choice == &quot;3&quot;:
+            # View all devices
+            if len(devices) == 0:
+                print(&quot;No devices in the list!&quot;)
+            else:
+                # TODO: Display all devices in a formatted way
+                # Example: 1. Router-1 (Router)
+                pass
+
+        elif choice == &quot;4&quot;:
+            # Count devices by type
+            if len(devices) == 0:
+                print(&quot;No devices in the list!&quot;)
+            else:
+                # TODO: Count how many of each type of device
+                # Display the counts
+                pass
+
+        elif choice == &quot;5&quot;:
+            # Exit
+            print(&quot;Thank you for using the Network Device List Manager. Goodbye!&quot;)
+            break
+
+        else:
+            print(&quot;Invalid choice! Please enter a number between 1 and 5.&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# device_list_manager()
+</code></pre>
+<h2>Exercise 4: Simple Port Scanner Simulator</h2>
+<h3>Instructions:</h3>
+<p>Create a program that simulates checking which ports are open on a device.<br />
+1. Generate a list of common ports (e.g., 22, 80, 443)<br />
+2. Randomly decide which ports are "open" and which are "closed"<br />
+3. Display the results in a formatted way</p>
+<h3>Starter Code:</h3>
+<pre><code class="language-python"># ===== EXERCISE 4: SIMPLE PORT SCANNER SIMULATOR =====
+
+def port_scanner():
+    # Import random module for simulating port status
+    import random
+
+    # List of common network ports and their services
+    common_ports = [
+        [20, &quot;FTP Data&quot;],
+        [21, &quot;FTP Control&quot;],
+        [22, &quot;SSH&quot;],
+        [23, &quot;Telnet&quot;],
+        [25, &quot;SMTP&quot;],
+        [53, &quot;DNS&quot;],
+        [80, &quot;HTTP&quot;],
+        [110, &quot;POP3&quot;],
+        [143, &quot;IMAP&quot;],
+        [443, &quot;HTTPS&quot;],
+        [3389, &quot;RDP&quot;]
+    ]
+
+    print(&quot;=== SIMPLE PORT SCANNER SIMULATOR ===&quot;)
+    print(&quot;Simulate checking which ports are open on a device&quot;)
+
+    scan_again = True
+
+    while scan_again:
+        # Get device to scan
+        device_ip = input(&quot;\nEnter IP address to scan: &quot;)
+
+        print(f&quot;\nScanning {device_ip} for open ports...&quot;)
+        print(&quot;PORT\tSTATUS\tSERVICE&quot;)
+        print(&quot;-&quot; * 30)
+
+        # TODO: For each port in common_ports:
+        # 1. Randomly decide if the port is open (about 30% should be open)
+        # 2. Display the port, its status (OPEN or CLOSED), and service name
+        # Example output: 80     OPEN    HTTP
+
+        # Count open ports
+        # TODO: Count how many ports were found open
+        # Display the total number and percentage of open ports
+
+        # Ask to scan again
+        another = input(&quot;\nScan another device? (yes/no): &quot;).lower()
+        if another != &quot;yes&quot; and another != &quot;y&quot;:
+            scan_again = False
+
+    print(&quot;Thank you for using the Simple Port Scanner Simulator!&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# port_scanner()
+</code></pre>
+<h2>Challenge Ideas</h2>
+<p>Once you've completed the basic exercises, try these simple extensions:</p>
+<ol>
+<li>
+<p><strong>Device Name Generator</strong>: Add validation for input and a feature to generate multiple names at once.</p>
+</li>
+<li>
+<p><strong>IP Address Counter</strong>: Enhance to support counting across subnet boundaries (e.g., from 192.168.1.255 to 192.168.2.0).</p>
+</li>
+<li>
+<p><strong>Network Device List Manager</strong>: Add the ability to save and load the device list from a file.</p>
+</li>
+<li>
+<p><strong>Port Scanner Simulator</strong>: Add more realistic behaviors, like scan timing or custom port lists.</p>
+</li>
+</ol></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

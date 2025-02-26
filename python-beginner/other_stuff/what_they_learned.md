@@ -62,7 +62,9 @@ and the functions: range, len, break, continue .
 
 They have NOT yet learned (based on our conversation):
 
-
+tuple
+dict
+set
 Functions/methods
 Classes/objects
 File operations

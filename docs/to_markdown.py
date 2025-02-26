@@ -2,6 +2,7 @@ import markdown
 import re
 import os
 from bs4 import BeautifulSoup  # Required for modifying index structure
+from collections import defaultdict
 
 # Define paths
 SOURCE_DIR = os.path.abspath(os.path.join(os.getcwd(), "../python-beginner"))  # One level up
@@ -24,7 +25,7 @@ def convert_markdown_to_html(md_text, filename=None):
     return wrap_html_template(html)
 
 def modify_index_structure(html):
-    """Modify the structure of index.html to separate 'Exercises'."""
+    """Modify the structure of index.html to separate 'Exercises' and group them by type."""
     soup = BeautifulSoup(html, "html.parser")
 
     exercise_items = []
@@ -36,9 +37,51 @@ def modify_index_structure(html):
         else:
             general_items.append(li)
 
+    # Group exercises by their first word
+    exercise_groups = defaultdict(list)
+
+    for item in exercise_items:
+        link_text = item.find('a').get_text() if item.find('a') else item.get_text()
+        # Extract the first words from filename patterns like "For Loop Exercises"
+        if "For Loop" in link_text:
+            group_name = "For Loop"
+            exercise_groups[group_name].append(item)
+        elif "Control Structures" in link_text:
+            group_name = "Control Structures"
+            exercise_groups[group_name].append(item)
+        elif "Lists And List Methods" in link_text:
+            group_name = "Lists And List Methods"
+            exercise_groups[group_name].append(item)
+        elif "Milestone" in link_text:
+            group_name = "Milestone"
+            exercise_groups[group_name].append(item)
+        elif "While Loops" in link_text:
+            group_name = "While Loops"
+            exercise_groups[group_name].append(item)
+        else:
+            # Fallback for items that don't match any pattern
+            exercise_groups['Other'].append(item)
+
     # Build modified HTML with separate sections
     index_html = f"<h2>Index</h2><ul>{''.join(str(item) for item in general_items)}</ul>"
-    exercises_html = f"<h2>Exercises</h2><ul>{''.join(str(item) for item in exercise_items)}</ul>" if exercise_items else ""
+
+    # Add exercises section with subheaders
+    exercises_html = "<h2>Exercises</h2>"
+
+    # Custom order for the groups
+    group_order = ["Milestone", "Control Structures", "For Loop", "Lists And List Methods", "While Loops", "Other"]
+
+    for group_name in group_order:
+        items = exercise_groups.get(group_name, [])
+        if items:  # Only add groups that have items
+            # Sort items so that "Exercises.Html" comes before "Exercises 2.Html", etc.
+            sorted_items = sorted(items, key=lambda item:
+            '1' + str(item) if 'Exercises.Html' in str(item) else
+            '2' + str(item) if 'Exercises 2.Html' in str(item) else
+            '3' + str(item) if 'Exercises 3.Html' in str(item) else
+            str(item))
+
+            exercises_html += f"<h3 class='exercise-type'>{group_name}</h3><ul>{''.join(str(item) for item in sorted_items)}</ul>"
 
     return index_html + exercises_html
 
@@ -115,6 +158,13 @@ def wrap_html_template(content):
             .markdown-body hr {{
                 height: 0.50em;
                 background-color: #8BE9FD;
+            }}
+            h3.exercise-type {{
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
             }}
         </style>
     </head>

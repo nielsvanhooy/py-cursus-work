@@ -18,5 +18,7 @@
 - [Lists And List Methods Exercises.Html](lists-and-list-methods-exercises.html)
 - [Lists And List Methods Slicing Exercises 3.Html](lists-and-list-methods-slicing-exercises-3.html)
 - [Milestone Exercises 2.Html](milestone-exercises-2.html)
+- [Milestone Exercises 3 Up To Including Loops.Html](milestone-exercises-3-up-to-including-loops.html)
+- [Milestone Exercises 3 Very Difficult Up To Including Loops.Html](milestone-exercises-3-very-difficult-up-to-including-loops.html)
 - [Milestone Exercises.Html](milestone-exercises.html)
 - [While Loops Exercises.Html](while-loops-exercises.html)

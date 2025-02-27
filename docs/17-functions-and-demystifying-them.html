@@ -341,9 +341,39 @@ however the function happily takes the arguments and returns the result.</p>
 <pre><code class="language-python">def my_func(place=&quot;Hawaii&quot;,name=&quot;Robert&quot;):
     return(f&quot;Hello {name}! Are you from {place}?&quot;)
 
-# Output
-Hello Robert! Are you from Hawaii?
-</code></pre></div>
+</code></pre>
+<h1>Output</h1>
+<p>Hello Robert! Are you from Hawaii?</p>
+<p>no i can call the function with arguments and it will use these values instead of the defaults</p>
+<pre><code class="language-python">def my_func(place=&quot;Hawaii&quot;,name=&quot;Robert&quot;):
+    return(f&quot;Hello {name}! Are you from {place}?&quot;)
+
+print(my_func(&quot;New York&quot;, &quot;John&quot;))
+</code></pre>
+<p>we also could have done this.</p>
+<pre><code class="language-python">def my_func(place=&quot;Hawaii&quot;,name=&quot;Robert&quot;):
+    return(f&quot;Hello {name}! Are you from {place}?&quot;)
+
+print(my_func(name=&quot;John&quot;, place=&quot;New York&quot;))
+</code></pre>
+<p>completely the same result. but the second one is a bit more readable. and explicit.<br />
+everyone can see what is going on. and what will be passed to which variable in the function.</p>
+<p>There is note about this.</p>
+<ul>
+<li>positional arguments must come before keyword arguments. !!!!!   mega important.</li>
+</ul>
+<p>so you cant do this</p>
+<pre><code class="language-python">def my_func(name=&quot;Robert&quot;, place):
+    return(f&quot;Hello {name}! Are you from {place}?&quot;)
+
+print(my_func(name=&quot;John&quot;, New York))
+
+  File &quot;&lt;input&gt;&quot;, line 1
+    def my_func(name=&quot;Robert&quot;, place):
+                               ^^^^^
+SyntaxError: parameter without a default follows parameter with a default
+</code></pre>
+<h2>not done yet ill finish this chapter later</h2></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

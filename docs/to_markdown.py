@@ -13,10 +13,43 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def convert_markdown_to_html(md_text, filename=None):
     """Convert Markdown to HTML. Special handling for index.md."""
-    html = markdown.markdown(md_text, extensions=["fenced_code", "nl2br", "tables", "extra"])
+    # Add the toc extension to support internal links
+    html = markdown.markdown(md_text, extensions=["fenced_code", "nl2br", "tables", "extra", "toc"])
 
     # Ensure <code> blocks have Prism.js class names
     html = re.sub(r'<code class="(\w+)"', r'<code class="language-\1"', html)
+
+    # Fix internal links by adding ids to headers
+    soup = BeautifulSoup(html, "html.parser")
+
+    # Process all headers to ensure they have proper ids for linking
+    for header in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
+        if not header.get('id'):
+            # Create an id from the header text
+            header_id = header.get_text().lower().replace(' ', '-')
+            # Remove any special characters
+            header_id = re.sub(r'[^\w-]', '', header_id)
+            header['id'] = header_id
+
+    # Fix internal links to use the proper format
+    for anchor in soup.find_all('a'):
+        href = anchor.get('href')
+        if href and href.startswith('#'):
+            # This is an internal link
+            # Make sure the target exists
+            target_id = href[1:]  # Remove the # character
+            target = soup.find(id=target_id)
+            if not target:
+                # Try to find a header with similar text
+                header_text = target_id.replace('-', ' ').title()
+                similar_headers = soup.find_all(string=lambda text: text and header_text in text)
+                if similar_headers and similar_headers[0].parent.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+                    # Use the parent header's id or create one
+                    header = similar_headers[0].parent
+                    if not header.get('id'):
+                        header['id'] = target_id
+
+    html = str(soup)
 
     # Apply special formatting only if processing the index page
     if filename and filename.lower() == "index.md":
@@ -30,9 +63,15 @@ def modify_index_structure(html):
 
     exercise_items = []
     general_items = []
+    cheat_sheet_items = []  # New list for cheat sheet items
 
     for li in soup.find_all("li"):
-        if "Exercise" in li.get_text() or "Exercises" in li.get_text():
+        item_text = li.get_text().lower()
+        # Check if it's a cheat sheet item
+        if "cheat sheet" in item_text:
+            cheat_sheet_items.append(li)
+        # Check if it's an exercise item
+        elif "exercise" in item_text or "exercises" in item_text:
             exercise_items.append(li)
         else:
             general_items.append(li)
@@ -68,19 +107,26 @@ def modify_index_structure(html):
             # Fallback for items that don't match any pattern
             exercise_groups['Other'].append(item)
 
-    # Build modified HTML with separate sections
-    index_html = f"<h2>Index</h2><ul>{''.join(str(item) for item in general_items)}</ul>"
+    # Build HTML with separate sections
+    html_content = ""
+
+    # Add cheat sheets section first if there are any
+    if cheat_sheet_items:
+        html_content += f"<h2 id='cheat-sheets'>Cheat Sheets</h2><ul>{''.join(str(item) for item in cheat_sheet_items)}</ul>"
+
+    # Add index section
+    html_content += f"<h2 id='index'>Index</h2><ul>{''.join(str(item) for item in general_items)}</ul>"
 
     # Add exercises section with subheaders
-    exercises_html = "<h2>Exercises</h2>"
+    exercises_html = "<h2 id='exercises'>Exercises</h2>"
 
     # Custom order for the groups
     group_order = [
-        "Milestone", 
-        "Control Structures", 
-        "For Loop", 
-        "Lists And List Methods", 
-        "While Loops", 
+        "Milestone",
+        "Control Structures",
+        "For Loop",
+        "Lists And List Methods",
+        "While Loops",
         "Dictionaries",
         "Datastructures-beginner",
         "Other"
@@ -96,9 +142,10 @@ def modify_index_structure(html):
             '3' + str(item) if 'Exercises 3.Html' in str(item) else
             str(item))
 
-            exercises_html += f"<h3 class='exercise-type'>{group_name}</h3><ul>{''.join(str(item) for item in sorted_items)}</ul>"
+            group_id = group_name.lower().replace(' ', '-')
+            exercises_html += f"<h3 id='{group_id}' class='exercise-type'>{group_name}</h3><ul>{''.join(str(item) for item in sorted_items)}</ul>"
 
-    return index_html + exercises_html
+    return html_content + exercises_html
 
 def wrap_html_template(content):
     """Wrap content in a styled HTML template with Prism.js."""
@@ -180,6 +227,20 @@ def wrap_html_template(content):
                 font-size: 1.3em;
                 margin-top: 30px;
                 margin-bottom: 10px;
+            }}
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {{
+                color: #FF79C6;
+            }}
+            /* Add smooth scrolling for internal links */
+            html {{
+                scroll-behavior: smooth;
+            }}
+            /* Add visual indication for link targets */
+            :target {{
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
             }}
         </style>
     </head>

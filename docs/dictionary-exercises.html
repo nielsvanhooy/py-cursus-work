@@ -75,126 +75,140 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Very Basic Dictionary Exercises</h1>
+        <div class="markdown-content"><h1 id="very-basic-dictionary-exercises">Very Basic Dictionary Exercises</h1>
 <p>These exercises focus on the most fundamental dictionary operations in Python. Each exercise practices just one or two simple dictionary concepts.</p>
-<h2>Exercise 1: Create and Print a Dictionary</h2>
+<h2 id="exercise-1-create-and-print-a-dictionary">Exercise 1: Create and Print a Dictionary</h2>
 <p>Practice creating a dictionary and accessing its values.</p>
 <pre><code class="language-python"># ===== EXERCISE 1: CREATE AND PRINT A DICTIONARY =====
 
 def fruit_colors():
-    print(&quot;=== FRUIT COLORS ===&quot;)
+    print("=== FRUIT COLORS ===")
 
     # TODO: Create a dictionary where:
-    # - Keys are fruit names: &quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;
-    # - Values are their colors: &quot;red&quot;, &quot;yellow&quot;, &quot;red&quot;
-    # Example: fruits = {&quot;apple&quot;: &quot;red&quot;, &quot;banana&quot;: &quot;yellow&quot;, &quot;cherry&quot;: &quot;red&quot;}
+    # - Keys are fruit names: "apple", "banana", "cherry"
+    # - Values are their colors: "red", "yellow", "red"
+    # Example: fruits = {"apple": "red", "banana": "yellow", "cherry": "red"}
 
     # TODO: Print the color of each fruit
     # Example:
-    # print(&quot;Apple is&quot;, fruits[&quot;apple&quot;])
-    # print(&quot;Banana is&quot;, fruits[&quot;banana&quot;])
-    # print(&quot;Cherry is&quot;, fruits[&quot;cherry&quot;])
+    # print("Apple is", fruits["apple"])
+    # print("Banana is", fruits["banana"])
+    # print("Cherry is", fruits["cherry"])
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Run this program by removing the comment symbol (#) from the line below
 # fruit_colors()
 </code></pre>
-<h2>Exercise 2: Add and Modify Dictionary Items</h2>
+<h2 id="exercise-2-add-and-modify-dictionary-items">Exercise 2: Add and Modify Dictionary Items</h2>
 <p>Practice adding new key-value pairs and changing existing values.</p>
 <pre><code class="language-python"># ===== EXERCISE 2: ADD AND MODIFY DICTIONARY ITEMS =====
 
 def pet_ages():
-    print(&quot;=== PET AGES ===&quot;)
+    print("=== PET AGES ===")
 
     # Starting with a dictionary of pets and their ages
-    pets = {&quot;Rex&quot;: 3, &quot;Fluffy&quot;: 2}
+    pets = {"Rex": 3, "Fluffy": 2}
 
     # Print the starting dictionary
-    print(&quot;Starting pet ages:&quot;, pets)
+    print("Starting pet ages:", pets)
 
-    # TODO: Add a new pet &quot;Spot&quot; who is 5 years old to the dictionary
+    # TODO: Add a new pet "Spot" who is 5 years old to the dictionary
 
     # TODO: Change Rex's age to 4 (he had a birthday)
 
     # Print the updated dictionary
-    print(&quot;Updated pet ages:&quot;, pets)
+    print("Updated pet ages:", pets)
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Run this program by removing the comment symbol (#) from the line below
 # pet_ages()
 </code></pre>
-<h2>Exercise 3: Check if a Key Exists</h2>
+<h2 id="exercise-3-check-if-a-key-exists">Exercise 3: Check if a Key Exists</h2>
 <p>Practice checking if a key is in a dictionary.</p>
 <pre><code class="language-python"># ===== EXERCISE 3: CHECK IF KEY EXISTS =====
 
 def check_stock():
-    print(&quot;=== INVENTORY CHECKER ===&quot;)
+    print("=== INVENTORY CHECKER ===")
 
     # Dictionary of items in stock
-    inventory = {&quot;apples&quot;: 10, &quot;bananas&quot;: 5, &quot;oranges&quot;: 8}
+    inventory = {"apples": 10, "bananas": 5, "oranges": 8}
 
     # TODO: Ask the user what fruit they want to check
-    # Example: fruit = input(&quot;What fruit do you want to check? &quot;)
+    # Example: fruit = input("What fruit do you want to check? ")
 
     # TODO: Check if the fruit is in the inventory dictionary
     # If it is, print how many are in stock
     # If not, print that the fruit is not in stock
     # Example:
     # if fruit in inventory:
-    #     print(f&quot;We have {inventory[fruit]} {fruit} in stock&quot;)
+    #     print(f"We have {inventory[fruit]} {fruit} in stock")
     # else:
-    #     print(f&quot;Sorry, we don't have {fruit} in stock&quot;)
+    #     print(f"Sorry, we don't have {fruit} in stock")
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Run this program by removing the comment symbol (#) from the line below
 # check_stock()
 </code></pre>
-<h2>Exercise 4: Loop Through a Dictionary</h2>
+<h2 id="exercise-4-loop-through-a-dictionary">Exercise 4: Loop Through a Dictionary</h2>
 <p>Practice using a loop to go through all keys and values in a dictionary.</p>
 <pre><code class="language-python"># ===== EXERCISE 4: LOOP THROUGH A DICTIONARY =====
 
 def print_scores():
-    print(&quot;=== STUDENT SCORES ===&quot;)
+    print("=== STUDENT SCORES ===")
 
     # Dictionary of student scores
-    scores = {&quot;Alice&quot;: 92, &quot;Bob&quot;: 85, &quot;Charlie&quot;: 78, &quot;Diana&quot;: 95}
+    scores = {"Alice": 92, "Bob": 85, "Charlie": 78, "Diana": 95}
 
     # TODO: Loop through the dictionary and print each student's name and score
     # Example:
     # for student, score in scores.items():
-    #     print(f&quot;{student}: {score}&quot;)
+    #     print(f"{student}: {score}")
 
     # TODO: Calculate and print the average score
     # Hint: Use a variable to keep track of the total, then divide by the number of students
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Run this program by removing the comment symbol (#) from the line below
 # print_scores()
 </code></pre>
-<h2>Exercise 5: Delete Items from a Dictionary</h2>
+<h2 id="exercise-5-delete-items-from-a-dictionary">Exercise 5: Delete Items from a Dictionary</h2>
 <p>Practice removing items from a dictionary.</p>
 <pre><code class="language-python"># ===== EXERCISE 5: DELETE ITEMS FROM A DICTIONARY =====
 
 def manage_contacts():
-    print(&quot;=== CONTACT MANAGER ===&quot;)
+    print("=== CONTACT MANAGER ===")
 
     # Dictionary of contacts
-    contacts = {&quot;John&quot;: &quot;555-1234&quot;, &quot;Mary&quot;: &quot;555-5678&quot;, &quot;Bob&quot;: &quot;555-4321&quot;}
+    contacts = {"John": "555-1234", "Mary": "555-5678", "Bob": "555-4321"}
 
     # Print all contacts
-    print(&quot;Current contacts:&quot;)
+    print("Current contacts:")
     for name, phone in contacts.items():
-        print(f&quot;{name}: {phone}&quot;)
+        print(f"{name}: {phone}")
 
     # TODO: Ask the user for a name to delete
-    # Example: name = input(&quot;\nEnter a name to delete: &quot;)
+    # Example: name = input("\nEnter a name to delete: ")
 
     # TODO: Check if the name exists in the contacts
     # If it does, delete it and print a success message
@@ -202,24 +216,24 @@ def manage_contacts():
     # Hint: Use the 'del' keyword to delete a dictionary item
 
     # Print the updated contacts
-    print(&quot;\nUpdated contacts:&quot;)
+    print("\nUpdated contacts:")
     for name, phone in contacts.items():
-        print(f&quot;{name}: {phone}&quot;)
+        print(f"{name}: {phone}")
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Run this program by removing the comment symbol (#) from the line below
 # manage_contacts()
 </code></pre>
-<h2>Exercise 6: Count Items (Slightly More Advanced)</h2>
+<h2 id="exercise-6-count-items-slightly-more-advanced">Exercise 6: Count Items (Slightly More Advanced)</h2>
 <p>Practice counting items by storing counts in a dictionary.</p>
 <pre><code class="language-python"># ===== EXERCISE 6: COUNT ITEMS =====
 
 def count_letters():
-    print(&quot;=== LETTER COUNTER ===&quot;)
+    print("=== LETTER COUNTER ===")
 
     # Get a word from the user
-    word = input(&quot;Enter a word: &quot;)
+    word = input("Enter a word: ")
 
     # TODO: Create an empty dictionary to store letter counts
     # Example: letter_counts = {}
@@ -237,25 +251,25 @@ def count_letters():
     # TODO: Print each letter and its count
     # Example:
     # for letter, count in letter_counts.items():
-    #     print(f&quot;'{letter}' appears {count} time(s)&quot;)
+    #     print(f"'{letter}' appears {count} time(s)")
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Run this program by removing the comment symbol (#) from the line below
 # count_letters()
 </code></pre>
-<h2>Dictionary Tips</h2>
+<h2 id="dictionary-tips">Dictionary Tips</h2>
 <ul>
 <li>A dictionary is created with curly braces <code>{}</code> and consists of key-value pairs</li>
 <li>Each key-value pair is written as <code>key: value</code></li>
 <li>Access a value using square brackets and the key: <code>dict_name[key]</code></li>
 <li>Add a new item or change an existing item with: <code>dict_name[key] = value</code></li>
 <li>Check if a key exists with: <code>if key in dict_name:</code></li>
-<li>Loop through a dictionary with:<br />
+<li>Loop through a dictionary with:<br/>
 <code>python
   for key in dict_name:
-      # Do something with key and dict_name[key]</code><br />
-  or<br />
+      # Do something with key and dict_name[key]</code><br/>
+  or<br/>
 <code>python
   for key, value in dict_name.items():
       # Do something with key and value</code></li>

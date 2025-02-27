@@ -1,0 +1,453 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1 id="python-cheat-sheet">Python Cheat Sheet</h1>
+<p>A Cheat Sheet 📜 to <strong>revise</strong> Python syntax in <strong>less time</strong>. <br/>
+Particularly useful for solving Data Structure and Algorithmic problems.</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#basics">Basics</a></li>
+<li><a href="#data-structures">Data Structures</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#dictionary">Dictionary</a></li>
+<li><a href="#counter">Counter</a></li>
+<li><a href="#deque">Deque</a></li>
+<li><a href="#heapq">Heapq</a></li>
+<li><a href="#sets">Sets</a></li>
+<li><a href="#tuples">Tuples</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#built-in-functions">Built-in Functions</a></li>
+<li><a href="#advanced-topics">Advanced Topics</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+<li><a href="#tips--gotchas">Tips &amp; Gotchas</a></li>
+</ul>
+<h1 id="basics">Basics</h1>
+<h2 id="data-types">Data Types</h2>
+<p><img alt="Python Data Types" src="https://user-images.githubusercontent.com/59110866/173563442-1a6fa3d2-b569-4eb0-99cc-9b91cc8be1eb.png"/></p>
+<h2 id="operator-precedence">Operator Precedence</h2>
+<p><img alt="Python Operators" src="https://user-images.githubusercontent.com/47276307/172329850-61fc0809-a4b0-416c-848b-1c502ecb4772.jpg"/></p>
+<h1 id="data-structures">Data Structures</h1>
+<h2 id="lists">Lists</h2>
+<p>Time Complexities:<br/>
+<img alt="List Operations" src="https://user-images.githubusercontent.com/47276307/172330098-1c5f0a6e-7f80-4f4f-9be6-1d734e2c70cd.jpg"/></p>
+<pre><code class="language-python">nums = [1,2,3]
+
+# Common Operations
+nums.index(1)      # Find index
+nums.append(1)     # Add to end
+nums.insert(0,10)  # Add 10 from left (at index 0 which is start)
+nums.remove(3)     # Remove value
+nums.pop()         # Remove &amp; return last element
+nums.sort()        # In-place sort (TimSort: O(n log n))
+nums.reverse()     # In-place reverse
+nums.copy()        # Return shallow copy
+
+# List Slicing
+nums[start:stop:step]  # Generic slice syntax
+nums[-1]    # Last item
+nums[::-1]  # Reverse list
+nums[1:]    # Everything after index 1
+nums[:3]    # First three elements
+</code></pre>
+<h2 id="dictionary">Dictionary</h2>
+<p>Time Complexities:<br/>
+<img alt="Dictionary Operations" src="https://user-images.githubusercontent.com/47276307/172330107-e68e3228-1c76-4bfb-bb38-04d18f94d5b9.jpg"/></p>
+<pre><code class="language-python">d = {'a':1, 'b':2}
+
+# Essential Operations
+d.get('key', default)     # Safe access with default
+d.setdefault('key', 0)    # Set if missing
+d.items()                 # Key-value pairs
+d.keys()                  # Just keys
+d.values()               # Just values
+d.pop(key)              # Remove and return value
+d.update({key: value})  # Batch update
+
+# Advanced Usage
+from collections import defaultdict
+d = defaultdict(list)     # Auto-initialize missing keys
+d = defaultdict(int)      # Useful for counting
+</code></pre>
+<h2 id="counter">Counter</h2>
+<pre><code class="language-python">from collections import Counter
+
+# Initialize
+c = Counter(['a','a','b'])    # From iterable
+c = Counter("hello")          # From string
+
+# Operations
+c.most_common(2)      # Top 2 frequent elements
+c['a'] += 1           # Increment count
+c.update("more")      # Add counts from iterable
+c.total()             # Sum of all counts
+</code></pre>
+<h2 id="deque">Deque</h2>
+<p>Time Complexities:<br/>
+<img alt="Deque Operations" src="https://user-images.githubusercontent.com/47276307/172330115-78500420-3276-4e45-8ce3-fd668b7eb14e.jpg"/></p>
+<pre><code class="language-python">from collections import deque
+
+# Perfect for BFS - O(1) operations on both ends
+d = deque()
+d.append(1)          # Add right
+d.appendleft(2)      # Add left
+d.pop()              # Remove right
+d.popleft()          # Remove left
+d.extend([1,2,3])    # Extend right
+d.extendleft([1,2,3])# Extend left
+d.rotate(n)          # Rotate n steps right (negative for left)
+</code></pre>
+<h2 id="heapq">Heapq</h2>
+<pre><code class="language-python">import heapq
+
+# MinHeap Operations - All O(log n) except heapify
+nums = [3,1,4,1,5]
+heapq.heapify(nums)          # Convert to heap in-place: O(n)
+heapq.heappush(nums, 2)      # Add element: O(log n)
+smallest = heapq.heappop(nums)  # Remove smallest: O(log n)
+
+# MaxHeap Trick: Multiply by -1
+nums = [-x for x in nums]    # Convert to maxheap: O(n)
+heapq.heapify(nums)          # O(n)
+largest = -heapq.heappop(nums)  # Get largest: O(log n)
+
+# Advanced Operations
+k_largest = heapq.nlargest(k, nums)    # O(n * log k)
+k_smallest = heapq.nsmallest(k, nums)  # O(n * log k)
+
+# Custom Priority Queue
+heap = []
+heapq.heappush(heap, (priority, item))  # Sort by priority
+</code></pre>
+<h2 id="sets">Sets</h2>
+<p>Time Complexities:<br/>
+<img alt="Untitled" src="https://user-images.githubusercontent.com/47276307/172330132-7a785f5f-bbc6-43b9-b82f-794190813787.jpg"/></p>
+<pre><code class="language-python">s = {1,2,3}
+
+# Common Operations
+s.add(4)             # Add element
+s.remove(4)          # Remove (raises error if missing)
+s.discard(4)         # Remove (no error if missing)
+s.pop()              # Remove and return arbitrary element
+
+# Set Operations
+a.union(b)           # Elements in a OR b
+a.intersection(b)    # Elements in a AND b
+a.difference(b)      # Elements in a but NOT in b
+a.symmetric_difference(b)  # Elements in a OR b but NOT both
+a.issubset(b)        # True if all elements of a are in b
+a.issuperset(b)      # True if all elements of b are in a
+</code></pre>
+<h2 id="tuples">Tuples</h2>
+<pre><code class="language-python"># Tuples are immutable lists
+t = (1, 2, 3, 1)
+
+# Essential Operations
+t.count(1)      # Count occurrences of value
+t.index(2)      # Find first index of value
+
+# Useful Patterns
+x, y = (1, 2)   # Tuple unpacking
+coords = [(1,2), (3,4)]  # Tuple in collections
+</code></pre>
+<h2 id="strings">Strings</h2>
+<pre><code class="language-python">s = "hello world"
+
+# Essential Methods
+s.split()            # Split on whitespace
+s.split(',')         # Split on comma
+s.strip()            # Remove leading/trailing whitespace
+s.lower()            # Convert to lowercase
+s.upper()            # Convert to uppercase
+s.isalnum()          # Check if alphanumeric
+s.isalpha()          # Check if alphabetic
+s.isdigit()          # Check if all digits
+s.find('sub')        # Index of substring (-1 if not found)
+s.count('sub')       # Count occurrences
+s.replace('old', 'new')  # Replace all occurrences
+
+# ASCII Conversion
+ord('a')             # Char to ASCII (97)
+chr(97)              # ASCII to char ('a')
+
+# Join Lists
+''.join(['a','b'])   # Concatenate list elements
+</code></pre>
+<h1 id="built-in-functions">Built-in Functions</h1>
+<pre><code class="language-python"># Iteration Helpers
+enumerate(lst)        # Index + value pairs
+zip(lst1, lst2)      # Parallel iteration
+map(fn, lst)         # Apply function to all elements
+filter(fn, lst)      # Keep elements where fn returns True
+any(lst)             # True if any element is True
+all(lst)             # True if all elements are True
+
+# Binary Search (import bisect)
+bisect.bisect(lst, x)     # Find insertion point
+bisect.bisect_left(lst, x)# Find leftmost insertion point
+bisect.insort(lst, x)     # Insert maintaining sort
+
+# Type Conversion
+int('42')            # String to int
+str(42)              # Int to string
+list('abc')          # String to list
+''.join(['a','b'])   # List to string
+set([1,2,2])         # List to set
+
+# Math
+abs(-5)              # Absolute value
+pow(2, 3)            # Power
+round(3.14159, 2)    # Round to decimals
+</code></pre>
+<h1 id="advanced-topics">Advanced Topics</h1>
+<h2 id="custom-sorting-with-cmp_to_key">Custom Sorting with cmp_to_key</h2>
+<pre><code class="language-python">from functools import cmp_to_key
+
+def compare(item1, item2):
+    # Return -1: item1 comes first
+    # Return 1:  item2 comes first
+    # Return 0:  items are equal
+    if item1 &lt; item2:
+        return -1
+    elif item1 &gt; item2:
+        return 1
+    return 0
+
+# Sort using custom comparison
+sorted_list = sorted(items, key=cmp_to_key(compare))
+</code></pre>
+<h2 id="taking-multiple-inputs">Taking Multiple Inputs</h2>
+<pre><code class="language-python"># Basic multiple input
+x, y = input("Enter two values: ").split()
+
+# Multiple integers
+x, y = map(int, input("Enter two numbers: ").split())
+
+# List of integers
+nums = list(map(int, input("Enter numbers: ").split()))
+
+# Multiple inputs with custom separator
+values = input("Enter comma-separated values: ").split(',')
+
+# List comprehension method
+x, y = [int(x) for x in input("Enter two numbers: ").split()]
+</code></pre>
+<h2 id="math-module-essentials">Math Module Essentials</h2>
+<pre><code class="language-python">import math
+
+# Constants
+math.pi       # 3.141592653589793
+math.e        # 2.718281828459045
+
+# Common Functions
+math.ceil(2.3)        # 3 - Smallest integer greater than x
+math.floor(2.3)       # 2 - Largest integer less than x
+math.gcd(a, b)        # Greatest common divisor
+math.log(x, base)     # Logarithm with specified base
+math.sqrt(x)          # Square root
+math.pow(x, y)        # x^y (prefer x ** y for integers)
+
+# Trigonometry
+math.degrees(rad)     # Convert radians to degrees
+math.radians(deg)     # Convert degrees to radians
+</code></pre>
+<h2 id="important-python-integer-operations">Important Python Integer Operations</h2>
+<pre><code class="language-python"># Binary representation
+bin(10)              # '0b1010'
+format(10, 'b')      # '1010' (without prefix)
+
+# Division and Modulo
+divmod(10, 3)        # (3, 1) - returns (quotient, remainder)
+
+# Negative number handling
+x = -3
+y = 2
+print(x // y)        # -2 (floor division)
+print(int(x/y))      # -1 (preferred for negative numbers)
+print(x % y)         # 1 (Python's modulo with negative numbers)
+</code></pre>
+<h1 id="best-practices">Best Practices</h1>
+<h2 id="documentation">Documentation</h2>
+<pre><code class="language-python">def binary_search(arr, target):
+    """
+    Find target in sorted array using binary search.
+    Args:
+        arr: Sorted list of numbers
+        target: Number to find
+    Returns:
+        Index of target or -1 if not found
+    """
+    pass
+</code></pre>
+<h2 id="testing">Testing</h2>
+<pre><code class="language-python"># Use assertions for edge cases
+assert binary_search([], 1) == -1, "Empty array should return -1"
+assert binary_search([1], 1) == 0, "Single element array should work"
+</code></pre>
+<h1 id="tips-gotchas">Tips &amp; Gotchas</h1>
+<ol>
+<li>Integer Division:</li>
+</ol>
+<pre><code class="language-python"># Use int() for consistent negative number handling
+print(-3//2)        # Returns -2
+print(int(-3/2))    # Returns -1 (usually desired)
+</code></pre>
+<ol>
+<li>Default Dictionaries:</li>
+</ol>
+<pre><code class="language-python"># Prefer defaultdict for frequency counting
+from collections import defaultdict
+freq = defaultdict(int)
+for x in lst:
+    freq[x] += 1    # No KeyError if x is new
+</code></pre>
+<ol>
+<li>Heap Priority:</li>
+</ol>
+<pre><code class="language-python"># For custom priority in heapq, use tuples
+heap = []
+heapq.heappush(heap, (priority, item))
+</code></pre>
+<ol>
+<li>List Comprehension:</li>
+</ol>
+<pre><code class="language-python"># Often clearer than map/filter
+squares = [x*x for x in range(10) if x % 2 == 0]
+</code></pre>
+<ol>
+<li>String Building:</li>
+</ol>
+<pre><code class="language-python"># Use join() instead of += for strings
+chars = ['a', 'b', 'c']
+word = ''.join(chars)  # More efficient
+</code></pre>
+<ol>
+<li>Using Sets for Efficiency:</li>
+</ol>
+<pre><code class="language-python"># O(1) lookup for contains operations
+seen = set()
+if x in seen:  # Much faster than list lookup
+    print("Found!")
+</code></pre>
+<ol>
+<li>Custom Sort Keys:</li>
+</ol>
+<pre><code class="language-python"># Sort by length then alphabetically
+words.sort(key=lambda x: (len(x), x))
+</code></pre>
+<ol>
+<li>Default Arguments Warning:</li>
+</ol>
+<pre><code class="language-python"># Don't use mutable defaults
+def bad(lst=[]):     # This can cause bugs
+    lst.append(1)
+    return lst
+
+def good(lst=None):  # Do this instead
+    if lst is None:
+        lst = []
+    lst.append(1)
+    return lst
+</code></pre>
+<hr/>
+<p>Made with ❤️ for fellow leetcoders.</p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

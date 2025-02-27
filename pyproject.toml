@@ -7,6 +7,6 @@ dependencies = [
     "beautifulsoup4>=4.13.3",
     "html2markdown>=0.1.7",
     "html2text>=2024.2.26",
-    "markdown==3.7",
+    "markdown[toc]==3.7",
     "requests>=2.32.3",
 ]

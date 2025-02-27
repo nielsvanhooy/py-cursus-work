@@ -75,11 +75,25 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Python Conditional Exercises</h1>
-<h2>Exercise 1: Temperature Classifier</h2>
+        <div class="markdown-content"><h1 id="python-conditional-exercises">Python Conditional Exercises</h1>
+<h2 id="exercise-1-temperature-classifier">Exercise 1: Temperature Classifier</h2>
 <p>Write a program that asks for a temperature in Celsius and prints a message:</p>
 <ul>
 <li>If temperature is above 30°C: "It's hot!"</li>
@@ -88,9 +102,9 @@
 <li>If temperature is below 10°C: "It's cold!"</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">temperature = float(input(&quot;Enter the temperature in Celsius: &quot;))
+<pre><code class="language-py">temperature = float(input("Enter the temperature in Celsius: "))
 </code></pre>
-<h2>Exercise 2: Grade Calculator</h2>
+<h2 id="exercise-2-grade-calculator">Exercise 2: Grade Calculator</h2>
 <p>Create a program that converts a numerical grade to a letter grade:</p>
 <ul>
 <li>90-100: A</li>
@@ -100,9 +114,9 @@
 <li>Below 60: F</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">score = float(input(&quot;Enter your score (0-100): &quot;))
+<pre><code class="language-py">score = float(input("Enter your score (0-100): "))
 </code></pre>
-<h2>Exercise 3: Simple Calculator</h2>
+<h2 id="exercise-3-simple-calculator">Exercise 3: Simple Calculator</h2>
 <p>Write a calculator program that:</p>
 <ul>
 <li>Asks for two numbers</li>
@@ -111,11 +125,11 @@
 <li>For division, check if the second number is zero and print an error if it is</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">num1 = float(input(&quot;Enter first number: &quot;))
-num2 = float(input(&quot;Enter second number: &quot;))
-operation = input(&quot;Enter operation (+, -, *, /): &quot;)
+<pre><code class="language-py">num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+operation = input("Enter operation (+, -, *, /): ")
 </code></pre>
-<h2>Exercise 4: Password Strength Checker</h2>
+<h2 id="exercise-4-password-strength-checker">Exercise 4: Password Strength Checker</h2>
 <p>Write a program that checks if a password is "Strong", "Medium", or "Weak":</p>
 <ul>
 <li>Strong: 8 or more characters</li>
@@ -123,10 +137,10 @@ operation = input(&quot;Enter operation (+, -, *, /): &quot;)
 <li>Weak: less than 5 characters</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">password = input(&quot;Enter your password: &quot;)
+<pre><code class="language-py">password = input("Enter your password: ")
 password_length = len(password)
 </code></pre>
-<h2>Exercise 5: Movie Ticket Calculator</h2>
+<h2 id="exercise-5-movie-ticket-calculator">Exercise 5: Movie Ticket Calculator</h2>
 <p>Create a program that calculates movie ticket prices based on age:</p>
 <ul>
 <li>Under 5: Free</li>
@@ -136,25 +150,25 @@ password_length = len(password)
 <li>65 and over: $10</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">age = int(input(&quot;Enter your age: &quot;))
+<pre><code class="language-py">age = int(input("Enter your age: "))
 </code></pre>
-<h2>Bonus Challenge: Rock, Paper, Scissors</h2>
+<h2 id="bonus-challenge-rock-paper-scissors">Bonus Challenge: Rock, Paper, Scissors</h2>
 <p>Create a simple rock, paper, scissors game where:</p>
-<p>Ask the player to choose rock, paper, or scissors<br />
-Compare it against a fixed choice (e.g., "rock")<br />
+<p>Ask the player to choose rock, paper, or scissors<br/>
+Compare it against a fixed choice (e.g., "rock")<br/>
 Determine if the player wins, loses, or if it's a tie</p>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">player_choice = input(&quot;Choose rock, paper, or scissors: &quot;).lower()
-computer_choice = &quot;rock&quot;  # Fixed choice for simplicity
+<pre><code class="language-py">player_choice = input("Choose rock, paper, or scissors: ").lower()
+computer_choice = "rock"  # Fixed choice for simplicity
 </code></pre>
-<h2>Practice Tips</h2>
+<h2 id="practice-tips">Practice Tips</h2>
 <ul>
 <li>Test your code with different inputs</li>
 <li>Make sure to handle invalid inputs where necessary</li>
 <li>Pay attention to the indentation of your if/elif/else statements</li>
 <li>Try to make your code readable by using clear variable names</li>
 </ul>
-<p>Solutions Format<br />
+<p>Solutions Format<br/>
 For each exercise, your solution should follow this pattern:</p>
 <ul>
 <li>Get input from the user</li>

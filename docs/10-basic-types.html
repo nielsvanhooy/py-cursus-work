@@ -75,13 +75,27 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Basic (primitive) data types</h1>
-<hr />
-<h2>Basic (primitive) data types</h2>
-<hr />
+        <div class="markdown-content"><h1 id="basic-primitive-data-types">Basic (primitive) data types</h1>
+<hr/>
+<h2 id="basic-primitive-data-types_1">Basic (primitive) data types</h2>
+<hr/>
 <ul>
 <li><code>int</code> (integer)</li>
 <li><code>float</code> (floating point number)</li>
@@ -89,18 +103,18 @@
 <li><code>bool</code> (boolean): yes / no</li>
 <li><code>None</code> : missing / unknown value</li>
 </ul>
-<hr />
-<h2>int and float</h2>
-<hr />
-<p>Integers whole numbers (positive or negative) <br />
-4<br />
-57<br />
+<hr/>
+<h2 id="int-and-float">int and float</h2>
+<hr/>
+<p>Integers whole numbers (positive or negative) <br/>
+4<br/>
+57<br/>
 -10</p>
-<p>Floating point numbers (real numbers)<br />
-3.14<br />
-6.1<br />
-1.3333<br />
-0.0<br />
+<p>Floating point numbers (real numbers)<br/>
+3.14<br/>
+6.1<br/>
+1.3333<br/>
+0.0<br/>
 -1.0</p>
 <p>Example</p>
 <pre><code class="language-py">(7 - 3) * 0.5 / 3.5
@@ -108,59 +122,59 @@
 <p>if i do the following</p>
 <pre><code class="language-py">1.0 + 4
 </code></pre>
-<p>what do you think the result will be?<br />
+<p>what do you think the result will be?<br/>
 and why is the result like this?</p>
-<p>Whenever doing math with both floats and ints, the result is a float. Otherwise, <br />
+<p>Whenever doing math with both floats and ints, the result is a float. Otherwise, <br/>
 we would potentially lose any of our data after the decimal point.</p>
-<hr />
-<h2>order of operations</h2>
-<hr />
-<p>the acronym PEMDAS is a common way to remember the order of operations.<br />
+<hr/>
+<h2 id="order-of-operations">order of operations</h2>
+<hr/>
+<p>the acronym PEMDAS is a common way to remember the order of operations.<br/>
 Parentheses, Exponents, Multiplication and Division (same level), and Addition and Subtraction (same level)</p>
-<p>the symbols used in python are (from PEMDAS):<br />
-- <code>()</code> for Parentheses<br />
-- <code>**</code> for exponentiation<br />
-- <code>*</code> for multiplication<br />
-- <code>/</code> for division<br />
-- <code>+</code> for addition<br />
+<p>the symbols used in python are (from PEMDAS):<br/>
+- <code>()</code> for Parentheses<br/>
+- <code>**</code> for exponentiation<br/>
+- <code>*</code> for multiplication<br/>
+- <code>/</code> for division<br/>
+- <code>+</code> for addition<br/>
 - <code>-</code> for subtraction</p>
-<p>and the special one is "modulo" which is the remainder of a division<br />
+<p>and the special one is "modulo" which is the remainder of a division<br/>
 - <code>%</code> for modulo (remainder)</p>
-<p>also the special one "floor division" which is the result of a division rounded down to the nearest whole number<br />
+<p>also the special one "floor division" which is the result of a division rounded down to the nearest whole number<br/>
 - <code>//</code> for floor division</p>
 <p>Example:</p>
 <pre><code class="language-py">(7 - 3) * 0.5 / 3.5
 </code></pre>
-<hr />
-<h2>str</h2>
-<hr />
+<hr/>
+<h2 id="str">str</h2>
+<hr/>
 <p>A <em>string</em> represents text</p>
 <p>Strings can be enclosed in single or double quotes</p>
-<pre><code class="language-py">greeting = &quot;Hello&quot;
+<pre><code class="language-py">greeting = "Hello"
 name = 'John'
 </code></pre>
-<hr />
-<h2>Building strings</h2>
-<hr />
-<pre><code class="language-py">name = &quot;John&quot;
+<hr/>
+<h2 id="building-strings">Building strings</h2>
+<hr/>
+<pre><code class="language-py">name = "John"
 </code></pre>
 <p>Inserting a variable (f-strings):</p>
-<pre><code class="language-py">message1 = f&quot;Hello, {name}!&quot;
+<pre><code class="language-py">message1 = f"Hello, {name}!"
 </code></pre>
 <p>Joining strings:</p>
-<pre><code class="language-py">message2 = &quot;Hello, &quot; + name + &quot;!&quot;
+<pre><code class="language-py">message2 = "Hello, " + name + "!"
 </code></pre>
 <p>There are several more methods of building strings, but if it was a race. then f-strings have won.</p>
 <p><a href="https://realpython.com/python-string-formatting/">Real python - string formatting</a></p>
-<hr />
-<h2>Strings - escape sequences</h2>
-<hr />
+<hr/>
+<h2 id="strings-escape-sequences">Strings - escape sequences</h2>
+<hr/>
 <p>Problem: how do we include characters like <code>"</code> in a string?</p>
 <p>this is invalid:</p>
-<pre><code class="language-py">text = &quot;He said: &quot;hi!&quot;&quot;
+<pre><code class="language-py">text = "He said: "hi!""
 </code></pre>
 <p>solution:</p>
-<pre><code class="language-py">text = &quot;He said: \&quot;hi!\&quot;&quot;
+<pre><code class="language-py">text = "He said: \"hi!\""
 </code></pre>
 <p>Python treats the sequence <code>\"</code> like a single <code>"</code></p>
 <p>Line break: <code>\n</code></p>
@@ -169,34 +183,34 @@ name = 'John'
 <p>single Backslash: <code>\\</code></p>
 <pre><code class="language-py">b = 'C:\\docs'
 </code></pre>
-<hr />
-<h2>bool</h2>
-<hr />
+<hr/>
+<h2 id="bool">bool</h2>
+<hr/>
 <p>boolean value: yes/no</p>
 <p>In Python: <code>True</code> or <code>False</code></p>
 <p>note the capitalization</p>
-<hr />
-<h2>None</h2>
-<hr />
+<hr/>
+<h2 id="none">None</h2>
+<hr/>
 <p>None represents a value that is unknown or missing</p>
-<pre><code class="language-py">first_name = &quot;John&quot;
+<pre><code class="language-py">first_name = "John"
 middle_name = None
-last_name = &quot;Doe&quot;
+last_name = "Doe"
 </code></pre>
-<hr />
-<h2>Proof of a Primitive Data Type</h2>
-<hr />
-<p>lets say we want to make sure that a variable is of a certain type.<br />
-we can use the <code>isinstance()</code> function (more on that later in the course for now just know this)<br />
+<hr/>
+<h2 id="proof-of-a-primitive-data-type">Proof of a Primitive Data Type</h2>
+<hr/>
+<p>lets say we want to make sure that a variable is of a certain type.<br/>
+we can use the <code>isinstance()</code> function (more on that later in the course for now just know this)<br/>
 <code>isinstante()</code> returns <code>True</code> if the variable is of the type you are checking for. and False if it is not</p>
 <p>lets say we have a variable called:  what_am_i = 5.0</p>
 <pre><code class="language-py">what_am_i = 5.0
 print(isinstance(what_am_i, float))
 </code></pre>
 <p>What do you think the will be the output?</p>
-<p>Just remember that the function <code>isinstance()</code> exists. we are going to use it later. when we learn about control<br />
+<p>Just remember that the function <code>isinstance()</code> exists. we are going to use it later. when we learn about control<br/>
 structures. (if, elif, else, finally)</p>
-<h2>Methods on primitive types</h2>
+<h2 id="methods-on-primitive-types">Methods on primitive types</h2>
 <p>Guide them trough the python website and let them play around with it.</p></div>
 
         <!-- Load Prism.js -->

@@ -75,51 +75,65 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Python Milestone Exercises</h1>
-<p>These exercises are designed to practice the Python concepts you've learned so far, including:<br />
-- Variables and data types<br />
-- Conditional statements (if/elif/else)<br />
-- Logical operators (and, or, not)<br />
-- Lists and list operations<br />
-- Lists of lists<br />
-- Loops (while and for)<br />
-- Input/output<br />
+        <div class="markdown-content"><h1 id="python-milestone-exercises">Python Milestone Exercises</h1>
+<p>These exercises are designed to practice the Python concepts you've learned so far, including:<br/>
+- Variables and data types<br/>
+- Conditional statements (if/elif/else)<br/>
+- Logical operators (and, or, not)<br/>
+- Lists and list operations<br/>
+- Lists of lists<br/>
+- Loops (while and for)<br/>
+- Input/output<br/>
 - String manipulation</p>
 <p>Each exercise builds upon the previous ones and increases slightly in difficulty.</p>
-<hr />
-<h2>Note these exercises can be really hard. The intention of these is to eventually be able to complete them.</h2>
-<h2>If you can complete them. you will have mastery over the basics of python.</h2>
-<h2>I think most will make it to exercise 3. for now. (we will get back later to them)</h2>
-<hr />
-<h2>Exercise 1: Temperature Converter</h2>
-<h3>Instructions:</h3>
-<p>Create a program that converts temperatures between Fahrenheit and Celsius.<br />
-1. Ask the user to choose conversion direction (F to C or C to F)<br />
-2. Ask for the temperature to convert<br />
-3. Display the converted temperature<br />
+<hr/>
+<h2 id="note-these-exercises-can-be-really-hard-the-intention-of-these-is-to-eventually-be-able-to-complete-them">Note these exercises can be really hard. The intention of these is to eventually be able to complete them.</h2>
+<h2 id="if-you-can-complete-them-you-will-have-mastery-over-the-basics-of-python">If you can complete them. you will have mastery over the basics of python.</h2>
+<h2 id="i-think-most-will-make-it-to-exercise-3-for-now-we-will-get-back-later-to-them">I think most will make it to exercise 3. for now. (we will get back later to them)</h2>
+<hr/>
+<h2 id="exercise-1-temperature-converter">Exercise 1: Temperature Converter</h2>
+<h3 id="instructions">Instructions:</h3>
+<p>Create a program that converts temperatures between Fahrenheit and Celsius.<br/>
+1. Ask the user to choose conversion direction (F to C or C to F)<br/>
+2. Ask for the temperature to convert<br/>
+3. Display the converted temperature<br/>
 4. Ask if they want to convert another temperature</p>
-<h3>Conversion Formulas:</h3>
+<h3 id="conversion-formulas">Conversion Formulas:</h3>
 <ul>
 <li>Fahrenheit to Celsius: <code>C = (F - 32) * 5/9</code></li>
 <li>Celsius to Fahrenheit: <code>F = (C * 9/5) + 32</code></li>
 </ul>
-<h3>Starter Code:</h3>
+<h3 id="starter-code">Starter Code:</h3>
 <pre><code class="language-python"># ===== EXERCISE 1: TEMPERATURE CONVERTER =====
 
 
-print(&quot;=== TEMPERATURE CONVERTER ===&quot;)
-print(&quot;Convert between Fahrenheit and Celsius!&quot;)
+print("=== TEMPERATURE CONVERTER ===")
+print("Convert between Fahrenheit and Celsius!")
 
 continue_converting = True
 
 while continue_converting:
    # Get conversion direction
-   print(&quot;\nConversion options:&quot;)
-   print(&quot;1. Fahrenheit to Celsius&quot;)
-   print(&quot;2. Celsius to Fahrenheit&quot;)
+   print("\nConversion options:")
+   print("1. Fahrenheit to Celsius")
+   print("2. Celsius to Fahrenheit")
 
    # TODO: Check the user's choice and perform the appropriate conversion
    # ask for input
@@ -128,39 +142,39 @@ while continue_converting:
    # TODO: Ask if the user wants to convert another temperature
    # Set continue_converting to False if they don't
 
-print(&quot;Thank you for using Temperature Converter!&quot;)
+print("Thank you for using Temperature Converter!")
 
 </code></pre>
-<h2>Exercise 2: Word Counter</h2>
-<h3>Instructions:</h3>
-<p>Create a program that analyzes text input.<br />
-1. Ask the user to enter a sentence or paragraph<br />
-2. Count and display:<br />
-   - Total number of characters<br />
-   - Total number of words<br />
-   - Average word length<br />
+<h2 id="exercise-2-word-counter">Exercise 2: Word Counter</h2>
+<h3 id="instructions_1">Instructions:</h3>
+<p>Create a program that analyzes text input.<br/>
+1. Ask the user to enter a sentence or paragraph<br/>
+2. Count and display:<br/>
+   - Total number of characters<br/>
+   - Total number of words<br/>
+   - Average word length<br/>
 3. Ask if they want to analyze another text</p>
-<h3>Hints:</h3>
+<h3 id="hints">Hints:</h3>
 <ul>
 <li>Use <code>len()</code> to count characters</li>
 <li>Use <code>string.split()</code> to split text into words</li>
 <li>Calculate average word length by dividing total character count (excluding spaces) by word count</li>
 </ul>
-<h3>Starter Code:</h3>
+<h3 id="starter-code_1">Starter Code:</h3>
 <pre><code class="language-python"># ===== EXERCISE 2: WORD COUNTER =====
 
 
-print(&quot;=== WORD COUNTER ===&quot;)
-print(&quot;Analyze text to count words and characters!&quot;)
+print("=== WORD COUNTER ===")
+print("Analyze text to count words and characters!")
 
 analyze_again = True
 
 while analyze_again:
    # Get text from user
-   text = input(&quot;\nEnter a sentence or paragraph to analyze: &quot;)
+   text = input("\nEnter a sentence or paragraph to analyze: ")
 
-   if text == &quot;&quot;:
-     print(&quot;Please enter some text to analyze!&quot;)
+   if text == "":
+     print("Please enter some text to analyze!")
      continue
 
    # TODO: Count the total number of characters
@@ -174,25 +188,25 @@ while analyze_again:
    # TODO: Ask if the user wants to analyze another text
    # Set analyze_again to False if they don't
 
-print(&quot;Thank you for using Word Counter!&quot;)
+print("Thank you for using Word Counter!")
 
 </code></pre>
-<h2>Exercise 3: To-Do List Manager</h2>
-<h3>Instructions:</h3>
-<p>Create a program that manages a simple to-do list.<br />
-1. Display a menu with options<br />
-2. Allow the user to add tasks with priority levels<br />
-3. View tasks sorted by priority<br />
-4. Mark tasks as completed<br />
+<h2 id="exercise-3-to-do-list-manager">Exercise 3: To-Do List Manager</h2>
+<h3 id="instructions_2">Instructions:</h3>
+<p>Create a program that manages a simple to-do list.<br/>
+1. Display a menu with options<br/>
+2. Allow the user to add tasks with priority levels<br/>
+3. View tasks sorted by priority<br/>
+4. Mark tasks as completed<br/>
 5. View only completed or uncompleted tasks</p>
-<h3>Hints:</h3>
+<h3 id="hints_1">Hints:</h3>
 <ul>
 <li>Use a list of lists to store tasks: <code>[task_description, priority, completed]</code></li>
 <li>For priority, use "High", "Medium", or "Low"</li>
 <li>For completed status, use a boolean value (True/False)</li>
 <li>Use the <code>sorted()</code> function with a key to sort tasks by priority</li>
 </ul>
-<h3>Starter Code:</h3>
+<h3 id="starter-code_2">Starter Code:</h3>
 <pre><code class="language-python"># ===== EXERCISE 3: TO-DO LIST MANAGER =====
 
 def todo_manager():
@@ -200,93 +214,93 @@ def todo_manager():
     # Format: [task, priority, completed]
     todos = []
 
-    print(&quot;=== TO-DO LIST MANAGER ===&quot;)
-    print(&quot;Keep track of your tasks and priorities!&quot;)
+    print("=== TO-DO LIST MANAGER ===")
+    print("Keep track of your tasks and priorities!")
 
     while True:
         # Display menu
-        print(&quot;\nWhat would you like to do?&quot;)
-        print(&quot;1. Add a task&quot;)
-        print(&quot;2. View all tasks&quot;)
-        print(&quot;3. View by completion status&quot;)
-        print(&quot;4. Mark task as completed&quot;)
-        print(&quot;5. Exit&quot;)
+        print("\nWhat would you like to do?")
+        print("1. Add a task")
+        print("2. View all tasks")
+        print("3. View by completion status")
+        print("4. Mark task as completed")
+        print("5. Exit")
 
         # Get user choice
-        choice = input(&quot;Enter your choice (1-5): &quot;)
+        choice = input("Enter your choice (1-5): ")
 
-        if choice == &quot;1&quot;:
+        if choice == "1":
             # TODO: Add a new task
             # Ask for task description and priority
             # Add the task to the todos list
             pass
 
-        elif choice == &quot;2&quot;:
+        elif choice == "2":
             # TODO: View all tasks
             # Display tasks sorted by priority
             pass
 
-        elif choice == &quot;3&quot;:
+        elif choice == "3":
             # TODO: View by completion status
             # Ask the user whether to view completed or pending tasks
             # Display the appropriate tasks
             pass
 
-        elif choice == &quot;4&quot;:
+        elif choice == "4":
             # TODO: Mark task as completed
             # Show pending tasks
             # Ask user which task to mark as completed
             pass
 
-        elif choice == &quot;5&quot;:
+        elif choice == "5":
             # TODO: Exit the program
             pass
 
         else:
-            print(&quot;Invalid choice! Please enter a number between 1 and 5.&quot;)
+            print("Invalid choice! Please enter a number between 1 and 5.")
 
 # Run this program by removing the comment symbol (#) from the line below
 # todo_manager()
 </code></pre>
-<h2>Exercise 4: Simple Quiz Game</h2>
-<h3>Instructions:</h3>
-<p>Create a simple quiz game with multiple-choice questions.<br />
-1. Store questions, options, and answers in a list of lists<br />
-2. Present questions to the user<br />
-3. Check their answers and keep score<br />
+<h2 id="exercise-4-simple-quiz-game">Exercise 4: Simple Quiz Game</h2>
+<h3 id="instructions_3">Instructions:</h3>
+<p>Create a simple quiz game with multiple-choice questions.<br/>
+1. Store questions, options, and answers in a list of lists<br/>
+2. Present questions to the user<br/>
+3. Check their answers and keep score<br/>
 4. Display final score and percentage</p>
-<h3>Hints:</h3>
+<h3 id="hints_2">Hints:</h3>
 <ul>
 <li>Format each question as: <code>[question_text, [options], correct_answer_index]</code></li>
 <li>Remember that list indices start at 0, but users will enter 1-based answers</li>
 </ul>
-<h3>Starter Code:</h3>
+<h3 id="starter-code_3">Starter Code:</h3>
 <pre><code class="language-python"># ===== EXERCISE 4: SIMPLE QUIZ GAME =====
 
 def quiz_game():
     # Quiz questions format: [question, [options], correct_answer_index]
     quiz_questions = [
-        [&quot;What is the capital of France?&quot;, 
-         [&quot;London&quot;, &quot;Berlin&quot;, &quot;Paris&quot;, &quot;Madrid&quot;], 
+        ["What is the capital of France?", 
+         ["London", "Berlin", "Paris", "Madrid"], 
          2],  # Index 2 is Paris
 
-        [&quot;Which planet is known as the Red Planet?&quot;, 
-         [&quot;Venus&quot;, &quot;Mars&quot;, &quot;Jupiter&quot;, &quot;Saturn&quot;], 
+        ["Which planet is known as the Red Planet?", 
+         ["Venus", "Mars", "Jupiter", "Saturn"], 
          1],  # Index 1 is Mars
 
-        [&quot;Which of these is NOT a programming language?&quot;, 
-         [&quot;Python&quot;, &quot;Java&quot;, &quot;HTML&quot;, &quot;Cobra&quot;], 
+        ["Which of these is NOT a programming language?", 
+         ["Python", "Java", "HTML", "Cobra"], 
          3],  # Index 3 is Cobra
 
-        [&quot;What does CPU stand for?&quot;, 
-         [&quot;Central Processing Unit&quot;, &quot;Computer Personal Unit&quot;, 
-          &quot;Central Processor Utility&quot;, &quot;Central Program Unit&quot;], 
+        ["What does CPU stand for?", 
+         ["Central Processing Unit", "Computer Personal Unit", 
+          "Central Processor Utility", "Central Program Unit"], 
          0]   # Index 0 is Central Processing Unit
     ]
 
-    print(&quot;=== SIMPLE QUIZ GAME ===&quot;)
-    print(f&quot;This quiz has {len(quiz_questions)} multiple-choice questions.&quot;)
-    print(&quot;Let's see how well you do!&quot;)
+    print("=== SIMPLE QUIZ GAME ===")
+    print(f"This quiz has {len(quiz_questions)} multiple-choice questions.")
+    print("Let's see how well you do!")
 
     # TODO: Initialize score
 
@@ -301,26 +315,26 @@ def quiz_game():
 # Run this program by removing the comment symbol (#) from the line below
 # quiz_game()
 </code></pre>
-<h2>Exercise 5: Hangman Game</h2>
-<h3>Instructions:</h3>
-<p>Create a simple Hangman game where:<br />
-1. The program selects a random word from a predefined list<br />
-2. The player tries to guess the word one letter at a time<br />
-3. The program keeps track of correct and incorrect guesses<br />
+<h2 id="exercise-5-hangman-game">Exercise 5: Hangman Game</h2>
+<h3 id="instructions_4">Instructions:</h3>
+<p>Create a simple Hangman game where:<br/>
+1. The program selects a random word from a predefined list<br/>
+2. The player tries to guess the word one letter at a time<br/>
+3. The program keeps track of correct and incorrect guesses<br/>
 4. The player has a limited number of wrong guesses</p>
-<h3>Hints:</h3>
+<h3 id="hints_3">Hints:</h3>
 <ul>
 <li>Use the <code>random</code> module to select a random word</li>
 <li>Use a list to keep track of guessed letters</li>
 <li>Use a loop to check each letter of the word</li>
 </ul>
-<h3>Starter Code:</h3>
+<h3 id="starter-code_4">Starter Code:</h3>
 <pre><code class="language-python"># ===== EXERCISE 5: HANGMAN GAME =====
 
 def hangman():
     # List of words to choose from
-    words = [&quot;python&quot;, &quot;programming&quot;, &quot;computer&quot;, &quot;keyboard&quot;, &quot;developer&quot;, 
-             &quot;learning&quot;, &quot;algorithm&quot;, &quot;variable&quot;, &quot;condition&quot;, &quot;function&quot;]
+    words = ["python", "programming", "computer", "keyboard", "developer", 
+             "learning", "algorithm", "variable", "condition", "function"]
 
     # Import random module for word selection
     import random
@@ -329,8 +343,8 @@ def hangman():
 
     # TODO: Initialize variables to track guessed letters and wrong guesses
 
-    print(&quot;=== HANGMAN GAME ===&quot;)
-    print(&quot;Guess the word! You can make 6 wrong guesses.&quot;)
+    print("=== HANGMAN GAME ===")
+    print("Guess the word! You can make 6 wrong guesses.")
 
     # TODO: Implement the game loop
     # Display the word with guessed letters
@@ -339,44 +353,44 @@ def hangman():
     # Update wrong guesses count if needed
     # Check for win/loss conditions
 
-    print(&quot;Thanks for playing Hangman!&quot;)
+    print("Thanks for playing Hangman!")
 
 # Run this program by removing the comment symbol (#) from the line below
 # hangman()
 </code></pre>
-<h2>Exercise 6: Tic-Tac-Toe Game</h2>
-<h3>Instructions:</h3>
-<p>Create a two-player Tic-Tac-Toe game where:<br />
-1. The game board is displayed as a 3x3 grid<br />
-2. Two players take turns placing X and O<br />
-3. The program checks for wins and draws<br />
+<h2 id="exercise-6-tic-tac-toe-game">Exercise 6: Tic-Tac-Toe Game</h2>
+<h3 id="instructions_5">Instructions:</h3>
+<p>Create a two-player Tic-Tac-Toe game where:<br/>
+1. The game board is displayed as a 3x3 grid<br/>
+2. Two players take turns placing X and O<br/>
+3. The program checks for wins and draws<br/>
 4. Players can play multiple rounds</p>
-<h3>Hints:</h3>
+<h3 id="hints_4">Hints:</h3>
 <ul>
 <li>Use a list of lists to represent the 3x3 board</li>
 <li>Remember to check for horizontal, vertical, and diagonal wins</li>
 <li>Keep track of whose turn it is</li>
 </ul>
-<h3>Starter Code:</h3>
+<h3 id="starter-code_5">Starter Code:</h3>
 <pre><code class="language-python"># ===== EXERCISE 6: TIC-TAC-TOE GAME =====
 
 def tic_tac_toe():
-    print(&quot;=== TIC-TAC-TOE GAME ===&quot;)
-    print(&quot;Two players take turns placing X and O on the board.&quot;)
+    print("=== TIC-TAC-TOE GAME ===")
+    print("Two players take turns placing X and O on the board.")
 
     play_again = True
 
     while play_again:
         # Initialize empty 3x3 board
-        # Use list of lists, each position contains &quot; &quot;, &quot;X&quot;, or &quot;O&quot;
+        # Use list of lists, each position contains " ", "X", or "O"
         board = [
-            [&quot; &quot;, &quot; &quot;, &quot; &quot;],
-            [&quot; &quot;, &quot; &quot;, &quot; &quot;],
-            [&quot; &quot;, &quot; &quot;, &quot; &quot;]
+            [" ", " ", " "],
+            [" ", " ", " "],
+            [" ", " ", " "]
         ]
 
         # Track current player (X goes first)
-        current_player = &quot;X&quot;
+        current_player = "X"
 
         # TODO: Implement the game loop
         # Display the current board
@@ -389,12 +403,12 @@ def tic_tac_toe():
         # TODO: Ask if players want to play again
         # Set play_again to False if they don't
 
-    print(&quot;Thanks for playing Tic-Tac-Toe!&quot;)
+    print("Thanks for playing Tic-Tac-Toe!")
 
 # Run this program by removing the comment symbol (#) from the line below
 # tic_tac_toe()
 </code></pre>
-<h2>Challenge Ideas</h2>
+<h2 id="challenge-ideas">Challenge Ideas</h2>
 <p>Once you've completed the exercises, try extending them with these challenges:</p>
 <ol>
 <li>

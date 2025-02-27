@@ -75,11 +75,25 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Python List Slicing Exercises</h1>
-<h2>Basic Level</h2>
+        <div class="markdown-content"><h1 id="python-list-slicing-exercises">Python List Slicing Exercises</h1>
+<h2 id="basic-level">Basic Level</h2>
 <ol>
 <li><strong>Basic List Slicing</strong></li>
 </ol>
@@ -102,7 +116,7 @@ numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90]
 <li><strong>Simple Slice Operations</strong></li>
 </ol>
 <pre><code class="language-py"># Given: 
-colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;purple&quot;, &quot;orange&quot;]
+colors = ["red", "blue", "green", "yellow", "purple", "orange"]
 # Write code to:
 # - Get colors from index 1 to 4 (inclusive)
 # - Get the last four colors using negative indexing
@@ -116,7 +130,7 @@ colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quo
 # ['yellow', 'purple', 'orange']
 # ['blue', 'green', 'yellow', 'purple']
 </code></pre>
-<h2>Intermediate Level</h2>
+<h2 id="intermediate-level">Intermediate Level</h2>
 <ol>
 <li><strong>Reverse Slicing</strong></li>
 </ol>
@@ -136,7 +150,7 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 <li><strong>Mixed Data Slicing</strong></li>
 </ol>
 <pre><code class="language-py"># Given: 
-mixed = [1, &quot;A&quot;, 2, &quot;B&quot;, 3, &quot;C&quot;, 4, &quot;D&quot;, 5, &quot;E&quot;]
+mixed = [1, "A", 2, "B", 3, "C", 4, "D", 5, "E"]
 # Write code to:
 # - Get all numbers (using step slicing)
 # - Get all letters (using step slicing)
@@ -146,7 +160,7 @@ mixed = [1, &quot;A&quot;, 2, &quot;B&quot;, 3, &quot;C&quot;, 4, &quot;D&quot;,
 
 
 </code></pre>
-<h2>Advanced Level</h2>
+<h2 id="advanced-level">Advanced Level</h2>
 <ol>
 <li><strong>Nested List Slicing</strong></li>
 </ol>
@@ -172,10 +186,10 @@ matrix = [
 </ol>
 <pre><code class="language-py"># Given: 
 data = [
-    [&quot;Jan&quot;, [1, 2, 3]],
-    [&quot;Feb&quot;, [4, 5, 6]],
-    [&quot;Mar&quot;, [7, 8, 9]],
-    [&quot;Apr&quot;, [10, 11, 12]]
+    ["Jan", [1, 2, 3]],
+    ["Feb", [4, 5, 6]],
+    ["Mar", [7, 8, 9]],
+    ["Apr", [10, 11, 12]]
 ]
 # Write code to:
 # - Get the first two months' names only
@@ -186,7 +200,7 @@ data = [
 
 
 </code></pre>
-<h2>Bonus Challenge</h2>
+<h2 id="bonus-challenge">Bonus Challenge</h2>
 <ol>
 <li><strong>Advanced Matrix Operations</strong></li>
 </ol>
@@ -205,21 +219,21 @@ cube = [
 
 
 </code></pre>
-<h2>Practice Tips</h2>
-<p>Before writing code:<br />
-   - Write down what you expect the slice notation to do<br />
-   - Predict the output<br />
+<h2 id="practice-tips">Practice Tips</h2>
+<p>Before writing code:<br/>
+   - Write down what you expect the slice notation to do<br/>
+   - Predict the output<br/>
    - Consider edge cases</p>
-<p>Common slicing patterns:<br />
-   - <code>list[start:end]</code> - Elements from start to end-1<br />
-   - <code>list[start:]</code> - Elements from start to the end<br />
-   - <code>list[:end]</code> - Elements from beginning to end-1<br />
-   - <code>list[::step]</code> - Every step-th element<br />
+<p>Common slicing patterns:<br/>
+   - <code>list[start:end]</code> - Elements from start to end-1<br/>
+   - <code>list[start:]</code> - Elements from start to the end<br/>
+   - <code>list[:end]</code> - Elements from beginning to end-1<br/>
+   - <code>list[::step]</code> - Every step-th element<br/>
    - <code>list[::-1]</code> - Reverse the list</p>
-<p>Remember:<br />
-   - Negative indices count from the end<br />
-   - The end index is exclusive<br />
-   - Step can be negative for reverse direction<br />
+<p>Remember:<br/>
+   - Negative indices count from the end<br/>
+   - The end index is exclusive<br/>
+   - Step can be negative for reverse direction<br/>
    - Slicing never raises an IndexError</p></div>
 
         <!-- Load Prism.js -->

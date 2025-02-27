@@ -75,11 +75,25 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Installation on Windows / Macos / and setting up Pycharm</h1>
-<hr />
+        <div class="markdown-content"><h1 id="installation-on-windows-macos-and-setting-up-pycharm">Installation on Windows / Macos / and setting up Pycharm</h1>
+<hr/>
 <p>Download from <a href="https://python.org">https://python.org</a></p>
 <p>during installation, check the option "Add Python 3.x to PATH"</p>
 <!--
@@ -89,10 +103,9 @@ why not use windows store version?
   manual fix: regedit: set `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled` to `1`
 - does not put executables on PATH (instead of "flask" we have to run "python -m flask")
 -->
-
-<hr />
-<h2>Installation on Windows</h2>
-<hr />
+<hr/>
+<h2 id="installation-on-windows">Installation on Windows</h2>
+<hr/>
 <p>open an administrator privilege shell (like terminal) start menu. type in terminal. right click run as administrator</p>
 <p>type in</p>
 <pre><code class="language-sh">wsl --install
@@ -101,12 +114,12 @@ why not use windows store version?
 <p>again: open an administrator privilege shell (like terminal) start menu. type in terminal. right click run as administrator</p>
 <pre><code class="language-sh">wsl --install -d Ubuntu
 </code></pre>
-<p>you get a question about username and password.<br />
+<p>you get a question about username and password.<br/>
 for both use your <code>ruisnaam</code></p>
-<hr />
-<h2>Setup Ubuntu Windows</h2>
-<hr />
-<p>When done. open start menu and type ubuntu. Click on it.<br />
+<hr/>
+<h2 id="setup-ubuntu-windows">Setup Ubuntu Windows</h2>
+<hr/>
+<p>When done. open start menu and type ubuntu. Click on it.<br/>
 You are now presented with a new shell. Type the following</p>
 <pre><code class="language-sh">sudo apt update
 sudo apt upgrade
@@ -115,18 +128,18 @@ libbz2-dev libreadline-dev libsqlite3-dev curl git \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 </code></pre>
 <p>press Y when asked.</p>
-<hr />
-<h2>Setup Pyenv</h2>
-<hr />
+<hr/>
+<h2 id="setup-pyenv">Setup Pyenv</h2>
+<hr/>
 <p>now we install <code>pyenv</code></p>
 <pre><code class="language-sh">curl -fsSL https://pyenv.run | bash
 </code></pre>
 <p>when its done we do the following</p>
-<pre><code class="language-sh">echo 'export PYENV_ROOT=&quot;$HOME/.pyenv&quot;' &gt;&gt; ~/.bashrc
-echo '[[ -d $PYENV_ROOT/bin ]] &amp;&amp; export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;' &gt;&gt; ~/.bashrc
-echo 'eval &quot;$(pyenv init - bash)&quot;' &gt;&gt; ~/.bashrc
+<pre><code class="language-sh">echo 'export PYENV_ROOT="$HOME/.pyenv"' &gt;&gt; ~/.bashrc
+echo '[[ -d $PYENV_ROOT/bin ]] &amp;&amp; export PATH="$PYENV_ROOT/bin:$PATH"' &gt;&gt; ~/.bashrc
+echo 'eval "$(pyenv init - bash)"' &gt;&gt; ~/.bashrc
 </code></pre>
-<p>close your ubuntu shell and start a new one.<br />
+<p>close your ubuntu shell and start a new one.<br/>
 check if pyenv gives output. you should see the following</p>
 <pre><code class="language-sh">pyenv
 pyenv 2.5.1
@@ -139,37 +152,37 @@ Usage: pyenv &lt;command&gt; [&lt;args&gt;]
 <pre><code class="language-sh">pyenv global 3.13.0
 </code></pre>
 <p>--- nieuwe steps vanaf Jan  Eelke heeft deze al gedaan</p>
-<h2>Setup uv</h2>
+<h2 id="setup-uv">Setup uv</h2>
 <pre><code class="language-sh">curl -LsSf https://astral.sh/uv/install.sh | sh &gt;/dev/null 2&gt;&amp;1
 </code></pre>
-<hr />
-<h2>How to get to your ubuntu files from windows</h2>
-<hr />
+<hr/>
+<h2 id="how-to-get-to-your-ubuntu-files-from-windows">How to get to your ubuntu files from windows</h2>
+<hr/>
 <ul>
 <li>folder name is called Linux (scroll way down) -&gt; ubuntu -&gt; home -&gt; username -&gt; git</li>
 </ul>
-<hr />
-<h2>Getting the exercises repo, and course repo</h2>
-<hr />
-<p>In the browser go to git.kpn.org.<br />
+<hr/>
+<h2 id="getting-the-exercises-repo-and-course-repo">Getting the exercises repo, and course repo</h2>
+<hr/>
+<p>In the browser go to git.kpn.org.<br/>
 Login with your kpn credentials (ruisnaam en password).</p>
-<p>At the top click Projects.<br />
+<p>At the top click Projects.<br/>
 in the searchbar type:  A-Team</p>
 <p>scroll down to either of these projects:</p>
 <ul>
 <li>python-cursus</li>
 <li>python-cursus-exercises</li>
 </ul>
-<p>Click project. Then in the left bar select the computer with an arrow down symbol.<br />
+<p>Click project. Then in the left bar select the computer with an arrow down symbol.<br/>
 Switch from SSH to HTTP. copy the url</p>
-<p>We will use git to get the exercises repository that i made.<br />
+<p>We will use git to get the exercises repository that i made.<br/>
 We are going to use "Git" for this.  (dont be afraid we will only use git pull and git update when needed)</p>
 <ul>
 <li>git clone      (downloads a copy of a project that you or someone else created)</li>
 <li>git pull       (updates the project with the latest changes) </li>
 </ul>
-<p>In WSL (or on mac) we create a new dir called: git<br />
-- my personal recommendation for this is to create a new folder in your home dir called git<br />
+<p>In WSL (or on mac) we create a new dir called: git<br/>
+- my personal recommendation for this is to create a new folder in your home dir called git<br/>
 - yes there are some people that object to this but for now it is fine.</p>
 <p>navigate to your home folder:</p>
 <pre><code class="language-sh">cd ~/git
@@ -177,28 +190,28 @@ We are going to use "Git" for this.  (dont be afraid we will only use git pull a
 git clone https://git.kpn.org/scm/ateam/python-cursus.git
 git clone https://git.kpn.org/scm/ateam/python-cursus-exercises.git
 </code></pre>
-<hr />
-<h2>Setup Pycharm</h2>
-<hr />
-<p>download url<br />
+<hr/>
+<h2 id="setup-pycharm">Setup Pycharm</h2>
+<hr/>
+<p>download url<br/>
 - https://www.jetbrains.com/pycharm/</p>
-<p>During installation you get a windows with certain install options:<br />
-- update context menu: yes<br />
-- create associations: yes<br />
+<p>During installation you get a windows with certain install options:<br/>
+- update context menu: yes<br/>
+- create associations: yes<br/>
 - update PAth variable: yes</p>
 <p>when all is said and done we open Pycharm</p>
-<p>we go to settings -&gt; project -&gt; python interpreter -&gt; add interpreter (to the top right) -&gt; on wsl<br />
+<p>we go to settings -&gt; project -&gt; python interpreter -&gt; add interpreter (to the top right) -&gt; on wsl<br/>
 now we look carefully. ill show you the path to the python interpreter.</p>
-<p>when we have selected the interpreter we press ok. and we are done.<br />
-then we go to settings new project -&gt; python -&gt; create new project -&gt; select the interpreter we just added -&gt; create<br />
+<p>when we have selected the interpreter we press ok. and we are done.<br/>
+then we go to settings new project -&gt; python -&gt; create new project -&gt; select the interpreter we just added -&gt; create<br/>
 make sure to name the project  python-cursus-niels.</p>
-<p>then again we go to settings -&gt; type in the top left search bar. shell path. it should go to and highlight this field.<br />
+<p>then again we go to settings -&gt; type in the top left search bar. shell path. it should go to and highlight this field.<br/>
 we type in:  wsl.exe</p>
 <p>when we have done this we can start coding.</p>
 <p>new project.  locatie veranderen naar \wsl.localhost\Ubuntu\home\username\git\my_firstproject</p>
 <p>vink niet aan create git repo en ook neit create welcome script</p>
-<p>interpreter type custom environment.<br />
-type python<br />
+<p>interpreter type custom environment.<br/>
+type python<br/>
 python path (hierin zou je zichtbaar \home\user\bin\python moeten zien staan.)</p>
 <p>open de exercisees repo. settings. interpreter. add exising. navigeer naar folder maar in windows moet je een . zetten om de hidden venv folder te zien.</p></div>
 

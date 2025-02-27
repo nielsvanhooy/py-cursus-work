@@ -75,35 +75,49 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h2>Beginner Exercises</h2>
-<h3>Exercise 1: Print Numbers from 1 to 10</h3>
-<h4>Description</h4>
-<p>Write a program that uses a <code>while</code> loop to print the numbers from 1 to 10.<br />
+        <div class="markdown-content"><h2 id="beginner-exercises">Beginner Exercises</h2>
+<h3 id="exercise-1-print-numbers-from-1-to-10">Exercise 1: Print Numbers from 1 to 10</h3>
+<h4 id="description">Description</h4>
+<p>Write a program that uses a <code>while</code> loop to print the numbers from 1 to 10.<br/>
 Note: you need something to keep track with a while loop.</p>
-<hr />
-<h3>Exercise 2: Guess the Number</h3>
-<h4>Description</h4>
-<p>Write a program that lets the user guess a number between 1 and 10. <br />
+<hr/>
+<h3 id="exercise-2-guess-the-number">Exercise 2: Guess the Number</h3>
+<h4 id="description_1">Description</h4>
+<p>Write a program that lets the user guess a number between 1 and 10. <br/>
 The program should keep asking until the user guesses correctly.</p>
-<p>hint:<br />
+<p>hint:<br/>
 you can use the following to get a random number between 1 and 10.</p>
 <pre><code class="language-python">import random
 secret_number = random.randint(1, 10)
 </code></pre>
-<hr />
-<h2>Intermediate Exercises</h2>
-<h3>Exercise 4: Countdown Timer</h3>
-<h4>Description</h4>
-<p>Create a program that asks the user to enter a number and then counts down to zero, <br />
+<hr/>
+<h2 id="intermediate-exercises">Intermediate Exercises</h2>
+<h3 id="exercise-4-countdown-timer">Exercise 4: Countdown Timer</h3>
+<h4 id="description_2">Description</h4>
+<p>Create a program that asks the user to enter a number and then counts down to zero, <br/>
 printing each number. When it reaches zero, print "Time's up!".</p>
-<hr />
-<h3>Exercise 4: Shopping List</h3>
-<h4>Description</h4>
+<hr/>
+<h3 id="exercise-4-shopping-list">Exercise 4: Shopping List</h3>
+<h4 id="description_3">Description</h4>
 <p>Create a shopping list program where users can continuously add items to their list. The program should allow users to type "done" when they finish adding items. Finally, print the full shopping list.</p>
-<h2>Hints</h2>
+<h2 id="hints">Hints</h2>
 <ul>
 <li>Remember that a while loop runs as long as a condition is True. Be careful to update your condition inside the loop to prevent infinite loops.</li>
 <li>User Input: Always ensure that inputs are converted to the correct type (e.g., int(input(...)) if working with numbers).</li>

@@ -75,34 +75,48 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h2>Loops</h2>
+        <div class="markdown-content"><h2 id="loops">Loops</h2>
 <p>Life is full of routines. In programming we also do lots of repetitive tasks. In order to handle repetitive task programming languages use loops. Python programming language also provides the following types of two loops:</p>
 <ol>
 <li>while loop</li>
 <li>for loop</li>
 </ol>
-<h3>While Loop</h3>
+<h3 id="while-loop">While Loop</h3>
 <p>if we think back to the if/elif/else lesson </p>
 <pre><code class="language-shell"># syntax
 if &lt;condition&gt;:
     &lt;expression&gt;
 </code></pre>
-<p>When <code>&lt;condition&gt;</code> is evaluated by Python, it’ll become either True or False (Booleans). <br />
-Thus, if the condition is True (i.e, it is met), the <code>&lt;expression&gt;</code> will be executed, <br />
-but if <condition> is False (i.e., it is not met), the <code>&lt;expression&gt;</code> won’t be executed.</p>
+<p>When <code>&lt;condition&gt;</code> is evaluated by Python, it’ll become either True or False (Booleans). <br/>
+Thus, if the condition is True (i.e, it is met), the <code>&lt;expression&gt;</code> will be executed, <br/>
+but if <condition> is False (i.e., it is not met), the <code>&lt;expression&gt;</code> won’t be executed.</condition></p>
 <p><code>while</code> loops are bit of the same.</p>
-<p>We use the reserved word <code>while</code> to make a while loop. <br />
-It is used to execute a block of statements repeatedly until a given condition is satisfied. <br />
+<p>We use the reserved word <code>while</code> to make a while loop. <br/>
+It is used to execute a block of statements repeatedly until a given condition is satisfied. <br/>
 When the condition becomes false, the lines of code after the loop will be continued to be executed.</p>
-<p>looping in programming is also called "iteration". <br />
-and the thing you are going to loop over is called an "iterable" <br />
+<p>looping in programming is also called "iteration". <br/>
+and the thing you are going to loop over is called an "iterable" <br/>
 so what things we learned up until now are "iterables" ??</p>
-<p>another way to think of it is iterating over sequences.<br />
+<p>another way to think of it is iterating over sequences.<br/>
 sequences are lists, tuples, strings, dictionaries, sets, etc.</p>
-<p>whereas int, float, bool, None, etc are not sequences.<br />
+<p>whereas int, float, bool, None, etc are not sequences.<br/>
 if you want to proof this:</p>
 <pre><code class="language-py">from collections.abc import Sequence      # what is Sequence?
 
@@ -112,14 +126,14 @@ def is_sequence(obj):
 # Test cases
 print(is_sequence([1, 2, 3]))        # True (list)
 print(is_sequence((1, 2, 3)))       # True (tuple)
-print(is_sequence(&quot;hello&quot;))         # True (str)
+print(is_sequence("hello"))         # True (str)
 print(is_sequence(range(5)))        # True (range)
 print(is_sequence({1, 2, 3}))       # False (set)
-print(is_sequence({&quot;a&quot;: 1}))        # False (dict)
+print(is_sequence({"a": 1}))        # False (dict)
 print(is_sequence(42))             # False (int)
 </code></pre>
 <p>but you dont have to remember this. just know that you can loop over sequences.</p>
-<h1>lets go looping!</h1>
+<h1 id="lets-go-looping">lets go looping!</h1>
 <p><strong>Example:</strong></p>
 <pre><code class="language-py">count = 0                # we need to use this to keep track of the while loop
 while count &lt; 5:
@@ -128,7 +142,7 @@ while count &lt; 5:
 #prints from 0 to 4
 </code></pre>
 <p>In the above while loop, the condition becomes false when count is 5. That is when the loop stops.</p>
-<p>In these examples we made a variable with the intention to keep track of the loop.<br />
+<p>In these examples we made a variable with the intention to keep track of the loop.<br/>
 obviously you can also do this with a boolean value. and later set it to False.</p>
 <p>If we are interested to run block of code once the condition is no longer true, we can use <em>else</em>.</p>
 <pre><code class="language-py">  # syntax
@@ -145,21 +159,21 @@ while count &lt; 5:
 else:
     print(count)
 </code></pre>
-<p>The above loop condition will be false when count is 5 and the loop stops, <br />
-and execution starts the else statement. <br />
+<p>The above loop condition will be false when count is 5 and the loop stops, <br/>
+and execution starts the else statement. <br/>
 As a result 5 will be printed.</p>
 <p>We can also nest control structures in while loops.</p>
 <pre><code class="language-py">count = 0                         # we keep track of the count
 while count &lt; 5:
    if count == 3:
-       print(&quot;count is 3&quot;)
+       print("count is 3")
    elif count == 4:
-       print(&quot;count is 4&quot;)
+       print("count is 4")
    count = count + 1              # we increase the count by 1 each time the loop is executed
 else:
     print(count)
 </code></pre>
-<h3>Break and Continue - Part 1</h3>
+<h3 id="break-and-continue-part-1">Break and Continue - Part 1</h3>
 <ul>
 <li>Break: We use break when we like to get out of or stop the loop.</li>
 <li>i like to think of it as: jumping out of the loop.</li>
@@ -198,8 +212,8 @@ while count &lt; 5:
     count = count + 1
 </code></pre>
 <p>The above while loop only prints 0, 1, 2 and 4 (skips 3).</p>
-<h3>For Loop</h3>
-<p>A <code>for</code> keyword is used to make a for loop, <br />
+<h3 id="for-loop">For Loop</h3>
+<p>A <code>for</code> keyword is used to make a for loop, <br/>
 similar with other programming languages, but with some syntax differences. </p>
 <p>a <code>for</code> Loop is also used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).</p>
 <ul>
@@ -218,12 +232,12 @@ for number in numbers: # number is temporary name to refer to the list's items, 
 <pre><code class="language-py">names = ['Lily', 'Brad', 'Fatima', 'Zining']
 
 for name in names:
-    print(&quot;Hello, &quot; + name + &quot;!&quot;)
+    print("Hello, " + name + "!")
 </code></pre>
-<p>This code in this simple loop raises a question, though: where did the variable name come from? <br />
-We haven't defined it previously in our code! <br />
-But loops iterate through sequences :lists, tuples, etc. <br />
-This variable can actually be called almost anything. <br />
+<p>This code in this simple loop raises a question, though: where did the variable name come from? <br/>
+We haven't defined it previously in our code! <br/>
+But loops iterate through sequences :lists, tuples, etc. <br/>
+This variable can actually be called almost anything. <br/>
 Python will interpret any variable name we put in that spot as referring to each list entry in sequence as the loop executes.</p>
 <p>So, in the code above:</p>
 <ul>
@@ -231,17 +245,17 @@ Python will interpret any variable name we put in that spot as referring to each
 <li>...then 'Brad' on the second iteration of the loop...</li>
 <li>...and so on.</li>
 </ul>
-<p>This will be the case regardless what we call that variable. <br />
+<p>This will be the case regardless what we call that variable. <br/>
 So if, for example, we rewrite our code to replace name with x, we'll get the same exact result:</p>
 <pre><code class="language-py">names = ['Lily', 'Brad', 'Fatima', 'Zining']
 
 for x in names:
     print(x)
 </code></pre>
-<p>will print:<br />
-- Lily<br />
-- Brad<br />
-- Fatima<br />
+<p>will print:<br/>
+- Lily<br/>
+- Brad<br/>
+- Fatima<br/>
 - Zining</p>
 <p>For loop with string</p>
 <pre><code class="language-py"># syntax
@@ -270,15 +284,15 @@ for i in range(len(language)):
 <p>we will go more into len() and range() later on. and in the exercises.</p>
 <p>Lets do a thought experiment:</p>
 <pre><code class="language-py">language = 'Python'
-for i in len(&quot;Python&quot;):
+for i in len("Python"):
     print(language[i])
 </code></pre>
-<p>what do you expect?<br />
+<p>what do you expect?<br/>
 why did this happened?</p>
-<p>this happened because len("Python") is 6 (and an int is not iterable (not a sequence))<br />
+<p>this happened because len("Python") is 6 (and an int is not iterable (not a sequence))<br/>
 and range(6) is 0 to 5 (so that is a sequence)</p>
 <p>it's getting harder he?</p>
-<h1>other examples (iterating on collections/data structure/sequeces) we have not yet discussed</h1>
+<h1 id="other-examples-iterating-on-collectionsdata-structuresequeces-we-have-not-yet-discussed">other examples (iterating on collections/data structure/sequeces) we have not yet discussed</h1>
 <ul>
 <li>For loop with tuple  (tuples havent been discussed yet) but is also a sequence and can be looped over. (collection)</li>
 </ul>
@@ -292,7 +306,7 @@ for number in numbers:
     print(number)
 </code></pre>
 <ul>
-<li>For loop with dictionary<br />
+<li>For loop with dictionary<br/>
   Looping through a dictionary gives you the key of the dictionary.</li>
 </ul>
 <pre><code class="language-py">  # syntax
@@ -330,9 +344,9 @@ for iterator in st:
 for company in it_companies:
     print(company)
 </code></pre>
-<h1>Let's move on</h1>
-<h3>Break and Continue - Part 2</h3>
-<p>Short reminder:<br />
+<h1 id="lets-move-on">Let's move on</h1>
+<h3 id="break-and-continue-part-2">Break and Continue - Part 2</h3>
+<p>Short reminder:<br/>
 <em>Break</em>: We use break when we like to stop our loop before it is completed.</p>
 <pre><code class="language-py"># syntax
 for iterator in sequence:
@@ -361,14 +375,14 @@ for number in numbers:
     print(number)
     if number == 3:
         continue
-    print('Next number should be ', number + 1) if number != 5 else print(&quot;loop's end&quot;) # for short hand conditions need both if and else statements
+    print('Next number should be ', number + 1) if number != 5 else print("loop's end") # for short hand conditions need both if and else statements
 print('outside the loop')
 </code></pre>
 <p>In the example above, if the number equals 3, the step <em>after</em> the condition (but inside the loop) is skipped and the execution of the loop continues if there are any iterations left.</p>
-<h3>The Range Function</h3>
-<p>The <em>range()</em> function gives a list of numbers. <br />
-The <em>range(start, end, step)</em> takes three parameters: starting, ending and increment. <br />
-By default it starts from 0 and the increment is 1. <br />
+<h3 id="the-range-function">The Range Function</h3>
+<p>The <em>range()</em> function gives a list of numbers. <br/>
+The <em>range(start, end, step)</em> takes three parameters: starting, ending and increment. <br/>
+By default it starts from 0 and the increment is 1. <br/>
 The range sequence needs at least 1 argument (end).</p>
 <p>Creating sequences using range</p>
 <pre><code class="language-py">lst = list(range(11)) 
@@ -388,7 +402,7 @@ for iterator in range(start, end, step):
 <pre><code class="language-py">for number in range(11):
     print(number)   # prints 0 to 10, not including 11
 </code></pre>
-<h3>Nested For Loop</h3>
+<h3 id="nested-for-loop">Nested For Loop</h3>
 <p>We can write loops inside a loop.</p>
 <pre><code class="language-py"># syntax
 for x in y:
@@ -423,7 +437,7 @@ for key in person:
         for skill in person['skills']:
             print(skill)
 </code></pre>
-<h3>For Else</h3>
+<h3 id="for-else">For Else</h3>
 <p>If we want to execute some message when the loop ends, we use else.</p>
 <pre><code class="language-py"># syntax
 for iterator in range(start, end, step):
@@ -437,15 +451,15 @@ else:
 else:
     print('The loop stops at', number)
 </code></pre>
-<h3>Pass</h3>
+<h3 id="pass">Pass</h3>
 <p>In python when statement is required (after semicolon), but we don't like to execute any code there, we can write the word <em>pass</em> to avoid errors. Also we can use it as a placeholder, for future statements.</p>
 <p><strong>Example:</strong></p>
 <pre><code class="language-py">for number in range(6):
     pass
 </code></pre>
-<p>If you understand everything up until now.<br />
+<p>If you understand everything up until now.<br/>
 You established a big milestone. trough practice you will get better and better.</p>
-<h1>Note:</h1>
+<h1 id="note">Note:</h1>
 <p>With all that knowledge up until know you can already make some beefy programs.</p></div>
 
         <!-- Load Prism.js -->

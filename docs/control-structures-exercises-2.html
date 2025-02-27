@@ -75,11 +75,25 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Python Exercises: Practice with 'and' &amp; 'or'</h1>
-<h2>Exercise 1: Number Range Checker</h2>
+        <div class="markdown-content"><h1 id="python-exercises-practice-with-and-or">Python Exercises: Practice with 'and' &amp; 'or'</h1>
+<h2 id="exercise-1-number-range-checker">Exercise 1: Number Range Checker</h2>
 <p>Write a program that checks if a number is in a specific range OR is a special number:</p>
 <ul>
 <li>Between 20-50 OR equals 77</li>
@@ -87,43 +101,43 @@
 <li>Print "Invalid number!" otherwise</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">number = int(input(&quot;Enter a number: &quot;))
+<pre><code class="language-py">number = int(input("Enter a number: "))
 # Check if number is between 20-50 OR equals 77
 </code></pre>
-<h2>Exercise 2: Login System</h2>
+<h2 id="exercise-2-login-system">Exercise 2: Login System</h2>
 <p>Create a simple login system where:</p>
 <ul>
 <li>Valid username is "admin" OR "user"</li>
-<li>Password must be longer than 6 characters AND contain the number "1"<br />
+<li>Password must be longer than 6 characters AND contain the number "1"<br/>
 Print "Access granted" or an appropriate error message.</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">username = input(&quot;Enter username: &quot;)
-password = input(&quot;Enter password: &quot;)
+<pre><code class="language-py">username = input("Enter username: ")
+password = input("Enter password: ")
 # Check username AND password conditions
 </code></pre>
-<h2>Exercise 3: Game Player Eligibility</h2>
+<h2 id="exercise-3-game-player-eligibility">Exercise 3: Game Player Eligibility</h2>
 <p>Check if someone can join a game where they need to be:</p>
 <ul>
 <li>Between 13 and 19 years old (teenager) OR</li>
 <li>Have parental permission AND be over 10 years old</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">age = int(input(&quot;Enter your age: &quot;))
-has_permission = input(&quot;Do you have parental permission? (yes/no): &quot;).lower()
+<pre><code class="language-py">age = int(input("Enter your age: "))
+has_permission = input("Do you have parental permission? (yes/no): ").lower()
 # Check age AND permission conditions
 </code></pre>
-<h2>Exercise 4: Fruit Ripeness Checker</h2>
+<h2 id="exercise-4-fruit-ripeness-checker">Exercise 4: Fruit Ripeness Checker</h2>
 <p>Create a program that checks if a fruit is ready to eat:</p>
 <ul>
 <li>Banana: Should be yellow OR brown</li>
 <li>Should NOT be green AND should NOT be black</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">fruit_color = input(&quot;What color is the banana? (green/yellow/brown/black): &quot;).lower()
+<pre><code class="language-py">fruit_color = input("What color is the banana? (green/yellow/brown/black): ").lower()
 # Check color conditions using AND/OR
 </code></pre>
-<h2>Exercise 5: Special Order Discount</h2>
+<h2 id="exercise-5-special-order-discount">Exercise 5: Special Order Discount</h2>
 <p>Write a program for a special discount where:</p>
 <p>Customer gets a discount if:</p>
 <ul>
@@ -131,8 +145,8 @@ has_permission = input(&quot;Do you have parental permission? (yes/no): &quot;).
 <li>Order is over $500 (regardless of membership)</li>
 </ul>
 <p>Your code should start like this:</p>
-<pre><code class="language-py">order_amount = float(input(&quot;Enter order amount: $&quot;))
-is_member = input(&quot;Are you a member? (yes/no): &quot;).lower() == &quot;yes&quot;
+<pre><code class="language-py">order_amount = float(input("Enter order amount: $"))
+is_member = input("Are you a member? (yes/no): ").lower() == "yes"
 # Check discount conditions using AND/OR
 </code></pre></div>
 

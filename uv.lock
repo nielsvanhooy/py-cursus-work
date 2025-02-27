@@ -95,7 +95,7 @@ requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.13.3" },
     { name = "html2markdown", specifier = ">=0.1.7" },
     { name = "html2text", specifier = ">=2024.2.26" },
-    { name = "markdown", specifier = "==3.7" },
+    { name = "markdown", extras = ["toc"], specifier = "==3.7" },
     { name = "requests", specifier = ">=2.32.3" },
 ]
 

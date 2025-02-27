@@ -75,76 +75,90 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h2>Other Datastructures in python</h2>
-<p>datastructures are a way to store and organize data in a program.<br />
+        <div class="markdown-content"><h2 id="other-datastructures-in-python">Other Datastructures in python</h2>
+<p>datastructures are a way to store and organize data in a program.<br/>
 this organization is required for efficient storage and retrieval of data. and modification of data</p>
-<p>datastructures can be divided into two categories:<br />
-- Mutable<br />
+<p>datastructures can be divided into two categories:<br/>
+- Mutable<br/>
 - Immutable</p>
-<p>besides the datastructures that we handled in the previous chapters (list and dict), <br />
-there are a few more that are worth mentioning.<br />
+<p>besides the datastructures that we handled in the previous chapters (list and dict), <br/>
+there are a few more that are worth mentioning.<br/>
 we will get into more complex data structures in the future.</p>
-<h3>lists (already discussed)</h3>
+<h3 id="lists-already-discussed">lists (already discussed)</h3>
 <p>Dynamic mutable "arrays" which can store any type of data.</p>
-<p>Pro's of lists<br />
-- Easy way to store a collection of related items<br />
-- Easy to add, remove, and modify items<br />
+<p>Pro's of lists<br/>
+- Easy way to store a collection of related items<br/>
+- Easy to add, remove, and modify items<br/>
 - Usefull for creating nested data structures, such as lists of lists/dictionaries</p>
-<p>Con's of lists<br />
-- Pretty slow when performing operations on large lists<br />
-- Pretty slow if your doing math things on the indexes (use real arrays for that) python docs/Numpy project<br />
+<p>Con's of lists<br/>
+- Pretty slow when performing operations on large lists<br/>
+- Pretty slow if your doing math things on the indexes (use real arrays for that) python docs/Numpy project<br/>
 - Use more disk spave because how there implemented (is this a real deal anymore these days?) perhaps for the tech giants</p>
-<h3>Dictionaries (already discussed)</h3>
-<p>Dictionaries in python look like real life dictionaries.<br />
+<h3 id="dictionaries-already-discussed">Dictionaries (already discussed)</h3>
+<p>Dictionaries in python look like real life dictionaries.<br/>
 You find a key in the book. and read a value.</p>
-<p>It is a mutable datastructure (meaning contents can be changed after creation)<br />
-Dictionaries are extremely fast for lookups (searching for a key) (O(1) time complexity)<br />
+<p>It is a mutable datastructure (meaning contents can be changed after creation)<br/>
+Dictionaries are extremely fast for lookups (searching for a key) (O(1) time complexity)<br/>
 That means near instant access to the value of a key.</p>
-<p>They key must be of an immutable type. (string, number, tuple)<br />
+<p>They key must be of an immutable type. (string, number, tuple)<br/>
 in practise you will mostly use string and number.</p>
 <p>value can be of any type (including lists, dictionaries, and other data structures)</p>
-<p>Pro's of dictionaries<br />
-- Extremely fast for lookups<br />
-- Easy to store and retrieve key-value pairs<br />
-- Make code a bit easier to read. (instead of using indexes)<br />
+<p>Pro's of dictionaries<br/>
+- Extremely fast for lookups<br/>
+- Easy to store and retrieve key-value pairs<br/>
+- Make code a bit easier to read. (instead of using indexes)<br/>
 - We can look up a certain value in a dictionary very quickly. Instead, with a list, we would have to read the list before we hit the required element. This difference grows drastically if we increase the number of elements.</p>
-<p>Con's of dictionaries<br />
-- They occupy more memory than lists, for extreme amounts of data this is not the most suitable data type <br />
+<p>Con's of dictionaries<br/>
+- They occupy more memory than lists, for extreme amounts of data this is not the most suitable data type <br/>
 - As of Python version 3.7, dictionaries are ordered. In Python 3.6 and earlier, dictionaries are unordered.</p>
-<h3>Sets</h3>
-<p>Sets in Python can be defined as mutable dynamic collections of immutable unique elements. <br />
-The elements contained in a set must be immutable. <br />
+<h3 id="sets">Sets</h3>
+<p>Sets in Python can be defined as mutable dynamic collections of immutable unique elements. <br/>
+The elements contained in a set must be immutable. <br/>
 Sets may seem very similar to lists, but in reality, they are very different.</p>
-<p>They can only contain unique elements (no duplicates),<br />
-Thus, sets can be used to remove duplicated from a list.<br />
+<p>They can only contain unique elements (no duplicates),<br/>
+Thus, sets can be used to remove duplicated from a list.<br/>
 They can use mathematical set operations like union, intersection, difference, and symmetric difference. (however personally i have never used this)</p>
 <p>Finally they are very efficient in checking weather an element is in the set or not. (O(1) time complexity) (meaning near instant access)</p>
-<p>Pro's of sets<br />
-- We can perform unique (but similair) operations on sets <br />
+<p>Pro's of sets<br/>
+- We can perform unique (but similair) operations on sets <br/>
 - They are significantly faster than lists when it comes to checking for the existence of an element</p>
-<p>Con's of sets<br />
-- They are unordered, so we can't access elements by index<br />
+<p>Con's of sets<br/>
+- They are unordered, so we can't access elements by index<br/>
 - we cannot change set elements by indexing as we can with lists</p>
-<h2>Syntax</h2>
-<p>a set usses curly brackets <code>{}</code> just like a dictionary, but without the key-value pairs.<br />
+<h2 id="syntax">Syntax</h2>
+<p>a set usses curly brackets <code>{}</code> just like a dictionary, but without the key-value pairs.<br/>
 only immutable elements can be added to a set.</p>
 <p>example all immutable elements</p>
-<pre><code class="language-python">example_set = {&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, 1 , 2}
+<pre><code class="language-python">example_set = {"apple", "banana", "cherry", 1 , 2}
 </code></pre>
 <p>this wont work with sets:</p>
-<pre><code class="language-python">example_set = {[], &quot;banana&quot;, &quot;cherry&quot;, 1 , 2}
+<pre><code class="language-python">example_set = {[], "banana", "cherry", 1 , 2}
 Traceback (most recent call last):
-  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+  File "&lt;input&gt;", line 1, in &lt;module&gt;
 TypeError: unhashable type: 'list'
 
 </code></pre>
-<p>Sets require their items to be hashable. <br />
-Out of types predefined by Python only the immutable ones, such as strings, numbers, and tuples, are hashable. <br />
+<p>Sets require their items to be hashable. <br/>
+Out of types predefined by Python only the immutable ones, such as strings, numbers, and tuples, are hashable. <br/>
 Mutable types, such as lists and dicts, are not hashable because a change of their contents would change the hash and break the lookup code.</p>
-<h3>Creating sets</h3>
+<h3 id="creating-sets">Creating sets</h3>
 <p>To create a set, we can use either curly brackets <code>{}</code> or the <code>set()</code> constructor. </p>
 <pre><code class="language-python"># Create a set using curly brackets
 s1 = {1, 2, 3}
@@ -153,19 +167,19 @@ s1 = {1, 2, 3}
 s2 = set([1, 2, 3, 4])
 
 # Print out sets
-print(f&quot;Set s1: {s1}&quot;)
-print(f&quot;Set s2: {s2}&quot;)
+print(f"Set s1: {s1}")
+print(f"Set s2: {s2}")
 </code></pre>
-<p>In the second example, we used an iterable (such as a list) to create a set. that works.<br />
+<p>In the second example, we used an iterable (such as a list) to create a set. that works.<br/>
 However you cant store a list in a set (see Type error above)</p>
-<h3>operations on sets</h3>
+<h3 id="operations-on-sets">operations on sets</h3>
 <p>sets originate from the world of math. so you can perform certain "math" operations on them.</p>
-<p>For example, we can create a union of sets, which basically means merging two sets together. <br />
-However, if two sets have two or more identical values, the resulting set will contain only one of these values. <br />
+<p>For example, we can create a union of sets, which basically means merging two sets together. <br/>
+However, if two sets have two or more identical values, the resulting set will contain only one of these values. <br/>
 There are two ways to create a union: either with the <code>union()</code> method or with the vertical bar <code>|</code> operator. Let's make an example:</p>
 <pre><code class="language-python"># Create two new sets
-names1 = set([&quot;Glory&quot;, &quot;Tony&quot;, &quot;Joel&quot;, &quot;Dennis&quot;])
-names2 = set([&quot;Morgan&quot;, &quot;Joel&quot;, &quot;Tony&quot;, &quot;Emmanuel&quot;, &quot;Diego&quot;])
+names1 = set(["Glory", "Tony", "Joel", "Dennis"])
+names2 = set(["Morgan", "Joel", "Tony", "Emmanuel", "Diego"])
 
 # Create a union of two sets using the union() method
 names_union = names1.union(names2)
@@ -180,10 +194,10 @@ print(names_union)
 {'Glory', 'Dennis', 'Diego', 'Joel', 'Emmanuel', 'Tony', 'Morgan'}
 
 </code></pre>
-<p>In the above union, we can see that Tony and Joel appear only once, even though we merged two sets.<br />
+<p>In the above union, we can see that Tony and Joel appear only once, even though we merged two sets.<br/>
 that is because sets only store unique elements.</p>
 <p>what i use mostly for sets is to remove duplicates from a list. by converting to a set. and then back to a list to continue working with it.</p>
-<pre><code class="language-python">mijn_lijst = [&quot;niels&quot;, &quot;eelke&quot;, &quot;jan&quot;, &quot;jilaali&quot;, &quot;niels&quot;, &quot;eelke&quot;, &quot;jan&quot;, &quot;jilaali&quot;]
+<pre><code class="language-python">mijn_lijst = ["niels", "eelke", "jan", "jilaali", "niels", "eelke", "jan", "jilaali"]
 
 mijn_lijst_zonder_dubbelen = list(set(mijn_lijst))
 
@@ -191,11 +205,11 @@ mijn_lijst_zonder_dubbelen = list(set(mijn_lijst))
 ['niels', 'jilaali', 'jan', 'eelke']
 
 </code></pre>
-<p>Next, we may also want to find out which names appear in both sets. <br />
+<p>Next, we may also want to find out which names appear in both sets. <br/>
 This can be done with the intersection() method or the ampersand (&amp;) operator.</p>
 <pre><code class="language-python"># Create two new sets
-names1 = set([&quot;Glory&quot;, &quot;Tony&quot;, &quot;Joel&quot;, &quot;Dennis&quot;])
-names2 = set([&quot;Morgan&quot;, &quot;Joel&quot;, &quot;Tony&quot;, &quot;Emmanuel&quot;, &quot;Diego&quot;])
+names1 = set(["Glory", "Tony", "Joel", "Dennis"])
+names2 = set(["Morgan", "Joel", "Tony", "Emmanuel", "Diego"])
 
 # Intersection of two sets using the intersection() method
 names_intersection = names1.intersection(names2)
@@ -209,11 +223,11 @@ print(names_intersection)
 # prints
 {'Joel', 'Tony'}
 </code></pre>
-<p>The last example of set operations is the difference between two sets. <br />
-In other words, this operation will return all the elements that <strong>are present in the first set</strong>, <strong>but not in the second one.</strong> <br />
+<p>The last example of set operations is the difference between two sets. <br/>
+In other words, this operation will return all the elements that <strong>are present in the first set</strong>, <strong>but not in the second one.</strong> <br/>
 We can use either the <code>difference()</code> method or the minus operator <code>-</code>:</p>
-<pre><code class="language-python">names1 = set([&quot;Glory&quot;, &quot;Tony&quot;, &quot;Joel&quot;, &quot;Dennis&quot;])
-names2 = set([&quot;Morgan&quot;, &quot;Joel&quot;, &quot;Tony&quot;, &quot;Emmanuel&quot;, &quot;Diego&quot;])
+<pre><code class="language-python">names1 = set(["Glory", "Tony", "Joel", "Dennis"])
+names2 = set(["Morgan", "Joel", "Tony", "Emmanuel", "Diego"])
 
 # Create a set of all the names present in names1 but absent in names2 with the difference() method
 names_difference = names1.difference(names2)
@@ -227,14 +241,14 @@ print(names_difference)
 # gives
  {'Dennis', 'Glory'}
 </code></pre>
-<p>What would happen if you swapped the positions of the sets? <br />
+<p>What would happen if you swapped the positions of the sets? <br/>
 Try to predict the result before the attempt.</p>
 <p>if you dont know the answer. see the awnser above the code snippet.</p>
-<h3>Lets find out how much faster sets are than lists</h3>
+<h3 id="lets-find-out-how-much-faster-sets-are-than-lists">Lets find out how much faster sets are than lists</h3>
 <pre><code class="language-python">import time
 
 def find_element(iterable):
-    &quot;&quot;&quot;Find an element in range 0-4999 (included) in an iterable and pass.&quot;&quot;&quot;
+    """Find an element in range 0-4999 (included) in an iterable and pass."""
     for i in range(5000):
         if i in iterable:
             pass
@@ -246,33 +260,33 @@ l = list(range(10000000))
 
 start_time = time.time()
 find_element(s) # Find elements in a set
-print(f&quot;Finding an element in a set took {time.time() - start_time} seconds.&quot;)
+print(f"Finding an element in a set took {time.time() - start_time} seconds.")
 
 start_time = time.time()
 find_element(l) # Find elements in a list
-print(f&quot;Finding an element in a list took {time.time() - start_time} seconds.&quot;)
+print(f"Finding an element in a list took {time.time() - start_time} seconds.")
 
 
 </code></pre>
-<p>Finding an element in a set took 0.00016832351684570312 seconds.<br />
+<p>Finding an element in a set took 0.00016832351684570312 seconds.<br/>
 Finding an element in a list took 0.04723954200744629 seconds.</p>
-<p>This is an insane order of magnitude difference.<br />
+<p>This is an insane order of magnitude difference.<br/>
 And this difference will only increase for larger sets and lists.</p>
-<h3>Tuples</h3>
-<p>Tuples can feel like lists, but they are immutable.<br />
+<h3 id="tuples">Tuples</h3>
+<p>Tuples can feel like lists, but they are immutable.<br/>
 We would use tuples if we needed a data structure that, once created, cannot be changed/modified anymore.</p>
 <p>Like is said before. Tuples can be used as the keys in dictionaries, (if all items in the tuple are immutable). however i have never used this. and i dont come across it professionally.</p>
-<p>Other then that, tuples have the same properties as lists.<br />
+<p>Other then that, tuples have the same properties as lists.<br/>
 to create a tuple </p>
 <ul>
 <li>we use the <code>()</code> brackets</li>
 <li>or the <code>tuple()</code> constructor</li>
 </ul>
-<p>Pro's of tuples<br />
+<p>Pro's of tuples<br/>
 - Immutable, once created. we can be sure that the data will not be changed.</p>
-<p>Con's of tuples<br />
-- We cannot use them when we have to work with modifiable data, then we need to use lists.<br />
-- Tuples cannot be copied<br />
+<p>Con's of tuples<br/>
+- We cannot use them when we have to work with modifiable data, then we need to use lists.<br/>
+- Tuples cannot be copied<br/>
 - They occupy more memory than lists</p>
 <p>Time for Examples</p>
 <pre><code class="language-python"># Create a tuple using round brackets
@@ -285,38 +299,38 @@ t2 = tuple([1, 2, 3, 4, 5])
 t3 = tuple([1, 2, 3, 4, 5, 6])
 
 # Print out tuples
-print(f&quot;Tuple t1: {t1}&quot;)
-print(f&quot;Tuple t2: {t2}&quot;)
-print(f&quot;Tuple t3: {t3}&quot;)
+print(f"Tuple t1: {t1}")
+print(f"Tuple t2: {t2}")
+print(f"Tuple t3: {t3}")
 
 </code></pre>
-<h1>result</h1>
+<h1 id="result">result</h1>
 <pre><code>Tuple t1: (1, 2, 3, 4)
 Tuple t2: (1, 2, 3, 4, 5)
 Tuple t3: (1, 2, 3, 4, 5, 6)
 </code></pre>
-<p>Is it possible to create tuples from other data structures (i.e., sets or dictionaries)? <br />
+<p>Is it possible to create tuples from other data structures (i.e., sets or dictionaries)? <br/>
 Try it for practice.</p>
-<p>As said before. Tuples are immutable. so we cannot change them once the tuple is created.<br />
+<p>As said before. Tuples are immutable. so we cannot change them once the tuple is created.<br/>
 Lets see what happens if we try to change a tuple.</p>
 <pre><code class="language-python"># Try to change the value at index 0 in tuple t1
 t1[0] = 1
 
 Traceback (most recent call last):
-  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
 TypeError: 'tuple' object does not support item assignment
 
 </code></pre>
-<p>It is a TypeError! Tuples do not support item assignments because they are immutable. <br />
+<p>It is a TypeError! Tuples do not support item assignments because they are immutable. <br/>
 To solve this problem, we can convert this tuple into a list.</p>
-<h2>what can we do with tuples</h2>
+<h2 id="what-can-we-do-with-tuples">what can we do with tuples</h2>
 <p>we can access the elements of a tuple by indexing.</p>
 <pre><code class="language-python">t2 = (1, 2, 3, 4, 5)
 # Print out the value at index 1 in the tuple t2
-print(f&quot;The value at index 1 in t2 is {t2[1]}.&quot;)
+print(f"The value at index 1 in t2 is {t2[1]}.")
 </code></pre>
 <p>The value at index 1 in t2 is 2.</p>
-<h2>for methods that we can use on tuples. see the python docs or url below</h2>
+<h2 id="for-methods-that-we-can-use-on-tuples-see-the-python-docs-or-url-below">for methods that we can use on tuples. see the python docs or url below</h2>
 <p><a href="https://www.w3schools.com/python/python_ref_tuple.asp">Tuple Methods</a></p></div>
 
         <!-- Load Prism.js -->

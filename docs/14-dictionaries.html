@@ -75,20 +75,34 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h2>Introduction to Python Dictionaries</h2>
-<p>Python dictionaries are one of the most important and useful data structures in the language. <br />
-They allow you to store and retrieve data using key-value pairs instead of indices. <br />
-This makes dictionaries incredibly versatile for a wide range of programming tasks, <br />
+        <div class="markdown-content"><h2 id="introduction-to-python-dictionaries">Introduction to Python Dictionaries</h2>
+<p>Python dictionaries are one of the most important and useful data structures in the language. <br/>
+They allow you to store and retrieve data using key-value pairs instead of indices. <br/>
+This makes dictionaries incredibly versatile for a wide range of programming tasks, <br/>
 especially when it comes to data processing and analysis.</p>
-<h2>What is a Python Dictionary?</h2>
-<p>A Python dictionary is an unordered collection of items where each item is stored as a key-value pair. <br />
-Dictionaries are optimized for retrieving data when you know the key. <br />
-Unlike sequences such as lists or tuples which are indexed by a range of numbers, <br />
+<h2 id="what-is-a-python-dictionary">What is a Python Dictionary?</h2>
+<p>A Python dictionary is an unordered collection of items where each item is stored as a key-value pair. <br/>
+Dictionaries are optimized for retrieving data when you know the key. <br/>
+Unlike sequences such as lists or tuples which are indexed by a range of numbers, <br/>
 dictionaries are indexed by keys, which can be any immutable type like strings, numbers, or tuples.</p>
-<h3>Key Features of Dictionaries</h3>
+<h3 id="key-features-of-dictionaries">Key Features of Dictionaries</h3>
 <ul>
 <li><strong>Key-Value Pairs</strong>: Each item in a dictionary consists of a key and its corresponding value</li>
 <li><strong>Mutable</strong>: Dictionaries can be modified after creation</li>
@@ -96,9 +110,9 @@ dictionaries are indexed by keys, which can be any immutable type like strings, 
 <li><strong>Versatile</strong>: Values can be of any data type (including other dictionaries)</li>
 <li><strong>Fast Access</strong>: Retrieving values by key is very efficient</li>
 </ul>
-<h2>Creating Python Dictionaries</h2>
+<h2 id="creating-python-dictionaries">Creating Python Dictionaries</h2>
 <p>There are several ways to create a dictionary in Python:</p>
-<h2>Syntax</h2>
+<h2 id="syntax">Syntax</h2>
 <pre><code class="language-python">{
     `key`: `value`,
 }
@@ -107,7 +121,7 @@ dictionaries are indexed by keys, which can be any immutable type like strings, 
 <li>the key has to be an immutable type:  string, number, or tuple</li>
 <li>values can be any data type: string, number, list, dictionary, etc.</li>
 </ul>
-<h3>Using Curly Braces</h3>
+<h3 id="using-curly-braces">Using Curly Braces</h3>
 <p>The most common method is to enclose comma-separated key-value pairs in curly braces:</p>
 <pre><code class="language-python"># Empty dictionary
 empty_dict = {}
@@ -119,7 +133,7 @@ student = {
     'courses': ['Math', 'Physics', 'Programming']
 }
 </code></pre>
-<h3>Using the dict() Constructor</h3>
+<h3 id="using-the-dict-constructor">Using the dict() Constructor</h3>
 <p>You can also create dictionaries using the built-in <code>dict()</code> function:</p>
 <pre><code class="language-python"># Empty dictionary
 empty_dict = dict()
@@ -130,10 +144,10 @@ person = dict(name='Alice', age=25, city='New York')
 # Dictionary from a list of tuples
 items = dict([('apple', 4.5), ('banana', 3.2), ('orange', 2.0)])
 </code></pre>
-<hr />
-<h2>Accessing Dictionary Elements</h2>
+<hr/>
+<h2 id="accessing-dictionary-elements">Accessing Dictionary Elements</h2>
 <p>There are multiple ways to access elements in a dictionary:</p>
-<h3>Using Keys</h3>
+<h3 id="using-keys">Using Keys</h3>
 <p>The most straightforward way is to use the key inside square brackets:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21, 'courses': ['Math', 'Physics']}
 
@@ -141,17 +155,17 @@ items = dict([('apple', 4.5), ('banana', 3.2), ('orange', 2.0)])
 print(student['name'])  # Output: John
 print(student['courses'])  # Output: ['Math', 'Physics']
 </code></pre>
-<h3>Using the get() Method</h3>
-<p>The get method is preferred. because you can give a default back if not found.<br />
+<h3 id="using-the-get-method">Using the get() Method</h3>
+<p>The get method is preferred. because you can give a default back if not found.<br/>
 The <code>get()</code> method is safer as it doesn't raise a KeyError if the key doesn't exist:</p>
 <pre><code class="language-python"># Access with get()
 print(student.get('name'))  # Output: John
 print(student.get('grade'))  # Output: None (key doesn't exist)
 print(student.get('grade', 'N/A'))  # Output: N/A (custom default value)
 </code></pre>
-<h2>Modifying Dictionaries</h2>
+<h2 id="modifying-dictionaries">Modifying Dictionaries</h2>
 <p>Dictionaries are mutable, meaning you can change their content without changing their identity.</p>
-<h3>Adding or Updating Items</h3>
+<h3 id="adding-or-updating-items">Adding or Updating Items</h3>
 <p>You can add new key-value pairs or update existing ones:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21}
 
@@ -164,7 +178,7 @@ student['age'] = 22
 print(student)
 # Output: {'name': 'John', 'age': 22, 'courses': ['Math', 'Physics']}
 </code></pre>
-<h3>Using the update() Method</h3>
+<h3 id="using-the-update-method">Using the update() Method</h3>
 <p>The <code>update()</code> method lets you add multiple key-value pairs at once:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21}
 
@@ -174,9 +188,9 @@ student.update({'age': 22, 'city': 'New York', 'grade': 'A'})
 print(student)
 # Output: {'name': 'John', 'age': 22, 'city': 'New York', 'grade': 'A'}
 </code></pre>
-<h2>Removing Items</h2>
+<h2 id="removing-items">Removing Items</h2>
 <p>There are several ways to remove items from a dictionary:</p>
-<h3>Using the pop() Method</h3>
+<h3 id="using-the-pop-method">Using the pop() Method</h3>
 <p>The <code>pop()</code> method removes an item with the specified key and returns the value:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
 
@@ -185,7 +199,7 @@ age = student.pop('age')
 print(age)  # Output: 21
 print(student)  # Output: {'name': 'John', 'city': 'New York'}
 </code></pre>
-<h3>Using the popitem() Method</h3>
+<h3 id="using-the-popitem-method">Using the popitem() Method</h3>
 <p>The <code>popitem()</code> method removes and returns the last inserted key-value pair as a tuple:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
 
@@ -194,7 +208,7 @@ last_item = student.popitem()
 print(last_item)  # Output: ('city', 'New York')
 print(student)  # Output: {'name': 'John', 'age': 21}
 </code></pre>
-<h3>Using the del Keyword</h3>
+<h3 id="using-the-del-keyword">Using the del Keyword</h3>
 <p>The <code>del</code> keyword removes an item with a specific key:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
 
@@ -206,7 +220,7 @@ print(student)  # Output: {'name': 'John', 'age': 21}
 del student
 # print(student)  # This would raise an error as student no longer exists
 </code></pre>
-<h3>Using the clear() Method</h3>
+<h3 id="using-the-clear-method">Using the clear() Method</h3>
 <p>The <code>clear()</code> method removes all items from the dictionary:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21}
 
@@ -214,10 +228,10 @@ del student
 student.clear()
 print(student)  # Output: {}
 </code></pre>
-<hr />
-<h2>Dictionary Methods</h2>
+<hr/>
+<h2 id="dictionary-methods">Dictionary Methods</h2>
 <p>Python dictionaries come with many useful built-in methods:</p>
-<h3>keys(), values(), and items()</h3>
+<h3 id="keys-values-and-items">keys(), values(), and items()</h3>
 <p>These methods return view objects that provide views on the dictionary's keys, values, and key-value pairs:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
 
@@ -233,7 +247,7 @@ print(values)  # Output: dict_values(['John', 21, 'New York'])
 items = student.items()
 print(items)  # Output: dict_items([('name', 'John'), ('age', 21), ('city', 'New York')])
 </code></pre>
-<h3>copy()</h3>
+<h3 id="copy">copy()</h3>
 <p>The <code>copy()</code> method returns a shallow copy of the dictionary:</p>
 <pre><code class="language-python">original = {'name': 'John', 'age': 21, 'courses': ['Math', 'Physics']}
 
@@ -248,7 +262,7 @@ print(original)  # Output: {'name': 'Jane', 'age': 21, 'courses': ['Math', 'Phys
 print(copied)    # Output: {'name': 'John', 'age': 21, 'courses': ['Math', 'Physics', 'Chemistry']}
 </code></pre>
 <p>Note that with shallow copies, nested mutable objects like lists are still references to the same objects.</p>
-<h3>setdefault()</h3>
+<h3 id="setdefault">setdefault()</h3>
 <p>The <code>setdefault()</code> method returns the value of the specified key. If the key doesn't exist, it inserts the key with the specified value:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21}
 
@@ -261,7 +275,7 @@ print(student)  # Output: {'name': 'John', 'age': 21, 'email': 'john@example.com
 name = student.setdefault('name', 'Jane')
 print(name)  # Output: John (not Jane)
 </code></pre>
-<h2>Nested Dictionaries</h2>
+<h2 id="nested-dictionaries">Nested Dictionaries</h2>
 <p>Dictionaries can contain other dictionaries, creating nested structures:</p>
 <pre><code class="language-python"># Nested dictionary representing a student database
 students = {
@@ -288,9 +302,9 @@ students['1003'] = {
     'courses': ['Computer Science', 'Statistics']
 }
 </code></pre>
-<hr />
-<h2>Common Dictionary Operations</h2>
-<h3>Checking if a Key Exists</h3>
+<hr/>
+<h2 id="common-dictionary-operations">Common Dictionary Operations</h2>
+<h3 id="checking-if-a-key-exists">Checking if a Key Exists</h3>
 <p>You can use the <code>in</code> operator to check if a key exists in a dictionary:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21}
 
@@ -298,7 +312,7 @@ students['1003'] = {
 print('name' in student)  # Output: True
 print('grade' in student)  # Output: False
 </code></pre>
-<h3>Iterating Through a Dictionary</h3>
+<h3 id="iterating-through-a-dictionary">Iterating Through a Dictionary</h3>
 <p>There are several ways to iterate through a dictionary:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
 
@@ -316,17 +330,17 @@ for value in student.values():
 
 # Iterate through key-value pairs
 for key, value in student.items():
-    print(key, &quot;:&quot;, value)
+    print(key, ":", value)
 </code></pre>
-<h3>Finding the Length of a Dictionary</h3>
+<h3 id="finding-the-length-of-a-dictionary">Finding the Length of a Dictionary</h3>
 <p>The <code>len()</code> function returns the number of key-value pairs in a dictionary:</p>
 <pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
 print(len(student))  # Output: 3
 </code></pre>
-<h2>Dictionary as Function Arguments</h2>
+<h2 id="dictionary-as-function-arguments">Dictionary as Function Arguments</h2>
 <p>Dictionaries can be unpacked and used as function arguments using the double asterisk (<code>**</code>) operator:</p>
 <pre><code class="language-python">def display_person(name, age, city):
-    print(f&quot;Name: {name}, Age: {age}, City: {city}&quot;)
+    print(f"Name: {name}, Age: {age}, City: {city}")
 
 # Dictionary to unpack
 person = {'name': 'John', 'age': 21, 'city': 'New York'}
@@ -335,8 +349,8 @@ person = {'name': 'John', 'age': 21, 'city': 'New York'}
 display_person(**person)
 # Output: Name: John, Age: 21, City: New York
 </code></pre>
-<h2>Advanced Dictionary Techniques</h2>
-<h3>Merging Dictionaries</h3>
+<h2 id="advanced-dictionary-techniques">Advanced Dictionary Techniques</h2>
+<h3 id="merging-dictionaries">Merging Dictionaries</h3>
 <p>In Python 3.5+, you can use the unpacking operator to merge dictionaries:</p>
 <pre><code class="language-python">dict1 = {'a': 1, 'b': 2}
 dict2 = {'b': 3, 'c': 4}
@@ -353,7 +367,7 @@ dict2 = {'b': 3, 'c': 4}
 merged = dict1 | dict2
 print(merged)  # Output: {'a': 1, 'b': 3, 'c': 4}
 </code></pre>
-<h3>OrderedDict and Dictionary Order</h3>
+<h3 id="ordereddict-and-dictionary-order">OrderedDict and Dictionary Order</h3>
 <p>Since Python 3.7, regular dictionaries maintain insertion order by default. Before that, you could use <code>OrderedDict</code> from the <code>collections</code> module:</p>
 <pre><code class="language-python">from collections import OrderedDict
 
@@ -363,7 +377,7 @@ ordered = OrderedDict([('apple', 4.5), ('banana', 3.2), ('orange', 2.0)])
 # Regular dictionaries also maintain order in Python 3.7+
 regular = {'apple': 4.5, 'banana': 3.2, 'orange': 2.0}
 </code></pre>
-<h3>defaultdict for Default Values</h3>
+<h3 id="defaultdict-for-default-values">defaultdict for Default Values</h3>
 <p>The <code>defaultdict</code> from the <code>collections</code> module automatically provides default values for nonexistent keys:</p>
 <pre><code class="language-python">from collections import defaultdict
 
@@ -379,7 +393,7 @@ for fruit in fruits:
 print(fruit_count)
 # Output: defaultdict(&lt;class 'int'&gt;, {'apple': 3, 'banana': 2, 'orange': 1})
 </code></pre>
-<h3>Counter for Frequency Counting</h3>
+<h3 id="counter-for-frequency-counting">Counter for Frequency Counting</h3>
 <p>The <code>Counter</code> class is a specialized dictionary for counting hashable objects:</p>
 <pre><code class="language-python">from collections import Counter
 
@@ -394,8 +408,8 @@ print(fruit_counter)
 print(fruit_counter.most_common(2))
 # Output: [('apple', 3), ('banana', 2)]
 </code></pre>
-<h2>Real-World Applications of Dictionaries</h2>
-<h3>Data Processing</h3>
+<h2 id="real-world-applications-of-dictionaries">Real-World Applications of Dictionaries</h2>
+<h3 id="data-processing">Data Processing</h3>
 <p>Dictionaries are excellent for processing and analyzing data:</p>
 <pre><code class="language-python"># Sales data by quarter
 sales_data = {
@@ -411,9 +425,9 @@ annual_sales = sum(
     for quarter in sales_data.values()
     for month_sales in quarter.values()
 )
-print(f&quot;Annual sales: ${annual_sales}&quot;)
+print(f"Annual sales: ${annual_sales}")
 </code></pre>
-<h3>Configuration and Settings</h3>
+<h3 id="configuration-and-settings">Configuration and Settings</h3>
 <p>Dictionaries are perfect for storing configuration settings:</p>
 <pre><code class="language-python"># Application configuration
 config = {

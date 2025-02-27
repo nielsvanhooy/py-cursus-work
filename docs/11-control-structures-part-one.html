@@ -75,26 +75,40 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Control Structures/Flow</h1>
-<hr />
-<h2>Control structures</h2>
-<hr />
+        <div class="markdown-content"><h1 id="control-structuresflow">Control Structures/Flow</h1>
+<hr/>
+<h2 id="control-structures">Control structures</h2>
+<hr/>
 <p>Our life is full of conditions even if we don’t notice them most of the time. Let’s look at a few examples:</p>
-<p>If tomorrow it doesn't rain, I’ll go out with my friends in the park. <br />
+<p>If tomorrow it doesn't rain, I’ll go out with my friends in the park. <br/>
 Otherwise, I’ll stay home with a cup of hot tea and watch TV.</p>
-<p>If tomorrow it isn't too hot, I’ll go to the sea, but if it is, I’ll have a walk in the forest. <br />
+<p>If tomorrow it isn't too hot, I’ll go to the sea, but if it is, I’ll have a walk in the forest. <br/>
 However, if it rains, I’ll stay home.</p>
-<h2>Basic if Statement</h2>
+<h2 id="basic-if-statement">Basic if Statement</h2>
 <p>In Python, if statements are a starting point to implement a condition. Let’s look at the simplest example:</p>
 <pre><code class="language-shell">if &lt;condition&gt;:
     &lt;expression&gt;
 </code></pre>
-<p>When <code>&lt;condition&gt;</code> is evaluated by Python, it’ll become either True or False (Booleans). <br />
-Thus, if the condition is True (i.e, it is met), the <code>&lt;expression&gt;</code> will be executed, <br />
-but if <condition> is False (i.e., it is not met), the <code>&lt;expression&gt;</code> won’t be executed.</p>
+<p>When <code>&lt;condition&gt;</code> is evaluated by Python, it’ll become either True or False (Booleans). <br/>
+Thus, if the condition is True (i.e, it is met), the <code>&lt;expression&gt;</code> will be executed, <br/>
+but if <condition> is False (i.e., it is not met), the <code>&lt;expression&gt;</code> won’t be executed.</condition></p>
 <p>We are pretty free to decide what conditions and expressions can be because Python is very flexible.</p>
 <p>for conditions we will need the following table:</p>
 <table>
@@ -165,9 +179,9 @@ but if <condition> is False (i.e., it is not met), the <code>&lt;expression&gt;<
 </tr>
 </tbody>
 </table>
-<p>We now the concept of True and False right?<br />
+<p>We now the concept of True and False right?<br/>
 But in programming languages we also have <code>Truthy</code> and <code>Falsy</code> values.</p>
-<h1>🔸 Falsy Values in Python</h1>
+<h1 id="falsy-values-in-python">🔸 Falsy Values in Python</h1>
 <p>some below here. we haven't discussed yet. ill point them out when we get there.</p>
 <p>Sequences and Collections:</p>
 <ul>
@@ -190,7 +204,7 @@ But in programming languages we also have <code>Truthy</code> and <code>Falsy</c
 <li>None</li>
 <li>False</li>
 </ul>
-<h2>🔹 Truthy Values in Python</h2>
+<h2 id="truthy-values-in-python">🔹 Truthy Values in Python</h2>
 <p>According to the Python Documentation:</p>
 <p>By default, an object is considered true.</p>
 <p>Truthy values include:</p>
@@ -199,22 +213,22 @@ But in programming languages we also have <code>Truthy</code> and <code>Falsy</c
 <li>Numeric values that are not zero.</li>
 <li>True</li>
 </ul>
-<h2>How to check this?</h2>
-<p>🔸 The Built-in bool() Function<br />
+<h2 id="how-to-check-this">How to check this?</h2>
+<p>🔸 The Built-in bool() Function<br/>
 You can check if a value is either truthy or falsy with the built-in <code>bool()</code> function.</p>
-<hr />
-<h1>Playing with if statements</h1>
+<hr/>
+<h1 id="playing-with-if-statements">Playing with if statements</h1>
 <p>Now Let’s look at a concrete example.</p>
 <pre><code class="language-py"># Basic if statement
 x = 3
 y = 10
 
 if x &lt; y:
-    print(&quot;x is smaller than y.&quot;)
+    print("x is smaller than y.")
 </code></pre>
 <p>the condition here is: x is smaller than y.</p>
-<p>First of all, we define two variables, x and y. <br />
-Then we say that if variable x is smaller than variable y, print out x is smaller than y). <br />
+<p>First of all, we define two variables, x and y. <br/>
+Then we say that if variable x is smaller than variable y, print out x is smaller than y). <br/>
 Indeed, if we execute this code, we’ll print out this output because 3 is smaller than 10.</p>
 <p>Output: x is smaller than y.</p>
 <pre><code class="language-py"># A slightly more complex example
@@ -224,38 +238,38 @@ z = None
 
 if x &lt; y:
     z = 13
-print(f&quot;Variable z is now {z}.&quot;)
+print(f"Variable z is now {z}.")
 </code></pre>
 <p>Variable z is now 13.</p>
-<p>In this case, if the condition is met, <br />
-then a value of 13 will be assigned to the variable z. <br />
+<p>In this case, if the condition is met, <br/>
+then a value of 13 will be assigned to the variable z. <br/>
 Then Variable z is now 13. will be printed out (note that the print statement can be used both outside and inside the if statement).</p>
-<p>As you can see, we aren't restrained in the choice of an expression to execute. <br />
+<p>As you can see, we aren't restrained in the choice of an expression to execute. <br/>
 You can now practice more by writing more complex code.</p>
 <pre><code class="language-py"># What happens here?
 x = 3
 y = 10
 
 if x &gt; y:
-    print(&quot;x is greater than y.&quot;)
+    print("x is greater than y.")
 </code></pre>
-<hr />
-<h2>Else Statement</h2>
-<p>What if we want to execute some code if the condition isn't met? <br />
-We add an else statement below the if statement. <br />
+<hr/>
+<h2 id="else-statement">Else Statement</h2>
+<p>What if we want to execute some code if the condition isn't met? <br/>
+We add an else statement below the if statement. <br/>
 Let’s look at an example.</p>
 <pre><code class="language-py"># else statement
 x = 3
 y = 10
 
 if x &gt; y:
-    print(&quot;x is greater than y.&quot;)
+    print("x is greater than y.")
 else:
-    print(&quot;x is smaller than y.&quot;)
+    print("x is smaller than y.")
 </code></pre>
 <p>What would be the answer here?</p>
 <details>
-    <summary>Click to reveal more</summary>
+<summary>Click to reveal more</summary>
 <p>
 Here, Python first executes the if condition and checks if it’s True. 
 Since 3 is not greater than 10, the condition isn't met, 
@@ -263,86 +277,83 @@ so we don’t print out “x is greater than y.”
 Then we say that in all other cases we should execute the code under the else statement: x is smaller than y.
 </p>
 </details>
-
 <pre><code class="language-py"># x is equal to y
 x = 3
 y = 3
 
 if x &lt; y:
-    print(&quot;x is smaller than y.&quot;)
+    print("x is smaller than y.")
 else:
-    print(&quot;x is greater than y.&quot;)
+    print("x is greater than y.")
 </code></pre>
 <p>what would happen here??</p>
 <details>
-    <summary>Click to reveal more</summary>
+<summary>Click to reveal more</summary>
 <p>
 The output is clearly wrong because 3 is equal to 3! 
 We have another condition outside the greater or less than comparison symbols; 
 thus, we have to use the elif statement.
 </p>
 </details>
-
-<hr />
-<h2>elif Statement</h2>
+<hr/>
+<h2 id="elif-statement">elif Statement</h2>
 <p>Let’s rewrite the above example and add an elif statement.</p>
 <pre><code class="language-py"># x is equal to y with elif statement
 x = 3
 y = 3
 
 if x &lt; y:
-    print(&quot;x is smaller than y.&quot;)
+    print("x is smaller than y.")
 elif x == y:
-    print(&quot;x is equal to y.&quot;)
+    print("x is equal to y.")
 else:
-    print(&quot;x is greater than y.&quot;)
+    print("x is greater than y.")
 </code></pre>
-<p>Python first checks if the condition x &lt; y is met. <br />
-It isn't, so it goes on to the second condition, <br />
-which in Python, we write as elif, which is short for else if. <br />
-If the first condition isn't met, check the second condition, and if it’s met,<br />
-execute the expression. <br />
+<p>Python first checks if the condition x &lt; y is met. <br/>
+It isn't, so it goes on to the second condition, <br/>
+which in Python, we write as elif, which is short for else if. <br/>
+If the first condition isn't met, check the second condition, and if it’s met,<br/>
+execute the expression. <br/>
 Else, do something else. </p>
 <p>The output is “x is equal to y.”</p>
-<hr />
+<hr/>
 <p>Let’s now get back to one of our first examples of conditional statements:</p>
 <p>If tomorrow it isn't too hot, I’ll go to the sea, but if it is, I’ll have a walk in the forest. However, if it rains, I’ll stay home.</p>
-<p>Here, our first condition is that tomorrow it’s not too hot (if statement). <br />
-If this condition isn't met, then we go for a walk in the forest (elif statement). <br />
+<p>Here, our first condition is that tomorrow it’s not too hot (if statement). <br/>
+If this condition isn't met, then we go for a walk in the forest (elif statement). <br/>
 Finally, if neither condition is met, we’ll stay home (else statement).</p>
 <p>Now let’s translate this sentence into Python.</p>
 <pre><code class="language-py"># elif condition
-tomorrow = &quot;warm&quot;
+tomorrow = "warm"
 
-if tomorrow == &quot;warm&quot;:
-    print(&quot;I'll go to the sea.&quot;)
-elif tomorrow == &quot;very hot&quot;:
-    print(&quot;I'll go to the forest.&quot;)
+if tomorrow == "warm":
+    print("I'll go to the sea.")
+elif tomorrow == "very hot":
+    print("I'll go to the forest.")
 else:
-    print(&quot;I'll stay home.&quot;)
+    print("I'll stay home.")
 </code></pre>
 <details>
-    <summary>Click to reveal more</summary>
+<summary>Click to reveal more</summary>
 <p>
 Python first checks if the variable tomorrow is equal to “warm” and if it is, 
 then it prints out I'll go to the sea. 
 and stops the execution. 
 </p>
 </details>
-
 <p>What happens if the first condition isn't met?</p>
 <pre><code class="language-py"># Tomorrow is very hot
-tomorrow = &quot;very hot&quot;
+tomorrow = "very hot"
 
-if tomorrow == &quot;warm&quot;:
-    print(&quot;I'll go to the sea.&quot;)
-elif tomorrow == &quot;very hot&quot;:
-    print(&quot;I'll go to the forest.&quot;)
+if tomorrow == "warm":
+    print("I'll go to the sea.")
+elif tomorrow == "very hot":
+    print("I'll go to the forest.")
 else:
-    print(&quot;I'll stay home.&quot;)
+    print("I'll stay home.")
 </code></pre>
 <details>
-    <summary>Click to reveal more</summary>
+<summary>Click to reveal more</summary>
 <p>
 In this case, 
 Python evaluates the first condition to False and goes to the second condition. 
@@ -352,35 +363,33 @@ and stops the execution.
 If neither of the two conditions is met, then it’ll print out I’ll stay home.
 </p>
 </details>
-
-<p>Of course, you can use whatever number of elif statements you want. <br />
-Let’s add more conditions and also change what is printed out under the else statement to Weather not recognized. <br />
+<p>Of course, you can use whatever number of elif statements you want. <br/>
+Let’s add more conditions and also change what is printed out under the else statement to Weather not recognized. <br/>
 (for example, if tomorrow is “f”, we don’t know what it means).</p>
 <pre><code class="language-py"># Several elif conditions
-tomorrow = &quot;snowy&quot;
+tomorrow = "snowy"
 
-if tomorrow == &quot;warm&quot;:
-    print(&quot;I'll go to the sea.&quot;)
-elif tomorrow == &quot;very hot&quot;:
-    print(&quot;I'll go to the forest.&quot;)
-elif tomorrow == &quot;snowy&quot;:
-    print(&quot;I'll build a snowman.&quot;)
-elif tomorrow == &quot;rainy&quot;:
-    print(&quot;I'll stay home.&quot;)
+if tomorrow == "warm":
+    print("I'll go to the sea.")
+elif tomorrow == "very hot":
+    print("I'll go to the forest.")
+elif tomorrow == "snowy":
+    print("I'll build a snowman.")
+elif tomorrow == "rainy":
+    print("I'll stay home.")
 else:
-    print(&quot;Weather not recognized.&quot;)
+    print("Weather not recognized.")
 </code></pre>
 <p>guess what would be printed now?</p>
 <details>
-    <summary>Click to reveal more</summary>
+<summary>Click to reveal more</summary>
 <p>
 I'll build a snowman.
 </p>
 </details>
-
-<hr />
-<h2>Multiple Conditions</h2>
-<p>Let’s now add some complexity. <br />
+<hr/>
+<h2 id="multiple-conditions">Multiple Conditions</h2>
+<p>Let’s now add some complexity. <br/>
 What if we want to meet multiple conditions in one if statement?</p>
 <p>Let’s say we want to predict a biome (i.e., desert or tropical forest) based on two climate measurements: temperature and humidity. </p>
 <p>For example, if it’s hot and dry, then it’s a hot desert, but if it’s cold and dry, then it’s an arctic desert. </p>
@@ -388,152 +397,151 @@ What if we want to meet multiple conditions in one if statement?</p>
 <p>In Python, we can use logical operators (i.e., and, or) to use multiple conditions in the same if statement.</p>
 <p>Look at the code below.</p>
 <pre><code class="language-py"># Biome prediction with and logical operator
-humidity = &quot;low&quot;
-temperature = &quot;high&quot;
+humidity = "low"
+temperature = "high"
 
-if humidity == &quot;low&quot; and temperature == &quot;high&quot;:
-    print(&quot;It's a hot desert.&quot;)
-elif humidity == &quot;low&quot; and temperature == &quot;low&quot;:
-    print(&quot;It's an arctic desert.&quot;)
-elif humidity == &quot;high&quot; and temperature == &quot;high&quot;:
-    print(&quot;It's a tropical forest.&quot;)
+if humidity == "low" and temperature == "high":
+    print("It's a hot desert.")
+elif humidity == "low" and temperature == "low":
+    print("It's an arctic desert.")
+elif humidity == "high" and temperature == "high":
+    print("It's a tropical forest.")
 else:
-    print(&quot;I don't know!&quot;)
+    print("I don't know!")
 </code></pre>
 <details>
-    <summary>Click to reveal more</summary>
+<summary>Click to reveal more</summary>
 <p>
-The output will be It's a hot desert.<br>
+The output will be It's a hot desert.<br/>
 because only when humidity is low and temperature is high, the combined condition is True.
-<br>
+<br/>
 It’s not sufficient to have only one of the conditions to be True.
-<br>
+<br/>
 Formally, Python checks if the first condition of humidity is True (indeed, it is),
-<br>
+<br/>
 then it checks if the second condition of temperature is True (and it is) and only in this case the combined condition is True. 
-<br>
+<br/>
 If at least one of these conditions isn't met, then the combined condition evaluates to False.
 
 </p>
 </details>
-
-<hr />
-<h1>Nested if Statements</h1>
-<p>Python is a very flexible programming language, and it allows you to use if statements inside other if statements, <br />
-so called nested if statements. Let’s look at an example.</p>
+<hr/>
+<h1 id="nested-if-statements">Nested if Statements</h1>
+<p>Python is a very flexible programming language, and it allows you to use if statements inside other if statements, <br>
+so called nested if statements. Let’s look at an example.</br></p>
 <pre><code class="language-py"># Nested if statements
 mark =  85
 
 if mark &gt;= 60 and mark &lt;= 100:
     if mark &gt;= 90:
-        print(&quot;You are the best!&quot;)
+        print("You are the best!")
     elif mark &gt;= 80:
-        print(&quot;Well done!&quot;)
+        print("Well done!")
     elif mark &gt;= 70:
-        print(&quot;You can do better.&quot;)
+        print("You can do better.")
     else:
-        print(&quot;Pass.&quot;)
+        print("Pass.")
 elif mark &gt; 100:
-    print(&quot;This mark is too high.&quot;)
+    print("This mark is too high.")
 elif mark &lt; 0:
-    print(&quot;This mark is too low.&quot;)
+    print("This mark is too low.")
 else:
-    print(&quot;Failed.&quot;)
+    print("Failed.")
 </code></pre>
 <details>
-    <summary>Click to reveal more</summary>
+<summary>Click to reveal more</summary>
 <p>
 Well done!
 
 Here, if the mark is between 60 and 100, 
-<br>
+<br/>
 the expression under the if statement is executed. 
-<br><br>
+<br/><br/>
 But then we have other conditions that are also evaluated. 
-<br>
+<br/>
 So, our mark is 85, which is between 60 and 100. However, 85 is smaller than 90, so the first nested if condition is False, and the first nested expression isn't executed. 
-<br><br>
+<br/><br/>
 But 85 is higher than 80, so the second expression is executed and “Well done!” is printed out.
-<br><br>
+<br/><br/>
 Of course, we also have elif statements outside the expression below the first if statement. 
-<br><br>
-For example, what if the mark is higher than 100? If the first condition (number between 60 and 100) is False, then we go directly to the elif statement mark > 100 and print out This mark is too low..
-<br><br>
+<br/><br/>
+For example, what if the mark is higher than 100? If the first condition (number between 60 and 100) is False, then we go directly to the elif statement mark &gt; 100 and print out This mark is too low..
+<br/><br/>
 Try to assign different numbers to the mark variable to understand the logic of this code.
 </p>
 </details>
-<hr />
-<h2>Pattern Matching in Python</h2>
-<p>The pattern matching was added in Python 3.10, released in October, 2021. <br />
-In short, it can be seen a different syntax for if..elif statements. </p>
-<p>However i have never come in across it in codebases around the internet (yet)<br />
-Just know it exists we will not use it in this course. and in the projects we have. (unless its proven to be faster)</p>
+<hr/>
+<h2 id="pattern-matching-in-python">Pattern Matching in Python</h2>
+<p>The pattern matching was added in Python 3.10, released in October, 2021. <br>
+In short, it can be seen a different syntax for if..elif statements. </br></p>
+<p>However i have never come in across it in codebases around the internet (yet)<br>
+Just know it exists we will not use it in this course. and in the projects we have. (unless its proven to be faster)</br></p>
 <p>Let's look at an example by rewrting a previous example using the pattern matching.</p>
 <pre><code class="language-py"># Previous example
-tomorrow = &quot;snowy&quot;
+tomorrow = "snowy"
 
-if tomorrow == &quot;warm&quot;:
-    print(&quot;I'll go to the sea.&quot;)
-elif tomorrow == &quot;very hot&quot;:
-    print(&quot;I'll go to the forest.&quot;)
-elif tomorrow == &quot;snowy&quot;:
-    print(&quot;I'll build a snowman.&quot;)
-elif tomorrow == &quot;rainy&quot;:
-    print(&quot;I'll stay home.&quot;)
+if tomorrow == "warm":
+    print("I'll go to the sea.")
+elif tomorrow == "very hot":
+    print("I'll go to the forest.")
+elif tomorrow == "snowy":
+    print("I'll build a snowman.")
+elif tomorrow == "rainy":
+    print("I'll stay home.")
 else:
-    print(&quot;Weather not recognized.&quot;)
+    print("Weather not recognized.")
 </code></pre>
 <p>now with pattern matching:</p>
 <pre><code class="language-py"># Pattern matching with match..case syntax
-tomorrow = &quot;snowy&quot;
+tomorrow = "snowy"
 
 match tomorrow:
-    case &quot;warm&quot;:
-        print(&quot;I'll go to the sea.&quot;)
-    case &quot;very hot&quot;:
-        print(&quot;I'll go to the forest.&quot;)
-    case &quot;snowy&quot;:
-        print(&quot;I'll build a snowman.&quot;)
-    case &quot;rainy&quot;:
-         print(&quot;I'll stay home.&quot;)
+    case "warm":
+        print("I'll go to the sea.")
+    case "very hot":
+        print("I'll go to the forest.")
+    case "snowy":
+        print("I'll build a snowman.")
+    case "rainy":
+         print("I'll stay home.")
     case _:
-        print(&quot;Weather not recognized.&quot;)
+        print("Weather not recognized.")
 </code></pre>
 <p>result is: i'll build a snowman.</p>
-<p>We can see similarities between using the if..elif statements and the match..case syntax. <br />
-First, we define what variable we want to match, and when we define the cases (or values this variable can take). <br />
-The rest of the code is similar. <br />
-If a case is matched (that's equivalent of a double equal sign), then the print expression is executed.</p>
-<p>Note the last case statement, <br />
-it's the _ case, which is equivalent to else: if no cases are matched, then we print Weather not recognized.</p>
-<hr />
-<h2>pass Statement</h2>
-<p>As you start writing more complex code, you may find yourself in the situation where you have to use a placeholder instead of the code you want to implement later. <br />
-The pass statement is this placeholder. Let’s look at an example with and without the pass statement.</p>
+<p>We can see similarities between using the if..elif statements and the match..case syntax. <br>
+First, we define what variable we want to match, and when we define the cases (or values this variable can take). <br>
+The rest of the code is similar. <br>
+If a case is matched (that's equivalent of a double equal sign), then the print expression is executed.</br></br></br></p>
+<p>Note the last case statement, <br>
+it's the _ case, which is equivalent to else: if no cases are matched, then we print Weather not recognized.</br></p>
+<hr/>
+<h2 id="pass-statement">pass Statement</h2>
+<p>As you start writing more complex code, you may find yourself in the situation where you have to use a placeholder instead of the code you want to implement later. <br>
+The pass statement is this placeholder. Let’s look at an example with and without the pass statement.</br></p>
 <pre><code class="language-py"># Without pass
 num = 3
 if num == 3:
 
-print(&quot;I'll write this code later.&quot;)
+print("I'll write this code later.")
 </code></pre>
 <p>would result in an error</p>
 <pre><code class="language-py">  Input In [24]
-    print(&quot;I'll write this code later.&quot;)
+    print("I'll write this code later.")
     ^
 IndentationError: expected an indented block after 'if' statement on line 3
 </code></pre>
-<p>Python expects some code under the if statement, but you are yet to implement it! <br />
-You can write pass there and solve this problem.</p>
+<p>Python expects some code under the if statement, but you are yet to implement it! <br>
+You can write pass there and solve this problem.</br></p>
 <pre><code class="language-py"># With pass
 num = 3
 if num == 3:
     pass
 
-print(&quot;I'll write this code later.&quot;)
+print("I'll write this code later.")
 </code></pre>
-<p>If instead you place pass in the if statement, <br />
-Python won’t throw any error and will pass to any code you have below the if statement. <br />
-This works even if you have other conditions below the first if statement.</p></div>
+<p>If instead you place pass in the if statement, <br>
+Python won’t throw any error and will pass to any code you have below the if statement. <br>
+This works even if you have other conditions below the first if statement.</br></br></p></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

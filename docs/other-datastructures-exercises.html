@@ -75,16 +75,30 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Beginner Network Engineering Exercises: Tuples &amp; Sets</h1>
+        <div class="markdown-content"><h1 id="beginner-network-engineering-exercises-tuples-sets">Beginner Network Engineering Exercises: Tuples &amp; Sets</h1>
 <p>These exercises introduce tuples and sets, focusing on how they can be applied in network engineering.</p>
-<hr />
-<h2>Exercise 1: Storing Network Device Information (Tuples)</h2>
-<h3>Objective:</h3>
+<hr/>
+<h2 id="exercise-1-storing-network-device-information-tuples">Exercise 1: Storing Network Device Information (Tuples)</h2>
+<h3 id="objective">Objective:</h3>
 <p>Understand how tuples can store immutable network device information.</p>
-<h3>Tasks:</h3>
+<h3 id="tasks">Tasks:</h3>
 <ol>
 <li>Create a tuple named <code>router_info</code> containing:</li>
 <li>Router name (string)</li>
@@ -96,7 +110,7 @@
 <pre><code class="language-python"># HINT: Tuples are immutable. Trying to modify them will cause an error.
 
 def router_tuple():
-    print(&quot;=== NETWORK DEVICE INFORMATION ===&quot;)
+    print("=== NETWORK DEVICE INFORMATION ===")
 
     # TODO: Create a tuple with router name, IP address, and MAC address
 
@@ -104,16 +118,16 @@ def router_tuple():
 
     # TODO: Try modifying the IP address and observe the result
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Uncomment the line below to run the function
 # router_tuple()
 </code></pre>
-<hr />
-<h2>Exercise 2: Unique Connected Devices (Sets)</h2>
-<h3>Objective:</h3>
+<hr/>
+<h2 id="exercise-2-unique-connected-devices-sets">Exercise 2: Unique Connected Devices (Sets)</h2>
+<h3 id="objective_1">Objective:</h3>
 <p>Use a set to store unique connected device IPs.</p>
-<h3>Tasks:</h3>
+<h3 id="tasks_1">Tasks:</h3>
 <ol>
 <li>Create an empty set named <code>connected_devices</code>.</li>
 <li>Add the following IPs: <code>192.168.1.10</code>, <code>192.168.1.11</code>, <code>192.168.1.10</code>, <code>192.168.1.12</code>.</li>
@@ -123,7 +137,7 @@ def router_tuple():
 <pre><code class="language-python"># HINT: Sets automatically remove duplicates.
 
 def unique_connected_devices():
-    print(&quot;=== UNIQUE CONNECTED DEVICES ===&quot;)
+    print("=== UNIQUE CONNECTED DEVICES ===")
 
     # TODO: Create an empty set
 
@@ -133,16 +147,16 @@ def unique_connected_devices():
 
     # TODO: Remove an IP and print the set again
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Uncomment the line below to run the function
 # unique_connected_devices()
 </code></pre>
-<hr />
-<h2>Exercise 3: Comparing Network Segments (Sets)</h2>
-<h3>Objective:</h3>
+<hr/>
+<h2 id="exercise-3-comparing-network-segments-sets">Exercise 3: Comparing Network Segments (Sets)</h2>
+<h3 id="objective_2">Objective:</h3>
 <p>Use sets to find common and unique devices in two network segments.</p>
-<h3>Tasks:</h3>
+<h3 id="tasks_2">Tasks:</h3>
 <ol>
 <li>Create two sets: <code>network_A</code> and <code>network_B</code>, containing some overlapping device IPs.</li>
 <li>Print devices common to both networks.</li>
@@ -152,7 +166,7 @@ def unique_connected_devices():
 <pre><code class="language-python"># HINT: Use set operations like intersection() and difference().
 
 def compare_network_segments():
-    print(&quot;=== COMPARING NETWORK SEGMENTS ===&quot;)
+    print("=== COMPARING NETWORK SEGMENTS ===")
 
     # TODO: Create two sets with overlapping IPs
 
@@ -162,16 +176,16 @@ def compare_network_segments():
 
     # TODO: Print devices unique to network_B
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Uncomment the line below to run the function
 # compare_network_segments()
 </code></pre>
-<hr />
-<h2>Exercise 4: Immutable Network Configuration (Tuples)</h2>
-<h3>Objective:</h3>
+<hr/>
+<h2 id="exercise-4-immutable-network-configuration-tuples">Exercise 4: Immutable Network Configuration (Tuples)</h2>
+<h3 id="objective_3">Objective:</h3>
 <p>Use a tuple to store a read-only network configuration.</p>
-<h3>Tasks:</h3>
+<h3 id="tasks_3">Tasks:</h3>
 <ol>
 <li>Define a tuple named <code>network_config</code> containing:</li>
 <li>Subnet mask</li>
@@ -183,7 +197,7 @@ def compare_network_segments():
 <pre><code class="language-python"># HINT: Tuples cannot be modified after creation.
 
 def immutable_network_config():
-    print(&quot;=== NETWORK CONFIGURATION ===&quot;)
+    print("=== NETWORK CONFIGURATION ===")
 
     # TODO: Create a tuple with subnet mask, default gateway, and DNS server
 
@@ -191,7 +205,7 @@ def immutable_network_config():
 
     # TODO: Attempt to modify the DNS server and observe what happens
 
-    print(&quot;\nDone!&quot;)
+    print("\nDone!")
 
 # Uncomment the line below to run the function
 # immutable_network_config()

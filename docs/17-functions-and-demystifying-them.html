@@ -75,63 +75,77 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h2>Demystifying Functions in Python</h2>
-<h3>What are functions?</h3>
-<p>The best way to summarize a function is a<br />
-- self-contained block of code comprised of related statements used to accomplish a specific task or related group of tasks.<br />
-- encapsulates a specific task or related group of tasks.<br />
+        <div class="markdown-content"><h2 id="demystifying-functions-in-python">Demystifying Functions in Python</h2>
+<h3 id="what-are-functions">What are functions?</h3>
+<p>The best way to summarize a function is a<br/>
+- self-contained block of code comprised of related statements used to accomplish a specific task or related group of tasks.<br/>
+- encapsulates a specific task or related group of tasks.<br/>
 - in some languages also called a <code>subprogram</code></p>
-<p>We use functions for a number of reasons<br />
-- code reusability<br />
-- code organization<br />
+<p>We use functions for a number of reasons<br/>
+- code reusability<br/>
+- code organization<br/>
 - modularity</p>
-<p>Within Python, these functions exist as one of three types<br />
-- built-in functions<br />
-- user-defined functions<br />
+<p>Within Python, these functions exist as one of three types<br/>
+- built-in functions<br/>
+- user-defined functions<br/>
 - Lambda functions (also known as anonymous functions)</p>
-<p>We will discuss these 3 types of functions in more detail below..<br />
+<p>We will discuss these 3 types of functions in more detail below..<br/>
 But beofre all of that, It's necessary to ask the big question.</p>
-<h3>Why use functions.</h3>
-<p>Python functions are reusable code blocks that carry out particular tasks, <br />
-helping programmers structure their code and make it easier to read. <br />
-By preventing duplication, functions make the code more modular and manageable. <br />
-The <code>def</code> keyword, the function name, and any parameters included in parenthesis define a function. <br />
+<h3 id="why-use-functions">Why use functions.</h3>
+<p>Python functions are reusable code blocks that carry out particular tasks, <br/>
+helping programmers structure their code and make it easier to read. <br/>
+By preventing duplication, functions make the code more modular and manageable. <br/>
+The <code>def</code> keyword, the function name, and any parameters included in parenthesis define a function. <br/>
 The code to be performed is contained in the function body, and the 'return' statement allows the function to produce a result.</p>
-<p>I like to think of functions as: avoiding replicating code everywhere. <br />
+<p>I like to think of functions as: avoiding replicating code everywhere. <br/>
 so that i can test functionality in one place and use it everywhere.</p>
-<p>not repeating yourself is a good thing in programming.<br />
+<p>not repeating yourself is a good thing in programming.<br/>
 They have also created a term for that.</p>
 <ul>
 <li>DRY - Don't Repeat Yourself</li>
 </ul>
-<hr />
+<hr/>
 <p>When we started coding in Python we used the Python build in <code>print()</code> function. and often the <code>input()</code> function.</p>
-<p>In programming, this is called <code>abstraction</code>.<br />
+<p>In programming, this is called <code>abstraction</code>.<br/>
 It lets you use functions by "calling" the function with required arguments.</p>
-<h1>example</h1>
+<h1 id="example">example</h1>
 <pre><code class="language-python">print()  # &lt;--- this is the function
 
-print(&quot;hello&quot;)   # &lt;---- what we put in the function is an argument!!!
+print("hello")   # &lt;---- what we put in the function is an argument!!!
 </code></pre>
-<p>We have already seen several more "built-in" functions in Python.<br />
-- <code>len()</code><br />
-- <code>type()</code><br />
-- <code>int()</code><br />
-- <code>str()</code><br />
-- <code>float()</code><br />
-- <code>bool()</code><br />
-- <code>list()</code><br />
-- <code>dict()</code><br />
-- <code>set()</code><br />
-- <code>tuple()</code><br />
-- <code>range()</code><br />
+<p>We have already seen several more "built-in" functions in Python.<br/>
+- <code>len()</code><br/>
+- <code>type()</code><br/>
+- <code>int()</code><br/>
+- <code>str()</code><br/>
+- <code>float()</code><br/>
+- <code>bool()</code><br/>
+- <code>list()</code><br/>
+- <code>dict()</code><br/>
+- <code>set()</code><br/>
+- <code>tuple()</code><br/>
+- <code>range()</code><br/>
 - <code>input()</code></p>
 <p>etc etc you can find em all in The python documentation.</p>
 <p><a href="https://docs.python.org/3/library/functions.html">Built in Python functions</a></p>
-<h2>Creating functions in python</h2>
+<h2 id="creating-functions-in-python">Creating functions in python</h2>
 <p>The syntax looks like this</p>
 <pre><code class="language-python">def function_name(parameters):
     # What the function does goes here
@@ -142,62 +156,62 @@ print(&quot;hello&quot;)   # &lt;---- what we put in the function is an argument
     &lt;statement(s)&gt;
 </code></pre>
 <ul>
-<li><function_name> is the name of the function ex: <code>print_hello</code></li>
-<li><parameters> is the input the function takes ex: <code>name</code>  (could be even more, comma separated)</li>
+<li><function_name> is the name of the function ex: <code>print_hello</code></function_name></li>
+<li><parameters> is the input the function takes ex: <code>name</code>  (could be even more, comma separated)</parameters></li>
 <li>The <code>:</code> at the end. Punctuaction that denotes the end of the Python function definiton</li>
-<li><statement(s)> is the code block that does the work of the function</li>
+<li><statement(s)> is the code block that does the work of the function</statement(s)></li>
 </ul>
 <p>functions are derived from the world of mathematics.</p>
-<p><img alt="math functions" src="img/function.avif" /></p>
-<p>Here f is function that operates on the inputs x and y to produce the output z.<br />
+<p><img alt="math functions" src="img/function.avif"/></p>
+<p>Here f is function that operates on the inputs x and y to produce the output z.<br/>
 However programming functions are more generalized and versatile then the mathematical definition.</p>
-<p>Lets go pack and use the function <code>len</code> as an example.<br />
-The function len, takes one input. (how do i know this?) <br />
+<p>Lets go pack and use the function <code>len</code> as an example.<br/>
+The function len, takes one input. (how do i know this?) <br/>
 if using pycharm type <code>len()</code> and mouseover and it will tell you.</p>
 <p>otherwise the python documentation!! (this is going to be one of your friends as a Python programmer)</p>
-<h1>Example</h1>
+<h1 id="example_1">Example</h1>
 <p>we define a list and then use the <code>len()</code> function to get the length of the list.</p>
 <pre><code class="language-python">a = ['foo', 'bar', 'baz', 'qux']
 print(len(a))
 </code></pre>
 <p>the result of this will be 4.</p>
-<p>So we used the function <code>len()</code> and we passed the parameter a to the function.<br />
+<p>So we used the function <code>len()</code> and we passed the parameter a to the function.<br/>
 The function does its work and returns the result. in this case <code>4</code></p>
 <p>In earlier exercises for example. we used the module random to generate random numbers.</p>
 <pre><code class="language-python">import random
 a = random.randint(1, 10)
 </code></pre>
-<p>randint here. <br />
-- is a function that takes 2 parameters. and returns a random number between those 2 numbers.<br />
-- randint is a function that is part of the random module.<br />
+<p>randint here. <br/>
+- is a function that takes 2 parameters. and returns a random number between those 2 numbers.<br/>
+- randint is a function that is part of the random module.<br/>
 - randint is a method of the object random.</p>
 <p>so we see. we use many different names for essentially the same thing.</p>
-<p>In Pycharm i can hop trough the code by pressing <code>ctrl</code> and clicking on the function name.<br />
-Altough this can be a bit of a "rabbit hole" ill demonstrate with images below.<br />
+<p>In Pycharm i can hop trough the code by pressing <code>ctrl</code> and clicking on the function name.<br/>
+Altough this can be a bit of a "rabbit hole" ill demonstrate with images below.<br/>
 when i do that on <code>randint(1, 10)</code> ill be taken to the source code of the function.</p>
-<p><img alt="first click trough" src="img/randint-click1.png" /></p>
+<p><img alt="first click trough" src="img/randint-click1.png"/></p>
 <p>i then ctrl click on <code>_inst.randint</code> and i get to implementation.</p>
-<p><img alt="second clicktrough" src="img/randint-click2.png" /></p>
-<p>we see here that the "method" randint which is a function is defined here.<br />
+<p><img alt="second clicktrough" src="img/randint-click2.png"/></p>
+<p>we see here that the "method" randint which is a function is defined here.<br/>
 as a function</p>
 <pre><code class="language-python">    def randint(self, a, b):
-        &quot;&quot;&quot;Return random integer in range [a, b], including both end points.
-        &quot;&quot;&quot;
+        """Return random integer in range [a, b], including both end points.
+        """
 
         return self.randrange(a, b+1)
 </code></pre>
 <p>Thats why in this course i keep repeating the following mantra</p>
-<h1>Everything in Python is an object.</h1>
-<h1>An object can have methods.</h1>
-<h1>a method is a function that is part of an object.</h1>
-<h1>and a method is just a function</h1>
-<hr />
-<h2>Modularity</h2>
+<h1 id="everything-in-python-is-an-object">Everything in Python is an object.</h1>
+<h1 id="an-object-can-have-methods">An object can have methods.</h1>
+<h1 id="a-method-is-a-function-that-is-part-of-an-object">a method is a function that is part of an object.</h1>
+<h1 id="and-a-method-is-just-a-function">and a method is just a function</h1>
+<hr/>
+<h2 id="modularity">Modularity</h2>
 <p>Functions allow complex processes to be broken up into smaller, more manageable parts.</p>
-<p>we will use the example of opening a file (we havent learned to open files yet but follow along)<br />
-we need to<br />
-- read a file<br />
-- process the contents of the file<br />
+<p>we will use the example of opening a file (we havent learned to open files yet but follow along)<br/>
+we need to<br/>
+- read a file<br/>
+- process the contents of the file<br/>
 - write an output file.</p>
 <p>in how we learned python up until now we would structure that something like this.</p>
 <pre><code class="language-python"># Main program
@@ -220,9 +234,9 @@ we need to<br />
 &lt;statement&gt;
 &lt;statement&gt;
 </code></pre>
-<p>We call this: emerging programming. or scripting.<br />
-it is just a bunch of code strung together in a long sequence,<br />
-usually with whitespace and comments to help organize it a bit.<br />
+<p>We call this: emerging programming. or scripting.<br/>
+it is just a bunch of code strung together in a long sequence,<br/>
+usually with whitespace and comments to help organize it a bit.<br/>
 however this will get lengthy and hard to read and maintain.</p>
 <p>with function we would structure it something like this.</p>
 <pre><code class="language-python">def read_file():
@@ -252,128 +266,128 @@ read_file()   # we call it just like the built in functions.
 process_file()
 write_file()
 </code></pre>
-<p>This example is <strong>modularized</strong><br />
-instead of all strung together in a long sequence.<br />
+<p>This example is <strong>modularized</strong><br/>
+instead of all strung together in a long sequence.<br/>
 it's broken out into seperate function, each of which focuses on a specific task.</p>
-<p>in our example those tasks are:<br />
-- read a file<br />
-- process the contents of the file<br />
+<p>in our example those tasks are:<br/>
+- read a file<br/>
+- process the contents of the file<br/>
 - write an output file.</p>
-<p>a mental exercise for this is how we do things in real life.<br />
-1. Take all the stuff off the shelves.<br />
-2. Take the shelves apart.<br />
-3. Carry the shelf parts across the garage to the new location.<br />
-4. Re-assemble the shelves.<br />
-5. Carry the stuff across the garage.<br />
+<p>a mental exercise for this is how we do things in real life.<br/>
+1. Take all the stuff off the shelves.<br/>
+2. Take the shelves apart.<br/>
+3. Carry the shelf parts across the garage to the new location.<br/>
+4. Re-assemble the shelves.<br/>
+5. Carry the stuff across the garage.<br/>
 6. Put the stuff back on the shelves.</p>
-<p>Breaking a large task into smaller tasks makes it easier to manage and understand.<br />
+<p>Breaking a large task into smaller tasks makes it easier to manage and understand.<br/>
 just like in real life no one will ask you to move the entire garage in one go.</p>
 <p>The bigger a program gets, the more important it is to break it down into smaller, more manageable parts.</p>
-<h3>Let's make our first function!</h3>
+<h3 id="lets-make-our-first-function">Let's make our first function!</h3>
 <p>using the syntax we had earlier</p>
 <pre><code class="language-python">def function_name(parameters):
     # What the function does goes here
     return result
 </code></pre>
-<p>lets break it down once more:<br />
-1. <code>def</code> is the keyword that tells Python we are defining a function.<br />
-2. <code>function_name</code> is the name of the function. (you can name it anything you want)<br />
-3. <code>parameters</code> are the values the function takes as input. (you can have multiple parameters)<br />
-4. <code>:</code> is the punctuation that denotes the end of the Python function definition.<br />
-5. The code block that does the work of the function is indented.<br />
+<p>lets break it down once more:<br/>
+1. <code>def</code> is the keyword that tells Python we are defining a function.<br/>
+2. <code>function_name</code> is the name of the function. (you can name it anything you want)<br/>
+3. <code>parameters</code> are the values the function takes as input. (you can have multiple parameters)<br/>
+4. <code>:</code> is the punctuation that denotes the end of the Python function definition.<br/>
+5. The code block that does the work of the function is indented.<br/>
 6. <code>return</code> is the keyword that tells Python what to return as the result of the function. (optional)</p>
 <p>we create a function in Python that greets the user</p>
 <pre><code class="language-python">def my_func():
-    print(&quot;Hello! Hope you're doing well&quot;)
+    print("Hello! Hope you're doing well")
 
 my_func()
 </code></pre>
-<p>As you can see, the function <code>my_func()</code><br />
-- has no parameters<br />
-- returns no value<br />
+<p>As you can see, the function <code>my_func()</code><br/>
+- has no parameters<br/>
+- returns no value<br/>
 - prints a greeting message to the console</p>
-<p>This is a bit sneaky cause the function returns nothing. but still prints to the console.<br />
+<p>This is a bit sneaky cause the function returns nothing. but still prints to the console.<br/>
 This is due how print() is implemented. every other thing needs something returned.</p>
 <p>we could have done this.</p>
 <pre><code class="language-python">def my_func():
-  return &quot;Hello! Hope you're doing well&quot;
+  return "Hello! Hope you're doing well"
 
 print(my_func())
 </code></pre>
-<p>what happens here is following<br />
-- the function <code>my_func()</code> is called<br />
-- executed<br />
-- and the result of <code>my_func()</code> is: "Hello! Hope you're doing well"<br />
-- so it has become a object string.<br />
+<p>what happens here is following<br/>
+- the function <code>my_func()</code> is called<br/>
+- executed<br/>
+- and the result of <code>my_func()</code> is: "Hello! Hope you're doing well"<br/>
+- so it has become a object string.<br/>
 - we then print the result of the function.</p>
 <p>Lets say we want to make a function that takes arguments</p>
 <pre><code class="language-python">def my_func(name, place):
-  return(f&quot;Hello {name}! Are you from {place}?&quot;)
+  return(f"Hello {name}! Are you from {place}?")
 
-print(my_func(&quot;John&quot;, &quot;New York&quot;))
+print(my_func("John", "New York"))
 </code></pre>
-<p>Here we defined a function <code>my_func</code> that has 2 parameters <code>name</code> and <code>place</code>.<br />
+<p>Here we defined a function <code>my_func</code> that has 2 parameters <code>name</code> and <code>place</code>.<br/>
 naming the paremeters is important as it shows intent to another program of what is going on.</p>
-<p>We can <code>call</code> our function with 2 arguments. (arguments is what we pass to function)<br />
-in the function the variable<br />
-- name is "John"<br />
-- place is "New York"<br />
-- <br />
+<p>We can <code>call</code> our function with 2 arguments. (arguments is what we pass to function)<br/>
+in the function the variable<br/>
+- name is "John"<br/>
+- place is "New York"<br/>
+- <br/>
 and the rest of the code will work with those variables.</p>
-<p>the result would be<br />
+<p>the result would be<br/>
 - <code>Hello John! Are you from New York?</code></p>
-<p>What happens if we swap "John" and "New York" in the function call?<br />
+<p>What happens if we swap "John" and "New York" in the function call?<br/>
 we would get.</p>
 <ul>
 <li><code>Hello New York! Are you from John?</code></li>
 </ul>
-<p>is that perse wrong? no not really. but it is not what we intended as programmer.<br />
+<p>is that perse wrong? no not really. but it is not what we intended as programmer.<br/>
 however the function happily takes the arguments and returns the result.</p>
 <p>we call these arguments also <code>positional arguments</code> cause they are in the position of the parameters.</p>
-<h2>still following it?</h2>
-<h2>let me repeat</h2>
+<h2 id="still-following-it">still following it?</h2>
+<h2 id="let-me-repeat">let me repeat</h2>
 <ul>
 <li>arguments is what you <code>feed</code> or <code>pass</code> to the function.</li>
 <li>parameters are what the function <code>expects</code> or <code>receives</code>.</li>
 <li>arguments are positional. so the first argument is the first parameter.</li>
 </ul>
 <p>we also have <code>keyword arguments</code> which are a bit more flexible. and can have "default" values</p>
-<pre><code class="language-python">def my_func(place=&quot;Hawaii&quot;,name=&quot;Robert&quot;):
-    return(f&quot;Hello {name}! Are you from {place}?&quot;)
+<pre><code class="language-python">def my_func(place="Hawaii",name="Robert"):
+    return(f"Hello {name}! Are you from {place}?")
 
 </code></pre>
-<h1>Output</h1>
+<h1 id="output">Output</h1>
 <p>Hello Robert! Are you from Hawaii?</p>
 <p>no i can call the function with arguments and it will use these values instead of the defaults</p>
-<pre><code class="language-python">def my_func(place=&quot;Hawaii&quot;,name=&quot;Robert&quot;):
-    return(f&quot;Hello {name}! Are you from {place}?&quot;)
+<pre><code class="language-python">def my_func(place="Hawaii",name="Robert"):
+    return(f"Hello {name}! Are you from {place}?")
 
-print(my_func(&quot;New York&quot;, &quot;John&quot;))
+print(my_func("New York", "John"))
 </code></pre>
 <p>we also could have done this.</p>
-<pre><code class="language-python">def my_func(place=&quot;Hawaii&quot;,name=&quot;Robert&quot;):
-    return(f&quot;Hello {name}! Are you from {place}?&quot;)
+<pre><code class="language-python">def my_func(place="Hawaii",name="Robert"):
+    return(f"Hello {name}! Are you from {place}?")
 
-print(my_func(name=&quot;John&quot;, place=&quot;New York&quot;))
+print(my_func(name="John", place="New York"))
 </code></pre>
-<p>completely the same result. but the second one is a bit more readable. and explicit.<br />
+<p>completely the same result. but the second one is a bit more readable. and explicit.<br/>
 everyone can see what is going on. and what will be passed to which variable in the function.</p>
 <p>There is note about this.</p>
 <ul>
 <li>positional arguments must come before keyword arguments. !!!!!   mega important.</li>
 </ul>
 <p>so you cant do this</p>
-<pre><code class="language-python">def my_func(name=&quot;Robert&quot;, place):
-    return(f&quot;Hello {name}! Are you from {place}?&quot;)
+<pre><code class="language-python">def my_func(name="Robert", place):
+    return(f"Hello {name}! Are you from {place}?")
 
-print(my_func(name=&quot;John&quot;, New York))
+print(my_func(name="John", New York))
 
-  File &quot;&lt;input&gt;&quot;, line 1
-    def my_func(name=&quot;Robert&quot;, place):
+  File "&lt;input&gt;", line 1
+    def my_func(name="Robert", place):
                                ^^^^^
 SyntaxError: parameter without a default follows parameter with a default
 </code></pre>
-<h2>not done yet ill finish this chapter later</h2></div>
+<h2 id="not-done-yet-ill-finish-this-chapter-later">not done yet ill finish this chapter later</h2></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

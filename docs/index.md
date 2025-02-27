@@ -1,6 +1,8 @@
 # Index (links are clickable)
 
 - [00 Course Screenshots Whiteboard.Html](00-course-screenshots-whiteboard.html)
+- [000 Advanced Cheat Sheet.Html](000-advanced-cheat-sheet.html)
+- [000 Mega Cheat Sheet.Html](000-mega-cheat-sheet.html)
 - [01 Title Topics.Html](01-title-topics.html)
 - [02 Language Overview.Html](02-language-overview.html)
 - [03 Installation On Windows.Html](03-installation-on-windows.html)
@@ -17,6 +19,7 @@
 - [18 Working With File Paths.Html](18-working-with-file-paths.html)
 - [18 Working With Files And Paths.Html](18-working-with-files-and-paths.html)
 - [19 Working With Files.Html](19-working-with-files.html)
+- [40 Advanced Datastructures.Html](40-advanced-datastructures.html)
 - [Control Structures Exercises 2.Html](control-structures-exercises-2.html)
 - [Control Structures Exercises.Html](control-structures-exercises.html)
 - [Dictionary Exercises 2.Html](dictionary-exercises-2.html)

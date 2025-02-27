@@ -75,14 +75,28 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
         <div class="markdown-content"><p>from docs.to_markdown import OUTPUT_DIR</p>
-<h1>Lists, Loops &amp; More</h1>
-<hr />
-<h2>Lists</h2>
-<p>Lists are one of the most powerful data types in Python.<br />
+<h1 id="lists-loops-more">Lists, Loops &amp; More</h1>
+<hr/>
+<h2 id="lists">Lists</h2>
+<p>Lists are one of the most powerful data types in Python.<br/>
 With some fictive data we are going to analyze data about mobile apps.</p>
 <p>We will be working with this data:</p>
 <table>
@@ -133,7 +147,7 @@ With some fictive data we are going to analyze data about mobile apps.</p>
 </tr>
 </tbody>
 </table>
-<p>We will call each value in the table a data point. <br />
+<p>We will call each value in the table a data point. <br/>
 For instance, the first row (after the column titles) has five data points:</p>
 <ul>
 <li>Facebook</li>
@@ -142,65 +156,64 @@ For instance, the first row (after the column titles) has five data points:</p>
 <li>2974676</li>
 <li>3.5</li>
 </ul>
-<p>lets call this collection of data a <code>dataset</code>.<br />
+<p>lets call this collection of data a <code>dataset</code>.<br/>
 our dataset has 5 rows and 5 columns.</p>
 <p>With all the knowledge up to know we could store this data in variables like this:</p>
-<pre><code class="language-py">app_one_name = &quot;Facebook&quot;
+<pre><code class="language-py">app_one_name = "Facebook"
 app_one_price = 0.0
-app_one_currency = &quot;USD&quot;
+app_one_currency = "USD"
 app_one_rating_count = 2974676
 app_one_rating = 3.5
 </code></pre>
 <details>
-    <summary>Click to reveal more</summary>
+<summary>Click to reveal more</summary>
 <p>
-The text "Facebook" as a string<br>
-The price 0.0 as a float<br>
-The text "USD" as a string<br>
-The rating count 2,974,676 as an integer<br>
-The user rating 3.5 as a float<br>
+The text "Facebook" as a string<br/>
+The price 0.0 as a float<br/>
+The text "USD" as a string<br/>
+The rating count 2,974,676 as an integer<br/>
+The user rating 3.5 as a float<br/>
 </p>
 </details>
-
-<p>Creating a variable for each data point in our data set would be a cumbersome process. Fortunately, <br />
-we can store data more efficiently using lists. <br />
-This is how we can create a list of data points for the first row:</p>
-<pre><code class="language-py">row_one = [&quot;Facebook&quot;, 0.0, &quot;USD&quot;, 2974676, 3.5]
+<p>Creating a variable for each data point in our data set would be a cumbersome process. Fortunately, <br>
+we can store data more efficiently using lists. <br>
+This is how we can create a list of data points for the first row:</br></br></p>
+<pre><code class="language-py">row_one = ["Facebook", 0.0, "USD", 2974676, 3.5]
 print(row_one)
 type_row_one = type(row_one)
 </code></pre>
 <p>To create the <code>list</code> above, we:</p>
-<p>Typed out a sequence of data points and separated each with a comma: 'Facebook', 0.0, 'USD', 2974676, 3.5<br />
-Surrounded the sequence with brackets: <code>['Facebook', 0.0, 'USD', 2974676, 3.5]</code><br />
-After we created the list, we stored it in the computer's memory by assigning it to a variable named row_one.</p>
+<p>Typed out a sequence of data points and separated each with a comma: 'Facebook', 0.0, 'USD', 2974676, 3.5<br>
+Surrounded the sequence with brackets: <code>['Facebook', 0.0, 'USD', 2974676, 3.5]</code><br>
+After we created the list, we stored it in the computer's memory by assigning it to a variable named row_one.</br></br></p>
 <p>To create a list of data points, we only need to:</p>
-<p>Separate the data points with a comma.<br />
-Surround the sequence of data points with brackets.</p>
-<hr />
-<h2>A note on lists</h2>
+<p>Separate the data points with a comma.<br>
+Surround the sequence of data points with brackets.</br></p>
+<hr/>
+<h2 id="a-note-on-lists">A note on lists</h2>
 <p>There are 2 ways to create an empty list in python:</p>
 <ul>
 <li>list()</li>
 <li>[]</li>
 </ul>
-<p>Functionally there the same. <br />
+<p>Functionally there the same. <br/>
 However there a speed tradeoffs and that is due to implementation details in the C compiler behind python.</p>
 <p>To see the speed difference we can use the <code>timeit</code> module.</p>
 <pre><code class="language-py">from timeit import timeit
 
-timeit(&quot;[]&quot;)
+timeit("[]")
 0.040084982867934334
 
-timeit(&quot;list()&quot;)
+timeit("list()")
 0.17704233359267718
 </code></pre>
-<p>We can see that the <code>[]</code> is faster than the <code>list()</code> function. By a big margin.<br />
-content in a list is seperated by a comma.<br />
+<p>We can see that the <code>[]</code> is faster than the <code>list()</code> function. By a big margin.<br/>
+content in a list is seperated by a comma.<br/>
 Example:</p>
-<pre><code class="language-py">[&quot;item1&quot;, &quot;item2&quot;, &quot;item3&quot;]
+<pre><code class="language-py">["item1", "item2", "item3"]
 </code></pre>
-<hr />
-<h1>Let's move on.</h1>
+<hr/>
+<h1 id="lets-move-on">Let's move on.</h1>
 <p>Now let's create five lists, one for each row in our dataset:</p>
 <pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
 row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
@@ -208,9 +221,9 @@ row_three = ['Clash of Clans', 0.0, 'USD', 2130805, 4.5]
 row_four  = ['Temple Run', 0.0, 'USD', 1724546, 4.5]
 row_five  = ['Pandora - Music &amp; Radio', 0.0, 'USD', 1126879, 4.0]
 </code></pre>
-<hr />
-<h2>Indexing python lists</h2>
-<p>A list can contain a variety of data types. A list like [4, 5, 6] has identical data types (only integers), <br />
+<hr/>
+<h2 id="indexing-python-lists">Indexing python lists</h2>
+<p>A list can contain a variety of data types. A list like [4, 5, 6] has identical data types (only integers), <br/>
 while the list ['Facebook', 0.0, 'USD', 2974676, 3.5] has mixed data types:</p>
 <ul>
 <li>Two strings ('Facebook', 'USD')</li>
@@ -219,7 +232,7 @@ while the list ['Facebook', 0.0, 'USD', 2974676, 3.5] has mixed data types:</p>
 <p>One integer (2974676)</p>
 </li>
 <li>
-<p>The ['Facebook', 0.0, 'USD', 2974676, 3.5] list has five data points. <br />
+<p>The ['Facebook', 0.0, 'USD', 2974676, 3.5] list has five data points. <br/>
 To find the length of a list, we can use the <code>len()</code> command we discussed earlier:</p>
 </li>
 </ul>
@@ -233,24 +246,24 @@ print(len(list_one))
 list_two = []
 print(len(list_two))
 </code></pre>
-<p>Output would be:<br />
-- 5<br />
-- 3<br />
+<p>Output would be:<br/>
+- 5<br/>
+- 3<br/>
 - 0</p>
-<p>For small lists, we can just count the data points on our screens to find the length, <br />
-but the len() command will prove very useful whenever you work with lists containing many elements, <br />
+<p>For small lists, we can just count the data points on our screens to find the length, <br/>
+but the len() command will prove very useful whenever you work with lists containing many elements, <br/>
 or need to write code for data where you don't know the length ahead of time.</p>
-<p>Each element (data point) in a list has a specific number associated with it, <br />
-called an index number. The indexing always starts at 0, <br />
-so the first element will have the index number 0, <br />
+<p>Each element (data point) in a list has a specific number associated with it, <br/>
+called an index number. The indexing always starts at 0, <br/>
+so the first element will have the index number 0, <br/>
 the second element the index number 1, and so on.</p>
-<p><img alt="indexing plaatje" src="img/lists-indexing.svg" /></p>
-<p>To quickly find the index of a list element, <br />
+<p><img alt="indexing plaatje" src="img/lists-indexing.svg"/></p>
+<p>To quickly find the index of a list element, <br/>
 identify its position number in the list, and then subtract 1. </p>
-<p>For example, the string 'USD' is the third element of the list (position number 3), <br />
+<p>For example, the string 'USD' is the third element of the list (position number 3), <br/>
 so its index number must be 2 since 3 - 1 = 2.</p>
 <p>or what i find easier. just remember that the first element is 0 and the second is 1 and so on</p>
-<p>The index numbers help us retrieve individual elements from a list. <br />
+<p>The index numbers help us retrieve individual elements from a list. <br/>
 Looking back at the list row_one from the code example above, </p>
 <p>we can retrieve the first element (the string 'Facebook') with the index number 0 by running the code row_one[0].</p>
 <pre><code class="language-py">row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
@@ -258,10 +271,10 @@ print(row_one[0])
 </code></pre>
 <p>Gives us the output: "Facebook"</p>
 <p>The syntax for retrieving individual list elements follows the model <code>list_name[index_number]</code>. </p>
-<p>For instance, the name of our list above is row_one and the index number of the first element is 0 <br />
-— following the <code>list_name[index_number]</code> model, we get row_one[0], <br />
+<p>For instance, the name of our list above is row_one and the index number of the first element is 0 <br/>
+— following the <code>list_name[index_number]</code> model, we get row_one[0], <br/>
 where the index number 0 is in square brackets after the variable name row_one.</p>
-<p><img alt="indexing plaatje 2" src="img/lists-indexing-two.svg" /></p>
+<p><img alt="indexing plaatje 2" src="img/lists-indexing-two.svg"/></p>
 <p>This is how we can retrieve each element in row_one:</p>
 <pre><code class="language-py">row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
 
@@ -279,8 +292,8 @@ print(row_one[4])
 <li>2974676</li>
 <li>3.5</li>
 </ul>
-<p>Retrieving list elements makes it easier to perform operations. <br />
-For instance, we can select the ratings for Facebook and Instagram, <br />
+<p>Retrieving list elements makes it easier to perform operations. <br/>
+For instance, we can select the ratings for Facebook and Instagram, <br/>
 and find the average or the difference between the two:</p>
 <pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
 row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
@@ -296,7 +309,7 @@ print(average_rating)
 <li>1.0</li>
 <li>4.0</li>
 </ul>
-<p>Let's use list indexing to extract the number of ratings from the first three rows <br />
+<p>Let's use list indexing to extract the number of ratings from the first three rows <br/>
 and then average them:</p>
 <pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
 row_two   = ['Instagram', 0.0, 'USD', 2161558, 4.5]
@@ -315,8 +328,8 @@ print(average)
 <ul>
 <li>2422346.3333333335</li>
 </ul>
-<hr />
-<h1>Negative Indexing</h1>
+<hr/>
+<h1 id="negative-indexing">Negative Indexing</h1>
 <p>In Python, we have two indexing systems for lists:</p>
 <ul>
 <li>Positive indexing: the _first element has the index number 0, the second element has the index number 1, and so on.</li>
@@ -324,9 +337,9 @@ print(average)
 </ul>
 <p>Negative indexing is a feature in Python that allows us to access elements from the end of a list.</p>
 <p>here is an image to help you visually:</p>
-<p><img alt="indexing plaatje 3" src="img/lists-indexing-three.svg" /></p>
-<p>In practice, we almost always use positive indexing to retrieve list elements. <br />
-Negative indexing is useful when we want to select the last element of a list.<br />
+<p><img alt="indexing plaatje 3" src="img/lists-indexing-three.svg"/></p>
+<p>In practice, we almost always use positive indexing to retrieve list elements. <br/>
+Negative indexing is useful when we want to select the last element of a list.<br/>
 especially if the list is long, and we can't tell the length by normal counting.</p>
 <p>Example:</p>
 <pre><code class="language-py">row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
@@ -334,22 +347,22 @@ especially if the list is long, and we can't tell the length by normal counting.
 print(row_one[-1])
 print(row_one[-4])
 </code></pre>
-<p>What do you think the output will be?<br />
+<p>What do you think the output will be?<br/>
 its the same number: 3.5</p>
-<p>from the beginning we count 0, 1, 2, 3, 4<br />
+<p>from the beginning we count 0, 1, 2, 3, 4<br/>
 from the end we count -1, -2, -3, -4, -5</p>
 <p>What would happend if you use an index that is out of range?</p>
 <pre><code class="language-py">row_one = ['Facebook', 0.0, 'USD', 2974676, 3.5]
 print(row_one[5])
 
 Traceback (most recent call last):
-  File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+  File "&lt;input&gt;", line 1, in &lt;module&gt;
 IndexError: list index out of range   &lt;------------
 </code></pre>
 <p>Yes an IndexError!! so thats helpfull isn't it?</p>
-<h2>Slicing Python Lists</h2>
-<hr />
-<h1>Syntax</h1>
+<h2 id="slicing-python-lists">Slicing Python Lists</h2>
+<hr/>
+<h1 id="syntax">Syntax</h1>
 <p><code>list_name[start : end : step]</code></p>
 <p>Parameters:</p>
 <ul>
@@ -357,8 +370,8 @@ IndexError: list index out of range   &lt;------------
 <li>end (optional): Index to end the slice (exclusive). Defaults to the length of list if omitted.</li>
 <li>step (optional): Step size, specifying the interval between elements. Defaults to 1 if omitted</li>
 </ul>
-<hr />
-<p>Instead of selecting list elements individually, <br />
+<hr/>
+<p>Instead of selecting list elements individually, <br/>
 we can use a syntax shortcut to select two or more consecutive elements:</p>
 <pre><code class="language-py">row_three = ['Clash of Clans', 0.0, 'USD', 2130805, 4.5]
 
@@ -369,15 +382,15 @@ print(coc_pricing_data)
 <ul>
 <li><code>['Clash of Clans', 0.0, 'USD']</code></li>
 </ul>
-<p>When we select the first n elements (n stands for a number) from a list named a_list, <br />
-we can use the syntax <code>shortcut a_list[0:n]</code>. <br />
-In the example above, we needed to select the first three elements from the list row_three,<br />
+<p>When we select the first n elements (n stands for a number) from a list named a_list, <br/>
+we can use the syntax <code>shortcut a_list[0:n]</code>. <br/>
+In the example above, we needed to select the first three elements from the list row_three,<br/>
 so we used <code>row_three[0:3]</code>.</p>
-<p>When we selected the first three elements, <br />
-we sliced a part of the list. <br />
+<p>When we selected the first three elements, <br/>
+we sliced a part of the list. <br/>
 For this reason, the process of selecting a part of a list is called list slicing.</p>
 <p>There are many ways that we might want to slice a list:</p>
-<p><img alt="slicing plaatje 1" src="img/lists-slicing.svg" /></p>
+<p><img alt="slicing plaatje 1" src="img/lists-slicing.svg"/></p>
 <p>To retrieve any list slice we want:</p>
 <ol>
 <li>We first need to identify the first and the last element of the slice.</li>
@@ -388,8 +401,8 @@ For this reason, the process of selecting a part of a list is called list slicin
 </ul>
 </li>
 </ol>
-<p><img alt="slicing plaatje 2" src="img/lists-slicing-two.svg" /></p>
-<p>When we need to select the first or last x elements (x stands for a number), <br />
+<p><img alt="slicing plaatje 2" src="img/lists-slicing-two.svg"/></p>
+<p>When we need to select the first or last x elements (x stands for a number), <br/>
 we can use even simpler syntax shortcuts:</p>
 <ul>
 <li><code>a_list[:x]</code> when we want to select the first x elements.</li>
@@ -402,15 +415,15 @@ first_three = row_three[:3]
 last_three = row_three[-3:]
 </code></pre>
 <p>Just know it exists. if you ever come across it you know what it does.</p>
-<hr />
-<h1>List of lists</h1>
-<p>Python List of Lists<br />
-Previously, we introduced lists as a better alternative to using one variable per data point. <br />
-Instead of having a separate variable for each of the five data points 'Facebook', 0.0, 'USD', 2974676, 3.5, <br />
+<hr/>
+<h1 id="list-of-lists">List of lists</h1>
+<p>Python List of Lists<br/>
+Previously, we introduced lists as a better alternative to using one variable per data point. <br/>
+Instead of having a separate variable for each of the five data points 'Facebook', 0.0, 'USD', 2974676, 3.5, <br/>
 we can bundle the data points together into a list, and then store the list in a single variable.</p>
-<p>So far, we've been working with a data set having five rows, <br />
-and we've been storing each row as a list in a separate variable (the variables row_1, row_2, row_3, row_4, and row_5). <br />
-If we had a data set with 5,000 rows, however, we'd end up with 5,000 variables, <br />
+<p>So far, we've been working with a data set having five rows, <br/>
+and we've been storing each row as a list in a separate variable (the variables row_1, row_2, row_3, row_4, and row_5). <br/>
+If we had a data set with 5,000 rows, however, we'd end up with 5,000 variables, <br/>
 which will make our code messy and almost impossible to work with.</p>
 <p>To solve this problem, we can store our five variables in a single list:</p>
 <pre><code class="language-py">row_one   = ['Facebook', 0.0, 'USD', 2974676, 3.5]
@@ -430,9 +443,9 @@ data_set
    ['Pandora - Music &amp; Radio', 0.0, 'USD', 1126879, 4.0]
 ]
 </code></pre>
-<p>As we can see, data_set is a list that stores five other lists (row_1, row_2, row_3, row_4, and row_5). <br />
+<p>As we can see, data_set is a list that stores five other lists (row_1, row_2, row_3, row_4, and row_5). <br/>
 A list that contains other lists is called a list of lists.</p>
-<p>The data_set variable is still a list, <br />
+<p>The data_set variable is still a list, <br/>
 which means we can retrieve individual list elements and perform list slicing using the syntax we learned. Below, we:</p>
 <ul>
 <li>Retrieve the first list element (row_1) using data_set[0].</li>
@@ -456,9 +469,9 @@ print(data_set[:2])
 ['Pandora - Music &amp; Radio', 0.0, 'USD', 1126879, 4.0]
 [['Facebook', 0.0, 'USD', 2974676, 3.5], ['Instagram', 0.0, 'USD', 2161558, 4.5]]
 </code></pre>
-<p>We'll often need to retrieve individual elements from a list that's part of a list of lists — for instance, <br />
-we may want to retrieve the value 3.5 from <code>['Facebook', 0.0, 'USD', 2974676, 3.5]</code>, <br />
-which is part of the data_set list of lists. <br />
+<p>We'll often need to retrieve individual elements from a list that's part of a list of lists — for instance, <br/>
+we may want to retrieve the value 3.5 from <code>['Facebook', 0.0, 'USD', 2974676, 3.5]</code>, <br/>
+which is part of the data_set list of lists. <br/>
 Below, we extract 3.5 from data_set using what we've learned:</p>
 <ul>
 <li>We retrieve row_1 using data_set[0], and assign the result to a variable named fb_row.</li>
@@ -483,67 +496,67 @@ print(fb_rating)
 ['Facebook', 0.0, 'USD', 2974676, 3.5]
 3.5
 </code></pre>
-<p>Above, we retrieved 3.5 in two steps: we first retrieved data_set[0], <br />
+<p>Above, we retrieved 3.5 in two steps: we first retrieved data_set[0], <br/>
 and then we retrieved fb_row[-1]. </p>
 <p>However, there's an easier way to retrieve the same value of 3.5 by chaining the two indices ([0] and [-1]) — the code data_set[0][-1] retrieves 3.5:</p>
-<p><img alt="slicing plaatje 3" src="img/lists-slicing-three.svg" /></p>
-<p>Above, we've seen two ways of retrieving the value 3.5. <br />
-Both ways lead to the same output (3.5), <br />
-but the second way involves less typing because it elegantly combines the steps we see in the first case. <br />
+<p><img alt="slicing plaatje 3" src="img/lists-slicing-three.svg"/></p>
+<p>Above, we've seen two ways of retrieving the value 3.5. <br/>
+Both ways lead to the same output (3.5), <br/>
+but the second way involves less typing because it elegantly combines the steps we see in the first case. <br/>
 While you can choose either option, people generally choose the second one.</p>
-<h2>Python List Methods Reference Guide</h2>
-<h2>Adding Elements</h2>
-<h3>append()</h3>
+<h2 id="python-list-methods-reference-guide">Python List Methods Reference Guide</h2>
+<h2 id="adding-elements">Adding Elements</h2>
+<h3 id="append">append()</h3>
 <p>Adds an element to the end of the list</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;]
-fruits.append(&quot;orange&quot;)
-# fruits is now [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;]
+<pre><code class="language-py">fruits = ["apple", "banana"]
+fruits.append("orange")
+# fruits is now ["apple", "banana", "orange"]
 </code></pre>
-<h3>extend()</h3>
+<h3 id="extend">extend()</h3>
 <p>Adds multiple elements from an iterable (list, tuple, etc.) to the end</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;]
-more_fruits = [&quot;orange&quot;, &quot;grape&quot;]
+<pre><code class="language-py">fruits = ["apple", "banana"]
+more_fruits = ["orange", "grape"]
 fruits.extend(more_fruits)
-# fruits is now [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;]
+# fruits is now ["apple", "banana", "orange", "grape"]
 </code></pre>
-<h3>insert()</h3>
+<h3 id="insert">insert()</h3>
 <p>Adds an element at a specific position</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;]
-fruits.insert(1, &quot;orange&quot;)
-# fruits is now [&quot;apple&quot;, &quot;orange&quot;, &quot;banana&quot;]
+<pre><code class="language-py">fruits = ["apple", "banana"]
+fruits.insert(1, "orange")
+# fruits is now ["apple", "orange", "banana"]
 </code></pre>
-<h2>Removing Elements</h2>
-<h3>remove()</h3>
+<h2 id="removing-elements">Removing Elements</h2>
+<h3 id="remove">remove()</h3>
 <p>Removes the first occurrence of a specific value</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;grape&quot;]
-fruits.remove(&quot;apple&quot;)
-# fruits is now [&quot;banana&quot;, &quot;apple&quot;, &quot;grape&quot;]
+<pre><code class="language-py">fruits = ["apple", "banana", "apple", "grape"]
+fruits.remove("apple")
+# fruits is now ["banana", "apple", "grape"]
 </code></pre>
-<h3>pop()</h3>
+<h3 id="pop">pop()</h3>
 <p>Removes and returns an element at a specific index (or last element if no index given)</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;]
-last_fruit = fruits.pop()     # removes and returns &quot;grape&quot;
-first_fruit = fruits.pop(0)   # removes and returns &quot;apple&quot;
+<pre><code class="language-py">fruits = ["apple", "banana", "grape"]
+last_fruit = fruits.pop()     # removes and returns "grape"
+first_fruit = fruits.pop(0)   # removes and returns "apple"
 </code></pre>
-<h3>clear()</h3>
+<h3 id="clear">clear()</h3>
 <p>Removes all elements from the list</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;]
+<pre><code class="language-py">fruits = ["apple", "banana", "grape"]
 fruits.clear()
 # fruits is now []
 </code></pre>
-<h2>Finding Elements</h2>
-<h3>index()</h3>
+<h2 id="finding-elements">Finding Elements</h2>
+<h3 id="index">index()</h3>
 <p>Returns the index of the first occurrence of a value</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;, &quot;banana&quot;]
-banana_index = fruits.index(&quot;banana&quot;)    # returns 1
+<pre><code class="language-py">fruits = ["apple", "banana", "grape", "banana"]
+banana_index = fruits.index("banana")    # returns 1
 </code></pre>
-<h3>count()</h3>
+<h3 id="count">count()</h3>
 <p>Returns the number of occurrences of a value</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;, &quot;banana&quot;]
-banana_count = fruits.count(&quot;banana&quot;)    # returns 2
+<pre><code class="language-py">fruits = ["apple", "banana", "grape", "banana"]
+banana_count = fruits.count("banana")    # returns 2
 </code></pre>
-<h2>Ordering Elements</h2>
-<h3>sort()</h3>
+<h2 id="ordering-elements">Ordering Elements</h2>
+<h3 id="sort">sort()</h3>
 <p>Sorts the list in place (modifies original list)</p>
 <pre><code class="language-py">numbers = [3, 1, 4, 1, 5]
 numbers.sort()
@@ -554,62 +567,62 @@ numbers.sort(reverse=True)
 # numbers is now [5, 4, 3, 1, 1]
 
 # Sort strings
-fruits = [&quot;banana&quot;, &quot;apple&quot;, &quot;Cherry&quot;]
+fruits = ["banana", "apple", "Cherry"]
 fruits.sort()                 # Case-sensitive sort
-# fruits is now [&quot;Cherry&quot;, &quot;apple&quot;, &quot;banana&quot;]
+# fruits is now ["Cherry", "apple", "banana"]
 
 fruits.sort(key=str.lower)    # Case-insensitive sort
-# fruits is now [&quot;apple&quot;, &quot;banana&quot;, &quot;Cherry&quot;]
+# fruits is now ["apple", "banana", "Cherry"]
 </code></pre>
-<h3>reverse()</h3>
+<h3 id="reverse">reverse()</h3>
 <p>Reverses the order of elements in place</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;]
+<pre><code class="language-py">fruits = ["apple", "banana", "grape"]
 fruits.reverse()
-# fruits is now [&quot;grape&quot;, &quot;banana&quot;, &quot;apple&quot;]
+# fruits is now ["grape", "banana", "apple"]
 </code></pre>
-<h2>Copying Lists</h2>
-<h3>copy()</h3>
+<h2 id="copying-lists">Copying Lists</h2>
+<h3 id="copy">copy()</h3>
 <p>Creates a shallow copy of the list</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;]
+<pre><code class="language-py">fruits = ["apple", "banana", "grape"]
 fruits_copy = fruits.copy()
 </code></pre>
-<h2>Other Common Operations</h2>
-<h3>len()</h3>
+<h2 id="other-common-operations">Other Common Operations</h2>
+<h3 id="len">len()</h3>
 <p>Returns the length of the list (not a method, but a built-in function)</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;]
+<pre><code class="language-py">fruits = ["apple", "banana", "grape"]
 length = len(fruits)    # returns 3
 </code></pre>
-<h3>in operator</h3>
+<h3 id="in-operator">in operator</h3>
 <p>Checks if an element exists in the list (not a method, but an operator)</p>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;]
-has_apple = &quot;apple&quot; in fruits    # returns True
+<pre><code class="language-py">fruits = ["apple", "banana", "grape"]
+has_apple = "apple" in fruits    # returns True
 </code></pre>
-<h2>Advanced Usage Examples</h2>
-<h3>Combining Multiple Methods</h3>
-<pre><code class="language-py">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+<h2 id="advanced-usage-examples">Advanced Usage Examples</h2>
+<h3 id="combining-multiple-methods">Combining Multiple Methods</h3>
+<pre><code class="language-py">fruits = ["apple", "banana", "grape", "banana", "cherry"]
 # Remove last banana and insert orange in its place
-last_banana_index = fruits.index(&quot;banana&quot;, fruits.index(&quot;banana&quot;) + 1)
+last_banana_index = fruits.index("banana", fruits.index("banana") + 1)
 fruits.pop(last_banana_index)
-fruits.insert(last_banana_index, &quot;orange&quot;)
+fruits.insert(last_banana_index, "orange")
 </code></pre>
-<h3>Using Methods with List Slicing</h3>
+<h3 id="using-methods-with-list-slicing">Using Methods with List Slicing</h3>
 <pre><code class="language-py">numbers = [1, 2, 3, 4, 5]
 # Replace middle elements with new values
 numbers[1:4] = [8, 9, 10]
 # numbers is now [1, 8, 9, 10, 5]
 </code></pre>
-<h3>Common Patterns</h3>
+<h3 id="common-patterns">Common Patterns</h3>
 <pre><code class="language-py"># Remove duplicates while preserving order
-fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;cherry&quot;]
+fruits = ["apple", "banana", "apple", "cherry"]
 unique_fruits = list(dict.fromkeys(fruits))
-# unique_fruits is [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+# unique_fruits is ["apple", "banana", "cherry"]
 
 # Find all indices of an element
-fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;cherry&quot;, &quot;apple&quot;]
-apple_indices = [i for i in range(len(fruits)) if fruits[i] == &quot;apple&quot;]
+fruits = ["apple", "banana", "apple", "cherry", "apple"]
+apple_indices = [i for i in range(len(fruits)) if fruits[i] == "apple"]
 # apple_indices is [0, 2, 4]
 </code></pre>
-<h2>Important Notes:</h2>
+<h2 id="important-notes">Important Notes:</h2>
 <ol>
 <li>Most list methods modify the list in-place and return None</li>
 <li>Methods like sort() and reverse() modify the original list</li>

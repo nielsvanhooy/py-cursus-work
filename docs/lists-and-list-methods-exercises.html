@@ -75,15 +75,29 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Python List Exercises</h1>
-<h2>Basic Level</h2>
+        <div class="markdown-content"><h1 id="python-list-exercises">Python List Exercises</h1>
+<h2 id="basic-level">Basic Level</h2>
 <ol>
 <li><strong>List Creation and Access</strong></li>
 </ol>
-<pre><code class="language-py"># Create a list called 'fruits' with these items: &quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;, &quot;mango&quot;
+<pre><code class="language-py"># Create a list called 'fruits' with these items: "apple", "banana", "orange", "grape", "mango"
 # Then write code to:
 # - Print the first fruit
 # - Print the last fruit using negative indexing
@@ -107,11 +121,11 @@
 <ol>
 <li><strong>Simple List Lookup</strong></li>
 </ol>
-<pre><code class="language-py">animals = [&quot;dog&quot;, &quot;cat&quot;, &quot;bird&quot;, &quot;fish&quot;, &quot;hamster&quot;]
+<pre><code class="language-py">animals = ["dog", "cat", "bird", "fish", "hamster"]
 # Write code to:
 # - Print the middle animal (index 2)
 # - Print the second-to-last animal using negative indexing
-# - Check if &quot;cat&quot; is in the list
+# - Check if "cat" is in the list
 
 # Your code below:
 
@@ -131,10 +145,10 @@
 <ol>
 <li><strong>Simple List Modification</strong></li>
 </ol>
-<pre><code class="language-py">vegetables = [&quot;carrot&quot;, &quot;potato&quot;, &quot;tomato&quot;]
+<pre><code class="language-py">vegetables = ["carrot", "potato", "tomato"]
 # Write code to:
-# - Add &quot;cucumber&quot; to the end
-# - Add &quot;lettuce&quot; to the beginning
+# - Add "cucumber" to the end
+# - Add "lettuce" to the beginning
 # - Print the new list length
 
 # Your code below:
@@ -143,8 +157,8 @@
 <ol>
 <li><strong>Basic List Combining</strong></li>
 </ol>
-<pre><code class="language-py">part1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-part2 = [&quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+<pre><code class="language-py">part1 = ["a", "b", "c"]
+part2 = ["d", "e", "f"]
 # Write code to:
 # - Combine part1 and part2 into full_list
 # - Create double_list that has part1 repeated twice
@@ -156,9 +170,9 @@ part2 = [&quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
 <ol>
 <li><strong>Simple Index Operations</strong></li>
 </ol>
-<pre><code class="language-py">colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;purple&quot;]
+<pre><code class="language-py">colors = ["red", "blue", "green", "yellow", "purple"]
 # Write code to:
-# - Find the index of &quot;green&quot;
+# - Find the index of "green"
 # - Print the color at index 1
 # - Print the colors from index 1 to 3 (inclusive)
 
@@ -168,27 +182,27 @@ part2 = [&quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
 <ol>
 <li><strong>Basic List Checking</strong></li>
 </ol>
-<pre><code class="language-py">mixed_list = [42, &quot;hello&quot;, True, &quot;world&quot;]
+<pre><code class="language-py">mixed_list = [42, "hello", True, "world"]
 # Write code to:
 # - Print the length of the list
-# - Check if &quot;hello&quot; is in the list
+# - Check if "hello" is in the list
 # - Get the first two items
 # - Get the last two items using negative indexing
 
 # Your code below:
 
 </code></pre>
-<h2>Intermediate Level</h2>
+<h2 id="intermediate-level">Intermediate Level</h2>
 <ol>
 <li><strong>List Modification</strong></li>
 </ol>
 <pre><code class="language-py"># Given this list: 
-colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;]
+colors = ["red", "blue", "green", "yellow"]
 # Write code to:
-# - Add &quot;purple&quot; to the end
-# - Insert &quot;orange&quot; at index 2
-# - Remove &quot;blue&quot; and store it in a variable
-# - Replace &quot;yellow&quot; with &quot;pink&quot;
+# - Add "purple" to the end
+# - Insert "orange" at index 2
+# - Remove "blue" and store it in a variable
+# - Replace "yellow" with "pink"
 
 # Your code below:
 
@@ -207,7 +221,7 @@ list1 = [1, 2, 3] and list2 = [4, 5, 6]
 # Your code below:
 
 </code></pre>
-<h2>Advanced Level</h2>
+<h2 id="advanced-level">Advanced Level</h2>
 <ol>
 <li><strong>List Analysis</strong></li>
 </ol>
@@ -225,7 +239,7 @@ grades = [85, 92, 78, 95, 88, 90]
 <li><strong>List Manipulation Challenge</strong></li>
 </ol>
 <pre><code class="language-py"># Given: 
-text = &quot;Hello World&quot;
+text = "Hello World"
 # Write code to:
 # - Create a list of characters from the text
 # - Remove all spaces
@@ -235,12 +249,12 @@ text = &quot;Hello World&quot;
 # Your code below:
 
 </code></pre>
-<h2>Bonus Challenge</h2>
+<h2 id="bonus-challenge">Bonus Challenge</h2>
 <ol>
 <li><strong>Advanced String and List Operations</strong></li>
 </ol>
 <pre><code class="language-py"># Given: 
-sentence = &quot;Python Programming Is Fun&quot;
+sentence = "Python Programming Is Fun"
 # Write code to:
 # - Create a list of words
 # - Create a new list with the length of each word
@@ -250,18 +264,18 @@ sentence = &quot;Python Programming Is Fun&quot;
 # Your code below:
 
 </code></pre>
-<h2>Practice Problems</h2>
-<p>For each of these exercises, students should:<br />
-1. Write the code before looking at the solution<br />
-2. Predict what the output will be<br />
-3. Test their code to verify the results<br />
+<h2 id="practice-problems">Practice Problems</h2>
+<p>For each of these exercises, students should:<br/>
+1. Write the code before looking at the solution<br/>
+2. Predict what the output will be<br/>
+3. Test their code to verify the results<br/>
 4. Try to come up with alternative ways to solve the same problem</p>
-<p>Remember to emphasize:<br />
-- The difference between positive and negative indexing<br />
-- How to properly use len() function<br />
-- The difference between slicing and individual element access<br />
-- How to check if items exist in a list<br />
-- Basic list methods (append, insert)<br />
+<p>Remember to emphasize:<br/>
+- The difference between positive and negative indexing<br/>
+- How to properly use len() function<br/>
+- The difference between slicing and individual element access<br/>
+- How to check if items exist in a list<br/>
+- Basic list methods (append, insert)<br/>
 - List concatenation and multiplication</p></div>
 
         <!-- Load Prism.js -->

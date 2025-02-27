@@ -75,20 +75,34 @@
                 margin-top: 30px;
                 margin-bottom: 10px;
             }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
         </style>
     </head>
     <body class="markdown-body">
-        <div class="markdown-content"><h1>Python Lists of Lists Exercises</h1>
-<h2>Beginner Level</h2>
+        <div class="markdown-content"><h1 id="python-lists-of-lists-exercises">Python Lists of Lists Exercises</h1>
+<h2 id="beginner-level">Beginner Level</h2>
 <ol>
 <li><strong>Shopping Cart Items and Prices</strong></li>
 </ol>
 <pre><code class="language-py"># Given this shopping cart where each item has [name, price, quantity]:
 cart = [
-    [&quot;milk&quot;, 2.50, 2],
-    [&quot;bread&quot;, 1.80, 1],
-    [&quot;eggs&quot;, 3.20, 1],
-    [&quot;cheese&quot;, 4.50, 1]
+    ["milk", 2.50, 2],
+    ["bread", 1.80, 1],
+    ["eggs", 3.20, 1],
+    ["cheese", 4.50, 1]
 ]
 # Write code to:
 # - Print the first item's name
@@ -104,10 +118,10 @@ cart = [
 </ol>
 <pre><code class="language-py"># Given this menu where each category has [name, price, spicy_level]:
 menu = [
-    [&quot;Pizza Margherita&quot;, 12.99, 0],
-    [&quot;Spicy Chicken Wings&quot;, 9.99, 2],
-    [&quot;Buffalo Wings&quot;, 10.99, 3],
-    [&quot;Garden Salad&quot;, 7.99, 0]
+    ["Pizza Margherita", 12.99, 0],
+    ["Spicy Chicken Wings", 9.99, 2],
+    ["Buffalo Wings", 10.99, 3],
+    ["Garden Salad", 7.99, 0]
 ]
 # Write code to:
 # - Print the name of the second dish
@@ -122,10 +136,10 @@ menu = [
 </ol>
 <pre><code class="language-py"># Given this grocery list where each item has [name, quantity, bought(True/False)]:
 groceries = [
-    [&quot;apples&quot;, 6, False],
-    [&quot;bananas&quot;, 4, True],
-    [&quot;milk&quot;, 2, False],
-    [&quot;bread&quot;, 1, True]
+    ["apples", 6, False],
+    ["bananas", 4, True],
+    ["milk", 2, False],
+    ["bread", 1, True]
 ]
 # Write code to:
 # - Create a list of items not bought yet
@@ -135,16 +149,16 @@ groceries = [
 # Solution:
 
 </code></pre>
-<h2>Intermediate Level</h2>
+<h2 id="intermediate-level">Intermediate Level</h2>
 <ol>
 <li><strong>Monthly Budget Tracker</strong></li>
 </ol>
 <pre><code class="language-py"># Given this budget where each item has [category, budget, spent]:
 budget = [
-    [&quot;groceries&quot;, 500.00, 420.50],
-    [&quot;transport&quot;, 200.00, 150.75],
-    [&quot;entertainment&quot;, 150.00, 145.00],
-    [&quot;utilities&quot;, 300.00, 300.00]
+    ["groceries", 500.00, 420.50],
+    ["transport", 200.00, 150.75],
+    ["entertainment", 150.00, 145.00],
+    ["utilities", 300.00, 300.00]
 ]
 # Write code to:
 # - Create a list of categories
@@ -159,10 +173,10 @@ budget = [
 </ol>
 <pre><code class="language-py"># Given these products where each has [name, price, stock, rating]:
 products = [
-    [&quot;Gaming Mouse&quot;, 29.99, 50, 4.5],
-    [&quot;Keyboard&quot;, 59.99, 30, 4.8],
-    [&quot;Headphones&quot;, 99.99, 15, 4.7],
-    [&quot;Mousepad&quot;, 19.99, 100, 4.3]
+    ["Gaming Mouse", 29.99, 50, 4.5],
+    ["Keyboard", 59.99, 30, 4.8],
+    ["Headphones", 99.99, 15, 4.7],
+    ["Mousepad", 19.99, 100, 4.3]
 ]
 # Write code to:
 # - Find the most expensive product (without loops)
@@ -172,14 +186,14 @@ products = [
 # Solution:
 
 </code></pre>
-<h2>Important Tips:</h2>
+<h2 id="important-tips">Important Tips:</h2>
 <ol>
 <li>Remember to use double square brackets: list[row][column]</li>
 <li>First index selects the item, second index selects the property</li>
 <li>You can store different types in the same inner list (strings, numbers, booleans)</li>
 <li>Drawing the data as a table can help visualize the structure</li>
 </ol>
-<h2>Practice Suggestions:</h2>
+<h2 id="practice-suggestions">Practice Suggestions:</h2>
 <ol>
 <li>Predict what each piece of code will output</li>
 <li>Try creating your own similar examples with different data</li>

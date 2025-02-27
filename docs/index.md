@@ -10,6 +10,8 @@
 - [11 Control Structures Part One.Html](11-control-structures-part-one.html)
 - [12 Lists.Html](12-lists.html)
 - [13 Loops.Html](13-loops.html)
+- [14 Dictionaries.Html](14-dictionaries.html)
+- [15 Other Datastructures Tuples Sets Etc.Html](15-other-datastructures-tuples-sets-etc.html)
 - [Control Structures Exercises 2.Html](control-structures-exercises-2.html)
 - [Control Structures Exercises.Html](control-structures-exercises.html)
 - [For Loop Exercises 2.Html](for-loop-exercises-2.html)

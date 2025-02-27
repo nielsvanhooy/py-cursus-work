@@ -1,0 +1,450 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h2>Introduction to Python Dictionaries</h2>
+<p>Python dictionaries are one of the most important and useful data structures in the language. <br />
+They allow you to store and retrieve data using key-value pairs instead of indices. <br />
+This makes dictionaries incredibly versatile for a wide range of programming tasks, <br />
+especially when it comes to data processing and analysis.</p>
+<h2>What is a Python Dictionary?</h2>
+<p>A Python dictionary is an unordered collection of items where each item is stored as a key-value pair. <br />
+Dictionaries are optimized for retrieving data when you know the key. <br />
+Unlike sequences such as lists or tuples which are indexed by a range of numbers, <br />
+dictionaries are indexed by keys, which can be any immutable type like strings, numbers, or tuples.</p>
+<h3>Key Features of Dictionaries</h3>
+<ul>
+<li><strong>Key-Value Pairs</strong>: Each item in a dictionary consists of a key and its corresponding value</li>
+<li><strong>Mutable</strong>: Dictionaries can be modified after creation</li>
+<li><strong>Dynamic</strong>: They can grow and shrink as needed</li>
+<li><strong>Versatile</strong>: Values can be of any data type (including other dictionaries)</li>
+<li><strong>Fast Access</strong>: Retrieving values by key is very efficient</li>
+</ul>
+<h2>Creating Python Dictionaries</h2>
+<p>There are several ways to create a dictionary in Python:</p>
+<h2>Syntax</h2>
+<pre><code class="language-python">{
+    `key`: `value`,
+}
+</code></pre>
+<ul>
+<li>the key has to be an immutable type:  string, number, or tuple</li>
+<li>values can be any data type: string, number, list, dictionary, etc.</li>
+</ul>
+<h3>Using Curly Braces</h3>
+<p>The most common method is to enclose comma-separated key-value pairs in curly braces:</p>
+<pre><code class="language-python"># Empty dictionary
+empty_dict = {}
+
+# Dictionary with items
+student = {
+    'name': 'John Doe',
+    'age': 21,
+    'courses': ['Math', 'Physics', 'Programming']
+}
+</code></pre>
+<h3>Using the dict() Constructor</h3>
+<p>You can also create dictionaries using the built-in <code>dict()</code> function:</p>
+<pre><code class="language-python"># Empty dictionary
+empty_dict = dict()
+
+# Dictionary from keyword arguments
+person = dict(name='Alice', age=25, city='New York')
+
+# Dictionary from a list of tuples
+items = dict([('apple', 4.5), ('banana', 3.2), ('orange', 2.0)])
+</code></pre>
+<hr />
+<h2>Accessing Dictionary Elements</h2>
+<p>There are multiple ways to access elements in a dictionary:</p>
+<h3>Using Keys</h3>
+<p>The most straightforward way is to use the key inside square brackets:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21, 'courses': ['Math', 'Physics']}
+
+# Access value by key
+print(student['name'])  # Output: John
+print(student['courses'])  # Output: ['Math', 'Physics']
+</code></pre>
+<h3>Using the get() Method</h3>
+<p>The get method is preferred. because you can give a default back if not found.<br />
+The <code>get()</code> method is safer as it doesn't raise a KeyError if the key doesn't exist:</p>
+<pre><code class="language-python"># Access with get()
+print(student.get('name'))  # Output: John
+print(student.get('grade'))  # Output: None (key doesn't exist)
+print(student.get('grade', 'N/A'))  # Output: N/A (custom default value)
+</code></pre>
+<h2>Modifying Dictionaries</h2>
+<p>Dictionaries are mutable, meaning you can change their content without changing their identity.</p>
+<h3>Adding or Updating Items</h3>
+<p>You can add new key-value pairs or update existing ones:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21}
+
+# Add a new key-value pair
+student['courses'] = ['Math', 'Physics']
+
+# Update an existing key
+student['age'] = 22
+
+print(student)
+# Output: {'name': 'John', 'age': 22, 'courses': ['Math', 'Physics']}
+</code></pre>
+<h3>Using the update() Method</h3>
+<p>The <code>update()</code> method lets you add multiple key-value pairs at once:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21}
+
+# Add/update multiple items at once
+student.update({'age': 22, 'city': 'New York', 'grade': 'A'})
+
+print(student)
+# Output: {'name': 'John', 'age': 22, 'city': 'New York', 'grade': 'A'}
+</code></pre>
+<h2>Removing Items</h2>
+<p>There are several ways to remove items from a dictionary:</p>
+<h3>Using the pop() Method</h3>
+<p>The <code>pop()</code> method removes an item with the specified key and returns the value:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
+
+# Remove and return a value
+age = student.pop('age')
+print(age)  # Output: 21
+print(student)  # Output: {'name': 'John', 'city': 'New York'}
+</code></pre>
+<h3>Using the popitem() Method</h3>
+<p>The <code>popitem()</code> method removes and returns the last inserted key-value pair as a tuple:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
+
+# Remove the last inserted item
+last_item = student.popitem()
+print(last_item)  # Output: ('city', 'New York')
+print(student)  # Output: {'name': 'John', 'age': 21}
+</code></pre>
+<h3>Using the del Keyword</h3>
+<p>The <code>del</code> keyword removes an item with a specific key:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
+
+# Delete a specific key
+del student['city']
+print(student)  # Output: {'name': 'John', 'age': 21}
+
+# Delete the entire dictionary
+del student
+# print(student)  # This would raise an error as student no longer exists
+</code></pre>
+<h3>Using the clear() Method</h3>
+<p>The <code>clear()</code> method removes all items from the dictionary:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21}
+
+# Remove all items
+student.clear()
+print(student)  # Output: {}
+</code></pre>
+<hr />
+<h2>Dictionary Methods</h2>
+<p>Python dictionaries come with many useful built-in methods:</p>
+<h3>keys(), values(), and items()</h3>
+<p>These methods return view objects that provide views on the dictionary's keys, values, and key-value pairs:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
+
+# Get all keys
+keys = student.keys()
+print(keys)  # Output: dict_keys(['name', 'age', 'city'])
+
+# Get all values
+values = student.values()
+print(values)  # Output: dict_values(['John', 21, 'New York'])
+
+# Get all key-value pairs
+items = student.items()
+print(items)  # Output: dict_items([('name', 'John'), ('age', 21), ('city', 'New York')])
+</code></pre>
+<h3>copy()</h3>
+<p>The <code>copy()</code> method returns a shallow copy of the dictionary:</p>
+<pre><code class="language-python">original = {'name': 'John', 'age': 21, 'courses': ['Math', 'Physics']}
+
+# Create a copy
+copied = original.copy()
+
+# Modify the original
+original['name'] = 'Jane'
+original['courses'].append('Chemistry')
+
+print(original)  # Output: {'name': 'Jane', 'age': 21, 'courses': ['Math', 'Physics', 'Chemistry']}
+print(copied)    # Output: {'name': 'John', 'age': 21, 'courses': ['Math', 'Physics', 'Chemistry']}
+</code></pre>
+<p>Note that with shallow copies, nested mutable objects like lists are still references to the same objects.</p>
+<h3>setdefault()</h3>
+<p>The <code>setdefault()</code> method returns the value of the specified key. If the key doesn't exist, it inserts the key with the specified value:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21}
+
+# Get value if key exists, otherwise set default
+email = student.setdefault('email', 'john@example.com')
+print(email)  # Output: john@example.com
+print(student)  # Output: {'name': 'John', 'age': 21, 'email': 'john@example.com'}
+
+# Key already exists, so original value is returned
+name = student.setdefault('name', 'Jane')
+print(name)  # Output: John (not Jane)
+</code></pre>
+<h2>Nested Dictionaries</h2>
+<p>Dictionaries can contain other dictionaries, creating nested structures:</p>
+<pre><code class="language-python"># Nested dictionary representing a student database
+students = {
+    '1001': {
+        'name': 'John Doe',
+        'age': 21,
+        'courses': ['Math', 'Physics']
+    },
+    '1002': {
+        'name': 'Jane Smith',
+        'age': 20,
+        'courses': ['Chemistry', 'Biology']
+    }
+}
+
+# Accessing values in nested dictionaries
+print(students['1001']['name'])  # Output: John Doe
+print(students['1002']['courses'][0])  # Output: Chemistry
+
+# Adding a new student
+students['1003'] = {
+    'name': 'Bob Johnson',
+    'age': 22,
+    'courses': ['Computer Science', 'Statistics']
+}
+</code></pre>
+<hr />
+<h2>Common Dictionary Operations</h2>
+<h3>Checking if a Key Exists</h3>
+<p>You can use the <code>in</code> operator to check if a key exists in a dictionary:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21}
+
+# Check if a key exists
+print('name' in student)  # Output: True
+print('grade' in student)  # Output: False
+</code></pre>
+<h3>Iterating Through a Dictionary</h3>
+<p>There are several ways to iterate through a dictionary:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
+
+# Iterate through keys (default)
+for key in student:
+    print(key, student[key])
+
+# Iterate through keys explicitly
+for key in student.keys():
+    print(key)
+
+# Iterate through values
+for value in student.values():
+    print(value)
+
+# Iterate through key-value pairs
+for key, value in student.items():
+    print(key, &quot;:&quot;, value)
+</code></pre>
+<h3>Finding the Length of a Dictionary</h3>
+<p>The <code>len()</code> function returns the number of key-value pairs in a dictionary:</p>
+<pre><code class="language-python">student = {'name': 'John', 'age': 21, 'city': 'New York'}
+print(len(student))  # Output: 3
+</code></pre>
+<h2>Dictionary as Function Arguments</h2>
+<p>Dictionaries can be unpacked and used as function arguments using the double asterisk (<code>**</code>) operator:</p>
+<pre><code class="language-python">def display_person(name, age, city):
+    print(f&quot;Name: {name}, Age: {age}, City: {city}&quot;)
+
+# Dictionary to unpack
+person = {'name': 'John', 'age': 21, 'city': 'New York'}
+
+# Unpack the dictionary as keyword arguments
+display_person(**person)
+# Output: Name: John, Age: 21, City: New York
+</code></pre>
+<h2>Advanced Dictionary Techniques</h2>
+<h3>Merging Dictionaries</h3>
+<p>In Python 3.5+, you can use the unpacking operator to merge dictionaries:</p>
+<pre><code class="language-python">dict1 = {'a': 1, 'b': 2}
+dict2 = {'b': 3, 'c': 4}
+
+# Merge dictionaries (later values override earlier ones)
+merged = {**dict1, **dict2}
+print(merged)  # Output: {'a': 1, 'b': 3, 'c': 4}
+</code></pre>
+<p>In Python 3.9+, you can use the pipe operator:</p>
+<pre><code class="language-python">dict1 = {'a': 1, 'b': 2}
+dict2 = {'b': 3, 'c': 4}
+
+# Merge with the pipe operator
+merged = dict1 | dict2
+print(merged)  # Output: {'a': 1, 'b': 3, 'c': 4}
+</code></pre>
+<h3>OrderedDict and Dictionary Order</h3>
+<p>Since Python 3.7, regular dictionaries maintain insertion order by default. Before that, you could use <code>OrderedDict</code> from the <code>collections</code> module:</p>
+<pre><code class="language-python">from collections import OrderedDict
+
+# Create an ordered dictionary
+ordered = OrderedDict([('apple', 4.5), ('banana', 3.2), ('orange', 2.0)])
+
+# Regular dictionaries also maintain order in Python 3.7+
+regular = {'apple': 4.5, 'banana': 3.2, 'orange': 2.0}
+</code></pre>
+<h3>defaultdict for Default Values</h3>
+<p>The <code>defaultdict</code> from the <code>collections</code> module automatically provides default values for nonexistent keys:</p>
+<pre><code class="language-python">from collections import defaultdict
+
+# Create a defaultdict that defaults to 0
+fruit_count = defaultdict(int)
+
+fruits = ['apple', 'banana', 'orange', 'apple', 'apple', 'banana']
+
+# Count occurrences
+for fruit in fruits:
+    fruit_count[fruit] += 1
+
+print(fruit_count)
+# Output: defaultdict(&lt;class 'int'&gt;, {'apple': 3, 'banana': 2, 'orange': 1})
+</code></pre>
+<h3>Counter for Frequency Counting</h3>
+<p>The <code>Counter</code> class is a specialized dictionary for counting hashable objects:</p>
+<pre><code class="language-python">from collections import Counter
+
+# Count occurrences in a list
+fruits = ['apple', 'banana', 'orange', 'apple', 'apple', 'banana']
+fruit_counter = Counter(fruits)
+
+print(fruit_counter)
+# Output: Counter({'apple': 3, 'banana': 2, 'orange': 1})
+
+# Most common elements
+print(fruit_counter.most_common(2))
+# Output: [('apple', 3), ('banana', 2)]
+</code></pre>
+<h2>Real-World Applications of Dictionaries</h2>
+<h3>Data Processing</h3>
+<p>Dictionaries are excellent for processing and analyzing data:</p>
+<pre><code class="language-python"># Sales data by quarter
+sales_data = {
+    'Q1': {'jan': 100, 'feb': 110, 'mar': 125},
+    'Q2': {'apr': 130, 'may': 115, 'jun': 135},
+    'Q3': {'jul': 140, 'aug': 145, 'sep': 155},
+    'Q4': {'oct': 160, 'nov': 165, 'dec': 170}
+}
+
+# Calculate total annual sales
+annual_sales = sum(
+    month_sales
+    for quarter in sales_data.values()
+    for month_sales in quarter.values()
+)
+print(f&quot;Annual sales: ${annual_sales}&quot;)
+</code></pre>
+<h3>Configuration and Settings</h3>
+<p>Dictionaries are perfect for storing configuration settings:</p>
+<pre><code class="language-python"># Application configuration
+config = {
+    'database': {
+        'host': 'localhost',
+        'port': 5432,
+        'user': 'admin',
+        'password': 'secret'
+    },
+    'api': {
+        'endpoint': 'https://api.example.com',
+        'timeout': 30,
+        'retry_limit': 3
+    },
+    'logging': {
+        'level': 'INFO',
+        'file': 'app.log'
+    }
+}
+
+# Access configuration settings
+db_host = config['database']['host']
+api_timeout = config['api']['timeout']
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

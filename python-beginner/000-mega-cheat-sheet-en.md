@@ -745,6 +745,11 @@ next_week = now + delta
 days_diff = (date(2023, 12, 31) - date(2023, 1, 1)).days  # 364
 ```
 
+a more modern way to work with dates. and a whole lot easier.
+because datetime is a bit of a pain to work with.
+[Whenever](https://github.com/ariebovenberg/whenever)
+
+
 ### re (Regular Expressions)
 ```python
 import re

@@ -12,6 +12,8 @@
 - [13 Loops.Html](13-loops.html)
 - [14 Dictionaries.Html](14-dictionaries.html)
 - [15 Other Datastructures Tuples Sets Etc.Html](15-other-datastructures-tuples-sets-etc.html)
+- [16 Notes On Converting Datatypes.Html](16-notes-on-converting-datatypes.html)
+- [17 Functions And Demystifying Them.Html](17-functions-and-demystifying-them.html)
 - [Control Structures Exercises 2.Html](control-structures-exercises-2.html)
 - [Control Structures Exercises.Html](control-structures-exercises.html)
 - [For Loop Exercises 2.Html](for-loop-exercises-2.html)

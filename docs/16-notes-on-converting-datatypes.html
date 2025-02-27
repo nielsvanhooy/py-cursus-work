@@ -1,0 +1,293 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h2>Converting from a type. to another type</h2>
+<p>A short chapter because there is not allot to explain about this.</p>
+<p>in python we are able to change the type of a variable to another type.</p>
+<p>There are 2 types of conversions (also called <code>Casting</code>:</p>
+<ul>
+<li>Implicit Casting</li>
+<li>Explicit Casting</li>
+</ul>
+<h3>Implicit Casting</h3>
+<pre><code class="language-python">a = 10   # integer
+b = 10.5 # float
+
+c = a + b
+print(c) # 20.5 &lt;---- now a float. 
+</code></pre>
+<p>In the above example when adding a + b together. <br />
+the type from a is automatically converted to a float. because the result of the sum is a float.</p>
+<p>This is called Implicit Casting.</p>
+<p>Implicit Casting is only limited to <code>int</code> and <code>float</code> types.</p>
+<h3>Explicit Casting</h3>
+<p>To explicitly convert a variable from one type to another, <br />
+you can use the built-in functions <code>int()</code>, <code>float()</code>, <code>str()</code>, <code>bool()</code>, and <code>list()</code>.</p>
+<h3>int</h3>
+<p>Python's built-in int() function converts an integer literal to <br />
+- an integer object<br />
+- a float to integer<br />
+- and a string to integer if the string itself has a valid integer literal representation.</p>
+<pre><code class="language-python">a = int(10)  # Using int() with an int object as argument is equivalent to declaring an int object directly.
+b = int(10.5)  # 10   &lt;---- 10.5 is converted to 10. it is not rounded down. it is just cut off.
+c = int(True) # results in 1. cause in machine language 1 is True and 0 is False
+d = int(False) # results in 0. cause in machine language 1 is True and 0 is False
+</code></pre>
+<p>You can also turn strings into int. but only if the string is a number.</p>
+<pre><code class="language-python">a = int(&quot;10&quot;)  # 10
+</code></pre>
+<p>If the string is not a number you will get an error.</p>
+<pre><code class="language-python">a = int(&quot;10.5&quot;)
+
+Traceback (most recent call last):
+   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+ValueError: invalid literal for int() with base 10: '10.5'
+
+
+a = int(&quot;Hello World&quot;)
+
+Traceback (most recent call last):
+   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+ValueError: invalid literal for int() with base 10: 'Hello World'
+</code></pre>
+<p>There a also ways to convert <br />
+- <code>binary string</code> to <code>int</code> <br />
+- <code>hexadecimal string</code> to <code>int</code>.<br />
+- <code>octal string</code> to <code>int</code>.</p>
+<p>Examples</p>
+<pre><code class="language-python">a = int(&quot;110011&quot;, 2) # 51     Binary
+b = int(&quot;20&quot;, 8)     # 16     Octal
+c = int(&quot;2A9&quot;, 16)   # 681    Hexadecimal
+</code></pre>
+<p>Decimal equivalent of Hexadecimal 2A9 is 681. <br />
+You can easily verify these conversions with calculator app in Windows, Ubuntu or Smartphones.</p>
+<h3>float</h3>
+<p>The float() is a built-in function in Python. <br />
+It returns a float object if the argument is a float literal, <br />
+integer or a string with valid floating point representation.</p>
+<pre><code class="language-python">a = float(9.99)   # Using float() with a float object as argument is equivalent to declaring a float object directly.
+b = 9.99          # 9.99 is a float literal  so the type is a float
+c = float(100)    # 100.0
+d = float(&quot;9.99&quot;) # 9.99
+</code></pre>
+<p>what if the string is not a number? for example the string <code>99,99</code> (with a comma) instead of <code>9.99</code> (with a dot)</p>
+<pre><code class="language-python">a = float(&quot;1,234.50&quot;)
+
+Traceback (most recent call last):
+   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+ValueError: could not convert string to float: '1,234.50'
+</code></pre>
+<h3>string</h3>
+<p>We saw how a Python obtains integer or float number from corresponding string representation. <br />
+The str() function works the opposite. <br />
+It surrounds an integer or a float object with quotes (') to return a str object. <br />
+The str() function returns the string representation of any Python object. </p>
+<pre><code class="language-python">a = str(10)   # '10'
+b = str(11.10) # '11.1'
+c = str(True)  # 'True'
+</code></pre>
+<p>nothing more to say about it. it just wraps everything in quotes to make it a string.</p>
+<h3>conversion of sequence Types</h3>
+<p>List, Tuple and String are Python's sequence types. They are ordered or indexed collection of items.<br />
+A string and tuple can be converted into a list object by using the list() function. Similarly, the tuple() function converts a string or list to a tuple.<br />
+We shall take an object each of these three sequence types and study their inter-conversion.</p>
+<pre><code class="language-python">a =[1,2,3,4,5]   # List Object
+b =(1,2,3,4,5)   # Tupple Object
+c =&quot;Hello&quot;       # String Object
+
+### list() separates each character in the string and builds the list
+obj =list(c)
+
+['H', 'e', 'l', 'l', 'o']
+
+### The parentheses of tuple are replaced by square brackets
+obj=list(b)
+
+[1, 2, 3, 4, 5]
+
+### tuple() separates each character from string and builds a tuple of characters
+obj=tuple(c)
+
+('H', 'e', 'l', 'l', 'o')
+
+### square brackets of list are replaced by parentheses.
+obj=tuple(a)
+(1, 2, 3, 4, 5)
+
+### str() function puts the list and tuple inside the quote symbols.
+obj=str(a)
+
+'[1, 2, 3, 4, 5]'
+
+obj=str(b)
+
+'(1, 2, 3, 4, 5)'
+</code></pre>
+<h3>Data Type Conversion Functions</h3>
+<p>There are several built-in functions to perform conversion from one data type to another. <br />
+These functions return a new object representing the converted value.</p>
+<table>
+<thead>
+<tr>
+<th>Sr. No.</th>
+<th>Function &amp; Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Python int() function</strong> <br> Converts x to an integer. base specifies the base if x is a string.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Python long() function</strong> <br> Converts x to a long integer. base specifies the base if x is a string.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Python float() function</strong> <br> Converts x to a floating-point number.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Python complex() function</strong> <br> Creates a complex number.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Python str() function</strong> <br> Converts object x to a string representation.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Python repr() function</strong> <br> Converts object x to an expression string.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Python eval() function</strong> <br> Evaluates a string and returns an object.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Python tuple() function</strong> <br> Converts s to a tuple.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Python list() function</strong> <br> Converts s to a list.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Python set() function</strong> <br> Converts s to a set.</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Python dict() function</strong> <br> Creates a dictionary. d must be a sequence of (key,value) tuples.</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Python frozenset() function</strong> <br> Converts s to a frozen set.</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>Python chr() function</strong> <br> Converts an integer to a character.</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>Python unichr() function</strong> <br> Converts an integer to a Unicode character.</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>Python ord() function</strong> <br> Converts a single character to its integer value.</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>Python hex() function</strong> <br> Converts an integer to a hexadecimal string.</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>Python oct() function</strong> <br> Converts an integer to an octal string.</td>
+</tr>
+</tbody>
+</table></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

@@ -1,0 +1,281 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h2>working with files</h2>
+<p>In the previous lesson we learned to work with file paths.<br />
+thats good. because we can use that knowledge to work with files.</p>
+<h3>Reading files</h3>
+<p>Reading files is a fundamental operatin in many python programs. (and also in our company)<br />
+<code>pathlib</code> provides convenient shorthand methods for reading files as eiter text or raw bytes.</p>
+<p>Example:</p>
+<pre><code class="language-python">from pathlib import Path
+
+file = Path(&quot;file.txt&quot;)
+
+print(file.read_text())
+</code></pre>
+<p>This is a sample text</p>
+<p>for binary files we use the <code>read_bytes()</code> method.</p>
+<pre><code class="language-python">from pathlib import Path
+image = Path(&quot;images/midjourney.png&quot;)
+
+image.read_bytes()[:10]  # Display the first 10 bytes
+</code></pre>
+<p>Writing with pathlib is also easy. We can use the <code>write_text()</code> and <code>write_bytes()</code> methods.</p>
+<pre><code class="language-python">from pathlib import Path
+file = Path(&quot;file.txt&quot;)
+
+file.write_text(&quot;This is new text.&quot;)
+</code></pre>
+<p>the thing with write_text is that it will overwrite the file if it already exists. <br />
+now you can do python tricks ofcourse. first read the file.<br />
+then append to the string. and write it back to the file.</p>
+<pre><code class="language-python">from pathlib import Path
+
+file = Path(&quot;file.txt&quot;)
+
+old_text = file.read_text() + &quot;\n&quot;
+final_text = &quot;This is the final text.&quot;
+
+# Combine old and new texts and write them back
+file.write_text(old_text + final_text)
+
+print(file.read_text())
+</code></pre>
+<p>write bytes works the same way. </p>
+<p>Even if Pathlib is a modern method i dont see many people using it.<br />
+Therefor we shall learn the ways of working with reading and writing files with the <code>open()</code> function.</p>
+<h2>working with files (the common way)</h2>
+<p>The <code>open()</code> function is the most common way to read and write files in Python.<br />
+It takes two arguments: the file path and the mode.</p>
+<p>we can give the file path either as a string or as a <code>Path</code> object.<br />
+the second argument is the mode we open a file in.</p>
+<p>here are all the available modes to open a file in:</p>
+<pre><code class="language-markdown">| Mode | Description |
+|------|-------------|
+| 'r' | Open text file for reading. Raises an I/O error if the file does not exist. |
+| 'r+' | Open the file for reading and writing. Raises an I/O error if the file does not exist. |
+| 'w' | Open the file for writing. Truncates the file if it already exists. Creates a new file if it does not exist. |
+| 'w+' | Open the file for reading and writing. Truncates the file if it already exists. Creates a new file if it does not exist. |
+| 'a' | Open the file for writing. The data being written will be inserted at the end of the file. Creates a new file if it does not exist. |
+| 'a+' | Open the file for reading and writing. The data being written will be inserted at the end of the file. Creates a new file if it does not exist. |
+| 'rb' | Open the file for reading in binary format. Raises an I/O error if the file does not exist. |
+| 'rb+' | Open the file for reading and writing in binary format. Raises an I/O error if the file does not exist. |
+| 'wb' | Open the file for writing in binary format. Truncates the file if it already exists. Creates a new file if it does not exist. |
+| 'wb+' | Open the file for reading and writing in binary format. Truncates the file if it already exists. Creates a new file if it does not exist. |
+| 'ab' | Open the file for appending in binary format. Inserts data at the end of the file. Creates a new file if it does not exist. |
+| 'ab+' | Open the file for reading and appending in binary format. Inserts data at the end of the file. Creates a new file if it does not exist. |
+</code></pre>
+<pre><code class="language-python">f = open('zen_of_python.txt', 'r') 
+print(f.read())
+f.close()
+
+# prints
+    # The Zen of Python, by Tim Peters
+    # 
+    # Beautiful is better than ugly.
+    # Explicit is better than implicit.
+    # Simple is better than complex.
+    # Complex is better than complicated.
+    # Flat is better than nested.
+    # Sparse is better than dense.
+    # Readability counts.
+    # Special cases aren't special enough to break the rules.
+    # Although practicality beats purity.
+    # Errors should never pass silently.
+    # Unless explicitly silenced.
+    # In the face of ambiguity, refuse the temptation to guess.
+    # There should be one-- and preferably only one --obvious way to do it.
+    # Although that way may not be obvious at first unless you're Dutch.
+    # Now is better than never.
+    # Although never is often better than *right* now.
+    # If the implementation is hard to explain, it's a bad idea.
+    # If the implementation is easy to explain, it may be a good idea.
+    # Namespaces are one honking great idea -- let's do more of those!
+
+</code></pre>
+<p>here we gave the file path as a common string.<br />
+but we could have given it a <code>Path</code> object as well.<br />
+and we chose the mode <code>r</code> to read the file.</p>
+<p>in the example the <code>open()</code> function opens the text file in reading mode,<br />
+allowing us to grab the information from the file without making changes to it.<br />
+we then use the <code>read()</code> method to read the file.</p>
+<p>the problem with opening a file like this is that we have to remember to close it.<br />
+if we forget to close the file, it can cause memory leaks and other issues.<br />
+and leaves open processes on the system.</p>
+<p>to prevent this. the very smart people at python have created the <code>with</code> statement.</p>
+<pre><code class="language-python">with open('zen_of_python.txt') as f:
+    print(f.read())
+print(&quot;i have closed the file handle&quot;)
+</code></pre>
+<p>what this syntax does is that it automatically closes the file when the block of code is done.<br />
+you should always use the with statement when working with files, sockets, and other resources that need to be closed.</p>
+<p>in the example as soon as it leaves the block of code the file is closed.</p>
+<p>in this syntax open('zen_of_python.txt') as f is the same as f = open('zen_of_python.txt') <br />
+but with the added benefit of closing the file when the block is done.</p>
+<p>working with the file can only be done is this block of code. but we can assign the content to a variable.<br />
+so that we can use it a later point in the code.</p>
+<p>all the methods that can be performed on a file object are:<br />
+and with this i mean on the <code>f</code> variable above.</p>
+<p>but there are many more file methods we can use.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>close()</td>
+<td>Closes the file</td>
+</tr>
+<tr>
+<td>detach()</td>
+<td>Returns the separated raw stream from the buffer</td>
+</tr>
+<tr>
+<td>fileno()</td>
+<td>Returns a number that represents the stream, from the operating system's perspective</td>
+</tr>
+<tr>
+<td>flush()</td>
+<td>Flushes the internal buffer</td>
+</tr>
+<tr>
+<td>isatty()</td>
+<td>Returns whether the file stream is interactive or not</td>
+</tr>
+<tr>
+<td>read()</td>
+<td>Returns the file content</td>
+</tr>
+<tr>
+<td>readable()</td>
+<td>Returns whether the file stream can be read or not</td>
+</tr>
+<tr>
+<td>readline()</td>
+<td>Returns one line from the file</td>
+</tr>
+<tr>
+<td>readlines()</td>
+<td>Returns a list of lines from the file</td>
+</tr>
+<tr>
+<td>seek()</td>
+<td>Change the file position</td>
+</tr>
+<tr>
+<td>seekable()</td>
+<td>Returns whether the file allows us to change the file position</td>
+</tr>
+<tr>
+<td>tell()</td>
+<td>Returns the current file position</td>
+</tr>
+<tr>
+<td>truncate()</td>
+<td>Resizes the file to a specified size</td>
+</tr>
+<tr>
+<td>writable()</td>
+<td>Returns whether the file can be written to or not</td>
+</tr>
+<tr>
+<td>write()</td>
+<td>Writes the specified string to the file</td>
+</tr>
+<tr>
+<td>writelines()</td>
+<td>Writes a list of strings to the file</td>
+</tr>
+</tbody>
+</table></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

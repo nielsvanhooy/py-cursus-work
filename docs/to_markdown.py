@@ -58,6 +58,12 @@ def modify_index_structure(html):
         elif "While Loops" in link_text:
             group_name = "While Loops"
             exercise_groups[group_name].append(item)
+        elif "Dictionary" in link_text:
+            group_name = "Dictionaries"
+            exercise_groups[group_name].append(item)
+        elif "other-datastructures" in link_text:
+            group_name = "Datastractures-beginner"
+            exercise_groups[group_name].append(item)
         else:
             # Fallback for items that don't match any pattern
             exercise_groups['Other'].append(item)
@@ -69,7 +75,16 @@ def modify_index_structure(html):
     exercises_html = "<h2>Exercises</h2>"
 
     # Custom order for the groups
-    group_order = ["Milestone", "Control Structures", "For Loop", "Lists And List Methods", "While Loops", "Other"]
+    group_order = [
+        "Milestone", 
+        "Control Structures", 
+        "For Loop", 
+        "Lists And List Methods", 
+        "While Loops", 
+        "Dictionaries",
+        "Datastructures-beginner",
+        "Other"
+    ]
 
     for group_name in group_order:
         items = exercise_groups.get(group_name, [])

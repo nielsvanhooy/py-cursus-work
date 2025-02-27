@@ -1,0 +1,215 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Advanced Network Engineering Python Exercises</h1>
+<p>These exercises are designed to reinforce your understanding of Python dictionaries, loops, user input, and data processing in a network engineering context.</p>
+<hr />
+<h2>Exercise 1: Network Device Manager</h2>
+<h3>Objective</h3>
+<p>Manage a dictionary of network devices. Each device is represented as a key (device name) with a dictionary as the value containing:<br />
+- <code>"ip"</code>: The device's IP address (string)<br />
+- <code>"status"</code>: Either <code>"up"</code> or <code>"down"</code> (string)</p>
+<h3>Tasks</h3>
+<ol>
+<li>Create a dictionary named <code>devices</code> with at least three devices (e.g., <code>"Router1"</code>, <code>"Switch2"</code>, <code>"Server3"</code>).</li>
+<li>Print the IP and status of <code>"Router1"</code>.</li>
+<li>Prompt the user to add a new device by entering its name, IP, and status.</li>
+<li>Ask the user for a device name to update its status. If the device exists, update it; otherwise, print an error message.</li>
+<li>Print the final device inventory.</li>
+</ol>
+<pre><code class="language-python"># HINT: Create a dictionary with nested dictionaries for devices
+# HINT: Use input() to collect new device details
+# HINT: Use .get() or dictionary indexing to retrieve values
+
+def network_device_manager():
+    print(&quot;=== NETWORK DEVICE MANAGER ===&quot;)
+
+    # Step 1: Create the initial dictionary
+    devices = {
+        &quot;Router1&quot;: {&quot;ip&quot;: &quot;192.168.1.1&quot;, &quot;status&quot;: &quot;up&quot;},
+        &quot;Switch2&quot;: {&quot;ip&quot;: &quot;192.168.1.2&quot;, &quot;status&quot;: &quot;down&quot;},
+        &quot;Server3&quot;: {&quot;ip&quot;: &quot;192.168.1.10&quot;, &quot;status&quot;: &quot;up&quot;}
+    }
+
+    # Step 2: Print Router1's details
+    # TODO: Print Router1's IP and status
+
+    # Step 3: Add a new device from user input
+    # TODO: Ask user for new device details and add it to the dictionary
+
+    # Step 4: Update an existing device's status
+    # TODO: Ask user for a device name and update its status if it exists
+
+    # Step 5: Print the final inventory
+    # TODO: Loop through dictionary and print all devices and their details
+
+    print(&quot;\nDone!&quot;)
+
+# Uncomment the line below to run the function
+# network_device_manager()
+</code></pre>
+<hr />
+<h2>Exercise 2: IP Log Analyzer</h2>
+<h3>Objective</h3>
+<p>Analyze a list of network log entries to count how many times each IP address appears, then display the counts sorted from highest to lowest.</p>
+<h3>Tasks</h3>
+<ol>
+<li>Given a list of log strings in the format: <code>"timestamp device_name IP_address action"</code>, extract the IP address.</li>
+<li>Count how many times each IP appears using a dictionary.</li>
+<li>Sort the dictionary in descending order based on occurrence count.</li>
+<li>Print the IPs with their counts.</li>
+</ol>
+<pre><code class="language-python"># HINT: Use .split() to extract the IP from each log entry
+# HINT: Use a dictionary to store counts
+# HINT: Use sorted() with key=lambda to sort by value
+
+def ip_log_analyzer():
+    print(&quot;=== IP LOG ANALYZER ===&quot;)
+
+    logs = [
+        &quot;2025-02-27 10:00:00 Router1 192.168.1.1 connected&quot;,
+        &quot;2025-02-27 10:05:00 Switch2 192.168.1.2 connected&quot;,
+        &quot;2025-02-27 10:10:00 Router1 192.168.1.1 disconnected&quot;,
+        &quot;2025-02-27 10:15:00 Server3 192.168.1.10 connected&quot;,
+        &quot;2025-02-27 10:20:00 Router1 192.168.1.1 connected&quot;,
+        &quot;2025-02-27 10:25:00 Switch2 192.168.1.2 disconnected&quot;
+    ]
+
+    # Step 1: Create an empty dictionary for IP counts
+    # TODO: Extract IPs and count occurrences
+
+    # Step 2: Sort IPs by count (descending order)
+    # TODO: Use sorted() to sort dictionary by values
+
+    # Step 3: Print sorted IPs and their counts
+
+    print(&quot;\nDone!&quot;)
+
+# Uncomment the line below to run the function
+# ip_log_analyzer()
+</code></pre>
+<hr />
+<h2>Exercise 3: Network Traffic Data Analyzer</h2>
+<h3>Objective</h3>
+<p>Analyze simulated network traffic records to determine which source IPs are generating the most traffic.</p>
+<h3>Tasks</h3>
+<ol>
+<li>Given a list of tuples <code>(source_ip, destination_ip, bytes_transferred)</code>, track the total bytes transferred per source IP.</li>
+<li>Sort and print the top three source IPs by traffic.</li>
+</ol>
+<pre><code class="language-python"># HINT: Loop through the traffic records and accumulate traffic for each source IP
+# HINT: Use sorted() to order source IPs by total bytes transferred
+
+def network_traffic_analyzer():
+    print(&quot;=== NETWORK TRAFFIC ANALYZER ===&quot;)
+
+    traffic_records = [
+        (&quot;192.168.1.1&quot;, &quot;10.0.0.5&quot;, 500),
+        (&quot;192.168.1.2&quot;, &quot;10.0.0.6&quot;, 1500),
+        (&quot;192.168.1.1&quot;, &quot;10.0.0.7&quot;, 700),
+        (&quot;192.168.1.3&quot;, &quot;10.0.0.8&quot;, 200),
+        (&quot;192.168.1.2&quot;, &quot;10.0.0.9&quot;, 800),
+        (&quot;192.168.1.1&quot;, &quot;10.0.0.10&quot;, 600),
+        (&quot;192.168.1.4&quot;, &quot;10.0.0.11&quot;, 1200)
+    ]
+
+    # Step 1: Create a dictionary to store total bytes transferred per source IP
+    # TODO: Loop through traffic records and sum bytes per source IP
+
+    # Step 2: Sort the dictionary by total bytes transferred (descending order)
+    # TODO: Use sorted() with key=lambda to sort by value
+
+    # Step 3: Print the top 3 source IPs
+
+    print(&quot;\nDone!&quot;)
+
+# Uncomment the line below to run the function
+# network_traffic_analyzer()
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

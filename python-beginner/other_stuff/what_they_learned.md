@@ -51,6 +51,7 @@ list indexing
 list slicing
 list methods (append, insert) etc
 lists of lists
+dictionarys
 
 
 working with loops:

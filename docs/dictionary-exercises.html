@@ -1,0 +1,273 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Very Basic Dictionary Exercises</h1>
+<p>These exercises focus on the most fundamental dictionary operations in Python. Each exercise practices just one or two simple dictionary concepts.</p>
+<h2>Exercise 1: Create and Print a Dictionary</h2>
+<p>Practice creating a dictionary and accessing its values.</p>
+<pre><code class="language-python"># ===== EXERCISE 1: CREATE AND PRINT A DICTIONARY =====
+
+def fruit_colors():
+    print(&quot;=== FRUIT COLORS ===&quot;)
+
+    # TODO: Create a dictionary where:
+    # - Keys are fruit names: &quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;
+    # - Values are their colors: &quot;red&quot;, &quot;yellow&quot;, &quot;red&quot;
+    # Example: fruits = {&quot;apple&quot;: &quot;red&quot;, &quot;banana&quot;: &quot;yellow&quot;, &quot;cherry&quot;: &quot;red&quot;}
+
+    # TODO: Print the color of each fruit
+    # Example:
+    # print(&quot;Apple is&quot;, fruits[&quot;apple&quot;])
+    # print(&quot;Banana is&quot;, fruits[&quot;banana&quot;])
+    # print(&quot;Cherry is&quot;, fruits[&quot;cherry&quot;])
+
+    print(&quot;\nDone!&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# fruit_colors()
+</code></pre>
+<h2>Exercise 2: Add and Modify Dictionary Items</h2>
+<p>Practice adding new key-value pairs and changing existing values.</p>
+<pre><code class="language-python"># ===== EXERCISE 2: ADD AND MODIFY DICTIONARY ITEMS =====
+
+def pet_ages():
+    print(&quot;=== PET AGES ===&quot;)
+
+    # Starting with a dictionary of pets and their ages
+    pets = {&quot;Rex&quot;: 3, &quot;Fluffy&quot;: 2}
+
+    # Print the starting dictionary
+    print(&quot;Starting pet ages:&quot;, pets)
+
+    # TODO: Add a new pet &quot;Spot&quot; who is 5 years old to the dictionary
+
+    # TODO: Change Rex's age to 4 (he had a birthday)
+
+    # Print the updated dictionary
+    print(&quot;Updated pet ages:&quot;, pets)
+
+    print(&quot;\nDone!&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# pet_ages()
+</code></pre>
+<h2>Exercise 3: Check if a Key Exists</h2>
+<p>Practice checking if a key is in a dictionary.</p>
+<pre><code class="language-python"># ===== EXERCISE 3: CHECK IF KEY EXISTS =====
+
+def check_stock():
+    print(&quot;=== INVENTORY CHECKER ===&quot;)
+
+    # Dictionary of items in stock
+    inventory = {&quot;apples&quot;: 10, &quot;bananas&quot;: 5, &quot;oranges&quot;: 8}
+
+    # TODO: Ask the user what fruit they want to check
+    # Example: fruit = input(&quot;What fruit do you want to check? &quot;)
+
+    # TODO: Check if the fruit is in the inventory dictionary
+    # If it is, print how many are in stock
+    # If not, print that the fruit is not in stock
+    # Example:
+    # if fruit in inventory:
+    #     print(f&quot;We have {inventory[fruit]} {fruit} in stock&quot;)
+    # else:
+    #     print(f&quot;Sorry, we don't have {fruit} in stock&quot;)
+
+    print(&quot;\nDone!&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# check_stock()
+</code></pre>
+<h2>Exercise 4: Loop Through a Dictionary</h2>
+<p>Practice using a loop to go through all keys and values in a dictionary.</p>
+<pre><code class="language-python"># ===== EXERCISE 4: LOOP THROUGH A DICTIONARY =====
+
+def print_scores():
+    print(&quot;=== STUDENT SCORES ===&quot;)
+
+    # Dictionary of student scores
+    scores = {&quot;Alice&quot;: 92, &quot;Bob&quot;: 85, &quot;Charlie&quot;: 78, &quot;Diana&quot;: 95}
+
+    # TODO: Loop through the dictionary and print each student's name and score
+    # Example:
+    # for student, score in scores.items():
+    #     print(f&quot;{student}: {score}&quot;)
+
+    # TODO: Calculate and print the average score
+    # Hint: Use a variable to keep track of the total, then divide by the number of students
+
+    print(&quot;\nDone!&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# print_scores()
+</code></pre>
+<h2>Exercise 5: Delete Items from a Dictionary</h2>
+<p>Practice removing items from a dictionary.</p>
+<pre><code class="language-python"># ===== EXERCISE 5: DELETE ITEMS FROM A DICTIONARY =====
+
+def manage_contacts():
+    print(&quot;=== CONTACT MANAGER ===&quot;)
+
+    # Dictionary of contacts
+    contacts = {&quot;John&quot;: &quot;555-1234&quot;, &quot;Mary&quot;: &quot;555-5678&quot;, &quot;Bob&quot;: &quot;555-4321&quot;}
+
+    # Print all contacts
+    print(&quot;Current contacts:&quot;)
+    for name, phone in contacts.items():
+        print(f&quot;{name}: {phone}&quot;)
+
+    # TODO: Ask the user for a name to delete
+    # Example: name = input(&quot;\nEnter a name to delete: &quot;)
+
+    # TODO: Check if the name exists in the contacts
+    # If it does, delete it and print a success message
+    # If not, print that the contact wasn't found
+    # Hint: Use the 'del' keyword to delete a dictionary item
+
+    # Print the updated contacts
+    print(&quot;\nUpdated contacts:&quot;)
+    for name, phone in contacts.items():
+        print(f&quot;{name}: {phone}&quot;)
+
+    print(&quot;\nDone!&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# manage_contacts()
+</code></pre>
+<h2>Exercise 6: Count Items (Slightly More Advanced)</h2>
+<p>Practice counting items by storing counts in a dictionary.</p>
+<pre><code class="language-python"># ===== EXERCISE 6: COUNT ITEMS =====
+
+def count_letters():
+    print(&quot;=== LETTER COUNTER ===&quot;)
+
+    # Get a word from the user
+    word = input(&quot;Enter a word: &quot;)
+
+    # TODO: Create an empty dictionary to store letter counts
+    # Example: letter_counts = {}
+
+    # TODO: Loop through each letter in the word
+    # For each letter, if it's already in the dictionary, add 1 to its count
+    # If it's not in the dictionary yet, set its count to 1
+    # Example:
+    # for letter in word:
+    #     if letter in letter_counts:
+    #         letter_counts[letter] += 1
+    #     else:
+    #         letter_counts[letter] = 1
+
+    # TODO: Print each letter and its count
+    # Example:
+    # for letter, count in letter_counts.items():
+    #     print(f&quot;'{letter}' appears {count} time(s)&quot;)
+
+    print(&quot;\nDone!&quot;)
+
+# Run this program by removing the comment symbol (#) from the line below
+# count_letters()
+</code></pre>
+<h2>Dictionary Tips</h2>
+<ul>
+<li>A dictionary is created with curly braces <code>{}</code> and consists of key-value pairs</li>
+<li>Each key-value pair is written as <code>key: value</code></li>
+<li>Access a value using square brackets and the key: <code>dict_name[key]</code></li>
+<li>Add a new item or change an existing item with: <code>dict_name[key] = value</code></li>
+<li>Check if a key exists with: <code>if key in dict_name:</code></li>
+<li>Loop through a dictionary with:<br />
+<code>python
+  for key in dict_name:
+      # Do something with key and dict_name[key]</code><br />
+  or<br />
+<code>python
+  for key, value in dict_name.items():
+      # Do something with key and value</code></li>
+<li>Delete an item with: <code>del dict_name[key]</code></li>
+</ul></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

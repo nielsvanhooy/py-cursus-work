@@ -1,0 +1,208 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1>Beginner Network Engineering Exercises: Tuples &amp; Sets</h1>
+<p>These exercises introduce tuples and sets, focusing on how they can be applied in network engineering.</p>
+<hr />
+<h2>Exercise 1: Storing Network Device Information (Tuples)</h2>
+<h3>Objective:</h3>
+<p>Understand how tuples can store immutable network device information.</p>
+<h3>Tasks:</h3>
+<ol>
+<li>Create a tuple named <code>router_info</code> containing:</li>
+<li>Router name (string)</li>
+<li>IP address (string)</li>
+<li>MAC address (string)</li>
+<li>Print each element of the tuple.</li>
+<li>Try modifying the IP address and observe what happens.</li>
+</ol>
+<pre><code class="language-python"># HINT: Tuples are immutable. Trying to modify them will cause an error.
+
+def router_tuple():
+    print(&quot;=== NETWORK DEVICE INFORMATION ===&quot;)
+
+    # TODO: Create a tuple with router name, IP address, and MAC address
+
+    # TODO: Print each element separately
+
+    # TODO: Try modifying the IP address and observe the result
+
+    print(&quot;\nDone!&quot;)
+
+# Uncomment the line below to run the function
+# router_tuple()
+</code></pre>
+<hr />
+<h2>Exercise 2: Unique Connected Devices (Sets)</h2>
+<h3>Objective:</h3>
+<p>Use a set to store unique connected device IPs.</p>
+<h3>Tasks:</h3>
+<ol>
+<li>Create an empty set named <code>connected_devices</code>.</li>
+<li>Add the following IPs: <code>192.168.1.10</code>, <code>192.168.1.11</code>, <code>192.168.1.10</code>, <code>192.168.1.12</code>.</li>
+<li>Print the set and observe duplicate handling.</li>
+<li>Remove an IP and print the updated set.</li>
+</ol>
+<pre><code class="language-python"># HINT: Sets automatically remove duplicates.
+
+def unique_connected_devices():
+    print(&quot;=== UNIQUE CONNECTED DEVICES ===&quot;)
+
+    # TODO: Create an empty set
+
+    # TODO: Add multiple IPs, including duplicates
+
+    # TODO: Print the set and observe if duplicates exist
+
+    # TODO: Remove an IP and print the set again
+
+    print(&quot;\nDone!&quot;)
+
+# Uncomment the line below to run the function
+# unique_connected_devices()
+</code></pre>
+<hr />
+<h2>Exercise 3: Comparing Network Segments (Sets)</h2>
+<h3>Objective:</h3>
+<p>Use sets to find common and unique devices in two network segments.</p>
+<h3>Tasks:</h3>
+<ol>
+<li>Create two sets: <code>network_A</code> and <code>network_B</code>, containing some overlapping device IPs.</li>
+<li>Print devices common to both networks.</li>
+<li>Print devices unique to <code>network_A</code>.</li>
+<li>Print devices unique to <code>network_B</code>.</li>
+</ol>
+<pre><code class="language-python"># HINT: Use set operations like intersection() and difference().
+
+def compare_network_segments():
+    print(&quot;=== COMPARING NETWORK SEGMENTS ===&quot;)
+
+    # TODO: Create two sets with overlapping IPs
+
+    # TODO: Print devices common in both networks
+
+    # TODO: Print devices unique to network_A
+
+    # TODO: Print devices unique to network_B
+
+    print(&quot;\nDone!&quot;)
+
+# Uncomment the line below to run the function
+# compare_network_segments()
+</code></pre>
+<hr />
+<h2>Exercise 4: Immutable Network Configuration (Tuples)</h2>
+<h3>Objective:</h3>
+<p>Use a tuple to store a read-only network configuration.</p>
+<h3>Tasks:</h3>
+<ol>
+<li>Define a tuple named <code>network_config</code> containing:</li>
+<li>Subnet mask</li>
+<li>Default gateway</li>
+<li>Primary DNS server</li>
+<li>Print all values.</li>
+<li>Attempt to change the DNS server and observe the result.</li>
+</ol>
+<pre><code class="language-python"># HINT: Tuples cannot be modified after creation.
+
+def immutable_network_config():
+    print(&quot;=== NETWORK CONFIGURATION ===&quot;)
+
+    # TODO: Create a tuple with subnet mask, default gateway, and DNS server
+
+    # TODO: Print all values
+
+    # TODO: Attempt to modify the DNS server and observe what happens
+
+    print(&quot;\nDone!&quot;)
+
+# Uncomment the line below to run the function
+# immutable_network_config()
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

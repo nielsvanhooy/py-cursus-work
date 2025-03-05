@@ -1,0 +1,245 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1 id="python-function-exercises-networking-theme">Python Function Exercises (Networking Theme)</h1>
+<p>These exercises focus on converting regular code into functions. Each exercise has two parts:<br/>
+1. First, write the code to solve the problem<br/>
+2. Then, refactor your code to use functions for better organization</p>
+<h2 id="beginner-exercises">Beginner Exercises</h2>
+<h3 id="exercise-1-ip-address-validator">Exercise 1: IP Address Validator</h3>
+<p><strong>Task:</strong> Create a program that validates whether a string is a valid IPv4 address.</p>
+<p><strong>Requirements:</strong><br/>
+- An IPv4 address consists of four numbers separated by dots (e.g., "192.168.1.1")<br/>
+- Each number must be between 0 and 255<br/>
+- The program should ask the user for an IP address and tell them if it's valid<br/>
+- Then refactor your code to use a function called <code>is_valid_ip(ip_string)</code> that returns True or False</p>
+<p><strong>Example:</strong></p>
+<pre><code>Enter an IP address: 192.168.1.1
+Valid IP address!
+
+Enter an IP address: 256.0.0.1
+Invalid IP address!
+</code></pre>
+<h3 id="exercise-2-password-strength-checker">Exercise 2: Password Strength Checker</h3>
+<p><strong>Task:</strong> Create a program that checks the strength of a password.</p>
+<p><strong>Requirements:</strong><br/>
+- A password should be at least 8 characters long<br/>
+- A strong password should contain at least one uppercase letter, one lowercase letter, one digit, and one special character<br/>
+- The program should tell the user if their password is "weak", "medium", or "strong"<br/>
+- Then refactor your code to use a function called <code>check_password_strength(password)</code> that returns the strength</p>
+<p><strong>Example:</strong></p>
+<pre><code>Enter a password: password123
+Password strength: weak (missing uppercase and special characters)
+
+Enter a password: Password123!
+Password strength: strong
+</code></pre>
+<h3 id="exercise-3-network-latency-simulator">Exercise 3: Network Latency Simulator</h3>
+<p><strong>Task:</strong> Create a program that simulates network latency for different types of connections.</p>
+<p><strong>Requirements:</strong><br/>
+- Ask the user what type of connection they want to simulate ("fiber", "cable", "dsl", or "satellite")<br/>
+- Generate a random latency time based on the connection type:<br/>
+  - Fiber: 5-15ms<br/>
+  - Cable: 10-30ms<br/>
+  - DSL: 15-40ms<br/>
+  - Satellite: 500-700ms<br/>
+- Display the simulated latency<br/>
+- Then refactor your code to use a function called <code>simulate_latency(connection_type)</code> that returns the latency</p>
+<p><strong>Example:</strong></p>
+<pre><code>Enter connection type (fiber, cable, dsl, satellite): fiber
+Simulated latency: 8ms
+
+Enter connection type (fiber, cable, dsl, satellite): satellite
+Simulated latency: 650ms
+</code></pre>
+<h3 id="exercise-4-data-usage-calculator">Exercise 4: Data Usage Calculator</h3>
+<p><strong>Task:</strong> Create a program that calculates how much data different activities would use.</p>
+<p><strong>Requirements:</strong><br/>
+- Ask the user what activity they want to calculate data usage for:<br/>
+  - "video" (3.5 MB per minute)<br/>
+  - "audio" (1 MB per minute)<br/>
+  - "browsing" (0.5 MB per minute)<br/>
+  - "gaming" (40 MB per hour)<br/>
+- Ask for how many hours they plan to do the activity<br/>
+- Calculate and display the total data usage in MB or GB (if over 1000 MB)<br/>
+- Then refactor your code to use a function called <code>calculate_data_usage(activity, hours)</code> that returns the usage</p>
+<p><strong>Example:</strong></p>
+<pre><code>Select activity (video, audio, browsing, gaming): video
+How many hours? 2
+Total data usage: 420 MB
+
+Select activity (video, audio, browsing, gaming): gaming
+How many hours? 5
+Total data usage: 200 MB
+</code></pre>
+<h2 id="advanced-exercises-very-difficult-for-the-die-hards">Advanced Exercises Very difficult for the die hards</h2>
+<h3 id="exercise-5-network-packet-analyzer">Exercise 5: Network Packet Analyzer</h3>
+<p><strong>Task:</strong> Create a program that analyzes a list of network packets and provides statistics.</p>
+<p><strong>Requirements:</strong><br/>
+- Create a dictionary for each packet with keys:<br/>
+  - "source_ip" (string)<br/>
+  - "destination_ip" (string)<br/>
+  - "protocol" (string: "TCP", "UDP", or "ICMP")<br/>
+  - "size" (integer: bytes)<br/>
+  - "time" (float: seconds)<br/>
+- Create a list of at least 10 sample packet dictionaries<br/>
+- Calculate and display:<br/>
+  - Total number of packets<br/>
+  - Average packet size<br/>
+  - Number of packets per protocol<br/>
+  - Total data transferred<br/>
+  - Unique source and destination IPs<br/>
+- Then refactor your code to use at least 4 different functions to perform the calculations</p>
+<p><strong>Example Output:</strong></p>
+<pre><code>Network Packet Analysis
+----------------------
+Total packets: 10
+Average packet size: 512 bytes
+Protocol distribution:
+  - TCP: 6 packets
+  - UDP: 3 packets
+  - ICMP: 1 packet
+Total data transferred: 5.12 KB
+Unique source IPs: 3
+Unique destination IPs: 4
+</code></pre>
+<h3 id="exercise-6-network-traffic-simulator">Exercise 6: Network Traffic Simulator</h3>
+<p><strong>Task:</strong> Create a program that simulates network traffic between different devices.</p>
+<p><strong>Requirements:</strong><br/>
+- Create a set of "devices" (at least 5) with names and IP addresses<br/>
+- Simulate random traffic between devices:<br/>
+  - Each device should send data to 1-3 random other devices<br/>
+  - The amount of data should be random (10KB to 1MB)<br/>
+  - Each device can use different protocols (HTTP, FTP, SMTP)<br/>
+- Track and display:<br/>
+  - Total data sent by each device<br/>
+  - Total data received by each device<br/>
+  - Most active device (most data transferred)<br/>
+  - Most popular protocol<br/>
+- Then refactor your code to use at least 5 different functions for simulation and analysis</p>
+<p><strong>Example Output:</strong></p>
+<pre><code>Network Traffic Simulation
+-------------------------
+Simulation period: 10 cycles
+
+Device Statistics:
+  - Router (192.168.1.1):
+    Sent: 2.3 MB, Received: 1.5 MB
+
+  - Laptop (192.168.1.101):
+    Sent: 3.1 MB, Received: 0.8 MB
+
+  - Smartphone (192.168.1.102):
+    Sent: 1.2 MB, Received: 2.5 MB
+
+  - Server (192.168.1.200):
+    Sent: 5.6 MB, Received: 7.4 MB
+
+  - SmartTV (192.168.1.103):
+    Sent: 0.4 MB, Received: 0.4 MB
+
+Analysis:
+  - Most active device: Server (13.0 MB total)
+  - Most popular protocol: HTTP (65% of traffic)
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

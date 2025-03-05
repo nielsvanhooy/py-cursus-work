@@ -31,7 +31,6 @@ if
 elif
 else
 
-
 Basic String Operations:
 
 Length checking (len())
@@ -51,7 +50,11 @@ list indexing
 list slicing
 list methods (append, insert) etc
 lists of lists
-dictionarys
+dictionaries
+tuple
+dict
+set
+functions/methods
 
 
 working with loops:

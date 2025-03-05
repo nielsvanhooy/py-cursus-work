@@ -26,6 +26,7 @@
 - [Dictionary Exercises.Html](dictionary-exercises.html)
 - [For Loop Exercises 2.Html](for-loop-exercises-2.html)
 - [For Loop Exercises.Html](for-loop-exercises.html)
+- [Functions Exercises.Html](functions-exercises.html)
 - [Lists And List Methods Exercises 2.Html](lists-and-list-methods-exercises-2.html)
 - [Lists And List Methods Exercises.Html](lists-and-list-methods-exercises.html)
 - [Lists And List Methods Slicing Exercises 3.Html](lists-and-list-methods-slicing-exercises-3.html)

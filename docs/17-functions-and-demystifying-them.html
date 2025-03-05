@@ -387,7 +387,193 @@ print(my_func(name="John", New York))
                                ^^^^^
 SyntaxError: parameter without a default follows parameter with a default
 </code></pre>
-<h2 id="not-done-yet-ill-finish-this-chapter-later">not done yet ill finish this chapter later</h2></div>
+<h2 id="return-values-and-variables">Return Values and Variables</h2>
+<h3 id="return-statement-in-detail">Return Statement in Detail</h3>
+<p>The <code>return</code> statement allows a function to send a result back to the caller. Without it, functions return <code>None</code> by default.</p>
+<pre><code class="language-python">def add(a, b):
+    return a + b  # Returns the sum to the caller
+
+result = add(5, 3)  # result = 8
+</code></pre>
+<h3 id="multiple-return-values">Multiple Return Values</h3>
+<p>Python functions can return multiple values using tuples:</p>
+<pre><code class="language-python">def stats(numbers):
+    return min(numbers), max(numbers), sum(numbers)/len(numbers)  # Returns a tuple
+
+minimum, maximum, average = stats([1, 2, 3, 4, 5])  # Unpacking the tuple
+print(f"Min: {minimum}, Max: {maximum}, Avg: {average}")
+</code></pre>
+<h3 id="variable-scope">Variable Scope</h3>
+<p>Variables defined inside a function have local scope - they only exist within the function:</p>
+<pre><code class="language-python">def my_function():
+    local_var = "I only exist inside the function"
+    print(local_var)
+
+my_function()
+# print(local_var)  # This would cause an error
+
+# Using global variables
+counter = 0  # Global variable
+
+def increment():
+    global counter  # Use the global keyword to modify global variables
+    counter += 1
+    return counter
+</code></pre>
+<h2 id="lambda-functions">Lambda Functions</h2>
+<p>Lambda functions are small, anonymous functions defined with the <code>lambda</code> keyword:</p>
+<pre><code class="language-python"># Regular function
+def double(x):
+    return x * 2
+
+# Equivalent lambda function
+double_lambda = lambda x: x * 2
+
+print(double(5))        # 10
+print(double_lambda(5)) # 10
+</code></pre>
+<h3 id="common-use-cases">Common Use Cases</h3>
+<ol>
+<li><strong>With sorting functions:</strong></li>
+</ol>
+<pre><code class="language-python">students = [("Alice", 85), ("Bob", 92), ("Charlie", 78)]
+# Sort by score (second element of each tuple)
+students.sort(key=lambda student: student[1], reverse=True)
+</code></pre>
+<ol>
+<li><strong>With filter and map:</strong></li>
+</ol>
+<pre><code class="language-python">numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+squared = list(map(lambda x: x**2, numbers))
+</code></pre>
+<h3 id="limitations">Limitations</h3>
+<p>Lambda functions are restricted to a single expression and cannot contain multiple statements or complex logic.</p>
+<h2 id="function-documentation">Function Documentation</h2>
+<h3 id="docstrings">Docstrings</h3>
+<p>Docstrings document what a function does, making your code more maintainable:</p>
+<pre><code class="language-python">def calculate_area(length, width):
+    """
+    Calculate the area of a rectangle.
+
+    Args:
+        length (float): The length of the rectangle
+        width (float): The width of the rectangle
+
+    Returns:
+        float: The area of the rectangle
+    """
+    return length * width
+</code></pre>
+<h3 id="accessing-documentation">Accessing Documentation</h3>
+<p>You can access docstrings using the <code>help()</code> function:</p>
+<pre><code class="language-python">help(calculate_area)
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="function-naming">Function Naming</h3>
+<ul>
+<li>Use lowercase with underscores (<code>calculate_total</code>, not <code>CalculateTotal</code>)</li>
+<li>Choose descriptive names that indicate what the function does</li>
+<li>Verb phrases are common for functions that perform actions</li>
+</ul>
+<h3 id="function-length">Function Length</h3>
+<ul>
+<li>Keep functions focused on a single task</li>
+<li>If a function is too long (over 20-30 lines), consider breaking it into smaller functions</li>
+<li>Remember: A function should do one thing and do it well</li>
+</ul>
+<h3 id="single-responsibility-principle">Single Responsibility Principle</h3>
+<p>Each function should have a single, well-defined purpose:</p>
+<pre><code class="language-python"># Bad: Function does too many different things
+def process_data(data):
+    # Clean the data
+    # Analyze the data
+    # Generate a report
+    # Save results to a file
+    pass
+
+# Better: Separate functions with clear purposes
+def clean_data(data):
+    return cleaned_data
+
+def analyze_data(cleaned_data):
+    return analysis_results
+
+def generate_report(analysis_results):
+    return report
+
+def save_results(report, filename):
+    # Save to file
+    pass
+</code></pre>
+<h3 id="testing-functions">Testing Functions</h3>
+<p>Write functions that are easy to test:<br/>
+- Avoid side effects (changing global state)<br/>
+- Return values rather than printing them<br/>
+- Keep input/output relationships clear and predictable</p>
+<pre><code class="language-python"># Hard to test (uses global variable, prints instead of returning)
+total_sum = 0
+def add_to_total(num):
+    global total_sum
+    total_sum += num
+    print(f"Total is now {total_sum}")
+
+# Easy to test (pure function, returns result)
+def add_numbers(a, b):
+    return a + b
+</code></pre>
+<h2 id="args-and-kwargs"><em>args and </em>*kwargs</h2>
+<h3 id="args-variable-positional-arguments">*args: Variable Positional Arguments</h3>
+<p>The <code>*args</code> parameter allows a function to accept any number of positional arguments:</p>
+<pre><code class="language-python">def sum_all(*args):
+    """Accept any number of positional arguments and return their sum."""
+    return sum(args)
+
+print(sum_all(1, 2))          # 3
+print(sum_all(1, 2, 3, 4, 5)) # 15
+</code></pre>
+<p>Here, <code>*args</code> collects all positional arguments into a tuple.</p>
+<h3 id="kwargs-variable-keyword-arguments">**kwargs: Variable Keyword Arguments</h3>
+<p>The <code>**kwargs</code> parameter allows a function to accept any number of keyword arguments:</p>
+<pre><code class="language-python">def print_info(**kwargs):
+    """Accept any number of keyword arguments and print them."""
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=25, job="Developer")
+# Output:
+# name: Alice
+# age: 25
+# job: Developer
+</code></pre>
+<p>Here, <code>**kwargs</code> collects all keyword arguments into a dictionary.</p>
+<h3 id="combining-regular-parameters-with-args-and-kwargs">Combining Regular Parameters with <em>args and </em>*kwargs</h3>
+<p>You can use regular parameters, <code>*args</code>, and <code>**kwargs</code> together:</p>
+<pre><code class="language-python">def example_function(regular_param, *args, default_param="default", **kwargs):
+    print(f"Regular parameter: {regular_param}")
+    print(f"Args: {args}")
+    print(f"Default parameter: {default_param}")
+    print(f"Kwargs: {kwargs}")
+
+example_function("required", 1, 2, 3, default_param="custom", x=10, y=20)
+# Output:
+# Regular parameter: required
+# Args: (1, 2, 3)
+# Default parameter: custom
+# Kwargs: {'x': 10, 'y': 20}
+</code></pre>
+<h3 id="passing-args-and-kwargs">Passing Args and Kwargs</h3>
+<p>You can also use the <code>*</code> and <code>**</code> syntax to unpack sequences and dictionaries when calling functions:</p>
+<pre><code class="language-python">def add(a, b, c):
+    return a + b + c
+
+numbers = [1, 2, 3]
+print(add(*numbers))  # Unpacks the list into separate arguments: add(1, 2, 3)
+
+params = {"a": 1, "b": 2, "c": 3}
+print(add(**params))  # Unpacks the dictionary into keyword arguments: add(a=1, b=2, c=3)
+</code></pre>
+<p>Remember the parameter order: regular parameters, then <code>*args</code>, then default parameters, then <code>**kwargs</code>.</p></div>
 
         <!-- Load Prism.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

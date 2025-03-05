@@ -397,4 +397,233 @@ print(my_func(name="John", New York))
 SyntaxError: parameter without a default follows parameter with a default
 ```
 
-## not done yet ill finish this chapter later
+## Return Values and Variables
+
+### Return Statement in Detail
+The `return` statement allows a function to send a result back to the caller. Without it, functions return `None` by default.
+
+```python
+def add(a, b):
+    return a + b  # Returns the sum to the caller
+
+result = add(5, 3)  # result = 8
+```
+
+### Multiple Return Values
+Python functions can return multiple values using tuples:
+
+```python
+def stats(numbers):
+    return min(numbers), max(numbers), sum(numbers)/len(numbers)  # Returns a tuple
+
+minimum, maximum, average = stats([1, 2, 3, 4, 5])  # Unpacking the tuple
+print(f"Min: {minimum}, Max: {maximum}, Avg: {average}")
+```
+
+### Variable Scope
+Variables defined inside a function have local scope - they only exist within the function:
+
+```python
+def my_function():
+    local_var = "I only exist inside the function"
+    print(local_var)
+
+my_function()
+# print(local_var)  # This would cause an error
+
+# Using global variables
+counter = 0  # Global variable
+
+def increment():
+    global counter  # Use the global keyword to modify global variables
+    counter += 1
+    return counter
+```
+
+## Lambda Functions
+
+Lambda functions are small, anonymous functions defined with the `lambda` keyword:
+
+```python
+# Regular function
+def double(x):
+    return x * 2
+
+# Equivalent lambda function
+double_lambda = lambda x: x * 2
+
+print(double(5))        # 10
+print(double_lambda(5)) # 10
+```
+
+### Common Use Cases
+
+1. **With sorting functions:**
+```python
+students = [("Alice", 85), ("Bob", 92), ("Charlie", 78)]
+# Sort by score (second element of each tuple)
+students.sort(key=lambda student: student[1], reverse=True)
+```
+
+2. **With filter and map:**
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+squared = list(map(lambda x: x**2, numbers))
+```
+
+### Limitations
+Lambda functions are restricted to a single expression and cannot contain multiple statements or complex logic.
+
+## Function Documentation
+
+### Docstrings
+Docstrings document what a function does, making your code more maintainable:
+
+```python
+def calculate_area(length, width):
+    """
+    Calculate the area of a rectangle.
+    
+    Args:
+        length (float): The length of the rectangle
+        width (float): The width of the rectangle
+        
+    Returns:
+        float: The area of the rectangle
+    """
+    return length * width
+```
+
+### Accessing Documentation
+You can access docstrings using the `help()` function:
+
+```python
+help(calculate_area)
+```
+
+## Best Practices
+
+### Function Naming
+- Use lowercase with underscores (`calculate_total`, not `CalculateTotal`)
+- Choose descriptive names that indicate what the function does
+- Verb phrases are common for functions that perform actions
+
+### Function Length
+- Keep functions focused on a single task
+- If a function is too long (over 20-30 lines), consider breaking it into smaller functions
+- Remember: A function should do one thing and do it well
+
+### Single Responsibility Principle
+Each function should have a single, well-defined purpose:
+
+```python
+# Bad: Function does too many different things
+def process_data(data):
+    # Clean the data
+    # Analyze the data
+    # Generate a report
+    # Save results to a file
+    pass
+
+# Better: Separate functions with clear purposes
+def clean_data(data):
+    return cleaned_data
+
+def analyze_data(cleaned_data):
+    return analysis_results
+
+def generate_report(analysis_results):
+    return report
+
+def save_results(report, filename):
+    # Save to file
+    pass
+```
+
+### Testing Functions
+Write functions that are easy to test:
+- Avoid side effects (changing global state)
+- Return values rather than printing them
+- Keep input/output relationships clear and predictable
+
+```python
+# Hard to test (uses global variable, prints instead of returning)
+total_sum = 0
+def add_to_total(num):
+    global total_sum
+    total_sum += num
+    print(f"Total is now {total_sum}")
+
+# Easy to test (pure function, returns result)
+def add_numbers(a, b):
+    return a + b
+```
+
+## *args and **kwargs
+
+### *args: Variable Positional Arguments
+The `*args` parameter allows a function to accept any number of positional arguments:
+
+```python
+def sum_all(*args):
+    """Accept any number of positional arguments and return their sum."""
+    return sum(args)
+
+print(sum_all(1, 2))          # 3
+print(sum_all(1, 2, 3, 4, 5)) # 15
+```
+
+Here, `*args` collects all positional arguments into a tuple.
+
+### **kwargs: Variable Keyword Arguments
+The `**kwargs` parameter allows a function to accept any number of keyword arguments:
+
+```python
+def print_info(**kwargs):
+    """Accept any number of keyword arguments and print them."""
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=25, job="Developer")
+# Output:
+# name: Alice
+# age: 25
+# job: Developer
+```
+
+Here, `**kwargs` collects all keyword arguments into a dictionary.
+
+### Combining Regular Parameters with *args and **kwargs
+You can use regular parameters, `*args`, and `**kwargs` together:
+
+```python
+def example_function(regular_param, *args, default_param="default", **kwargs):
+    print(f"Regular parameter: {regular_param}")
+    print(f"Args: {args}")
+    print(f"Default parameter: {default_param}")
+    print(f"Kwargs: {kwargs}")
+
+example_function("required", 1, 2, 3, default_param="custom", x=10, y=20)
+# Output:
+# Regular parameter: required
+# Args: (1, 2, 3)
+# Default parameter: custom
+# Kwargs: {'x': 10, 'y': 20}
+```
+
+### Passing Args and Kwargs
+You can also use the `*` and `**` syntax to unpack sequences and dictionaries when calling functions:
+
+```python
+def add(a, b, c):
+    return a + b + c
+
+numbers = [1, 2, 3]
+print(add(*numbers))  # Unpacks the list into separate arguments: add(1, 2, 3)
+
+params = {"a": 1, "b": 2, "c": 3}
+print(add(**params))  # Unpacks the dictionary into keyword arguments: add(a=1, b=2, c=3)
+```
+
+Remember the parameter order: regular parameters, then `*args`, then default parameters, then `**kwargs`.

@@ -103,6 +103,9 @@ def modify_index_structure(html):
         elif "other-datastructures" in link_text:
             group_name = "Datastractures-beginner"
             exercise_groups[group_name].append(item)
+        elif "Functions" in link_text:
+            group_name = "Functions"
+            exercise_groups[group_name].append(item)
         else:
             # Fallback for items that don't match any pattern
             exercise_groups['Other'].append(item)
@@ -129,6 +132,7 @@ def modify_index_structure(html):
         "While Loops",
         "Dictionaries",
         "Datastructures-beginner",
+        "Functions",
         "Other"
     ]
 

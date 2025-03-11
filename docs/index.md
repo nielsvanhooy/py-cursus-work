@@ -35,4 +35,5 @@
 - [Milestone Exercises 3 Very Difficult Up To Including Loops.Html](milestone-exercises-3-very-difficult-up-to-including-loops.html)
 - [Milestone Exercises.Html](milestone-exercises.html)
 - [Other Datastructures Exercises.Html](other-datastructures-exercises.html)
+- [Refactoring Exercises Beginner.Html](refactoring-exercises-beginner.html)
 - [While Loops Exercises.Html](while-loops-exercises.html)

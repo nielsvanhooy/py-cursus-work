@@ -17,7 +17,6 @@
 - [16 Notes On Converting Datatypes.Html](16-notes-on-converting-datatypes.html)
 - [17 Functions And Demystifying Them.Html](17-functions-and-demystifying-them.html)
 - [18 Working With File Paths.Html](18-working-with-file-paths.html)
-- [18 Working With Files And Paths.Html](18-working-with-files-and-paths.html)
 - [19 Working With Files.Html](19-working-with-files.html)
 - [40 Advanced Datastructures.Html](40-advanced-datastructures.html)
 - [Control Structures Exercises 2.Html](control-structures-exercises-2.html)

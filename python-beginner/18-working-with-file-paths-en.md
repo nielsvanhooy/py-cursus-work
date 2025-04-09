@@ -50,7 +50,7 @@ dir_path = "/home/user/documents"  # We can use forward slashes in paths
 directory = Path(dir_path)   # path knows how to translate dir_path to a windows/linux/macos path
 
 # Find all png files inside a directory
-files = list(dir_path.glob("*.png"))
+files = list(directory.glob("*.png"))
 ```
 
 that looks way easier right?

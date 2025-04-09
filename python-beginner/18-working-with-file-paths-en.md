@@ -154,6 +154,13 @@ path.parts        # ('/', 'home', 'user', 'documents', 'report.txt')
 path.drive        # Drive letter (Windows) or '' (POSIX)
 path.root         # Root directory ('/' on POSIX, 'C:\\' on Windows)
 path.anchor       # Drive + root
+
+
+
+path.parents # returns a iterable. an iterable is a datacollection which can be for looped over.
+
+for x in path.parents:
+    print(x)
 ```
 
 ## Path Manipulation

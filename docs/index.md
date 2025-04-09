@@ -36,3 +36,4 @@
 - [Other Datastructures Exercises.Html](other-datastructures-exercises.html)
 - [Refactoring Exercises Beginner.Html](refactoring-exercises-beginner.html)
 - [While Loops Exercises.Html](while-loops-exercises.html)
+- [Working_With_Files_Exercises.Html](working_with_files_exercises.html)

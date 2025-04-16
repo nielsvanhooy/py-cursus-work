@@ -18,4 +18,3 @@ Here's a comprehensive comparison of Python's main built-in data structures:
 | **Common Use Cases** | • Ordered collections<br>• Sequences<br>• Stacks/Queues | • Key-value mappings<br>• Lookups<br>• JSON-like data | • Unique elements<br>• Membership testing<br>• Mathematical operations | • Immutable sequences<br>• Dictionary keys<br>• Function returns |
 | **Special Operations** | Slicing, sorting, appending | Merging, key/value access | Union, intersection, difference | Unpacking, multiple returns |
 
-Would you like me to explain any particular aspect of these data structures in more detail?

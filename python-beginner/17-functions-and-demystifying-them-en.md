@@ -502,6 +502,14 @@ You can access docstrings using the `help()` function:
 help(calculate_area)
 ```
 
+
+## Axiros functions
+Below when you open a script in axiros.
+the whole script is a function.
+at the top you see a bar parameters. and that is just the same as making a normal function in python.
+![axiros_function](img/axiros_function.png)
+
+
 ## Best Practices
 
 ### Function Naming

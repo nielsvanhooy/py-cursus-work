@@ -1,6 +1,7 @@
 # Index (links are clickable)
 
 - [00 Course Screenshots Whiteboard.Html](00-course-screenshots-whiteboard.html)
+- [00 Sequences Table.Html](00-sequences-table.html)
 - [000 Advanced Cheat Sheet.Html](000-advanced-cheat-sheet.html)
 - [000 Mega Cheat Sheet.Html](000-mega-cheat-sheet.html)
 - [01 Title Topics.Html](01-title-topics.html)

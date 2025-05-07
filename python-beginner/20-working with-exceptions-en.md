@@ -176,3 +176,4 @@ Function can only run on Linux systems.
 Linux linux_interaction() function wasn't executed
 ```
 
+## We will continue at a later time with the more advanced Exception stuff

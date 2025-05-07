@@ -38,7 +38,7 @@ file = Path("file.txt")
 file.write_text("This is new text.")
 ```
 the thing with write_text is that it will overwrite the file if it already exists. 
-now you can do python tricks ofcourse. first read the file.
+now you can use python tricks ofcourse. first read the file.
 then append to the string. and write it back to the file.
 
 ```python
@@ -120,13 +120,53 @@ here we gave the file path as a common string.
 but we could have given it a `Path` object as well.
 and we chose the mode `r` to read the file.
 
+## problems that happen with open()
+
+One common problem you’ll face in programming is how to properly manage external resources, 
+such as files, locks, and network connections. 
+
+Sometimes, a program will retain those resources forever, even if you no longer need them. 
+
+This kind of issue is called a memory leak because the available memory gets reduced every time you create and open a new instance of a given resource without closing an existing one.
+
+Managing resources properly is often a tricky problem. It requires both a setup phase and a teardown phase. 
+The latter phase requires you to perform some cleanup actions, such as closing a file, releasing a lock, or closing a network connection.
+
+This can happen with databases, files, network connections and with working with files.
+
+```python
+file = open("hello.txt", "w")
+file.write("Hello, World!")
+file.close()
+```
+
 in the example the `open()` function opens the text file in reading mode,
 allowing us to grab the information from the file without making changes to it.
 we then use the `read()` method to read the file.
 
 the problem with opening a file like this is that we have to remember to close it.
-if we forget to close the file, it can cause memory leaks and other issues.
+if we forget to close the file or the program crashes, it can cause memory leaks and other issues.
 and leaves open processes on the system.
+
+
+you could use a try... except... finally clause. to "teardown" the resource if an error occurs.
+
+```python
+# Safely open the file
+file = open("hello.txt", "w")
+
+try:
+    file.write("Hello, World!")
+finally:
+    # Make sure to close the file after using it
+    file.close()
+```
+In this example, you need to safely open the file hello.txt, which you can do by wrapping the call to open() in a try … except statement. 
+Later, when you try to write to file, the finally clause will guarantee that file is properly closed, even if an exception occurs during the call to .write() in the try clause. 
+You can use this pattern to handle setup and teardown logic when you’re managing external resources in Python.
+
+
+
 
 to prevent this. the very smart people at python have created the `with` statement.
 
@@ -144,8 +184,58 @@ in the example as soon as it leaves the block of code the file is closed.
 in this syntax open('zen_of_python.txt') as f is the same as f = open('zen_of_python.txt') 
 but with the added benefit of closing the file when the block is done.
 
-working with the file can only be done is this block of code. but we can assign the content to a variable.
+working with the file can only be done in this block of code. but we can assign the content to a variable.
 so that we can use it a later point in the code.
+
+
+
+## deeper into context managers:
+
+The Python with statement creates a runtime context that allows you to run a group of statements under the control of a context manager. 
+This is described in the python document: PEP 343 . 
+This added the with statement to make it possible to factor out standard use cases of the try … finally statement.
+
+Compared to traditional try … finally constructs, the with statement can make your code clearer, safer, and reusable. 
+Many classes in the standard library support the with statement. 
+A classic example of this is open(), which allows you to work with file objects using with.
+
+
+To write a with statement, you need to use the following general syntax:
+
+```python
+with expression as target_var:
+    do_something(target_var)
+```
+The context manager object results from evaluating the expression after with. In other words,
+expression must return an object that implements the context management protocol. 
+This protocol consists of two special methods:
+
+.__enter__() is called by the with statement to enter the runtime context. (this is function that implements the opening of a resource)
+.__exit__() is called when the execution leaves the with code block. (this is a function that implements the closing of a resource)
+
+we will not go into this as this is very advanced python.
+
+# combining with statements.
+
+In Python 3.1 and later, the with statement supports multiple context managers. You can supply any number of context managers separated by commas:
+
+with A() as a, B() as b:
+    pass
+
+This works like nested with statements but without nesting. This might be useful when you need to open two files at a time, the first for reading and the second for writing:
+
+```python
+with open("input.txt") as in_file, open("output.txt", "w") as out_file:
+    # Read content from input.txt
+    content = in_file.read()
+    # Transform the content
+    transformed_content = content.upper()  # Example transformation
+    # Write the transformed content to output.txt
+    out_file.write(transformed_content)
+    pass
+```
+
+## most used file methods. 
 
 all the methods that can be performed on a file object are:
 and with this i mean on the `f` variable above.
@@ -170,5 +260,15 @@ but there are many more file methods we can use.
 | writable() | Returns whether the file can be written to or not |
 | write() | Writes the specified string to the file |
 | writelines() | Writes a list of strings to the file |
+
+
+
+
+
+
+
+
+
+
 
 

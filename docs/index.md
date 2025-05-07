@@ -19,6 +19,8 @@
 - [17 Functions And Demystifying Them.Html](17-functions-and-demystifying-them.html)
 - [18 Working With File Paths.Html](18-working-with-file-paths.html)
 - [19 Working With Files.Html](19-working-with-files.html)
+- [20 Working With Exceptions.Html](20-working with-exceptions.html)
+- [21 Working With Cli.Html](21-working-with-cli.html)
 - [40 Advanced Datastructures.Html](40-advanced-datastructures.html)
 - [Control Structures Exercises 2.Html](control-structures-exercises-2.html)
 - [Control Structures Exercises.Html](control-structures-exercises.html)

@@ -1,0 +1,245 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><p>Oh, here we go! Prepare yourself for the epitome of excitement and mind-boggling intricacies as we delve into the captivating realm of argparse — a Python library that simply blows your mind with its mighty command-line interface (CLI) creation capabilities. Brace yourself for a life-altering experience where you’ll witness the transformation of mundane Python applications into veritable powerhouses of versatility and accessibility. In this remarkable tutorial extravaganza, we shall graciously escort you on an awe-inspiring voyage, unveiling the secrets of argparse mastery. Get ready to be dazzled with indispensable concepts and mind-blowing Python code examples, meticulously presented step by step for your enlightenment. Buckle up, my friend, for this exhilarating journey of a lifetime!</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<ol>
+<li>Introduction to Argparse</li>
+<li>Installing Argparse</li>
+<li>Understanding Command Line Arguments</li>
+<li>Creating a Basic CLI with Argparse</li>
+<li>Argument Types and Actions</li>
+<li>Argument Groups and Subparsers</li>
+<li>Enhancing Help Messages</li>
+<li>Handling Errors and Validation</li>
+<li>Advanced Argparse Techniques</li>
+<li>Real-world Examples and Use Cases</li>
+</ol>
+<h1 id="1-introduction-to-argparse">1. Introduction to Argparse</h1>
+<p>Allow me to introduce you to the one and only argparse — an oh-so-standard Python library that graciously takes on the Herculean task of streamlining the creation and orchestration of those fancy command-line interfaces (CLIs) for your precious applications. Brace yourself for the sheer simplicity and elegance that argparse brings to the table. With its impressive arsenal of features, you’ll effortlessly define the arguments your program craves, gracefully parse those user inputs, and, wait for it, generate eye-catching help messages that’ll leave your users in awe. Talk about functionality and flexibility! argparse is the go-to choice for Python developers who strive to bestow upon the world CLIs that are not only user-friendly but also dripping with enticing features. Embrace the power, my friend, and let argparse revolutionize the way you conquer the command-line domain!</p>
+<p><strong>KEY FEATURES:</strong></p>
+<ul>
+<li>Easy definition of arguments with various types and actions</li>
+<li>Auto-generated help messages</li>
+<li>Argument grouping and hierarchical structuring</li>
+<li>Customizable error handling and validation</li>
+</ul>
+<h1 id="2-installing-argparse">2. Installing Argparse</h1>
+<p>Argparse is included in the standard Python library for Python 2.7 and later versions. If you are using an older version of Python, you can install argparse using <code>pip</code>:</p>
+<p>pip install argparse</p>
+<h1 id="3-understanding-command-line-arguments">3. Understanding Command Line Arguments</h1>
+<p>Before diving into argparse, it’s essential to grasp the concept of command-line arguments. Command-line arguments are the inputs provided by users when they run a command-line application. They allow users to customize the behavior of the program by specifying options, flags, or arguments.</p>
+<p>For example, consider the following command:</p>
+<p>python my_script.py --input file.txt --output result.txt</p>
+<p>In this command, <code>my_script.py</code> is the Python script we want to run, and <code>--input</code> and <code>--output</code> are command-line arguments provided by the user. These arguments tell the script to read data from <code>file.txt</code> and save the results to <code>result.txt</code>.</p>
+<h1 id="4-creating-a-basic-cli-with-argparse">4. Creating a Basic CLI with Argparse</h1>
+<p>Let’s start by creating a simple CLI using argparse. We will build a program that takes two numbers and performs a specified arithmetic operation on them.</p>
+<h1 id="41-importing-argparse">4.1. Importing Argparse</h1>
+<p>First, we need to import the argparse module:</p>
+<p>import argparse</p>
+<h1 id="42-creating-an-argumentparser-object">4.2. Creating an ArgumentParser Object</h1>
+<p>To create a CLI with argparse, we start by instantiating an <code>ArgumentParser</code> object:</p>
+<p>parser = argparse.ArgumentParser(description='A simple calculator CLI.')</p>
+<p>The <code>description</code> parameter provides a brief description of the CLI, which will be displayed in the help message.</p>
+<h1 id="43-defining-command-line-arguments">4.3. Defining Command Line Arguments</h1>
+<p>Next, we define the command-line arguments our program will accept using the <code>add_argument()</code> method. In this example, we will define three arguments: two numbers and an arithmetic operation.</p>
+<p>parser.add_argument('number1', type\=float, help\='The first number')<br/>
+parser.add_argument('number2', type\=float, help\='The second number')<br/>
+parser.add_argument('operation', choices=['add', 'subtract', 'multiply', 'divide'], help\='The arithmetic operation')</p>
+<p>Here, <code>number1</code> and <code>number2</code> are positional arguments, while <code>operation</code> is a choice argument that accepts one of the specified options.</p>
+<h1 id="44-parsing-command-line-arguments">4.4. Parsing Command Line Arguments</h1>
+<p>To parse the command-line arguments, we call the <code>parse_args()</code> method:</p>
+<p>args = parser.parse_args()</p>
+<p>This method returns an object containing the parsed arguments.</p>
+<h1 id="45-implementing-the-program-logic">4.5. Implementing the Program Logic</h1>
+<p>Now that we have the parsed arguments, we can implement the program logic:</p>
+<p>if args.operation == 'add':<br/>
+    result = args.number1 + args.number2<br/>
+elif args.operation == 'subtract':<br/>
+    result = args.number1 - args.number2<br/>
+elif args.operation == 'multiply':<br/>
+    result = args.number1 * args.number2<br/>
+elif args.operation == 'divide':<br/>
+    result = args.number1 / args.number2  </p>
+<p>print(f'The result is: {result}')</p>
+<h1 id="46-complete-example">4.6. Complete Example</h1>
+<p>Here is the complete example of our simple calculator CLI using argparse:</p>
+<p>import argparse  </p>
+<p>parser = argparse.ArgumentParser(description='A simple calculator CLI.')<br/>
+parser.add_argument('number1', type\=float, help\='The first number')<br/>
+parser.add_argument('number2', type\=float, help\='The second number')<br/>
+parser.add_argument('operation', choices=['add', 'subtract', 'multiply', 'divide'], help\='The arithmetic operation')<br/>
+args = parser.parse_args()<br/>
+if args.operation == 'add':<br/>
+    result = args.number1 + args.number2<br/>
+elif args.operation == 'subtract':<br/>
+    result = args.number1 - args.number2<br/>
+elif args.operation == 'multiply':<br/>
+    result = args.number1 * args.number2<br/>
+elif args.operation == 'divide':<br/>
+    result = args.number1 / args.number2<br/>
+print(f'The result is: {result}')</p>
+<h1 id="5-argument-types-and-actions">5. Argument Types and Actions</h1>
+<p>Argparse supports various argument types and actions, allowing you to create flexible and powerful CLIs.</p>
+<h1 id="51-argument-types">5.1. Argument Types</h1>
+<p>By default, argparse treats all command-line arguments as strings. However, you can specify the type of argument using the <code>type</code> parameter. Some common types include <code>int</code>, <code>float</code>, <code>bool</code>, and <code>str</code>.</p>
+<h1 id="52-optional-arguments">5.2. Optional Arguments</h1>
+<p>Optional arguments are defined using the <code>--</code> prefix and can be omitted when running the CLI. To create an optional argument, you can add the <code>--</code> prefix to the argument name:</p>
+<p>parser.add_argument('--verbose', action='store_true', help\='Enable verbose output')</p>
+<p>In this example, <code>--verbose</code> is an optional argument that enables verbose output when provided.</p>
+<h1 id="53-argument-actions">5.3. Argument Actions</h1>
+<p>Argparse supports various actions that determine how the argument’s value should be stored. Some common actions include:</p>
+<ul>
+<li><code>store</code>: Stores the argument value (default action)</li>
+<li><code>store_true</code>: Stores <code>True</code> if the argument is provided, else stores <code>False</code></li>
+<li><code>store_false</code>: Stores <code>False</code> if the argument is provided, else stores <code>True</code></li>
+<li><code>count</code>: Counts the number of times the argument is provided</li>
+<li><code>append</code>: Appends the argument value to a list each time it is provided</li>
+</ul>
+<h1 id="6-argument-groups-and-subparsers">6. Argument Groups and Subparsers</h1>
+<p>Argparse allows you to create argument groups and subparsers for better organization and structuring of your CLI.</p>
+<h1 id="61-argument-groups">6.1. Argument Groups</h1>
+<p>Argument groups are used to group related arguments. They can help improve the readability of your help messages.</p>
+<p>group = parser.add_argument_group('group_name', 'Group description')<br/>
+group.add_argument('--option1', help\='Option 1 description')<br/>
+group.add_argument('--option2', help\='Option 2 description')</p>
+<h1 id="62-subparsers">6.2. Subparsers</h1>
+<p>Subparsers allow you to create subcommands for your CLI, providing a hierarchical structure.</p>
+<p>subparsers = parser.add_subparsers(dest='subcommand', help\='Subcommand help')  </p>
+<p>subcommand1_parser = subparsers.add_parser('subcommand1', help\='Subcommand 1 description')<br/>
+subcommand1_parser.add_argument('--option1', help\='Option 1 description')<br/>
+subcommand2_parser = subparsers.add_parser('subcommand2', help\='Subcommand 2 description')<br/>
+subcommand2_parser.add_argument('--option2', help\='Option 2 description')</p>
+<h1 id="7-enhancing-help-messages">7. Enhancing Help Messages</h1>
+<p>Argparse provides several options to enhance the help messages generated for your CLI. Some common techniques include:</p>
+<ul>
+<li>Adding argument descriptions using the <code>help</code> parameter</li>
+<li>Customizing the argument metavariable using the <code>metavar</code> parameter</li>
+<li>Specifying the argument’s default value using the <code>default</code> parameter and displaying it in the help message</li>
+</ul>
+<p>parser.add_argument('--option', help\='Option description', metavar='VALUE', default='default_value')</p>
+<h1 id="8-handling-errors-and-validation">8. Handling Errors and Validation</h1>
+<p>Argparse includes built-in error handling and validation features, such as type checking and choice validation. However, you can also implement custom validation logic by subclassing <code>argparse.ArgumentParser</code> and overriding the <code>error()</code> method.</p>
+<p>class CustomArgumentParser(argparse.ArgumentParser):<br/>
+    def error(self, message):<br/>
+        self.print_help()<br/>
+        self.exit(1, f'\nError: {message}\n')</p>
+<h1 id="9-advanced-argparse-techniques">9. Advanced Argparse Techniques</h1>
+<p>Argparse offers several advanced features that can help you create more complex and versatile CLIs:</p>
+<ul>
+<li>Using <code>argparse.FileType</code> to handle file input/output arguments</li>
+<li>Creating custom argument types and actions</li>
+<li>Implementing dynamic argument generation using <code>argparse.REMAINDER</code></li>
+</ul>
+<h1 id="10-real-world-examples-and-use-cases">10. Real-world Examples and Use Cases</h1>
+<p>Argparse is widely used in various real-world applications, ranging from simple scripts to large-scale projects. Some use cases include:</p>
+<ul>
+<li>Building command-line utilities and tools</li>
+<li>Creating automation scripts and workflows</li>
+<li>Implementing CLI interfaces for web services and APIs</li>
+<li>Developing testing frameworks and test runners</li>
+</ul>
+<p>By mastering argparse and its extensive features, you can create powerful, user-friendly, and versatile command-line applications that cater to a wide range of use cases.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Argparse is an indispensable tool in the Python developer’s toolkit, allowing you to create user-friendly and powerful command-line interfaces for your applications. By following this comprehensive hands-on tutorial, you can now harness the power of argparse to create sophisticated CLIs and enhance your Python applications. With step-by-step Python codes and practical examples, you are now well-equipped to become an argparse pro and unlock the full potential of Python programming.</p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

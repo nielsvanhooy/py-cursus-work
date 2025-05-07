@@ -1,0 +1,225 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h2 id="understanding-exceptions-and-syntax-errors">Understanding Exceptions and Syntax Errors</h2>
+<p>Syntax errors occur when the parser detects an incorrect statement. Observe the following example:</p>
+<pre><code class="language-python">&gt;&gt;&gt; print(0 / 0))
+  File "&lt;stdin&gt;", line 1
+    print(0 / 0))
+                ^
+SyntaxError: unmatched ')'
+</code></pre>
+<p>The arrow indicates where the parser ran into the syntax error. Additionally, <br/>
+the error message gives you a hint about what went wrong. <br/>
+In this example, there was one bracket too many. Remove it and run your code again:</p>
+<pre><code class="language-python">&gt;&gt;&gt; print(0 / 0)
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+ZeroDivisionError: division by zero
+</code></pre>
+<p>This time, you ran into an exception error. <br/>
+This type of error occurs whenever syntactically correct Python code results in an error.<br/>
+The last line of the message indicates what type of exception error you ran into.</p>
+<h2 id="raising-an-exception-in-python">Raising an Exception in Python</h2>
+<p>There are scenarios where you might want to stop your program by raising an exception if a condition occurs. <br/>
+You can do this with the raise keyword:</p>
+<pre><code class="language-python">number = 10
+if number &gt; 5:
+    raise Exception(f"The number should not exceed 5. ({number=})")
+print(number)
+</code></pre>
+<p>In this example, you raised an Exception object and passed it an informative custom message. </p>
+<p>when you run this program you will see this:</p>
+<pre><code class="language-python">Traceback (most recent call last):
+  File "./low.py", line 3, in &lt;module&gt;
+    raise Exception(f"The number should not exceed 5. ({number=})")
+Exception: The number should not exceed 5. (number=10)
+</code></pre>
+<p>now the program stops. and offer you a message to what could go wrong.</p>
+<h2 id="handling-exceptions">Handling Exceptions</h2>
+<p>Handling Exceptions With the try and except Block</p>
+<p>In Python, you use the try and except block to catch and handle exceptions. <br/>
+Python executes code following the try statement as a normal part of the program.<br/>
+The code that follows the except statement is the program’s response to any exceptions in the preceding try clause:</p>
+<p>The following function can help you understand the try and except block:<br/>
+NOTE: if you are on linux, change the name in the line "if "linux" not in sys.platform:" to "windows"</p>
+<pre><code class="language-python">def linux_interaction():
+    import sys
+    if "linux" not in sys.platform:
+        raise RuntimeError("Function can only run on Linux systems.")
+    print("Doing Linux things.")
+</code></pre>
+<p>The linux_interaction() can only run on a Linux system. <br/>
+Python will raise a RuntimeError exception if you call it on an operating system other then Linux.    </p>
+<p>Note: Picking the right exception type can sometimes be tricky. <br/>
+Python comes with many built-in exceptions that are hierarchically related, <br/>
+so if you browse the documentation, you’re likely to find a fitting one.</p>
+<p>https://docs.python.org/3/library/exceptions.html#concrete-exceptions<br/>
+by hierarchy<br/>
+https://docs.python.org/3/library/exceptions.html#exception-hierarchy</p>
+<p>You can give the function a try by adding the following code:</p>
+<pre><code class="language-python">try:
+    linux_interaction()
+except:
+    pass
+</code></pre>
+<p>if you run the program now. there is no output. as u used the pass.<br/>
+this is "partly good" because the program doenst crash now!</p>
+<p>we can use a print statement to give some output:</p>
+<pre><code class="language-python">try:
+    linux_interaction()
+except:
+    print("Linux function wasn't executed.")
+</code></pre>
+<p>when an exception in this program occurs now. the program just continues on.<br/>
+but we didnt get to see what type of error that python raised.<br/>
+in order to see it we need to capture it.</p>
+<h2 id="capturing-exceptions">Capturing Exceptions</h2>
+<p>see the following example:</p>
+<pre><code class="language-python">try:
+    linux_interaction()
+except RuntimeError as error:
+    print(error)
+    print("The linux_interaction() function wasn't executed.")
+</code></pre>
+<p>In the except clause, <br/>
+you assign the RuntimeError to the temporary variable error—often also called err—so that you can access the exception <br/>
+object in the indented block. In this case, you’re printing the object’s string representation, <br/>
+which corresponds to the error message attached to the object.</p>
+<p>Running this function on a macOS or Windows machine outputs the following:</p>
+<pre><code class="language-python">Function can only run on Linux systems.
+The linux_interaction() function wasn't executed.
+</code></pre>
+<p>The first message is the RuntimeError, informing you that Python can only execute the function on a Linux machine. <br/>
+The second message tells you which function wasn’t executed</p>
+<p>here is another example of opening a file:</p>
+<pre><code class="language-python">try:
+    with open("file.log") as file:
+        read_data = file.read()
+except:
+    print("Couldn't open file.log")
+If file.log doesn’t exist, then this block of code will output the following:
+
+
+Couldn't open file.log
+</code></pre>
+<h1 id="note-about-using-bare-exceptions">note about using bare exceptions</h1>
+<p>Warning: When you use a bare except clause, <br/>
+then Python catches any exception that inherits from Exception—which are most built-in exceptions! <br/>
+Catching the parent class, Exception, hides all errors—even those which you didn’t expect at all. <br/>
+This is why you should avoid bare except clauses in your Python programs.</p>
+<pre><code class="language-python">try:
+    linux_interaction()
+    with open("file.log") as file:
+        read_data = file.read()
+except FileNotFoundError as fnf_error:
+    print(fnf_error)
+except RuntimeError as error:
+    print(error)
+    print("Linux linux_interaction() function wasn't executed.")
+</code></pre>
+<p>If you run this code on a macOS or Windows machine, then you’ll see the following:</p>
+<pre><code class="language-python">Function can only run on Linux systems.
+Linux linux_interaction() function wasn't executed
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

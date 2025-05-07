@@ -119,7 +119,7 @@ file = Path("file.txt")
 file.write_text("This is new text.")
 </code></pre>
 <p>the thing with write_text is that it will overwrite the file if it already exists. <br/>
-now you can do python tricks ofcourse. first read the file.<br/>
+now you can use python tricks ofcourse. first read the file.<br/>
 then append to the string. and write it back to the file.</p>
 <pre><code class="language-python">from pathlib import Path
 
@@ -188,12 +188,37 @@ f.close()
 <p>here we gave the file path as a common string.<br/>
 but we could have given it a <code>Path</code> object as well.<br/>
 and we chose the mode <code>r</code> to read the file.</p>
+<h2 id="problems-that-happen-with-open">problems that happen with open()</h2>
+<p>One common problem you’ll face in programming is how to properly manage external resources, <br/>
+such as files, locks, and network connections. </p>
+<p>Sometimes, a program will retain those resources forever, even if you no longer need them. </p>
+<p>This kind of issue is called a memory leak because the available memory gets reduced every time you create and open a new instance of a given resource without closing an existing one.</p>
+<p>Managing resources properly is often a tricky problem. It requires both a setup phase and a teardown phase. <br/>
+The latter phase requires you to perform some cleanup actions, such as closing a file, releasing a lock, or closing a network connection.</p>
+<p>This can happen with databases, files, network connections and with working with files.</p>
+<pre><code class="language-python">file = open("hello.txt", "w")
+file.write("Hello, World!")
+file.close()
+</code></pre>
 <p>in the example the <code>open()</code> function opens the text file in reading mode,<br/>
 allowing us to grab the information from the file without making changes to it.<br/>
 we then use the <code>read()</code> method to read the file.</p>
 <p>the problem with opening a file like this is that we have to remember to close it.<br/>
-if we forget to close the file, it can cause memory leaks and other issues.<br/>
+if we forget to close the file or the program crashes, it can cause memory leaks and other issues.<br/>
 and leaves open processes on the system.</p>
+<p>you could use a try... except... finally clause. to "teardown" the resource if an error occurs.</p>
+<pre><code class="language-python"># Safely open the file
+file = open("hello.txt", "w")
+
+try:
+    file.write("Hello, World!")
+finally:
+    # Make sure to close the file after using it
+    file.close()
+</code></pre>
+<p>In this example, you need to safely open the file hello.txt, which you can do by wrapping the call to open() in a try … except statement. <br/>
+Later, when you try to write to file, the finally clause will guarantee that file is properly closed, even if an exception occurs during the call to .write() in the try clause. <br/>
+You can use this pattern to handle setup and teardown logic when you’re managing external resources in Python.</p>
 <p>to prevent this. the very smart people at python have created the <code>with</code> statement.</p>
 <pre><code class="language-python">with open('zen_of_python.txt') as f:
     print(f.read())
@@ -204,8 +229,40 @@ you should always use the with statement when working with files, sockets, and o
 <p>in the example as soon as it leaves the block of code the file is closed.</p>
 <p>in this syntax open('zen_of_python.txt') as f is the same as f = open('zen_of_python.txt') <br/>
 but with the added benefit of closing the file when the block is done.</p>
-<p>working with the file can only be done is this block of code. but we can assign the content to a variable.<br/>
+<p>working with the file can only be done in this block of code. but we can assign the content to a variable.<br/>
 so that we can use it a later point in the code.</p>
+<h2 id="deeper-into-context-managers">deeper into context managers:</h2>
+<p>The Python with statement creates a runtime context that allows you to run a group of statements under the control of a context manager. <br/>
+This is described in the python document: PEP 343 . <br/>
+This added the with statement to make it possible to factor out standard use cases of the try … finally statement.</p>
+<p>Compared to traditional try … finally constructs, the with statement can make your code clearer, safer, and reusable. <br/>
+Many classes in the standard library support the with statement. <br/>
+A classic example of this is open(), which allows you to work with file objects using with.</p>
+<p>To write a with statement, you need to use the following general syntax:</p>
+<pre><code class="language-python">with expression as target_var:
+    do_something(target_var)
+</code></pre>
+<p>The context manager object results from evaluating the expression after with. In other words,<br/>
+expression must return an object that implements the context management protocol. <br/>
+This protocol consists of two special methods:</p>
+<p>.<strong>enter</strong>() is called by the with statement to enter the runtime context. (this is function that implements the opening of a resource)<br/>
+.<strong>exit</strong>() is called when the execution leaves the with code block. (this is a function that implements the closing of a resource)</p>
+<p>we will not go into this as this is very advanced python.</p>
+<h1 id="combining-with-statements">combining with statements.</h1>
+<p>In Python 3.1 and later, the with statement supports multiple context managers. You can supply any number of context managers separated by commas:</p>
+<p>with A() as a, B() as b:<br/>
+    pass</p>
+<p>This works like nested with statements but without nesting. This might be useful when you need to open two files at a time, the first for reading and the second for writing:</p>
+<pre><code class="language-python">with open("input.txt") as in_file, open("output.txt", "w") as out_file:
+    # Read content from input.txt
+    content = in_file.read()
+    # Transform the content
+    transformed_content = content.upper()  # Example transformation
+    # Write the transformed content to output.txt
+    out_file.write(transformed_content)
+    pass
+</code></pre>
+<h2 id="most-used-file-methods">most used file methods.</h2>
 <p>all the methods that can be performed on a file object are:<br/>
 and with this i mean on the <code>f</code> variable above.</p>
 <p>but there are many more file methods we can use.</p>

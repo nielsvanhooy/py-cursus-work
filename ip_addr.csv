@@ -1,0 +1,10 @@
+ip_address,hostname,department,assigned_date,notes
+192.168.1.20,laptop-alice,Marketing,2023-02-05,Alice's laptop
+192.168.1.30,desktop-bob,Engineering,2023-03-10,Bob's workstation
+192.168.1.40,server-file01,IT,2023-01-20,File server
+192.168.1.50,laptop-carol,Sales,2023-02-12,Carol's laptop
+192.168.1.60,desktop-dave,Accounting,2023-03-15,Dave's workstation
+192.168.1.100,server-db01,IT,2023-01-10,Database server
+192.168.1.101,printer02,Marketing,2023-02-18,Marketing printer
+192.168.1.102,ap-conference,IT,2023-01-25,Conference room access point
+192.168.1.200,router-main,IT,2023-01-05,Main office router

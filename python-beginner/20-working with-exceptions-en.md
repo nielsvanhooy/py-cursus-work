@@ -83,6 +83,9 @@ https://docs.python.org/3/library/exceptions.html#concrete-exceptions
 by hierarchy
 https://docs.python.org/3/library/exceptions.html#exception-hierarchy
 
+summarized:
+
+Raise  = Gives a developer to gracefully generate errors in a program if 
 
 
 You can give the function a try by adding the following code:
@@ -95,6 +98,10 @@ except:
 ```
 if you run the program now. there is no output. as u used the pass.
 this is "partly good" because the program doenst crash now!
+
+
+
+try and except = Gives you de power to work around exceptions to generate some code around it.
 
 we can use a print statement to give some output:
 

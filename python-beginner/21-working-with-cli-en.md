@@ -1,204 +1,556 @@
-Oh, here we go! Prepare yourself for the epitome of excitement and mind-boggling intricacies as we delve into the captivating realm of argparse — a Python library that simply blows your mind with its mighty command-line interface (CLI) creation capabilities. Brace yourself for a life-altering experience where you’ll witness the transformation of mundane Python applications into veritable powerhouses of versatility and accessibility. In this remarkable tutorial extravaganza, we shall graciously escort you on an awe-inspiring voyage, unveiling the secrets of argparse mastery. Get ready to be dazzled with indispensable concepts and mind-blowing Python code examples, meticulously presented step by step for your enlightenment. Buckle up, my friend, for this exhilarating journey of a lifetime!
+# Creating python programs for the CLI.
 
-# Table of Contents
+There are 3 packages that are populair to create CLI tooling
 
-1.  Introduction to Argparse
-2.  Installing Argparse
-3.  Understanding Command Line Arguments
-4.  Creating a Basic CLI with Argparse
-5.  Argument Types and Actions
-6.  Argument Groups and Subparsers
-7.  Enhancing Help Messages
-8.  Handling Errors and Validation
-9.  Advanced Argparse Techniques
-10.  Real-world Examples and Use Cases
+1: Argparse (built-in)
+2: Click - https://click.palletsprojects.com/en/stable/
+3: Typer - https://typer.tiangolo.com/
 
-# 1\. Introduction to Argparse
+in our projects we will be using Click. but if you create native tooling for python we use Argparse.
 
-Allow me to introduce you to the one and only argparse — an oh-so-standard Python library that graciously takes on the Herculean task of streamlining the creation and orchestration of those fancy command-line interfaces (CLIs) for your precious applications. Brace yourself for the sheer simplicity and elegance that argparse brings to the table. With its impressive arsenal of features, you’ll effortlessly define the arguments your program craves, gracefully parse those user inputs, and, wait for it, generate eye-catching help messages that’ll leave your users in awe. Talk about functionality and flexibility! argparse is the go-to choice for Python developers who strive to bestow upon the world CLIs that are not only user-friendly but also dripping with enticing features. Embrace the power, my friend, and let argparse revolutionize the way you conquer the command-line domain!
+# Introduction to the argparse Module and Its Benefits
+The argparse module is part of Python's standard library. 
+Therefore, it can be used without installing any additional
+packages. It offers a straightforward and consistent interface for parsing command line inputs. 
+Some of the advantages
+of utilizing argparse are:
 
-**KEY FEATURES:**
+ - Automatic help generation: It generates help and usage messages based on the code's arguments.
+ - Error handling: It displays helpful error messages when users enter invalid arguments.
+ - Type conversion: It can automatically convert parameter strings to the appropriate data type.
+ - It supports both necessary positional arguments and optional arguments with simplicity.
+ - Default values: It allows you to provide default values for parameters that the user does not supply.
 
-*   Easy definition of arguments with various types and actions
-*   Auto-generated help messages
-*   Argument grouping and hierarchical structuring
-*   Customizable error handling and validation
+# Setting Up argparse and Basic Usage
 
-# 2\. Installing Argparse
+```python
+import argparse
+```
 
-Argparse is included in the standard Python library for Python 2.7 and later versions. If you are using an older version of Python, you can install argparse using `pip`:
+This line loads the argparse module into your script, allowing you to use its functionality to parse command-line
+arguments.
 
-pip install argparse
 
-# 3\. Understanding Command Line Arguments
+The first step in utilizing argparse is to generate a parser object. This object will store information about the
+arguments your program accepts and parse command-line input.
 
-Before diving into argparse, it’s essential to grasp the concept of command-line arguments. Command-line arguments are the inputs provided by users when they run a command-line application. They allow users to customize the behavior of the program by specifying options, flags, or arguments.
 
-For example, consider the following command:
-
-python my\_script.py --input file.txt --output result.txt
-
-In this command, `my_script.py` is the Python script we want to run, and `--input` and `--output` are command-line arguments provided by the user. These arguments tell the script to read data from `file.txt` and save the results to `result.txt`.
-
-# 4\. Creating a Basic CLI with Argparse
-
-Let’s start by creating a simple CLI using argparse. We will build a program that takes two numbers and performs a specified arithmetic operation on them.
-
-# 4.1. Importing Argparse
-
-First, we need to import the argparse module:
-
+```python
 import argparse
 
-# 4.2. Creating an ArgumentParser Object
+parser = argparse.ArgumentParser(description='Process some integers.')
+```
 
-To create a CLI with argparse, we start by instantiating an `ArgumentParser` object:
+Powered By
+In this example, we create an ArgumentParser() object and describe the program. When the user selects the help option (
+-h or --help), this description will be displayed.
 
-parser = argparse.ArgumentParser(description='A simple calculator CLI.')
+Now that we've developed the parser, we can specify the arguments our program will accept.
 
-The `description` parameter provides a brief description of the CLI, which will be displayed in the help message.
+Positional arguments are essential and must be presented in a precise order. For example, a script that adds
+two numbers. We can define two positional arguments for the numbers:
 
-# 4.3. Defining Command Line Arguments
+```python
+import argparse
 
-Next, we define the command-line arguments our program will accept using the `add_argument()` method. In this example, we will define three arguments: two numbers and an arithmetic operation.
+parser = argparse.ArgumentParser(description='Process some integers.')
 
-parser.add\_argument('number1', type\=float, help\='The first number')  
-parser.add\_argument('number2', type\=float, help\='The second number')  
-parser.add\_argument('operation', choices=\['add', 'subtract', 'multiply', 'divide'\], help\='The arithmetic operation')
+parser.add_argument('num1', type=int, help='The first number to add.')
+parser.add_argument('num2', type=int, help='The second number to add.')
+```
+In this code, num1 and num2 refer to the positional parameters.
 
-Here, `number1` and `number2` are positional arguments, while `operation` is a choice argument that accepts one of the specified options.
+type=int indicates that the parameters should be converted to integers. The help argument specifies a description that
+will appear in the help message.
 
-# 4.4. Parsing Command Line Arguments
+Adding optional arguments
+Optional arguments are not necessary and typically provide additional options or change the behavior of the program.
+They are usually prefixed with one or two dashes. We'll add an optional argument to enable verbose output:
 
-To parse the command-line arguments, we call the `parse_args()` method:
+```python
+parser.add_argument('-v', '--verbose', action='store_true', help='Increase output verbosity.')
+```
 
-args = parser.parse\_args()
+The short option is -v (for example, -v). --verbose is a lengthy option.
+action='store_true' indicates that if the option is selected, the verbose attribute will be set to True; 
+otherwise, it will be `False`.
+The help argument specifies a description for the help message.
+Parsing arguments and accessing their values
+After specifying all of the arguments, we need to parse the command-line input. Use the .parse_args() method to achieve
+this.
 
-This method returns an object containing the parsed arguments.
+```python
+args = parser.parse_args()
+```
 
-# 4.5. Implementing the Program Logic
+The parsed parameters are now stored in the args variable as attributes. 
+We can access them using dot notation.
 
-Now that we have the parsed arguments, we can implement the program logic:
+```python
+result = args.num1 + args.num2
+print('The sum of {} and {} is {}'.format(args.num1, args.num2, result))
+if args.verbose:
+print('Verbose mode is enabled.')
+```
+Putting everything together, here's a complete script that adds two numbers and includes an optional verbose mode:
 
-if args.operation == 'add':  
-    result = args.number1 + args.number2  
-elif args.operation == 'subtract':  
-    result = args.number1 - args.number2  
-elif args.operation == 'multiply':  
-    result = args.number1 \* args.number2  
-elif args.operation == 'divide':  
-    result = args.number1 / args.number2  
-  
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='Add two integers.')
+
+parser.add_argument('num1', type=int, help='The first number to add.')
+parser.add_argument('num2', type=int, help='The second number to add.')
+parser.add_argument('-v', '--verbose', action='store_true', help='Increase output verbosity.')
+
+args = parser.parse_args()
+result = args.num1 + args.num2
+
+print('The sum of {} and {} is {}'.format(args.num1, args.num2, result))
+if args.verbose:
+    print('Calculation completed successfully.')
+```
+
+You can run this script from the command line and provide the required positional arguments:
+
+```bash
+python add_numbers.py 3 5
+The sum of 3 and 5 is 8
+```
+If you include the -v or --verbose option, the script will print the additional verbose message:
+
+```bash
+python add_numbers.py 3 5 --verbose
+The sum of 3 and 5 is 8
+Calculation completed successfully.
+```
+
+If the user runs the script with the -h or --help option, argparse will display an automatically generated help message:
+
+```bash
+python add_numbers.py -h
+
+usage: add_numbers.py [-h] [-v] num1 num2
+
+Add two integers.
+positional arguments:
+num1 The first number to add.
+num2 The second number to add.
+optional arguments:
+-h, --help show this help message and exit
+-v, --verbose Increase output verbosity.
+```
+This feature makes your program more user-friendly by providing clear instructions on how to use it.
+
+# Advanced Argument Handling
+When developing command-line programs in Python, you may encounter scenarios requiring more complex argument parsing.
+Python's argparse module includes several features to address these complex requirements, allowing you to develop
+flexible and user-friendly interfaces.
+
+# Using nargs for multiple arguments
+There are situations when your application needs to accept numerous values for the same argument. For example, assume
+you wish to create a script that processes multiple files at once. The nargs parameter in argparse allows you to specify
+how many command-line arguments should be read.
+
+Here's how to use nargs to accept multiple filenames:
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='Process multiple files.')
+
+parser.add_argument('filenames', nargs='+', help='List of files to process.')
+
+args = parser.parse_args()
+for filename in args.filenames:
+    print(f'Processing file: {filename}')
+    # Add your file processing code here
+```
+In this case, nargs='+' instructs the parser to expect one or more arguments in filenames. The user can provide as many
+file names as necessary, and they will be saved in a list called args.filenames.
+
+If you want to accept a certain amount of arguments, set nargs to that number. For example, nargs=2 requires exactly two
+parameters.
+
+# Implementing choices to limit argument values
+Sometimes, you want to limit an argument to a specified range of valid values. This guarantees that the user offers
+valid input, hence avoiding mistakes or unexpected actions. The options parameter lets you specify the allowable values
+for an argument.
+
+Consider a script that executes multiple activities depending on a mode selected by the user.
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='Perform actions in different modes.')
+
+parser.add_argument('--mode', choices=['backup', 'restore', 'delete'], required=True, help='Mode of operation.')
+
+args = parser.parse_args()
+
+if args.mode == 'backup':
+    print('Backing up data...')
+# Backup code here
+elif args.mode == 'restore':
+    print('Restoring data...')
+# Restore code here
+elif args.mode == 'delete':
+    print('Deleting data...')
+# Delete code here
+```
+In this script, the --mode argument must be one of the options. If the user enters a value that is not in the list,
+argparse will return an error message.
+
+# Handling boolean flags and toggles
+Boolean flags are choices that enable or disable specific functionalities in your application. They are typically
+defined without a value, merely by including the flag in the command. You can handle these flags in argparse with the
+action parameter.
+
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='A script with debug mode.')
+
+parser.add_argument('--debug', action='store_true', help='Enable debug output.')
+
+args = parser.parse_args()
+
+if args.debug:
+    print('Debug mode is enabled.')
+    # Additional debug information here
+else:
+    print('Debug mode is disabled.')
+```
+By using action='store_true', the --debug flag will set args.debug to True when present and False otherwise.
+
+# Setting default values and required arguments
+Optional arguments frequently include sensible default values. This signifies that if the user does not specify the
+argument, the application will use the default. The default argument allows you to specify a default value.
+
+Here's an example:
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='Adjust program settings.')
+
+parser.add_argument('--timeout', type=int, default=30, help='Timeout in seconds.')
+
+args = parser.parse_args()
+
+print(f'Timeout is set to {args.timeout} seconds.')
+```
+In this scenario, if the user does not specify --timeout, the default is 30 seconds.
+
+To make an optional argument mandatory, set required=True.
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='Send a message.')
+
+parser.add_argument('--recipient', required=True, help='Recipient of the message.')
+
+args = parser.parse_args()
+
+print(f'Sending message to {args.recipient}.')
+```
+The script will now require the --recipient argument.
+
+# Customizing Help and Error Messages
+Providing clear and helpful messages to users is an essential component of developing an effective command-line program.
+Python's argparse module automatically creates help messages, but you can modify these messages to better suit your
+needs.
+
+Generating automatic help messages
+By default, argparse generates a help message, which may be accessed using the -h or --help options. This message
+contains the program's usage, a description, and information about each argument.
+
+For example:
+
+```python
+import argparse
+parser = argparse.ArgumentParser(description='Calculate factorial of a number.')
+parser.add_argument('number', type=int, help='The number to calculate the factorial for.')
+args = parser.parse_args()
+```
+
+When a user runs the script with -h, they will see:
+
+```bash
+usage: script.py [-h] number
+Calculate factorial of a number.
+positional arguments:
+number The number to calculate the factorial for.
+optional arguments:
+-h, --help show this help message and exit
+```
+This automatic help message gives useful information without requiring any additional effort.
+
+Customizing help descriptions and usage messages
+While the default help messages are useful, you may want to alter them to provide extra information or to fit a specific
+structure. You can change the description, epilog, and usage text in the ArgumentParser.
+
+For example, to include an epilog and personalize the usage message:
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(
+    description='Convert temperatures between Celsius and Fahrenheit.',
+    epilog='Enjoy using the temperature converter!',
+    usage='%(prog)s [options] temperature'
+)
+
+parser.add_argument('temperature', type=float, help='Temperature value to convert.')
+parser.add_argument('--to-fahrenheit', action='store_true', help='Convert Celsius to Fahrenheit.')
+parser.add_argument('--to-celsius', action='store_true', help='Convert Fahrenheit to Celsius.')
+
+args = parser.parse_args()
+```
+Now, when the user checks the help message, it will include the customized description, usage, and epilog:
+
+```bash
+python file.py --help
+
+usage: p.py [options] temperature
+
+Convert temperatures between Celsius and Fahrenheit.
+
+positional arguments:
+temperature Temperature value to convert.
+
+options:
+-h, --help show this help message and exit
+--to-fahrenheit Convert Celsius to Fahrenheit.
+--to-celsius Convert Fahrenheit to Celsius.
+```
+
+# Managing error handling and user feedback
+If a user enters invalid arguments, argparse will display an error message and exit the program. You can modify this
+behavior to provide more useful feedback or to handle failures differently.
+
+One approach is to override the error method in a subclass of ArgumentParser:
+
+```python
+import argparse
+import sys
+
+class CustomArgumentParser(argparse.ArgumentParser):
+    def error(self, message):
+        print(f'Error: {message}')
+        self.print_help()
+        sys.exit(2)
+        
+parser = CustomArgumentParser(description='Divide two numbers.')
+
+parser.add_argument('numerator', type=float, help='The numerator.')
+parser.add_argument('denominator', type=float, help='The denominator.')
+
+args = parser.parse_args()
+
+if args.denominator == 0:
+    parser.error('Denominator cannot be zero.')
+    
+result = args.numerator / args.denominator
+print(f'Result: {result}')
+```
+If the user attempts to divide by zero in this script, the application will display an error warning and help text,
+directing the user to provide valid data.
+
+```bash
+Python file.py 6 0
+Error: Denominator cannot be zero.
+usage: file.py [-h] numerator denominator
+Divide two numbers.
+positional arguments:
+numerator The numerator.
+denominator The denominator.
+options:
+-h, --help show this help message and exit
+```
+You can also include custom error handling in your script. For instance, to manage invalid file paths:
+
+```python
+import argparse
+import os
+
+parser = argparse.ArgumentParser(description='Read a file and display its contents.')
+
+parser.add_argument('filepath', help='Path to the file.')
+
+args = parser.parse_args()
+
+if not os.path.exists(args.filepath):
+    parser.error(f"The file {args.filepath} does not exist.")
+    
+with open(args.filepath, 'r') as file:
+    contents = file.read()
+    print(contents)
+```
+Running the script with an invalid path will display the error below:
+
+```bash
+python app..py file
+usage: p.py [-h] filepath
+app.py: error: The file file does not exist.
+```
+
+# Real-World Examples and Use Cases
+Understanding how to use the argparse module in real-world settings will make its functionality clearer. Let's look at
+some instances of how to use argparse in real-world applications.
+
+Building a command-line calculator
+Assume you need to develop a simple calculator that can do basic arithmetic operations from the command line. This
+calculator should accept two numbers and an operator to execute the requested computation.
+
+Here's how to approach this task:
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='Simple command-line calculator.')
+
+parser.add_argument('num1', type=float, help='First number.')
+parser.add_argument('operator', choices=['+', '-', '*', '/'], help='Operation to perform.')
+parser.add_argument('num2', type=float, help='Second number.')
+
+args = parser.parse_args()
+
+if args.operator == '+':
+    result = args.num1 + args.num2
+elif args.operator == '-':
+    result = args.num1 - args.num2
+elif args.operator == '*':
+    result = args.num1 * args.num2
+elif args.operator == '/':  
+    if args.num2 == 0:
+        print('Error: Division by zero is not allowed.')
+        exit(1)
+    result = args.num1 / args.num2
 print(f'The result is: {result}')
+```
+In this script, the argparse module is used to define three positional arguments: two numbers and an operator. The
+choices argument limits the operator to valid arithmetic symbols. When the user runs the script, they can perform these
+calculations:
 
-# 4.6. Complete Example
+```bash
+python calculator.py 10 + 5
+The result is: 15.0
+```
+This basic calculator shows how command-line options can enhance a program's flexibility and interactivity.
 
-Here is the complete example of our simple calculator CLI using argparse:
+Creating a file-processing script with multiple options
+Assume you require a script that processes text files and provides choices such as designating an output file, selecting
+a processing mode, and enabling verbose output.
 
-import argparse  
-  
-parser = argparse.ArgumentParser(description='A simple calculator CLI.')  
-parser.add\_argument('number1', type\=float, help\='The first number')  
-parser.add\_argument('number2', type\=float, help\='The second number')  
-parser.add\_argument('operation', choices=\['add', 'subtract', 'multiply', 'divide'\], help\='The arithmetic operation')  
-args = parser.parse\_args()  
-if args.operation == 'add':  
-    result = args.number1 + args.number2  
-elif args.operation == 'subtract':  
-    result = args.number1 - args.number2  
-elif args.operation == 'multiply':  
-    result = args.number1 \* args.number2  
-elif args.operation == 'divide':  
-    result = args.number1 / args.number2  
-print(f'The result is: {result}')
+Here's an example of how you could set it up:
 
-# 5\. Argument Types and Actions
+```python
+import argparse
 
-Argparse supports various argument types and actions, allowing you to create flexible and powerful CLIs.
+parser = argparse.ArgumentParser(description='Process text files.')
 
-# 5.1. Argument Types
+parser.add_argument('input_file', help='Path to the input file.')
+parser.add_argument('-o', '--output', help='Path to the output file.')
+parser.add_argument('-m', '--mode', choices=['uppercase', 'lowercase'], default='uppercase', help='Processing mode.')
+parser.add_argument('-v', '--verbose', action='store_true', help='Enable verbose output.')
 
-By default, argparse treats all command-line arguments as strings. However, you can specify the type of argument using the `type` parameter. Some common types include `int`, `float`, `bool`, and `str`.
+args = parser.parse_args()
 
-# 5.2. Optional Arguments
+# Read the input file
+with open(args.input_file, 'r') as file:
+    content = file.read()
+if args.verbose:
+    print(f'Reading from {args.input_file}')
+    
+# Process the content
+if args.mode == 'uppercase':
+    processed_content = content.upper()
+else:
+    processed_content = content.lower()
+if args.verbose:
+    print('Processing content')
+    
+# Write to the output file or print to console
+if args.output:
+    with open(args.output, 'w') as file:
+        file.write(processed_content)
+    if args.verbose:
+        print(f'Writing output to {args.output}')
+else:
+    print(processed_content)
+```
+This script accepts an input file and has options for the output file, processing mode, and verbose output. Users can
+modify how the script behaves without altering the code.
 
-Optional arguments are defined using the `--` prefix and can be omitted when running the CLI. To create an optional argument, you can add the `--` prefix to the argument name:
+```bash
+python text_processor.py input.txt -o output.txt --mode lowercase -v
+Reading from input.txt
+Processing content
+Writing output to output.txt
+```
 
-parser.add\_argument('--verbose', action='store\_true', help\='Enable verbose output')
+Developing a CLI tool with subcommands
+In more complicated applications, subcommands may be required, similar to how git works using commands such as git
+commit and git push. The argparse module provides subparsers for this purpose.
 
-In this example, `--verbose` is an optional argument that enables verbose output when provided.
+Here's how to make a CLI tool with subcommands:
 
-# 5.3. Argument Actions
+```python
+import argparse
 
-Argparse supports various actions that determine how the argument’s value should be stored. Some common actions include:
+parser = argparse.ArgumentParser(description='Manage tasks.')
 
-*   `store`: Stores the argument value (default action)
-*   `store_true`: Stores `True` if the argument is provided, else stores `False`
-*   `store_false`: Stores `False` if the argument is provided, else stores `True`
-*   `count`: Counts the number of times the argument is provided
-*   `append`: Appends the argument value to a list each time it is provided
+subparsers = parser.add_subparsers(dest='command', required=True)
 
-# 6\. Argument Groups and Subparsers
+# Subcommand 'add'
+parser_add = subparsers.add_parser('add', help='Add a new task.')
+parser_add.add_argument('name', help='Name of the task.')
+parser_add.add_argument('-p', '--priority', type=int, choices=range(1, 6), default=3, help='Priority of the task.')
 
-Argparse allows you to create argument groups and subparsers for better organization and structuring of your CLI.
+# Subcommand 'list'
+parser_list = subparsers.add_parser('list', help='List all tasks.')
+parser_list.add_argument('-a', '--all', action='store_true', help='List all tasks, including completed ones.')
 
-# 6.1. Argument Groups
+# Subcommand 'complete'
+parser_complete = subparsers.add_parser('complete', help='Mark a task as completed.')
+parser_complete.add_argument('task_id', type=int, help='ID of the task to complete.')
+args = parser.parse_args()
 
-Argument groups are used to group related arguments. They can help improve the readability of your help messages.
+if args.command == 'add':
+    print(f"Adding task '{args.name}' with priority {args.priority}")
+    # Code to add the task
+elif args.command == 'list':
+    print('Listing tasks')
+    if args.all:
+        print('Including completed tasks')
+    # Code to list tasks
+elif args.command == 'complete':
+    print(f'Marking task {args.task_id} as completed')
+    # Code to complete the task
+```
+In this example, the script has three subcommands: add, list, and complete. Each subcommand has its arguments. When
+users run the script, they enter the subcommand and any other parameters.
 
-group = parser.add\_argument\_group('group\_name', 'Group description')  
-group.add\_argument('--option1', help\='Option 1 description')  
-group.add\_argument('--option2', help\='Option 2 description')
+For example:
 
-# 6.2. Subparsers
+```bash
+python task_manager.py add "Write report" -p 2
+Adding task 'Write report' with priority 2
+```
+Listing tasks
 
-Subparsers allow you to create subcommands for your CLI, providing a hierarchical structure.
+```bash
+python task_manager.py list
+Listing tasks
+```
+Marking tasks as completed:
 
-subparsers = parser.add\_subparsers(dest='subcommand', help\='Subcommand help')  
-  
-subcommand1\_parser = subparsers.add\_parser('subcommand1', help\='Subcommand 1 description')  
-subcommand1\_parser.add\_argument('--option1', help\='Option 1 description')  
-subcommand2\_parser = subparsers.add\_parser('subcommand2', help\='Subcommand 2 description')  
-subcommand2\_parser.add\_argument('--option2', help\='Option 2 description')
-
-# 7\. Enhancing Help Messages
-
-Argparse provides several options to enhance the help messages generated for your CLI. Some common techniques include:
-
-*   Adding argument descriptions using the `help` parameter
-*   Customizing the argument metavariable using the `metavar` parameter
-*   Specifying the argument’s default value using the `default` parameter and displaying it in the help message
-
-parser.add\_argument('--option', help\='Option description', metavar='VALUE', default='default\_value')
-
-# 8\. Handling Errors and Validation
-
-Argparse includes built-in error handling and validation features, such as type checking and choice validation. However, you can also implement custom validation logic by subclassing `argparse.ArgumentParser` and overriding the `error()` method.
-
-class CustomArgumentParser(argparse.ArgumentParser):  
-    def error(self, message):  
-        self.print\_help()  
-        self.exit(1, f'\\nError: {message}\\n')
-
-# 9\. Advanced Argparse Techniques
-
-Argparse offers several advanced features that can help you create more complex and versatile CLIs:
-
-*   Using `argparse.FileType` to handle file input/output arguments
-*   Creating custom argument types and actions
-*   Implementing dynamic argument generation using `argparse.REMAINDER`
-
-# 10\. Real-world Examples and Use Cases
-
-Argparse is widely used in various real-world applications, ranging from simple scripts to large-scale projects. Some use cases include:
-
-*   Building command-line utilities and tools
-*   Creating automation scripts and workflows
-*   Implementing CLI interfaces for web services and APIs
-*   Developing testing frameworks and test runners
-
-By mastering argparse and its extensive features, you can create powerful, user-friendly, and versatile command-line applications that cater to a wide range of use cases.
-
-# Conclusion
-
-Argparse is an indispensable tool in the Python developer’s toolkit, allowing you to create user-friendly and powerful command-line interfaces for your applications. By following this comprehensive hands-on tutorial, you can now harness the power of argparse to create sophisticated CLIs and enhance your Python applications. With step-by-step Python codes and practical examples, you are now well-equipped to become an argparse pro and unlock the full potential of Python programming.
+```bash
+python task_manager.py complete 3
+Marking task 3 as completed
+```
+subparsers enable you to create complex command line tools that are well organized and easy to extend, allowing you to
+build applications that can do multiple things in a single interface. 

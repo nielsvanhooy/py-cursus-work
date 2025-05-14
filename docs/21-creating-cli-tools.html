@@ -155,9 +155,9 @@ this.</p>
 <p>The parsed parameters are now stored in the args variable as attributes. <br/>
 We can access them using dot notation.</p>
 <pre><code class="language-python">result = args.num1 + args.num2
-print('The sum of {} and {} is {}'.format(args.num1, args.num2, result))
+print(f'The sum of {args.num1} and {args.num2} is {result}')
 if args.verbose:
-print('Verbose mode is enabled.')
+    print('Verbose mode is enabled.')
 </code></pre>
 <p>Putting everything together, here's a complete script that adds two numbers and includes an optional verbose mode:</p>
 <pre><code class="language-python">import argparse
@@ -171,7 +171,7 @@ parser.add_argument('-v', '--verbose', action='store_true', help='Increase outpu
 args = parser.parse_args()
 result = args.num1 + args.num2
 
-print('The sum of {} and {} is {}'.format(args.num1, args.num2, result))
+print(f'The sum of {args.num1} and {args.num2} is {result}')
 if args.verbose:
     print('Calculation completed successfully.')
 </code></pre>

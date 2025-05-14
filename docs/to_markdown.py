@@ -140,7 +140,7 @@ def modify_index_structure(html):
         "Datastructures-beginner",
         "Functions",
         "Refactoring",
-        "Exceptions,"
+        "Exceptions",
         "Other"
     ]
 

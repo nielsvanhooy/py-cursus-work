@@ -1,0 +1,148 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h3 id="exercise-1-basic-math-operations-cli">Exercise 1: Basic Math Operations CLI</h3>
+<p>Create a Python script that accepts two numbers and an operation (<code>add</code>, <code>subtract</code>, <code>multiply</code>, <code>divide</code>) as command-line arguments and prints the result.</p>
+<p><strong>Requirements:</strong><br/>
+- Use <code>argparse</code> to parse arguments.<br/>
+- Positional arguments: <code>number1</code>, <code>number2</code><br/>
+- Required flag: <code>--operation</code> with choices: <code>add</code>, <code>subtract</code>, <code>multiply</code>, <code>divide</code>.</p>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-bash">python calculator.py 5 3 --operation add
+# Output: 8
+</code></pre>
+<hr/>
+<h3 id="exercise-2-word-counter-cli">Exercise 2: Word Counter CLI</h3>
+<p>Write a command-line tool that counts how many times a specific word appears in a text file.</p>
+<p><strong>Requirements:</strong><br/>
+- Use <code>argparse</code> to parse arguments.<br/>
+- Required positional argument: <code>filename</code><br/>
+- Required flag: <code>--word</code> to specify the word to count.<br/>
+- Optional flag: <code>--ignore-case</code> to make the match case-insensitive.</p>
+<p><strong>Behavior:</strong><br/>
+- Read the contents of the file and count how many times the word appears.<br/>
+- Print the result.</p>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-bash">python word_counter.py sample.txt --word hello
+python word_counter.py sample.txt --word hello --ignore-case
+</code></pre>
+<hr/>
+<h3 id="exercise-3-network-configuration-manager-cli-advanced">Exercise 3: Network Configuration Manager CLI (Advanced)</h3>
+<p>Create a command-line tool that helps manage network device configurations, with features for backup, restore, and comparison.</p>
+<p><strong>Requirements:</strong><br/>
+- Support multiple subcommands:<br/>
+  - <code>backup</code>: Backup configs from device(s)<br/>
+  - <code>restore</code>: Restore a config to a device<br/>
+  - <code>compare</code>: Compare two configuration files<br/>
+  - <code>list</code>: List available backups<br/>
+- Each subcommand has relevant arguments<br/>
+- Support specifying multiple devices<br/>
+- Option to specify backup location<br/>
+- Ability to encrypt sensitive data (<code>--encrypt</code>) (ceasar cipher for example google it) -- OPTIONAL</p>
+<p><strong>Example Usage:</strong></p>
+<pre><code class="language-bash">python config_manager.py backup --devices router1,router2 --location ./backups
+python config_manager.py restore --device router1 --config backups/router1_20230515.cfg
+python config_manager.py compare --config1 router1_old.cfg --config2 router1_new.cfg --output diff.txt
+python config_manager.py list --location ./backups --device router1
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

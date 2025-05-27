@@ -1,0 +1,225 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1 id="flask-exercises-countries-api">🧪 Flask Exercises — Countries API</h1>
+<p>These exercises build progressively on each other. Start with the code in `from the course material (22-working-with-rest-and-api's) provided earlier.</p>
+<hr/>
+<h1 id="how-to-contact-my-endpoints-from-the-cli-for-these-exercises">how to contact my endpoints from the cli for these exercises:</h1>
+<p>Sure! Here’s a neat <strong>curl instructions guide</strong> you can share with your users for all the endpoints in your Flask app:</p>
+<hr/>
+<h1 id="using-curl-to-interact-with-the-countries-api">Using <code>curl</code> to interact with the Countries API</h1>
+<h3 id="base-url-assuming-local-dev-server">Base URL (assuming local dev server):</h3>
+<pre><code>http://127.0.0.1:5000
+</code></pre>
+<hr/>
+<h2 id="1-get-all-countries">1. Get all countries</h2>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl http://127.0.0.1:5000/countries
+</code></pre>
+<p><strong>Description:</strong><br/>
+Retrieve a list of all countries.</p>
+<hr/>
+<h2 id="2-add-a-new-country">2. Add a new country</h2>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl -X POST http://127.0.0.1:5000/countries \
+  -H "Content-Type: application/json" \
+  -d '{"name": "France", "capital": "Paris", "area": 551695}'
+</code></pre>
+<p><strong>Description:</strong><br/>
+Add a new country by sending a JSON object with <code>name</code>, <code>capital</code>, and <code>area</code>.</p>
+<hr/>
+<h2 id="3-delete-a-country-by-id">3. Delete a country by ID</h2>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl -X DELETE http://127.0.0.1:5000/countries/&lt;id&gt;
+</code></pre>
+<p><strong>Example: Delete country with ID 2</strong></p>
+<pre><code class="language-bash">curl -X DELETE http://127.0.0.1:5000/countries/2
+</code></pre>
+<p><strong>Description:</strong><br/>
+Deletes the country with the given ID.</p>
+<hr/>
+<h2 id="4-search-countries-by-capital-city">4. Search countries by capital city</h2>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl "http://127.0.0.1:5000/countries/search?capital=Bangkok"
+</code></pre>
+<p><strong>Description:</strong><br/>
+Search for countries where the capital matches the query parameter (case insensitive).</p>
+<hr/>
+<h1 id="notes">Notes</h1>
+<ul>
+<li>Replace <code>127.0.0.1:5000</code> with your server’s address if different.</li>
+<li>When adding a country, the JSON must include all fields: <code>name</code>, <code>capital</code>, <code>area</code>.</li>
+<li>Deleting a non-existent country ID returns an error.</li>
+<li>The search endpoint returns all countries with an exact match of the capital city.</li>
+</ul>
+<hr/>
+<p>==================================</p>
+<h2 id="exercise-1-use-csv-as-a-data-source">Exercise 1: Use CSV as a Data Source</h2>
+<h3 id="goal">Goal</h3>
+<p>Replace the in-memory list <code>countries</code> with a CSV file that is used to load and store country data.</p>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>Create a file named <code>countries.csv</code> with the following contents:</li>
+</ol>
+<pre><code class="language-csv">id,name,capital,area
+1,Thailand,Bangkok,513120
+2,Australia,Canberra,7617930
+3,Egypt,Cairo,1010408
+````
+
+2. At the start of your Flask app, write a function to load countries from the CSV into a list of dictionaries.
+
+3. When a new country is added via `POST /countries`, append it to the CSV file as well.
+
+&gt; Hint: You can use Python’s built-in `csv` module to read/write.
+
+---
+
+## Exercise 2: Implement DELETE Endpoint
+
+
+
+### Goal
+
+Create a new endpoint:
+
+</code></pre>
+<p>DELETE /countries/<int:id></int:id></p>
+<pre><code>
+This endpoint should remove a country with the given ID.
+
+Bonus objective here. see if you can also implement a `PUT`/`PATCH` route to update existing countries.
+
+### Steps
+
+1. Read the data from the CSV file.
+2. Remove the matching country by ID.
+3. Write the updated list back to the CSV file.
+4. Return a 204 No Content status if successful.
+5. If the ID is not found, return a 404 error.
+
+---
+
+## Exercise 3: Search for Countries
+
+### Goal
+
+Add support for querying countries based on capital name.
+
+### Endpoint
+
+</code></pre>
+<p>GET /countries/search?capital=Cairo<br/>
+```</p>
+<h3 id="steps_1">Steps</h3>
+<ol>
+<li>Add a new route <code>/countries/search</code> that accepts a <code>capital</code> query parameter.</li>
+<li>Filter the list of countries (loaded from CSV) where the capital matches the query (case-insensitive).</li>
+<li>Return the matched country or a 404 error if none is found.</li>
+</ol>
+<p>HINT:<br/>
+a search param in an url is denoted by a <code>?</code> followed by the key-value pair, e.g., <code>?router=lala1234</code>.</p>
+<hr/>
+<p>Good luck, and don’t forget to test your code using <code>curl</code> or Postman! (if you have that knowledge)</p>
+<p>````</p></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

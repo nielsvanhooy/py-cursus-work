@@ -1,0 +1,1012 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><p>Table of Contents</p>
+<ul>
+<li><a href="#rest-apis-and-web-services">REST APIs and Web Services</a><ul>
+<li><a href="#http-methods">HTTP Methods</a></li>
+<li><a href="#status-codes">Status Codes</a></li>
+<li><a href="#api-endpoints">API Endpoints</a></li>
+</ul>
+</li>
+<li><a href="#rest-and-python-consuming-apis">REST and Python: Consuming APIs</a><ul>
+<li><a href="#get">GET</a></li>
+<li><a href="#post">POST</a></li>
+<li><a href="#put">PUT</a></li>
+<li><a href="#patch">PATCH</a></li>
+<li><a href="#delete">DELETE</a></li>
+</ul>
+</li>
+<li><a href="#rest-and-python-building-apis">REST and Python: Building APIs</a><ul>
+<li><a href="#identify-resources">Identify Resources</a></li>
+<li><a href="#define-your-endpoints">Define Your Endpoints</a></li>
+<li><a href="#pick-your-data-interchange-format">Pick Your Data Interchange Format</a></li>
+<li><a href="#design-success-responses">Design Success Responses</a></li>
+<li><a href="#design-error-responses">Design Error Responses</a></li>
+</ul>
+</li>
+<li><a href="#rest-and-python-tools-of-the-trade">REST and Python: Tools of the Trade</a><ul>
+<li><a href="#flask">Flask</a></li>
+<li><a href="#litestar-framework">Litestar Framework</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="rest-apis-and-web-services">REST APIs and Web Services<a href="#rest-apis-and-web-services" title="Permanent link"></a></h2>
+<p>What is a REST API.<br/>
+an application programming interface (API) that follows the design principles of the REST architectural style</p>
+<p>A <strong>REST web service</strong> is any web service that adheres to REST architecture constraints. These web services expose their data to the outside world through an API. REST APIs provide access to web service data through public web URLs.</p>
+<h3 id="http-methods">HTTP Methods<a href="#http-methods" title="Permanent link"></a></h3>
+<p>REST APIs listen for <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP methods</a> like <code>GET</code>, <code>POST</code>, and <code>DELETE</code> to know which operations to perform on the web service’s resources. A <strong>resource</strong> is any data available in the web service that can be accessed and manipulated with <strong>HTTP requests</strong> to the REST API. The HTTP method tells the API which action to perform on the resource.</p>
+<p>While there are many HTTP methods, the five methods listed below are the most commonly used with REST APIs:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td>Retrieve an existing resource.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>Create a new resource.</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>Update an existing resource.</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>Partially update an existing resource.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>Delete a resource.</td>
+</tr>
+</tbody>
+</table>
+<p>A REST API client application can use these five HTTP methods to manage the state of resources in the web service.</p>
+<h3 id="status-codes">Status Codes<a href="#status-codes" title="Permanent link"></a></h3>
+<p>Once a REST API receives and processes an HTTP request, it will return an <strong>HTTP response</strong>. <br/>
+Included in this response is an <strong>HTTP status code</strong>. <br/>
+This code provides information about the results of the request. </p>
+<p>An application sending requests to the API can check the status code and perform actions based on the result. <br/>
+These actions could include handling errors or displaying a success message to a user.</p>
+<p>Below is a list of the most common status codes returned by REST APIs:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>200</code></td>
+<td>OK</td>
+<td>The requested action was successful.</td>
+</tr>
+<tr>
+<td><code>201</code></td>
+<td>Created</td>
+<td>A new resource was created.</td>
+</tr>
+<tr>
+<td><code>202</code></td>
+<td>Accepted</td>
+<td>The request was received, but no modification has been made yet.</td>
+</tr>
+<tr>
+<td><code>204</code></td>
+<td>No Content</td>
+<td>The request was successful, but the response has no content.</td>
+</tr>
+<tr>
+<td><code>400</code></td>
+<td>Bad Request</td>
+<td>The request was malformed.</td>
+</tr>
+<tr>
+<td><code>401</code></td>
+<td>Unauthorized</td>
+<td>The client is not authorized to perform the requested action.</td>
+</tr>
+<tr>
+<td><code>404</code></td>
+<td>Not Found</td>
+<td>The requested resource was not found.</td>
+</tr>
+<tr>
+<td><code>415</code></td>
+<td>Unsupported Media Type</td>
+<td>The request data format is not supported by the server.</td>
+</tr>
+<tr>
+<td><code>422</code></td>
+<td>Unprocessable Entity</td>
+<td>The request data was properly formatted but contained invalid or missing data.</td>
+</tr>
+<tr>
+<td><code>500</code></td>
+<td>Internal Server Error</td>
+<td>The server threw an error when processing the request.</td>
+</tr>
+</tbody>
+</table>
+<p>These ten status codes represent only a small subset of the available <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status codes</a>. Status codes are numbered based on the category of the result:</p>
+<table>
+<thead>
+<tr>
+<th>Code range</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2xx</code></td>
+<td>Successful operation</td>
+</tr>
+<tr>
+<td><code>3xx</code></td>
+<td>Redirection</td>
+</tr>
+<tr>
+<td><code>4xx</code></td>
+<td>Client error</td>
+</tr>
+<tr>
+<td><code>5xx</code></td>
+<td>Server error</td>
+</tr>
+</tbody>
+</table>
+<p>HTTP status codes come in handy when working with REST APIs as you’ll often need to perform different logic based on the results of the request.</p>
+<h3 id="api-endpoints">API Endpoints<a href="#api-endpoints" title="Permanent link"></a></h3>
+<p>A REST API exposes a set of public URLs that client applications use to access the resources of a web service. These URLs, in the context of an API, are called <strong>endpoints</strong>.</p>
+<p>To help clarify this, take a look at the table below. <br/>
+In this table, you’ll see API endpoints for a hypothetical <a href="https://en.wikipedia.org/wiki/Customer_relationship_management">CRM</a> system. </p>
+<p>These endpoints are for a customer resource that represents potential <code>customers</code> in the system:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP method</th>
+<th>API endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><code>/customers</code></td>
+<td>Get a list of customers.</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/customers/&lt;customer_id&gt;</code></td>
+<td>Get a single customer.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/customers</code></td>
+<td>Create a new customer.</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/customers/&lt;customer_id&gt;</code></td>
+<td>Update a customer.</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><code>/customers/&lt;customer_id&gt;</code></td>
+<td>Partially update a customer.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/customers/&lt;customer_id&gt;</code></td>
+<td>Delete a customer.</td>
+</tr>
+</tbody>
+</table>
+<p>Each of the endpoints above performs a different action based on the HTTP method.</p>
+<p><strong>Note:</strong> The base URL for the endpoints has been omitted for brevity. <br/>
+In reality, you’ll need the full URL path to access an API endpoint:</p>
+<p><code>https://api.example.com/customers</code></p>
+<p>This is the full URL you’d use to access this endpoint. The base URL is everything besides <code>/customers</code>.</p>
+<p>You’ll note that some endpoints have <code>&lt;customer_id&gt;</code> at the end. This notation means you need to append a numeric <code>customer_id</code> to the URL to tell the REST API which <code>customer</code> you’d like to work with.</p>
+<p>The endpoints listed above represent only one resource in the system. Production-ready REST APIs often have tens or even hundreds of different endpoints to manage the resources in the web service.</p>
+<h2 id="rest-and-python-consuming-apis">REST and Python: Consuming APIs<a href="#rest-and-python-consuming-apis" title="Permanent link"></a></h2>
+<p>To write code that interacts with REST APIs, most Python developers turn to <a href="https://realpython.com/python-requests/"><code>requests</code></a> to send HTTP requests. This library abstracts away the complexities of making HTTP requests. It’s one of the few projects worth treating as if it’s part of the standard library.</p>
+<p>To start using <code>requests</code>, you need to install it first. You can use <a href="https://realpython.com/what-is-pip/"><code>pip</code></a> to install it:</p>
+<p>Shell</p>
+<pre><code class="language-bash">python -m pip install requests
+</code></pre>
+<p>or if working in a virtual environment: activate it first. <br/>
+(make sure you are in the correct directory that has a .venv folder)</p>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<p>Now that you’ve got <code>requests</code> installed, you can start sending HTTP requests.</p>
+<h3 id="get">GET<a href="#get" title="Permanent link"></a></h3>
+<p><code>GET</code> is one of the most common HTTP methods you’ll use when working with REST APIs. This method allows you to retrieve resources from a given API. <code>GET</code> is a <strong>read-only</strong> operation, so you shouldn’t use it to modify an existing resource.</p>
+<p>To test out <code>GET</code> and the other methods in this section, you’ll use a service called <a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a>. This free service provides fake API endpoints that send back responses that <code>requests</code> can process.</p>
+<p>Python</p>
+<pre><code class="language-python">import requests 
+api_url = "https://jsonplaceholder.typicode.com/todos/1"
+response = requests.get(api_url)
+print(response.json())
+
+{'userId': 1, 'id': 1, 'title': 'delectus aut autem', 'completed': False}
+</code></pre>
+<p>This code calls <code>requests.get()</code> to send a <code>GET</code> request to <code>/todos/1</code>, which responds with the <code>todo</code> item with the ID <code>1</code>. Then you can call <a href="https://docs.python-requests.org/en/master/user/quickstart/#json-response-content"><code>.json()</code></a> on the <code>response</code> object to view the data that came back from the API.</p>
+<p>The response data is formatted as <a href="https://www.json.org/json-en.html">JSON</a>, a key-value store similar to a <a href="https://realpython.com/python-dicts/">Python dictionary</a>. It’s a very popular data format and the de facto interchange format for most REST APIs.</p>
+<p>Beyond viewing the JSON data from the API, you can also view other things about the <code>response</code>:</p>
+<p>Python</p>
+<pre><code class="language-python">import requests 
+api_url = "https://jsonplaceholder.typicode.com/todos/1"
+response = requests.get(api_url)
+print(response.json())
+
+print(response.status_code)  
+print(response.headers["Content-Type"])
+
+</code></pre>
+<p>Here, you access <code>response.status_code</code> to see the HTTP status code. You can also view the response’s <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">HTTP headers</a> with <code>response.headers</code>. <br/>
+This dictionary contains metadata about the response, such as the <code>Content-Type</code> of the response.</p>
+<h3 id="post">POST<a href="#post" title="Permanent link"></a></h3>
+<p>Now, take a look at how you use <code>requests</code> to <code>POST</code> data to a REST API to create a new resource. <br/>
+You’ll use JSONPlaceholder again, but this time you’ll include JSON data in the request. <br/>
+Here’s the data that you’ll send:</p>
+<p>JSON</p>
+<pre><code class="language-javascript">{"userId": 1, "title": "Buy milk", "completed": false }
+</code></pre>
+<p>This JSON contains information for a new <code>todo</code> item. <br/>
+Back in your IDE. run the following code to create the new <code>todo</code>:</p>
+<p>Python</p>
+<pre><code class="language-python">import requests
+
+api_url = "https://jsonplaceholder.typicode.com/todos"
+todo = {"userId": 1, "title": "Buy milk", "completed": False}
+
+response = requests.post(api_url, json=todo)
+print(response.json())
+print(response.status_code)
+
+</code></pre>
+<p>Here, you call <code>requests.post()</code> to create a new <code>todo</code> in the system.</p>
+<p>First, you create a dictionary containing the data for your <code>todo</code>. <br/>
+Then you pass this dictionary to the <code>json</code> keyword argument of <code>requests.post()</code>. <br/>
+When you do this, <code>requests.post()</code> automatically sets the request’s HTTP header <code>Content-Type</code> to <code>application/json</code>. <br/>
+It also serializes <code>todo</code> into a JSON string, which it appends to the body of the request.</p>
+<p>If you don’t use the <code>json</code> keyword argument to supply the JSON data, <br/>
+then you need to set <code>Content-Type</code> accordingly and serialize the JSON manually.</p>
+<p>Here’s an equivalent version to the previous code:<br/>
+when using stuff like stackoverflow. you would usually the equivelant like below.</p>
+<p>Python</p>
+<pre><code class="language-python">import requests
+import json
+
+
+api_url = "https://jsonplaceholder.typicode.com/todos"
+todo = {"userId": 1, "title": "Buy milk", "completed": False}
+headers =  {"Content-Type":"application/json"}
+
+
+response = requests.post(api_url, data=json.dumps(todo), headers=headers)
+print(response.json())
+print(response.status_code)
+
+</code></pre>
+<p><code>In this code, you add a</code>headers<code>dictionary that contains a single header</code>Content-Type<code>set to</code>application/json`. <br/>
+This tells the REST API that you’re sending JSON data with the request.</p>
+<p>You then call <code>requests.post()</code>, but instead of passing <code>todo</code> to the <code>json</code> argument, you first call <code>json.dumps(todo)</code> to serialize it. <br/>
+After it’s serialized, you pass it to the <code>data</code> keyword argument. The <code>data</code> argument tells <code>requests</code> what data to include in the request. <br/>
+You also pass the <code>headers</code> dictionary to <code>requests.post()</code> to set the HTTP headers manually.</p>
+<p>When you call <code>requests.post()</code> like this, it has the same effect as the previous code but gives you more control over the request.</p>
+<p><strong>Note:</strong> <a href="https://docs.python.org/3/library/json.html#json.dumps"><code>json.dumps()</code></a> comes from the <a href="https://docs.python.org/3/library/json.html"><code>json</code></a> package in the standard library. This package provides useful methods for working with <a href="https://realpython.com/python-json/">JSON in Python</a>.</p>
+<p>Once the API responds, you call <code>response.json()</code> to view the JSON. The JSON includes a generated <code>id</code> for the new <code>todo</code>. The <code>201</code> status code tells you that a new resource was created.</p>
+<h3 id="put">PUT<a href="#put" title="Permanent link"></a></h3>
+<p>Beyond <code>GET</code> and <code>POST</code>, <code>requests</code> provides support for all the other HTTP methods you would use with a REST API. <br/>
+The following code sends a <code>PUT</code> request to update an existing <code>todo</code> with new data. <br/>
+Any data sent with a <code>PUT</code> request will completely replace the existing values of the <code>todo</code>.</p>
+<p>You’ll use the same JSONPlaceholder endpoint you used with <code>GET</code> and <code>POST</code>, but this time you’ll append <code>10</code> to the end of the URL. <br/>
+This tells the REST API which <code>todo</code> you’d like to update:</p>
+<p>Python</p>
+<pre><code class="language-python">import requests
+
+api_url = "https://jsonplaceholder.typicode.com/todos/10" 
+response = requests.get(api_url) 
+print(response.json())
+# now look closely at the output
+# lets make a PUT request to update the todo
+todo = {"userId": 1, "title": "Wash car", "completed": True}
+
+response = requests.put(api_url, json=todo)
+print(response.json())
+print(response.status_code)
+</code></pre>
+<p>Here, you first call <code>requests.get()</code> to view the contents of the existing <code>todo</code>. <br/>
+Next, you call <code>requests.put()</code> with new JSON data to replace the existing to-do’s values. <br/>
+You can see the new values when you call <code>response.json()</code>. <br/>
+Successful <code>PUT</code> requests will always return <code>200</code> instead of <code>201</code> because you aren’t creating a new resource but just updating an existing one.</p>
+<h3 id="patch">PATCH<a href="#patch" title="Permanent link"></a></h3>
+<p>Next up, you’ll use <code>requests.patch()</code> to modify the value of a specific field on an existing <code>todo</code>. <br/>
+<code>PATCH</code> differs from <code>PUT</code> in that it doesn’t completely replace the existing resource. <br/>
+It only modifies the values set in the JSON sent with the request.</p>
+<p>You’ll use the same <code>todo</code> from the last example to try out <code>requests.patch()</code>. <br/>
+Here are the current values:</p>
+<p>Python</p>
+<pre><code class="language-python">{'userId': 1, 'title': 'Wash car', 'completed': True, 'id': 10}
+</code></pre>
+<p>Now you can update the <code>title</code> with a new value:</p>
+<p>Python</p>
+<pre><code class="language-python">import requests
+
+api_url = "https://jsonplaceholder.typicode.com/todos/10" 
+todo = {"title": "Mow lawn"}
+response = requests.patch(api_url, json=todo)
+print(response.json())
+print(response.status_code)
+
+</code></pre>
+<p>When you call <code>response.json()</code>, you can see that <code>title</code> was updated to <code>Mow lawn</code>.</p>
+<h3 id="delete">DELETE<a href="#delete" title="Permanent link"></a></h3>
+<p>Last but not least, if you want to completely remove a resource, then you use <code>DELETE</code>. <br/>
+Here’s the code to remove a <code>todo</code>:</p>
+<p>Python</p>
+<pre><code class="language-python">import requests
+
+api_url = "https://jsonplaceholder.typicode.com/todos/10"
+response = requests.delete(api_url)
+print(response.json())
+print(response.status_code)
+
+</code></pre>
+<p>You call <code>requests.delete()</code> with an API URL that contains the ID for the <code>todo</code> you would like to remove. This sends a <code>DELETE</code> request to the REST API, which then removes the matching resource. After deleting the resource, the API sends back an empty JSON object indicating that the resource has been deleted.</p>
+<p>The <code>requests</code> library is an awesome tool for working with REST APIs and an indispensable part of your Python tool belt. In the next section, you’ll change gears and consider what it takes to build a REST API.</p>
+<h2 id="rest-and-python-building-apis">REST and Python: Building APIs<a href="#rest-and-python-building-apis" title="Permanent link"></a></h2>
+<p>REST API design is a huge topic with many layers. As with most things in technology, there’s a wide range of opinions on the best approach to building APIs. In this section, you’ll look at some recommended steps to follow as you build an API.</p>
+<h3 id="identify-resources">Identify Resources<a href="#identify-resources" title="Permanent link"></a></h3>
+<p>The first step you’ll take as you build a REST API is to identify the resources the API will manage. It’s common to describe these resources as plural nouns, like <code>customers</code>, <code>events</code>, or <code>transactions</code>. As you identify different resources in your web service, you’ll build out a list of nouns that describe the different data users can manage in the API.</p>
+<p>As you do this, make sure to consider any nested resources. For example, <code>customers</code> may have <code>sales</code>, or <code>events</code> may contain <code>guests</code>. Establishing these resource hierarchies will help when you define API endpoints.</p>
+<h3 id="define-your-endpoints">Define Your Endpoints<a href="#define-your-endpoints" title="Permanent link"></a></h3>
+<p>Once you’ve identified the resources in your web service, you’ll want to use these to define the API endpoints. Here are some example endpoints for a <code>transactions</code> resource you might find in an API for a payment processing service:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP method</th>
+<th>API endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><code>/transactions</code></td>
+<td>Get a list of transactions.</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/transactions/&lt;transaction_id&gt;</code></td>
+<td>Get a single transaction.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/transactions</code></td>
+<td>Create a new transaction.</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/transactions/&lt;transaction_id&gt;</code></td>
+<td>Update a transaction.</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><code>/transactions/&lt;transaction_id&gt;</code></td>
+<td>Partially update a transaction.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/transactions/&lt;transaction_id&gt;</code></td>
+<td>Delete a transaction.</td>
+</tr>
+</tbody>
+</table>
+<p>These six endpoints cover all the operations that you’ll need to create, read, update, and delete <code>transactions</code> in the web service. <br/>
+Each resource in your web service would have a similar list of endpoints based on what actions a user can perform with the API.</p>
+<p><strong>Note:</strong> An endpoint shouldn’t contain verbs. <br/>
+Instead, you should select the appropriate HTTP methods to convey the endpoint’s action. <br/>
+For example, the endpoint below contains an unneeded verb:</p>
+<p>HTTP</p>
+<p><code>GET /getTransactions</code></p>
+<p>Here, <code>get</code> is included in the endpoint when it isn’t needed. The HTTP method <code>GET</code> already provides the semantic meaning for the endpoint by indicating the action. You can remove <code>get</code> from the endpoint:</p>
+<p>HTTP</p>
+<p><code>GET /transactions</code></p>
+<p>This endpoint contains only a plural noun, and the HTTP method <code>GET</code> communicates the action.</p>
+<p>Now take a look at an example of endpoints for a nested resource. Here, you’ll see endpoints for <code>guests</code> that are nested under <code>events</code> resources:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP method</th>
+<th>API endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><code>/events/&lt;event_id&gt;/guests</code></td>
+<td>Get a list of guests.</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/events/&lt;event_id&gt;/guests/&lt;guest_id&gt;</code></td>
+<td>Get a single guest.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/events/&lt;event_id&gt;/guests</code></td>
+<td>Create a new guest.</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/events/&lt;event_id&gt;/guests/&lt;guest_id&gt;</code></td>
+<td>Update a guest.</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><code>/events/&lt;event_id&gt;/guests/&lt;guest_id&gt;</code></td>
+<td>Partially update a guest.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/events/&lt;event_id&gt;/guests/&lt;guest_id&gt;</code></td>
+<td>Delete a guest.</td>
+</tr>
+</tbody>
+</table>
+<p>With these endpoints, you can manage <code>guests</code> for a specific event in the system.</p>
+<p>This isn’t the only way to define an endpoint for nested resources. Some people prefer to use <a href="https://en.wikipedia.org/wiki/Query_string">query strings</a> to access a nested resource. A query string allows you to send additional parameters with your HTTP request. In the following endpoint, you append a query string to get <code>guests</code> for a specific <code>event_id</code>:</p>
+<p>HTTP</p>
+<p><code>GET /guests?event_id=23</code></p>
+<p>This endpoint will filter out any <code>guests</code> that don’t reference the given <code>event_id</code>. As with many things in API design, you need to decide which method fits your web service best.</p>
+<p><strong>Note:</strong> It’s very unlikely that your REST API will stay the same throughout the life of your web service. Resources will change, and you’ll need to update your endpoints to reflect these changes. This is where <strong>API versioning</strong> comes in. API versioning allows you to modify your API without fear of breaking existing integrations.</p>
+<p>There’s a wide range of versioning strategies. Selecting the right option depends on the requirements of your API. Below are some of the most popular options for API versioning:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design#uri-versioning">URI versioning</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design#header-versioning">HTTP header versioning</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design#query-string-versioning">Query string versioning</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design#media-type-versioning">Media type versioning</a></li>
+</ul>
+<p>No matter what strategy you select, versioning your API is an important step to ensuring it can adapt to changing requirements while supporting existing users.</p>
+<p>Now that you’ve covered endpoints, in the next section you’ll look at some options for formatting data in your REST API.</p>
+<h3 id="pick-your-data-interchange-format">Pick Your Data Interchange Format<a href="#pick-your-data-interchange-format" title="Permanent link"></a></h3>
+<p>Two popular options for formatting web service data are <a href="https://en.wikipedia.org/wiki/XML">XML</a> and JSON. Traditionally, XML was very popular with <a href="https://en.wikipedia.org/wiki/SOAP">SOAP</a> APIs, but JSON is more popular with REST APIs. To compare the two, take a look at an example <code>book</code> resource formatted as XML and JSON.</p>
+<p>Here’s the book formatted as XML:</p>
+<p>XML</p>
+<p><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt; &lt;book&gt;     &lt;title&gt;Python Basics&lt;/title&gt;     &lt;page_count&gt;635&lt;/page_count&gt;     &lt;pub_date&gt;2021-03-16&lt;/pub_date&gt;     &lt;authors&gt;         &lt;author&gt;             &lt;name&gt;David Amos&lt;/name&gt;         &lt;/author&gt;         &lt;author&gt;             &lt;name&gt;Joanna Jablonski&lt;/name&gt;         &lt;/author&gt;         &lt;author&gt;             &lt;name&gt;Dan Bader&lt;/name&gt;         &lt;/author&gt;         &lt;author&gt;             &lt;name&gt;Fletcher Heisler&lt;/name&gt;         &lt;/author&gt;     &lt;/authors&gt;     &lt;isbn13&gt;978-1775093329&lt;/isbn13&gt;     &lt;genre&gt;Education&lt;/genre&gt; &lt;/book&gt;</code></p>
+<p>XML uses a series of <strong>elements</strong> to encode data. Each element has an opening and closing tag, with the data in between. Elements can be nested inside other elements. You can see this above, where several <code>&lt;author&gt;</code> tags are nested inside of <code>&lt;authors&gt;</code>.</p>
+<p>Now, take a look at the same <code>book</code> in JSON:</p>
+<p>JSON</p>
+<p><code>{     "title": "Python Basics",     "page_count": 635,     "pub_date": "2021-03-16",     "authors": [         {"name": "David Amos"},         {"name": "Joanna Jablonski"},         {"name": "Dan Bader"},         {"name": "Fletcher Heisler"}     ],     "isbn13": "978-1775093329",     "genre": "Education" }</code></p>
+<p>JSON stores data in key-value pairs similar to a Python dictionary. Like XML, JSON supports nesting data to any level, so you can model complex data.</p>
+<p>Neither JSON nor XML is inherently better than the other, but there’s a preference for JSON among REST API developers. This is especially true when you pair a REST API with a front-end framework like <a href="https://reactjs.org/">React</a> or <a href="https://vuejs.org/">Vue</a>.</p>
+<h3 id="design-success-responses">Design Success Responses<a href="#design-success-responses" title="Permanent link"></a></h3>
+<p>Once you’ve picked a data format, the next step is to decide how you’ll respond to HTTP requests. All responses from your REST API should have a similar format and include the proper HTTP status code.</p>
+<p>In this section, you’ll look at some example HTTP responses for a hypothetical API that manages an inventory of <code>cars</code>. These examples will give you a sense of how you should format your API responses. To make things clear, you’ll look at raw HTTP requests and responses instead of using an HTTP library like <code>requests</code>.</p>
+<p>To start things off, take a look at a <code>GET</code> request to <code>/cars</code>, which returns a list of <code>cars</code>:</p>
+<p>HTTP</p>
+<p><code>GET /cars HTTP/1.1 Host: api.example.com</code></p>
+<p>This HTTP request is made up of four parts:</p>
+<ol>
+<li><strong><code>GET</code></strong> is the HTTP method type.</li>
+<li><strong><code>/cars</code></strong> is the API endpoint.</li>
+<li><strong><code>HTTP/1.1</code></strong> is the HTTP version.</li>
+<li><strong><code>Host: api.example.com</code></strong> is the API host.</li>
+</ol>
+<p>These four parts are all you need to send a <code>GET</code> request to <code>/cars</code>. Now take a look at the response. This API uses JSON as the data interchange format:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 200 OK Content-Type: application/json ...  [     {         "id": 1,         "make": "GMC",         "model": "1500 Club Coupe",         "year": 1998,         "vin": "1D7RV1GTXAS806941",         "color": "Red"     },     {         "id": 2,         "make": "Lamborghini",         "model":"Gallardo",         "year":2006,         "vin":"JN1BY1PR0FM736887",         "color":"Mauve"     },     {         "id": 3,         "make": "Chevrolet",         "model":"Monte Carlo",         "year":1996,         "vin":"1G4HP54K714224234",         "color":"Violet"     } ]</code></p>
+<p>The API returns a response that contains a list of <code>cars</code>. You know that the response was successful because of the <code>200 OK</code> status code. The response also has a <code>Content-Type</code> header set to <code>application/json</code>. This tells the user to parse the response as JSON.</p>
+<p><strong>Note:</strong> When you’re working with a real API, you’re going to see more HTTP headers than this. These headers differ between APIs, so they’ve been excluded in these examples.</p>
+<p>It’s important to always set the correct <code>Content-Type</code> header on your response. If you send JSON, then set <code>Content-Type</code> to <code>application/json</code>. If XML, then set it to <code>application/xml</code>. This header tells the user how they should parse the data.</p>
+<p>You also want to include an appropriate status code in your response. For any successful <code>GET</code> request, you should return <code>200 OK</code>. This tells the user that their request was processed as expected.</p>
+<p>Take a look at another <code>GET</code> request, this time for a single car:</p>
+<p>HTTP</p>
+<p><code>GET /cars/1 HTTP/1.1 Host: api.example.com</code></p>
+<p>This HTTP request queries the API for car <code>1</code>. Here’s the response:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 200 OK Content-Type: application/json  {     "id": 1,     "make": "GMC",     "model": "1500 Club Coupe",     "year": 1998,     "vin": "1D7RV1GTXAS806941",     "color": "Red" },</code></p>
+<p>This response contains a single JSON object with the car’s data. Since it’s a single object, it doesn’t need to be wrapped in a list. Like the last response, this also has a <code>200 OK</code> status code.</p>
+<p><strong>Note:</strong> A <code>GET</code> request should never modify an existing resource. If the request contains data, then this data should be ignored and the API should return the resource unchanged.</p>
+<p>Next up, check out a <code>POST</code> request to add a new car:</p>
+<p>HTTP</p>
+<p><code>POST /cars HTTP/1.1 Host: api.example.com Content-Type: application/json  {     "make": "Nissan",     "model": "240SX",     "year": 1994,     "vin": "1N6AD0CU5AC961553",     "color": "Violet" }</code></p>
+<p>This <code>POST</code> request includes JSON for the new car in the request. It sets the <code>Content-Type</code> header to <code>application/json</code> so the API knows the content type of the request. The API will create a new car from the JSON.</p>
+<p>Here’s the response:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 201 Created Content-Type: application/json  {     "id": 4,     "make": "Nissan",     "model": "240SX",     "year": 1994,     "vin": "1N6AD0CU5AC961553",     "color": "Violet" }</code></p>
+<p>This response has a <code>201 Created</code> status code to tell the user that a new resource was created. Make sure to use <code>201 Created</code> instead of <code>200 OK</code> for all successful <code>POST</code> requests.</p>
+<p>This response also includes a copy of the new car with an <code>id</code> generated by the API. It’s important to send back an <code>id</code> in the response so that the user can modify the resource again.</p>
+<p><strong>Note:</strong> It’s important to always send back a copy of a resource when a user creates it with <code>POST</code> or modifies it with <code>PUT</code> or <code>PATCH</code>. This way, the user can see the changes that they’ve made.</p>
+<p>Now take a look at a <code>PUT</code> request:</p>
+<p>HTTP</p>
+<p><code>PUT /cars/4 HTTP/1.1 Host: api.example.com Content-Type: application/json  {     "make": "Buick",     "model": "Lucerne",     "year": 2006,     "vin": "4T1BF3EK8AU335094",     "color":"Maroon" }</code></p>
+<p>This request uses the <code>id</code> from the previous request to update the car with all new data. As a reminder, <code>PUT</code> updates all fields on the resource with new data. Here’s the response:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 200 OK Content-Type: application/json  {     "id": 4,     "make": "Buick",    "model": "Lucerne",    "year": 2006,    "vin": "4T1BF3EK8AU335094",    "color":"Maroon" }</code></p>
+<p>The response includes a copy of the <code>car</code> with the new data. Again, you always want to send back the full resource for a <code>PUT</code> request. The same applies to a <code>PATCH</code> request:</p>
+<p>HTTP</p>
+<p><code>PATCH /cars/4 HTTP/1.1 Host: api.example.com Content-Type: application/json  {     "vin": "VNKKTUD32FA050307",     "color": "Green" }</code></p>
+<p><code>PATCH</code> requests only update a part of a resource. In the request above, the <code>vin</code> and <code>color</code> fields will be updated with new values. Here’s the response:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 200 OK Content-Type: application/json  {     "id": 4,     "make": "Buick",     "model": "Lucerne",     "year": 2006,     "vin": "VNKKTUD32FA050307",    "color": "Green" }</code></p>
+<p>The response contains a full copy of the <code>car</code>. As you can see, only the <code>vin</code> and <code>color</code> fields have been updated.</p>
+<p>Finally, take a look at how your REST API should respond when it receives a <code>DELETE</code> request. Here’s a <code>DELETE</code> request to remove a <code>car</code>:</p>
+<p>HTTP</p>
+<p><code>DELETE /cars/4 HTTP/1.1</code></p>
+<p>This <code>DELETE</code> request tells the API to remove the <code>car</code> with the ID <code>4</code>. Here’s the response:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 204 No Content</code></p>
+<p>This response only includes the status code <code>204 No Content</code>. This status code tells a user that the operation was successful, but no content was returned in the response. This makes sense since the <code>car</code> has been deleted. There’s no reason to send a copy of it back in the response.</p>
+<p>The responses above work well when everything goes as planned, but what happens if there’s a problem with the request? In the next section, you’ll look at how your REST API should respond when errors occur.</p>
+<h3 id="design-error-responses">Design Error Responses<a href="#design-error-responses" title="Permanent link"></a></h3>
+<p>There’s always a chance that requests to your REST API could fail. It’s a good idea to define what an error response will look like. These responses should include a description of what error occurred along with the appropriate status code. In this section, you’ll look at a few examples.</p>
+<p>To start, take a look at a request for a resource that doesn’t exist in the API:</p>
+<p>HTTP</p>
+<p><code>GET /motorcycles HTTP/1.1 Host: api.example.com</code></p>
+<p>Here, the user sends a <code>GET</code> request to <code>/motorcycles</code>, which doesn’t exist. The API sends back the following response:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 404 Not Found Content-Type: application/json ...  {     "error": "The requested resource was not found." }</code></p>
+<p>This response includes a <code>404 Not Found</code> status code. Along with this, the response contains a JSON object with a descriptive error message. Providing a descriptive error message gives the user more context for the error.</p>
+<p>Now take a look at the error response when the user sends an invalid request:</p>
+<p>HTTP</p>
+<p><code>POST /cars HTTP/1.1 Host: api.example.com Content-Type: application/json  {     "make": "Nissan",     "year": 1994,     "color": "Violet"</code></p>
+<p>This <code>POST</code> request contains JSON, but it isn’t formatted correctly. It’s missing a closing curly brace (<code>}</code>) at the end. The API won’t be able to process this data. The error response tells the user about the issue:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 400 Bad Request Content-Type: application/json  {     "error": "This request was not properly formatted. Please send again." }</code></p>
+<p>This response includes a descriptive error message along with the <code>400 Bad Request</code> status code, telling the user they need to fix the request.</p>
+<p>There are several other ways that the request can be wrong even if it’s formatted properly. In this next example, the user sends a <code>POST</code> request but includes an unsupported media type:</p>
+<p>HTTP</p>
+<p><code>POST /cars HTTP/1.1 Host: api.example.com Content-Type: application/xml  &lt;?xml version="1.0" encoding="UTF-8" ?&gt; &lt;car&gt;     &lt;make&gt;Nissan&lt;/make&gt;     &lt;model&gt;240SX&lt;/model&gt;     &lt;year&gt;1994&lt;/year&gt;     &lt;vin&gt;1N6AD0CU5AC961553&lt;/vin&gt;     &lt;color&gt;Violet&lt;/color&gt; &lt;/car&gt;</code></p>
+<p>In this request, the user sends XML, but the API only supports JSON. The API responds with this:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 415 Unsupported Media Type Content-Type: application/json  {     "error": "The application/xml mediatype is not supported." }</code></p>
+<p>This response includes the <code>415 Unsupported Media Type</code> status code to indicate that the <code>POST</code> request included a data format that isn’t supported by the API. This error code makes sense for data that’s in the wrong format, but what about data that’s invalid even with the correct format?</p>
+<p>In this next example, the user sends a <code>POST</code> request but includes <code>car</code> data that doesn’t match fields of the other data:</p>
+<p>HTTP</p>
+<p><code>POST /cars HTTP/1.1 Host: api.example.com Content-Type: application/json  {     "make": "Nissan",     "model": "240SX",     "topSpeed": 120    "warrantyLength": 10 }</code></p>
+<p>In this request, the user adds <code>topSpeed</code> and <code>warrantyLength</code> fields to the JSON. These fields aren’t supported by the API, so it responds with an error message:</p>
+<p>HTTP</p>
+<p><code>HTTP/1.1 422 Unprocessable Entity Content-Type: application/json  {     "error": "Request had invalid or missing data." }</code></p>
+<p>This response includes the <code>422 Unprocessable Entity</code> status code. This status code indicates that there weren’t any issues with the request, but the data was invalid. A REST API needs to validate incoming data. If the user sends data with the request, then the API should validate the data and inform the user of any errors.</p>
+<p>Responding to requests, both successful and erroneous, is one of the most important jobs of a REST API. If your API is intuitive and provides accurate responses, then it’ll be easier for users to build applications around your web service. Luckily, some great Python web frameworks abstract away the complexities of processing HTTP requests and returning responses. You’ll look at three popular options in the next section.</p>
+<h2 id="rest-and-python-tools-of-the-trade">REST and Python: Tools of the Trade<a href="#rest-and-python-tools-of-the-trade" title="Permanent link"></a></h2>
+<p>In this section, you’ll look at 2 popular frameworks for building REST APIs in Python. <br/>
+Each framework has pros and cons, so you’ll have to evaluate which works best for your needs. </p>
+<p>To this end, in the next sections, you’ll look at a REST API in each framework. <br/>
+All the examples will be for a similar API that manages a collection of countries.</p>
+<p>Each country will have the following fields:</p>
+<ul>
+<li><strong><code>name</code></strong> is the name of the country.</li>
+<li><strong><code>capital</code></strong> is the capital of the country.</li>
+<li><strong><code>area</code></strong> is the area of the country in square kilometers.</li>
+</ul>
+<p>The fields <code>name</code>, <code>capital</code>, and <code>area</code> store data about a specific country somewhere in the world.</p>
+<p>Most of the time, data sent from a REST API comes from a database. <a href="https://realpython.com/flask-connexion-rest-api-part-2/">Connecting to a database</a> is beyond the scope for now. we will store our stuff into a csv if needed<br/>
+For the examples below, you’ll store your data in a Python list. and later change it to a csv file. in the future we will use sqlite</p>
+<p><strong>Note:</strong> It’s advised that you create individual folders for each of the examples to separate the source files.</p>
+<p>To keep things consistent, you’ll use <code>countries</code> as your main endpoint for all three frameworks. You’ll also use JSON as your data format for all three frameworks.</p>
+<p>Now that you’ve got the background for the API, you can move on to the next section, where you’ll look at the REST API in <strong>Flask</strong>.</p>
+<h3 id="flask">Flask<a href="#flask" title="Permanent link"></a></h3>
+<p><a href="https://realpython.com/introduction-to-flask-part-1-setting-up-a-static-site/">Flask</a> is a Python microframework used to build web applications and REST APIs. <br/>
+I find Flask the easiest framework to use given youre experience level.</p>
+<p>Flask provides a solid backbone for your applications while leaving many design choices up to you. Flask’s main job is to handle HTTP requests and route them to the appropriate function in the application.</p>
+<p><strong>Note:</strong> The code in this section uses the new <a href="https://palletsprojects.com/blog/flask-2-0-released/">Flask 2</a> syntax. If you’re running an older version of Flask, then use <a href="https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.route"><code>@app.route("/countries")</code></a> instead of <a href="https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.get"><code>@app.get("/countries")</code></a> and <a href="https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.post"><code>@app.post("/countries")</code></a>.</p>
+<p>To handle <code>POST</code> requests in older versions of <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a>, you’ll also need to add the <code>methods</code> parameter to <code>@app.route()</code>:</p>
+<p>Python</p>
+<p><code>@app.route("/countries", methods=["POST"])</code></p>
+<p>This route handles <code>POST</code> requests to <code>/countries</code> in Flask 1.</p>
+<p>Below is an example Flask application for the REST API:</p>
+<p>Python</p>
+<pre><code class="language-python"># app.py
+from flask import Flask, request, jsonify, make_response
+
+app = Flask(__name__)
+
+countries = [
+    {"id": 1, "name": "Thailand", "capital": "Bangkok", "area": 513120},
+    {"id": 2, "name": "Australia", "capital": "Canberra", "area": 7617930},
+    {"id": 3, "name": "Egypt", "capital": "Cairo", "area": 1010408},
+]
+
+def _find_next_id():
+    return max(country["id"] for country in countries) + 1 if countries else 1
+
+@app.get("/countries")
+def get_countries():
+    return jsonify(countries)
+
+@app.post("/countries")
+def add_country():
+    if not request.is_json:
+        return make_response(jsonify({"error": "Request must be JSON"}), 415)
+
+    data = request.get_json()
+
+    required_fields = {"name", "capital", "area"}
+    if not required_fields.issubset(data):
+        return make_response(jsonify({"error": f"Missing fields: {required_fields - data.keys()}"}), 400)
+
+    country = {
+        "id": _find_next_id(),
+        "name": data["name"],
+        "capital": data["capital"],
+        "area": data["area"]
+    }
+    countries.append(country)
+    return make_response(jsonify(country), 201)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+# you can get the respone by using curl in the cli:
+# curl -X GET http://127.0.0.1:5000/countries
+# 
+# or if it runs on localhost:
+
+# curl -X GET http://localhost:5000/countries
+</code></pre>
+<p>This application defines the API endpoint <code>/countries</code> to manage the list of countries. It handles two different kinds of requests:</p>
+<ol>
+<li><strong><code>GET /countries</code></strong> returns the list of <code>countries</code>.</li>
+<li><strong><code>POST /countries</code></strong> adds a new <code>country</code> to the list.</li>
+</ol>
+<p><strong>Note:</strong> This Flask application includes functions to handle only two types of requests to the API endpoint, <code>/countries</code>. In a full REST API, you’d want to expand this to include functions for all the required operations.</p>
+<p>You can try out this application by installing <code>flask</code> with <code>pip</code>:</p>
+<p>Shell</p>
+<p><code>$ python -m pip install flask</code></p>
+<p>Once <code>flask</code> is installed, save the code in a file called <code>app.py</code>. Then run it from vscode or pycharm</p>
+<p>you will get output like this<br/>
+Shell</p>
+<pre><code class="language-bash">$ flask run * Serving Flask app "app.py" (lazy loading) 
+* Environment: development 
+* Debug mode: on 
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)`
+</code></pre>
+<p>This starts up a server running the application. Open up your browser and go to <code>http://127.0.0.1:5000/countries</code> or <code>http://localhost:5000/countries</code>, <br/>
+and you’ll see the following response:</p>
+<p>JSON</p>
+<p><code>[     {         "area": 513120,         "capital": "Bangkok",         "id": 1,         "name": "Thailand"     },     {         "area": 7617930,         "capital": "Canberra",         "id": 2,         "name": "Australia"     },     {         "area": 1010408,         "capital": "Cairo",         "id": 3,         "name": "Egypt"     } ]</code></p>
+<p>This JSON response contains the three <code>countries</code> defined at the start of <code>app.py</code>. Take a look at the following code to see how this works:</p>
+<p>Python</p>
+<pre><code class="language-python">@app.get("/countries") 
+def get_countries():     
+    return jsonify(countries)
+</code></pre>
+<p>This code uses <code>@app.get()</code>, a Flask route <a href="https://realpython.com/primer-on-python-decorators/">decorator</a>, to connect <code>GET</code> requests to a function in the application. When you access <code>/countries</code>, Flask calls the decorated function to handle the HTTP request and <a href="https://realpython.com/python-return-statement/">return</a> a response.</p>
+<p>In the code above, <code>get_countries()</code> takes <code>countries</code>, which is a <a href="https://realpython.com/python-lists-tuples/">Python list</a>, and converts it to JSON with <code>jsonify()</code>. This JSON is returned in the response.</p>
+<p><strong>Note:</strong> Most of the time, you can just return a Python dictionary from a Flask function. Flask will automatically convert any Python dictionary to JSON. You can see this in action with the function below:</p>
+<p>Python</p>
+<pre><code class="language-python">@app.get("/country") 
+def get_country():     
+    return countries[1]
+</code></pre>
+<p>In this code, you return the second dictionary from <code>countries</code>. Flask will convert this dictionary to JSON. Here’s what you’ll see when you request <code>/country</code>:</p>
+<p>JSON</p>
+<p><code>{     "area": 7617930,     "capital": "Canberra",     "id": 2,     "name": "Australia" }</code></p>
+<p>This is the JSON version of the dictionary you returned from <code>get_country()</code>.</p>
+<p>In <code>get_countries()</code>, you need to use <code>jsonify()</code> because you’re returning a list of dictionaries and not just a single dictionary. Flask doesn’t automatically convert lists to JSON.</p>
+<p>Now take a look at <code>add_country()</code>. This function handles <code>POST</code> requests to <code>/countries</code> and allows you to add a new country to the list. It uses the Flask <a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#the-request-object"><code>request</code></a> object to get information about the current HTTP request:</p>
+<p>Python</p>
+<pre><code class="language-python">@app.post("/countries") 
+def add_country():     
+    if request.is_json:         
+        country = request.get_json()         
+        country["id"] = _find_next_id()         
+        countries.append(country)         
+        return country, 201     
+    return {"error": "Request must be JSON"}, 415
+
+</code></pre>
+<p>This function performs the following operations:</p>
+<ol>
+<li>Using <a href="https://flask.palletsprojects.com/en/1.1.x/api/?highlight=is_json#flask.Request.is_json"><code>request.is_json</code></a> to check that the request is JSON</li>
+<li>Creating a new <code>country</code> instance with <code>request.get_json()</code></li>
+<li>Finding the next <code>id</code> and setting it on the <code>country</code></li>
+<li>Appending the new <code>country</code> to <code>countries</code></li>
+<li>Returning the <code>country</code> in the response along with a <code>201 Created</code> status code</li>
+<li>Returning an error message and <code>415 Unsupported Media Type</code> status code if the request wasn’t JSON</li>
+</ol>
+<p><code>add_country()</code> also calls <code>_find_next_id()</code> to determine the <code>id</code> for the new <code>country</code>:</p>
+<p>Python</p>
+<pre><code class="language-python">def _find_next_id():     
+return max(country["id"] for country in countries) + 1   
+</code></pre>
+<p>This helper function uses a <a href="https://realpython.com/introduction-to-python-generators/">generator expression</a> to select all the country IDs and then calls <a href="https://realpython.com/python-min-and-max/"><code>max()</code></a> on them to get the largest value. It increments this value by <code>1</code> to get the next ID to use.</p>
+<p>You can try out this endpoint in the shell using the command-line tool <a href="https://curl.se/">curl</a>, which allows you to send HTTP requests from the command line. Here, you’ll add a new <code>country</code> to the list of <code>countries</code>:</p>
+<p>Shell</p>
+<p><code>$ curl -i http://127.0.0.1:5000/countries \ -X POST \ -H 'Content-Type: application/json' \ -d '{"name":"Germany", "capital": "Berlin", "area": 357022}'  HTTP/1.0 201 CREATED Content-Type: application/json ...  {     "area": 357022,     "capital": "Berlin",     "id": 4,     "name": "Germany" }</code></p>
+<p>This curl command has some options that are helpful to know:</p>
+<ul>
+<li><strong><code>-X</code></strong> sets the HTTP method for the request.</li>
+<li><strong><code>-H</code></strong> adds an HTTP header to the request.</li>
+<li><strong><code>-d</code></strong> defines the request data.</li>
+</ul>
+<p>With these options set, curl sends JSON data in a <code>POST</code> request with the <code>Content-Type</code> header set to <code>application/json</code>. The REST API returns <code>201 CREATED</code> along with the JSON for the new <code>country</code> you added.</p>
+<p><strong>Note:</strong> In this example, <code>add_country()</code> doesn’t contain any validation to confirm that the JSON in the request matches the format of <code>countries</code>. Check out <a href="https://pypi.org/project/flask-expects-json/">flask-expects-json</a> if you’d like to validate the format of JSON in Flask.</p>
+<p>You can use curl to send a <code>GET</code> request to <code>/countries</code> to confirm that the new <code>country</code> was added. If you don’t use <code>-X</code> in your curl command, then it sends a <code>GET</code> request by default:</p>
+<p>Shell</p>
+<p><code>$ curl -i http://127.0.0.1:5000/countries  HTTP/1.0 200 OK Content-Type: application/json ...  [     {         "area": 513120,         "capital": "Bangkok",         "id": 1,         "name": "Thailand"     },     {         "area": 7617930,         "capital": "Canberra",         "id": 2,         "name": "Australia"     },     {         "area": 1010408,         "capital": "Cairo",         "id": 3,         "name": "Egypt"     },     {         "area": 357022,         "capital": "Berlin",         "id": 4,         "name": "Germany"     } ]</code></p>
+<p>This returns the full list of countries in the system, with the newest country at the bottom.</p>
+<p>This is just a sampling of what Flask can do. This application could be expanded to include endpoints for all the other HTTP methods. Flask also has a large ecosystem of extensions that provide additional functionality for REST APIs, such as <a href="https://realpython.com/flask-connexion-rest-api/">database integrations</a>, <a href="https://realpython.com/flask-google-login/">authentication</a>, and background processing.</p>
+<h3 id="litestar-framework">Litestar Framework<a href="#litestar-framework" title="Permanent link"></a></h3>
+<p>Another popular option for building REST APIs (and the ones i use professionaly) is <a href="https://litestar.dev/">Litestar Framework</a>.</p>
+<p>Litestar is a modern, fast, and flexible web framework for building APIs in Python. It’s designed to be easy to use while providing powerful features for building RESTful services.<br/>
+Litestar is built on top of <a href="https://www.starlette.io/">Starlette</a> and <a href="https://docs.pydantic.dev/latest/">Pydantic</a>, which makes it fast and efficient. It also has a simple and intuitive API that makes it easy to get started.<br/>
+I mostly use it because it is native Async and it is very fast, however. for where we are now in the course, it may be a bit too advanced.</p>
+<p>below is mostly for demonstration purposes as we will continue with flask for the rest of the course. (until we go into async and more advanced topics)</p>
+<pre><code class="language-python">from litestar import Litestar, get, post, Request, Response
+from pydantic import BaseModel
+from typing import List
+import uvicorn
+
+class Country(BaseModel):
+    name: str
+    capital: str
+    area: int
+
+countries = [
+    {"id": 1, "name": "Thailand", "capital": "Bangkok", "area": 513120},
+    {"id": 2, "name": "Australia", "capital": "Canberra", "area": 7617930},
+    {"id": 3, "name": "Egypt", "capital": "Cairo", "area": 1010408},
+]
+
+def _find_next_id():
+    return max(country["id"] for country in countries) + 1 if countries else 1
+
+@get("/countries")
+async def get_countries() -&gt; List[dict]:
+    return countries
+
+@post("/countries")
+async def add_country(request: Request) -&gt; Response:
+    data = await request.json()
+    required_fields = {"name", "capital", "area"}
+    if not required_fields.issubset(data):
+        return Response(
+            {"error": f"Missing fields: {required_fields - data.keys()}"},
+            status_code=400
+        )
+
+    country = {
+        "id": _find_next_id(),
+        "name": data["name"],
+        "capital": data["capital"],
+        "area": data["area"]
+    }
+    countries.append(country)
+
+    return Response(country, status_code=201)
+
+app = Litestar(route_handlers=[get_countries, add_country])
+
+# --- 👇 Run the server from this file in vs code or pycharm ---
+if __name__ == "__main__":
+    uvicorn.run("prog:app", host="127.0.0.1", port=5000, reload=True)
+
+</code></pre>
+<p>we will need to install the following packages to run this code:</p>
+<pre><code class="language-bash">pip install litestar uvicorn pydantic
+</code></pre>
+<p>Sure! Here is the explanation formatted as a complete Markdown file:</p>
+<hr/>
+<pre><code class="language-markdown"># 🇹🇭 Simple Country API with Litestar and Uvicorn
+
+This project defines a basic REST API to manage country data using **[Litestar](https://www.litestar.dev)**. The server is started using **Uvicorn** directly from the same Python file.
+
+---
+
+## 📁 File: `prog.py`
+
+### 🔧 Imports
+
+```python
+from litestar import Litestar, get, post, Request, Response
+from pydantic import BaseModel
+from typing import List
+import uvicorn
+</code></pre>
+<ul>
+<li><code>Litestar</code>, <code>get</code>, <code>post</code>, <code>Request</code>, <code>Response</code>: Core components from the Litestar web framework.</li>
+<li><code>BaseModel</code>: From Pydantic, used to define data models with validation.</li>
+<li><code>List</code>: For type hinting a list of dictionaries.</li>
+<li><code>uvicorn</code>: The ASGI server to run the app.</li>
+</ul>
+<hr/>
+<h3 id="data-model">📦 Data Model</h3>
+<pre><code class="language-python">class Country(BaseModel):
+    name: str
+    capital: str
+    area: int
+</code></pre>
+<p>Defines the schema for a country with three fields: <code>name</code>, <code>capital</code>, and <code>area</code>.</p>
+<hr/>
+<h3 id="in-memory-data-store">🌍 In-Memory Data Store</h3>
+<pre><code class="language-python">countries = [
+    {"id": 1, "name": "Thailand", "capital": "Bangkok", "area": 513120},
+    {"id": 2, "name": "Australia", "capital": "Canberra", "area": 7617930},
+    {"id": 3, "name": "Egypt", "capital": "Cairo", "area": 1010408},
+]
+</code></pre>
+<p>A simple list of dictionaries representing country records.</p>
+<hr/>
+<h3 id="id-generation-helper">🔢 ID Generation Helper</h3>
+<pre><code class="language-python">def _find_next_id():
+    return max(country["id"] for country in countries) + 1 if countries else 1
+</code></pre>
+<p>Returns the next available unique ID for a new country entry.</p>
+<hr/>
+<h3 id="get-countries-endpoint">📥 <code>GET /countries</code> Endpoint</h3>
+<pre><code class="language-python">@get("/countries", sync_to_thread=False)
+def get_countries() -&gt; List[dict]:
+    return countries
+</code></pre>
+<ul>
+<li>Returns a list of all country entries.</li>
+<li><code>sync_to_thread=False</code> is used to indicate that this synchronous function is safe and non-blocking.</li>
+</ul>
+<hr/>
+<h3 id="post-countries-endpoint">➕ <code>POST /countries</code> Endpoint</h3>
+<pre><code class="language-python">@post("/countries")
+async def add_country(request: Request) -&gt; Response:
+    data = await request.json()
+    required_fields = {"name", "capital", "area"}
+    if not required_fields.issubset(data):
+        return Response(
+            {"error": f"Missing fields: {required_fields - data.keys()}"},
+            status_code=400
+        )
+
+    country = {
+        "id": _find_next_id(),
+        "name": data["name"],
+        "capital": data["capital"],
+        "area": data["area"]
+    }
+    countries.append(country)
+
+    return Response(country, status_code=201)
+</code></pre>
+<ul>
+<li>Accepts a JSON body with required fields.</li>
+<li>Validates field presence.</li>
+<li>Adds the new country to the list and returns it with HTTP 201 Created.</li>
+</ul>
+<hr/>
+<h3 id="create-and-run-the-litestar-app">🚀 Create and Run the Litestar App</h3>
+<pre><code class="language-python">app = Litestar(route_handlers=[get_countries, add_country])
+</code></pre>
+<p>Creates the Litestar app with the registered route handlers.</p>
+<pre><code class="language-python">if __name__ == "__main__":
+    uvicorn.run("prog:app", host="127.0.0.1", port=8000, reload=True)
+</code></pre>
+<ul>
+<li>Launches the server on <code>http://127.0.0.1:8000</code>.</li>
+<li><code>reload=True</code> enables hot-reloading for development.</li>
+</ul>
+<hr/>
+<h2 id="example-usage">🧪 Example Usage</h2>
+<h3 id="get-all-countries">🔍 Get All Countries</h3>
+<pre><code class="language-bash">curl -X GET http://127.0.0.1:8000/countries
+</code></pre>
+<h3 id="add-a-country">➕ Add a Country</h3>
+<pre><code class="language-bash">curl -X POST http://127.0.0.1:8000/countries \
+     -H "Content-Type: application/json" \
+     -d '{"name": "Japan", "capital": "Tokyo", "area": 377975}'
+</code></pre>
+<hr/></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

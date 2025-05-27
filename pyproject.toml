@@ -5,8 +5,12 @@ description = "Add your description here"
 requires-python = ">=3.13"
 dependencies = [
     "beautifulsoup4>=4.13.3",
+    "flask>=3.1.1",
     "html2markdown>=0.1.7",
     "html2text>=2024.2.26",
+    "litestar>=2.16.0",
     "markdown[toc]==3.7",
+    "pydantic>=2.11.5",
     "requests>=2.32.3",
+    "uvicorn>=0.34.2",
 ]

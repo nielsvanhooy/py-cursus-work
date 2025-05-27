@@ -21,6 +21,7 @@
 - [19 Working With Files.Html](19-working-with-files.html)
 - [20 Working With Exceptions.Html](20-working with-exceptions.html)
 - [21 Creating Cli Tools.Html](21-creating-cli-tools.html)
+- [22 Working With Rest And Apis.Html](22-working-with-rest-and-apis.html)
 - [40 Advanced Datastructures.Html](40-advanced-datastructures.html)
 - [Control Structures Exercises 2.Html](control-structures-exercises-2.html)
 - [Control Structures Exercises.Html](control-structures-exercises.html)
@@ -40,4 +41,5 @@
 - [Other Datastructures Exercises.Html](other-datastructures-exercises.html)
 - [Refactoring Exercises Beginner.Html](refactoring-exercises-beginner.html)
 - [While Loops Exercises.Html](while-loops-exercises.html)
+- [Working With Rest And Apis Exercises.Html](working-with-rest-and-apis-exercises.html)
 - [Working_With_Files_Exercises.Html](working_with_files_exercises.html)

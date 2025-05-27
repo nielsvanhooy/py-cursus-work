@@ -110,7 +110,7 @@ id,name,capital,area
 1,Thailand,Bangkok,513120
 2,Australia,Canberra,7617930
 3,Egypt,Cairo,1010408
-````
+```
 
 2. At the start of your Flask app, write a function to load countries from the CSV into a list of dictionaries.
 

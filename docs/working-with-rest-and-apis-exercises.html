@@ -156,53 +156,42 @@ Search for countries where the capital matches the query parameter (case insensi
 1,Thailand,Bangkok,513120
 2,Australia,Canberra,7617930
 3,Egypt,Cairo,1010408
-````
-
-2. At the start of your Flask app, write a function to load countries from the CSV into a list of dictionaries.
-
-3. When a new country is added via `POST /countries`, append it to the CSV file as well.
-
-&gt; Hint: You can use Python’s built-in `csv` module to read/write.
-
----
-
-## Exercise 2: Implement DELETE Endpoint
-
-
-
-### Goal
-
-Create a new endpoint:
-
 </code></pre>
-<p>DELETE /countries/<int:id></int:id></p>
-<pre><code>
-This endpoint should remove a country with the given ID.
-
-Bonus objective here. see if you can also implement a `PUT`/`PATCH` route to update existing countries.
-
-### Steps
-
-1. Read the data from the CSV file.
-2. Remove the matching country by ID.
-3. Write the updated list back to the CSV file.
-4. Return a 204 No Content status if successful.
-5. If the ID is not found, return a 404 error.
-
----
-
-## Exercise 3: Search for Countries
-
-### Goal
-
-Add support for querying countries based on capital name.
-
-### Endpoint
-
+<ol>
+<li>
+<p>At the start of your Flask app, write a function to load countries from the CSV into a list of dictionaries.</p>
+</li>
+<li>
+<p>When a new country is added via <code>POST /countries</code>, append it to the CSV file as well.</p>
+</li>
+</ol>
+<blockquote>
+<p>Hint: You can use Python’s built-in <code>csv</code> module to read/write.</p>
+</blockquote>
+<hr/>
+<h2 id="exercise-2-implement-delete-endpoint">Exercise 2: Implement DELETE Endpoint</h2>
+<h3 id="goal_1">Goal</h3>
+<p>Create a new endpoint:</p>
+<pre><code>DELETE /countries/&lt;int:id&gt;
 </code></pre>
-<p>GET /countries/search?capital=Cairo<br/>
-```</p>
+<p>This endpoint should remove a country with the given ID.</p>
+<p>Bonus objective here. see if you can also implement a <code>PUT</code>/<code>PATCH</code> route to update existing countries.</p>
 <h3 id="steps_1">Steps</h3>
+<ol>
+<li>Read the data from the CSV file.</li>
+<li>Remove the matching country by ID.</li>
+<li>Write the updated list back to the CSV file.</li>
+<li>Return a 204 No Content status if successful.</li>
+<li>If the ID is not found, return a 404 error.</li>
+</ol>
+<hr/>
+<h2 id="exercise-3-search-for-countries">Exercise 3: Search for Countries</h2>
+<h3 id="goal_2">Goal</h3>
+<p>Add support for querying countries based on capital name.</p>
+<h3 id="endpoint">Endpoint</h3>
+<pre><code>GET /countries/search?capital=Cairo
+</code></pre>
+<h3 id="steps_2">Steps</h3>
 <ol>
 <li>Add a new route <code>/countries/search</code> that accepts a <code>capital</code> query parameter.</li>
 <li>Filter the list of countries (loaded from CSV) where the capital matches the query (case-insensitive).</li>

@@ -642,9 +642,8 @@ I find Flask the easiest framework to use given youre experience level.
 
 Flask provides a solid backbone for your applications while leaving many design choices up to you. Flask’s main job is to handle HTTP requests and route them to the appropriate function in the application.
 
-**Note:** The code in this section uses the new [Flask 2](https://palletsprojects.com/blog/flask-2-0-released/) syntax. If you’re running an older version of Flask, then use [`@app.route("/countries")`](https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.route) instead of [`@app.get("/countries")`](https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.get) and [`@app.post("/countries")`](https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.post).
+**Note:** The code in this section uses the new [Flask 3](https://flask.palletsprojects.com/en/stable/) syntax.
 
-To handle `POST` requests in older versions of [Flask](https://flask.palletsprojects.com/en/1.1.x/), you’ll also need to add the `methods` parameter to `@app.route()`:
 
 Python
 

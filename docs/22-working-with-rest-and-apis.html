@@ -695,8 +695,7 @@ For the examples below, you’ll store your data in a Python list. and later cha
 <p><a href="https://realpython.com/introduction-to-flask-part-1-setting-up-a-static-site/">Flask</a> is a Python microframework used to build web applications and REST APIs. <br/>
 I find Flask the easiest framework to use given youre experience level.</p>
 <p>Flask provides a solid backbone for your applications while leaving many design choices up to you. Flask’s main job is to handle HTTP requests and route them to the appropriate function in the application.</p>
-<p><strong>Note:</strong> The code in this section uses the new <a href="https://palletsprojects.com/blog/flask-2-0-released/">Flask 2</a> syntax. If you’re running an older version of Flask, then use <a href="https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.route"><code>@app.route("/countries")</code></a> instead of <a href="https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.get"><code>@app.get("/countries")</code></a> and <a href="https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.post"><code>@app.post("/countries")</code></a>.</p>
-<p>To handle <code>POST</code> requests in older versions of <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a>, you’ll also need to add the <code>methods</code> parameter to <code>@app.route()</code>:</p>
+<p><strong>Note:</strong> The code in this section uses the new <a href="https://flask.palletsprojects.com/en/stable/">Flask 3</a> syntax.</p>
 <p>Python</p>
 <p><code>@app.route("/countries", methods=["POST"])</code></p>
 <p>This route handles <code>POST</code> requests to <code>/countries</code> in Flask 1.</p>

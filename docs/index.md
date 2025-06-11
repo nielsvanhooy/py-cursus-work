@@ -10,6 +10,7 @@
 - [04 Interactive Console.Html](04-interactive-console.html)
 - [05 String And Variables.Html](05-string-and-variables.html)
 - [10 Basic Types.Html](10-basic-types.html)
+- [11 1 Match Case.Html](11-1-match-case.html)
 - [11 Control Structures Part One.Html](11-control-structures-part-one.html)
 - [12 Lists.Html](12-lists.html)
 - [13 Loops.Html](13-loops.html)

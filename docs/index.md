@@ -38,6 +38,7 @@
 - [Milestone Exercises 2.Html](milestone-exercises-2.html)
 - [Milestone Exercises 3 Up To Including Loops.Html](milestone-exercises-3-up-to-including-loops.html)
 - [Milestone Exercises 3 Very Difficult Up To Including Loops.Html](milestone-exercises-3-very-difficult-up-to-including-loops.html)
+- [Milestone Exercises 4 All Basic Python Knowledge.Html](milestone-exercises-4-all-basic-python-knowledge.html)
 - [Milestone Exercises.Html](milestone-exercises.html)
 - [Other Datastructures Exercises.Html](other-datastructures-exercises.html)
 - [Refactoring Exercises Beginner.Html](refactoring-exercises-beginner.html)

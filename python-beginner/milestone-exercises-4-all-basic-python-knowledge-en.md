@@ -40,9 +40,9 @@ Create a comprehensive network device management system that reads device inform
 ### Requirements:
 
 1. **Function: `load_network_devices(filename)`**
-   - Read the network_devices.txt file
-   - Return a list of dictionaries, where each dictionary represents a device with keys: "name", "ip", "mac", "status"
-   - Handle file not found errors gracefully
+   -- Read the network_devices.txt file
+   -- Return a list of dictionaries, where each dictionary represents a device with keys: "name", "ip", "mac", "status"
+   -- Handle file not found errors gracefully
 
 2. **Function: `display_device_summary(devices)`**
    - Print a formatted summary showing:

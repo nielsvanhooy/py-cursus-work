@@ -251,94 +251,12 @@ Server,192.168.1.100,00:1F:66:77:88:99,active
 - Lists any suspicious IP addresses<br/>
 - Generates a security report file</p>
 <hr/>
-<h2 id="exercise-3-network-security-dashboard-hard">Exercise 3: Network Security Dashboard (Hard)</h2>
-<p>Create an advanced network monitoring system that combines everything from previous exercises and adds real-time monitoring capabilities, network topology mapping, and advanced security analysis.</p>
-<h3 id="requirements_2">Requirements:</h3>
-<ol>
-<li><strong>Function: <code>NetworkMonitor</code> class or set of advanced functions for:</strong></li>
-</ol>
-<p><strong>a. <code>load_all_data(device_file, log_file, topology_file=None)</code></strong><br/>
-   - Load and validate all data sources<br/>
-   - Return a comprehensive data structure containing all network information<br/>
-   - Handle missing files gracefully</p>
-<p><strong>b. <code>create_network_topology(devices)</code></strong><br/>
-   - Create a network topology representation<br/>
-   - Group devices by IP subnet (e.g., 192.168.1.x, 10.0.0.x)<br/>
-   - Return a dictionary where keys are subnets and values are lists of devices</p>
-<p><strong>c. <code>calculate_network_health(devices, logs)</code></strong><br/>
-   - Calculate an overall network health score (0-100)<br/>
-   - Consider factors like:<br/>
-     - Percentage of active devices<br/>
-     - Ratio of allowed vs denied requests<br/>
-     - Number of unique protocols in use<br/>
-     - Distribution of traffic across devices</p>
-<p><strong>d. <code>detect_anomalies(logs, devices)</code></strong><br/>
-   - Advanced anomaly detection combining multiple factors:<br/>
-     - Unusual port access patterns<br/>
-     - High volume of requests from single IPs<br/>
-     - Access attempts to inactive devices<br/>
-     - Unusual time patterns (if you want to add time analysis)<br/>
-   - Return a detailed report of anomalies found</p>
-<p><strong>e. <code>generate_network_map(topology, output_filename)</code></strong><br/>
-   - Create a text-based network map file showing:<br/>
-     - Network subnets<br/>
-     - Devices in each subnet<br/>
-     - Device status and types<br/>
-     - Connection indicators</p>
-<p><strong>f. <code>create_dashboard_summary(devices, logs, topology, health_score, anomalies)</code></strong><br/>
-   - Generate a comprehensive dashboard summary<br/>
-   - Include visual elements using ASCII art or simple text formatting<br/>
-   - Show key metrics, alerts, and recommendations</p>
-<ol>
-<li><strong>Advanced Analysis Functions:</strong></li>
-</ol>
-<p><strong>a. <code>analyze_protocol_usage(logs)</code></strong><br/>
-   - Analyze which protocols are most/least used<br/>
-   - Calculate percentage distribution<br/>
-   - Identify unused standard ports</p>
-<p><strong>b. <code>device_communication_matrix(logs, devices)</code></strong><br/>
-   - Create a matrix showing which devices communicate with external IPs<br/>
-   - Identify devices that never appear in logs (potential security risk)</p>
-<p><strong>c. <code>time_based_analysis(logs)</code></strong><br/>
-   - Analyze traffic patterns by hour (extract hour from timestamp)<br/>
-   - Identify peak usage times<br/>
-   - Detect unusual activity outside normal hours</p>
-<ol>
-<li><strong>Configuration and Settings:</strong></li>
-</ol>
-<p><strong>a. <code>load_monitoring_config(config_file="monitor_config.txt")</code></strong><br/>
-   - Load monitoring thresholds and settings from a configuration file<br/>
-   - Handle default values if config file doesn't exist<br/>
-   - Config should include settings like:<br/>
-     - Maximum allowed denied requests per IP<br/>
-     - Health score thresholds<br/>
-     - Alert thresholds for various metrics</p>
-<p><strong>b. <code>save_monitoring_state(data, filename="network_state.txt")</code></strong><br/>
-   - Save current network state to a file for comparison in future runs<br/>
-   - Include timestamps and key metrics</p>
-<h3 id="advanced-file-operations">Advanced File Operations:</h3>
-<ul>
-<li>Create a configuration file with monitoring parameters</li>
-<li>Implement backup functionality for all generated reports</li>
-<li>Add the ability to archive old log files</li>
-<li>Create multiple output formats (summary, detailed, CSV export)</li>
-</ul>
-<h3 id="main-program_2">Main Program:</h3>
-<p>Create a comprehensive main program that:<br/>
-1. Loads all configuration and data files<br/>
-2. Performs complete network analysis<br/>
-3. Displays an interactive dashboard summary<br/>
-4. Generates multiple report files<br/>
-5. Saves current state for future comparison<br/>
-6. Provides menu-driven options for different analysis views<br/>
-7. Handles all errors gracefully with informative messages</p>
 <h3 id="bonus-challenges">Bonus Challenges:</h3>
 <ul>
 <li>Add input validation for all user inputs</li>
 <li>Implement a simple command-line menu system</li>
 <li>Add the ability to compare current analysis with previous runs</li>
 <li>Create a function to export data in CSV format for external analysis</li>
-<li>Implement basic data visualization using text-based charts</li>
 </ul>
 <hr/>
 <h2 id="testing-your-solutions">Testing Your Solutions</h2>

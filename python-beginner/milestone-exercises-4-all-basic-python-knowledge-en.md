@@ -45,29 +45,29 @@ Create a comprehensive network device management system that reads device inform
    -- Handle file not found errors gracefully
 
 2. **Function: `display_device_summary(devices)`**
-   - Print a formatted summary showing:
-     - Total number of devices
-     - Number of active devices
-     - Number of inactive devices
-     - List all device names with their status
+   -- Print a formatted summary showing:
+     -- Total number of devices
+     -- Number of active devices
+     -- Number of inactive devices
+     -- List all device names with their status
 
 3. **Function: `find_devices_by_status(devices, status)`**
-   - Return a list of devices that match the given status ("active" or "inactive")
-   - The status parameter should be case-insensitive
+   -- Return a list of devices that match the given status ("active" or "inactive")
+   -- The status parameter should be case-insensitive
 
 4. **Function: `get_device_by_ip(devices, ip_address)`**
-   - Return the device dictionary that matches the given IP address
-   - Return None if no device is found
+   -- Return the device dictionary that matches the given IP address
+   -- Return None if no device is found
 
 5. **Function: `validate_ip_format(ip_address)`**
-   - Check if the IP address follows the basic IPv4 format (xxx.xxx.xxx.xxx)
-   - Return True if valid, False otherwise
-   - Use string methods and basic validation (don't worry about valid IP ranges)
+   -- Check if the IP address follows the basic IPv4 format (xxx.xxx.xxx.xxx)
+   -- Return True if valid, False otherwise
+   -- Use string methods and basic validation (don't worry about valid IP ranges)
 
 6. **Function: `create_device_report(devices, output_filename)`**
-   - Create a report file that lists all devices in a formatted way
-   - Include device name, IP, MAC address, and status
-   - Add a header with the total count of devices
+   -- Create a report file that lists all devices in a formatted way
+   -- Include device name, IP, MAC address, and status
+   -- Add a header with the total count of devices
 
 ### Main Program:
 Write a main section that:
@@ -85,44 +85,44 @@ Building on Exercise 1, create a firewall log analysis system that processes sec
 ### Requirements:
 
 1. **Function: `load_firewall_logs(filename)`**
-   - Read the firewall_logs.txt file
-   - Return a list of dictionaries with keys: "timestamp", "ip", "port", "action", "protocol"
-   - Handle file errors appropriately
+   -- Read the firewall_logs.txt file
+   -- Return a list of dictionaries with keys: "timestamp", "ip", "port", "action", "protocol"
+   -- Handle file errors appropriately
 
 2. **Function: `parse_log_entry(log_line)`**
-   - Take a single line from the log file and convert it to a dictionary
-   - Handle any malformed lines by returning None
+   -- Take a single line from the log file and convert it to a dictionary
+   -- Handle any malformed lines by returning None
 
 3. **Function: `filter_logs_by_action(logs, action)`**
-   - Return all log entries that match the specified action ("ALLOW" or "DENY")
-   - Make the search case-insensitive
+   -- Return all log entries that match the specified action ("ALLOW" or "DENY")
+   -- Make the search case-insensitive
 
 4. **Function: `get_top_ports(logs, limit=5)`**
-   - Analyze all log entries and return the most frequently accessed ports
-   - Return a list of tuples: [(port, count), (port, count), ...]
-   - Sort by count in descending order
+   -- Analyze all log entries and return the most frequently accessed ports
+   -- Return a list of tuples: [(port, count), (port, count), ...]
+   -- Sort by count in descending order
 
 5. **Function: `analyze_ip_activity(logs, devices)`**
-   - Cross-reference firewall logs with your device inventory
-   - Return a dictionary where keys are IP addresses and values are dictionaries containing:
-     - "device_name": name from device inventory (or "Unknown" if not found)
-     - "total_requests": total number of log entries for this IP
-     - "allowed_requests": number of ALLOW entries
-     - "denied_requests": number of DENY entries
+   -- Cross-reference firewall logs with your device inventory
+   -- Return a dictionary where keys are IP addresses and values are dictionaries containing:
+     -- "device_name": name from device inventory (or "Unknown" if not found)
+     -- "total_requests": total number of log entries for this IP
+     -- "allowed_requests": number of ALLOW entries
+     -- "denied_requests": number of DENY entries
 
 6. **Function: `detect_suspicious_activity(logs, max_denied_requests=3)`**
-   - Find IP addresses that have more than `max_denied_requests` DENY entries
-   - Return a list of dictionaries with IP address and deny count
-   - Sort by deny count in descending order
+   -- Find IP addresses that have more than `max_denied_requests` DENY entries
+   -- Return a list of dictionaries with IP address and deny count
+   -- Sort by deny count in descending order
 
 7. **Function: `generate_security_report(logs, devices, output_filename)`**
-   - Create a comprehensive security report file
-   - Include:
-     - Summary statistics (total logs, allowed vs denied)
-     - Top 5 most accessed ports
-     - IP activity analysis
-     - List of suspicious IPs
-     - Timestamp of the report
+   -- Create a comprehensive security report file
+   -- Include:
+     -- Summary statistics (total logs, allowed vs denied)
+     -- Top 5 most accessed ports
+     -- IP activity analysis
+     -- List of suspicious IPs
+     -- Timestamp of the report
 
 ### Main Program:
 Write a main section that:

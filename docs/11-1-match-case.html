@@ -1,0 +1,302 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1 id="python-match-case-statement">Python Match Case Statement</h1>
+<p>Introduced in Python 3.10, the <strong>match case</strong> statement offers a powerful mechanism for pattern matching in Python. It allows us to perform more expressive and readable conditional checks. Unlike traditional if-elif-else chains, which can become unwieldy with complex conditions, the match-case statement provides a more elegant and flexible solution.</p>
+<h2 id="example">Example:</h2>
+<pre><code class="language-python">def check_number(x):
+    match x:
+        case 10:
+            print("It's 10")
+        case 20:
+            print("It's 20")
+        case _:
+            print("It's neither 10 nor 20")
+
+check_number(10)
+check_number(30)
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>In this example, the function <code>check_number(x)</code> uses a match-case statement to compare the value of x to the constants 10 and 20.</li>
+<li>If x equals 10, it prints "It's 10". If x equals 20, it prints "It's 20".</li>
+<li>If neither condition is met, the wildcard <code>_</code> matches any value, leading to the message "It's neither 10 nor 20".</li>
+</ul>
+<p>Let's take a look at python match case statement in detail:</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#python-match-case-statement-syntax">Python Match Case Statement Syntax</a></li>
+<li><a href="#match-case-statements-with-constants">Match Case Statements with Constants</a></li>
+<li><a href="#match-case-statement-with-or-operator">Match Case Statement with OR Operator</a></li>
+<li><a href="#match-case-statement-with-python-if-condition">Match Case Statement with Python If Condition</a></li>
+<li><a href="#match-case-statement-on-sequences">Match Case Statement on Sequences</a></li>
+<li><a href="#match-case-statement-on-mappings-dictionaries">Match Case Statement on Mappings (Dictionaries)</a></li>
+<li><a href="#match-case-statement-with-python-class">Match Case Statement with Python Class</a></li>
+</ul>
+<h2 id="python-match-case-statement-syntax">Python Match Case Statement Syntax</h2>
+<p>The match-case syntax is based on structural pattern matching, which enables matching against data structures like sequences, mappings and even classes, providing more granularity and flexibility in handling various conditions. This feature is particularly useful when dealing with different types of data in a clear and organized manner.</p>
+<pre><code class="language-python">match subject:
+    case pattern1:
+        # Code block if pattern1 matches
+    case pattern2:
+        # Code block if pattern2 matches
+    case _:
+        # Default case (wildcard) if no other pattern matches
+</code></pre>
+<ul>
+<li><strong>match subject:</strong> The value (or variable) to match against.</li>
+<li><strong>case pattern:</strong> A pattern to match the subject.</li>
+<li><strong>_ (Wildcard):</strong> A default catch-all pattern, similar to a "default" in other languages' switch statements.</li>
+</ul>
+<p>Now, let us see a few examples to know how the match case statement works in Python.</p>
+<p>The power of the match-case statement lies in its ability to match a variety of data types, including constants, sequences, mappings and custom classes. Let's explore how to use match-case with different data types.</p>
+<h2 id="match-case-statements-with-constants">Match Case Statements with Constants</h2>
+<p>Matching constants is one of the simplest uses of the match-case statement. It checks if a variable matches specific constant values and allows for different actions based on the matched constant.</p>
+<pre><code class="language-python">def greet(person):
+    match person:
+        case "A":
+            print("Hello, A!")
+        case "B":
+            print("Hello, B!")
+        case _:
+            print("Hello, stranger!")
+
+greet("A")
+greet("B")
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>The function <code>greet(person)</code> checks the value of person using the match-case statement.</li>
+<li>It specifically matches "A" and "B", printing a personalized greeting.</li>
+<li>If the value of person doesn't match any of the constants, the wildcard <code>_</code> matches any value and prints "Hello, stranger!".</li>
+</ul>
+<h2 id="match-case-statement-with-or-operator">Match Case Statement with OR Operator</h2>
+<p>The match-case statement can also be used with logical operators like or to combine multiple patterns. This allows for a more flexible matching system where you can group patterns and check for a match against any of them.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">def num_check(x):
+    match x:
+        case 10 | 20 | 30:  # Matches 10, 20, or 30
+            print(f"Matched: {x}")
+        case _:
+            print("No match found")
+
+num_check(10)
+num_check(20)
+num_check(25)
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>The pattern <code>10 | 20 | 30</code> uses the or operator to match any of these three values. If x equals 10, 20 or 30, the case will execute.</li>
+<li>If x doesn't match any of the values, the wildcard <code>_</code> catches it and prints "No match found".</li>
+</ul>
+<h2 id="match-case-statement-with-python-if-condition">Match Case Statement with Python If Condition</h2>
+<p>We can also add an if condition after a case to create more granular control over the matching process. This allows us to add additional checks within a case.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">def num_check(x):
+    match x:
+        case 10 if x % 2 == 0:  # Match 10 only if it's even
+            print("Matched 10 and it's even!")
+        case 10:
+            print("Matched 10, but it's not even.")
+        case _:
+            print("No match found")
+
+num_check(10)
+num_check(15)
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>The first case matches 10 but only if <code>x % 2 == 0</code>. If this condition is met, it prints a specific message.</li>
+<li>The second case matches 10 without the condition, ensuring that a fallback message is shown if the first case isn't executed.</li>
+</ul>
+<h2 id="match-case-statement-on-sequences">Match Case Statement on Sequences</h2>
+<p>The match-case statement is particularly powerful when working with sequences such as lists or tuples. We can match individual elements of a sequence or even match the structure of the sequence itself.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">def process(data):
+    match data:
+        case [x, y]:  
+            # A list with two elements
+            print(f"Two-element list: {x}, {y}")
+        case [x, y, z]:  
+            # A list with three elements
+            print(f"Three-element list: {x}, {y}, {z}")
+        case _:
+            print("Unknown data format")
+
+process([1, 2])
+process([1, 2, 3])
+process([1, 2, 3, 4])
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>The function <code>process(data)</code> matches the structure of the list data.</li>
+<li>The first case matches if the list has exactly two elements, binding the first and second elements to x and y respectively.</li>
+<li>The second case matches if the list has exactly three elements, binding them to x, y and z.</li>
+<li>If the list does not match either pattern, the wildcard <code>_</code> is used to print "Unknown data format".</li>
+</ul>
+<h2 id="match-case-statement-on-mappings-dictionaries">Match Case Statement on Mappings (Dictionaries)</h2>
+<p>A mapping is another common data type in Python and match-case can be used to match against dictionaries, checking for specific keys and values.</p>
+<pre><code class="language-python">def person(person):
+    match person:
+        # Dictionary with name and age keys
+        case {"name": name, "age": age}:  
+            print(f"Name: {name}, Age: {age}")
+        # Dictionary with only name key    
+        case {"name": name}:  
+            print(f"Name: {name}")
+        case _:
+            print("Unknown format")
+
+person({"name": "Alice", "age": 25})
+person({"name": "Bob"})
+person({"city": "New York"})
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>The function <code>person(person)</code> matches the structure of a dictionary person.</li>
+<li>The first case matches a dictionary that contains both "name" and "age" keys, binding their corresponding values to the variables name and age.</li>
+<li>The second case matches a dictionary with just the "name" key.</li>
+<li>The wildcard <code>_</code> is used to catch any other dictionary structure that doesn't match these patterns, printing "Unknown format".</li>
+</ul>
+<h2 id="match-case-statement-with-python-class">Match Case Statement with Python Class</h2>
+<p>One of the most powerful features of match-case is the ability to match against classes. We can match instances of a class and even extract specific attributes of an object for further handling.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">class Shape:
+    pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+def check_shape(shape):
+    match shape:
+        # Match Circle and extract the radius
+        case Circle(radius):  
+            print(f"circle radius {radius}.")
+        # Match Rectangle and extract width and height
+        case Rectangle(width, height):  
+            print(f"Rectangle width {width} and height {height}.")
+        # Default case for any other object
+        case _:  
+            print("This is an unknown shape.")
+
+# Create objects of Circle and Rectangle
+circle = Circle(10)
+rectangle = Rectangle(4, 6)
+
+# Test with different shapes
+check_shape(circle)     
+check_shape(rectangle)  
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>We have a Shape class and two types of shapes: Circle and Rectangle.</li>
+<li>The <code>check_shape</code> function checks if the shape is a Circle or Rectangle and prints their details.</li>
+<li>If the shape isn't one of these, it says "unknown shape."</li>
+</ul></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    

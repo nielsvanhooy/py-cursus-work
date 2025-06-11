@@ -6,6 +6,7 @@ requires-python = ">=3.13"
 dependencies = [
     "beautifulsoup4>=4.13.3",
     "flask>=3.1.1",
+    "flask-cors>=6.0.0",
     "html2markdown>=0.1.7",
     "html2text>=2024.2.26",
     "litestar>=2.16.0",

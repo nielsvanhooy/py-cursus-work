@@ -89,20 +89,16 @@ Building on Exercise 1, create a firewall log analysis system that processes sec
    -- Return a list of dictionaries with keys: "timestamp", "ip", "port", "action", "protocol"
    -- Handle file errors appropriately
 
-2. **Function: `parse_log_entry(log_line)`**
-   -- Take a single line from the log file and convert it to a dictionary
-   -- Handle any malformed lines by returning None
-
-3. **Function: `filter_logs_by_action(logs, action)`**
+2. **Function: `filter_logs_by_action(logs, action)`**
    -- Return all log entries that match the specified action ("ALLOW" or "DENY")
    -- Make the search case-insensitive
 
-4. **Function: `get_top_ports(logs, limit=5)`**
+3. **Function: `get_top_ports(logs, limit=5)`**
    -- Analyze all log entries and return the most frequently accessed ports
    -- Return a list of tuples: [(port, count), (port, count), ...]
    -- Sort by count in descending order
 
-5. **Function: `analyze_ip_activity(logs, devices)`**
+4. **Function: `analyze_ip_activity(logs, devices)`**
    -- Cross-reference firewall logs with your device inventory
    -- Return a dictionary where keys are IP addresses and values are dictionaries containing:
      -- "device_name": name from device inventory (or "Unknown" if not found)
@@ -110,12 +106,12 @@ Building on Exercise 1, create a firewall log analysis system that processes sec
      -- "allowed_requests": number of ALLOW entries
      -- "denied_requests": number of DENY entries
 
-6. **Function: `detect_suspicious_activity(logs, max_denied_requests=3)`**
+5. **Function: `detect_suspicious_activity(logs, max_denied_requests=3)`**
    -- Find IP addresses that have more than `max_denied_requests` DENY entries
    -- Return a list of dictionaries with IP address and deny count
    -- Sort by deny count in descending order
 
-7. **Function: `generate_security_report(logs, devices, output_filename)`**
+6. **Function: `generate_security_report(logs, devices, output_filename)`**
    -- Create a comprehensive security report file
    -- Include:
      -- Summary statistics (total logs, allowed vs denied)

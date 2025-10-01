@@ -7,7 +7,7 @@ in this course we will use the following python scripts.
 
 Furthermore this course assumes you have basic knowledge of a relational database (knowing what it is.)
 
-
+#### ip_manager.py
 ```python
 import csv
 from time import sleep
@@ -123,7 +123,7 @@ if __name__ == '__main__':
 ```
 
 and the csv file that comes with it:
-
+#### ip_manager.csv
 ```csv
 ip_address,hostname,department,assigned_date,notes
 192.168.1.10,printer01,HR,2023-01-15,Main office printer

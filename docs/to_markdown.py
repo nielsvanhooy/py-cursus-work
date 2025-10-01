@@ -112,6 +112,9 @@ def modify_index_structure(html):
         elif "Exceptions" in link_text:
             group_name = "Exceptions"
             exercise_groups[group_name].append(item)
+        elif "Sql" in link_text:
+            group_name = "Python Sql/Sqlite and Sqlalchemy"
+            exercise_groups[group_name].append(item)
         else:
             # Fallback for items that don't match any pattern
             exercise_groups['Other'].append(item)
@@ -141,7 +144,8 @@ def modify_index_structure(html):
         "Functions",
         "Refactoring",
         "Exceptions",
-        "Other"
+        "Other",
+        "Python Sql/Sqlite and Sqlalchemy"
     ]
 
     for group_name in group_order:

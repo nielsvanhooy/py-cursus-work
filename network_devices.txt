@@ -1,0 +1,6 @@
+Router,192.168.1.1,00:1A:2B:3C:4D:5E,active
+Switch,192.168.1.2,00:1B:44:11:3A:B7,active
+Laptop,192.168.1.10,00:1C:42:2E:60:4A,inactive
+Phone,192.168.1.15,00:1D:33:44:55:66,active
+Printer,192.168.1.20,00:1E:55:66:77:88,inactive
+Server,192.168.1.100,00:1F:66:77:88:99,active

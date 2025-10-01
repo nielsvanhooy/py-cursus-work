@@ -1,0 +1,1010 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python Course</title>
+        <link rel="stylesheet" href="github-markdown-dark.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #44475A;
+                color: white;
+            }
+            pre {
+                padding: 10px;
+                border-radius: 5px;
+                background: #2d2d2d;
+                color: #ccc;
+                overflow-x: auto;
+            }
+            details summary {
+                font-weight: bold;
+                color: #FF79C6;
+            }
+            details p {
+                font-weight: bold;
+                margin-left: 40px;
+            }
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+        }
+        tr:nth-child(even) {
+            background-color: #383a46;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+    
+            .markdown-content {
+                max-width: 1000px;
+                width: 90%;
+                padding: 20px;
+                background: #44475A;
+                color: #ccc;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+            .markdown-body hr {
+                height: 0.50em;
+                background-color: #8BE9FD;
+            }
+            h3.exercise-type {
+                color: #50FA7B;
+                margin-left: 20px;
+                font-size: 1.3em;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            /* Style for cheat sheets section heading */
+            #cheat-sheets {
+                color: #FF79C6;
+            }
+            /* Add smooth scrolling for internal links */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Add visual indication for link targets */
+            :target {
+                background-color: rgba(255, 121, 198, 0.2);
+                padding: 5px;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body class="markdown-body">
+        <div class="markdown-content"><h1 id="data-management-with-python-sqlite-and-sqlalchemy">Data Management With Python, SQLite, and SQLAlchemy</h1>
+<p>in this course we will use the following python scripts.</p>
+<ul>
+<li>ip_manager.py</li>
+<li>ip_manager.csv</li>
+</ul>
+<p>Furthermore this course assumes you have basic knowledge of a relational database (knowing what it is.)</p>
+<pre><code class="language-python">import csv
+from time import sleep
+
+
+def file_opener_dict():
+    return_data = []
+    with open("ip_manager.csv", newline='') as csvfile:
+        content = csv.DictReader(csvfile)
+        for things in content:
+            return_data.append(things)
+    return return_data
+
+
+def display_data(db_data):
+    for data in db_data:
+        print(data)
+
+
+def entry_adder(db_data):
+    new_ip_address = input("ip_address:")
+    new_hostname = input("hostname:")
+    new_department = input("department:")
+    new_assigned_date = input("assigned_date:")
+    new_notes = input("notes:")
+    new_entry = {
+        'ip_address': new_ip_address,
+        'hostname': new_hostname,
+        'department': new_department,
+        'assigned_date': new_assigned_date,
+        'notes': new_notes
+    }
+    print(f"adding: {new_entry}")
+    db_data.append(new_entry)
+
+
+def entry_searcher(db_data):
+    lookup = str(input('find: '))
+    try:
+        for db_index, data in enumerate(db_data):
+            for k,v in data.items():
+                if (k == "ip_address" or k == "hostname") and lookup == v :
+                    print(f"matched {lookup} to {k,v} on index {db_index}, from:\n{data}")
+                    return db_index
+        raise LookupError(f"Error between Keyboard and Screen, aka User. no {lookup} in date")
+    except LookupError:
+        print(f"No entry found for {lookup}")
+
+
+def entry_remover(db_data, db_index):
+    confirm = input("DELETE\tY/N?\t").upper()
+    match confirm:
+        case "Y":
+            db_data.pop(db_index)
+            print("deleted")
+        case _:
+            print("cancel")
+
+
+def file_saver_new(db_data):
+    with open("ip_addr.csv", "w", newline='') as csvfile:
+        print("Writing to file")
+        fieldnames = ['ip_address', 'hostname', 'department', 'assigned_date', 'notes']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for data in db_data:
+            writer.writerow(data)
+            sleep(0.2)
+    print("Done")
+
+
+def menu():
+    options = """
+    0. re-import form file
+    1. show all
+    2. search by IP or HOSTNAME (UNDER_CONSTRUCTION)
+    3. add an entry
+    4. remove an entry (UNDER_CONSTRUCTION)
+    5. save to file new
+    6. quit
+    """
+    return options
+
+
+def main():
+    db_data = file_opener_dict()
+    busy = True
+    while busy:
+        print(menu())
+        choice = int(input('choose:'))
+        match choice:
+            case 0:
+                db_data = file_opener_dict()
+            case 1:
+                display_data(db_data)
+            case 2:
+                entry_searcher(db_data)
+            case 3:
+                entry_adder(db_data)
+            case 4:
+                db_index = entry_searcher(db_data)
+                entry_remover(db_data, db_index)
+            case 5:
+                file_saver_new(db_data)
+            case _:
+                print("\t\tBYE!")
+                busy = False
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre>
+<p>and the csv file that comes with it:</p>
+<pre><code class="language-csv">ip_address,hostname,department,assigned_date,notes
+192.168.1.10,printer01,HR,2023-01-15,Main office printer
+192.168.1.20,laptop-alice,Marketing,2023-02-05,Alice's laptop
+192.168.1.30,desktop-bob,Engineering,2023-03-10,Bob's workstation
+192.168.1.40,server-file01,IT,2023-01-20,File server
+192.168.1.50,laptop-carol,Sales,2023-02-12,Carol's laptop
+192.168.1.60,desktop-dave,Accounting,2023-03-15,Dave's workstation
+192.168.1.100,server-db01,IT,2023-01-10,Database server
+192.168.1.101,printer02,Marketing,2023-02-18,Marketing printer
+192.168.1.102,ap-conference,IT,2023-01-25,Conference room access point
+192.168.1.200,router-main,IT,2023-01-05,Main office router
+</code></pre>
+<h2 id="flat-file-data-management">Flat File Data Management</h2>
+<p>working with data in flat files is manageable for small datasets, but as the data grows, it becomes cumbersome to handle. <br/>
+This is where databases come into play, providing efficient data storage, retrieval, and management capabilities.</p>
+<p>Large files are still human-readable, but editing them to create data or look for problems becomes a more difficult task. If your application will change the data in the file, then one solution would be to read the entire file into memory, make the changes, and write the data out to another file.<br/>
+Another problem with using flat files is that you’ll need to explicitly create and maintain any relationships between parts of your data and the application program within the file syntax. Additionally, you’ll need to generate code in your application to use those relationships.<br/>
+A final complication is that people you want to share your data file with will also need to know about and act on the structures and relationships you’ve created in the data. To access the information, those users will need to understand not only the structure of the data but also the programming tools necessary for accessing it.</p>
+<p>our example script and accompanying csv file is a simple IP address manager. It allows you to load IP address data from a CSV file, display the data, add new entries, search for entries by IP address or hostname, remove entries, and save the updated data back to a new CSV file.<br/>
+While this approach works for small datasets, it has several limitations:</p>
+<ul>
+<li><strong>Scalability</strong>: As the dataset grows, loading the entire file into memory can become inefficient and slow.</li>
+<li><strong>Concurrency</strong>: If multiple users or processes need to access or modify the data simultaneously, managing file locks and ensuring data integrity can be challenging.</li>
+<li><strong>Complex Queries</strong>: Performing complex queries or searches on the data can be cumbersome and slow, as it requires iterating through the entire dataset.</li>
+<li><strong>Data Integrity</strong>: Ensuring data integrity and consistency can be difficult, especially when multiple operations are performed on the data.</li>
+<li><strong>Error Handling</strong>: Handling errors, such as file not found or data corruption, requires additional code and can complicate the application logic.</li>
+</ul>
+<p>To overcome these limitations, we can use a database management system (DBMS) like SQLite, which provides a more robust and efficient way to manage data. SQLite is a lightweight, serverless, self-contained SQL database engine that is easy to set up and use.<br/>
+but first we need to learn a little bit about relational databases itself.</p>
+<h2 id="relational-databases">relational Databases</h2>
+<p>A relational database is a type of database that stores and provides access to data points that are related to one another. Relational databases are based on the relational model, an intuitive, straightforward way of representing data in tables. In a relational database, each table (also called a relation) consists of rows and columns, where each row represents a unique record and each column represents a specific attribute of the record.<br/>
+The key features of relational databases include:</p>
+<ul>
+<li><strong>Tables</strong>: Data is organized into tables, which consist of rows and columns. Each table represents a specific entity or concept, and each row represents a unique instance of that entity.</li>
+<li><strong>Relationships</strong>: Tables can be related to one another through the use of keys. A</li>
+<li><strong>primary key</strong> is a unique identifier for each record in a table, while a <strong>foreign key</strong> is a field in one table that refers to the primary key in another table. This allows for the establishment of relationships between different tables.</li>
+<li><strong>SQL</strong>: Relational databases use SQL (Structured Query Language) as the standard language for querying and managing the data. SQL provides a powerful and flexible way to interact with the database, allowing users to perform various operations such as querying, inserting, updating, and deleting data.</li>
+<li><strong>Data Integrity</strong>: Relational databases enforce data integrity through the use of constraints, such as unique constraints, not null constraints, and referential integrity constraints. This ensures that the data remains accurate and consistent</li>
+</ul>
+<h1 id="what-is-a-database-table">what is a database table?</h1>
+<ul>
+<li>A table is a collection of related data entries, and it consists of columns and rows.</li>
+<li>A column holds specific information about every record in the table.</li>
+<li>A record (or row) is each individual entry that exists in a table.</li>
+<li>Look at a selection from the Northwind "Customers" table:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>CustomerID</th>
+<th>CustomerName</th>
+<th>ContactName</th>
+<th>Address</th>
+<th>City</th>
+<th>PostalCode</th>
+<th>Country</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alfreds Futterkiste</td>
+<td>Maria Anders</td>
+<td>Obere Str. 57</td>
+<td>Berlin</td>
+<td>12209</td>
+<td>Germany</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ana Trujillo Emparedados y helados</td>
+<td>Ana Trujillo</td>
+<td>Avda. de la Constitución 2222</td>
+<td>México D.F.</td>
+<td>05021</td>
+<td>Mexico</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Antonio Moreno Taquería</td>
+<td>Antonio Moreno</td>
+<td>Mataderos 2312</td>
+<td>México D.F.</td>
+<td>05023</td>
+<td>Mexico</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Around the Horn</td>
+<td>Thomas Hardy</td>
+<td>120 Hanover Sq.</td>
+<td>London</td>
+<td>WA1 1DP</td>
+<td>UK</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Berglunds snabbköp</td>
+<td>Christina Berglund</td>
+<td>Berguvsvägen 8</td>
+<td>Luleå</td>
+<td>S-958 22</td>
+<td>Sweden</td>
+</tr>
+</tbody>
+</table>
+<p>The columns in the "Customers" table above are: CustomerID, CustomerName, ContactName, Address, City, PostalCode and Country. The table has 5 records (rows).</p>
+<h2 id="relational-database-table">Relational database table</h2>
+<p>A relational database defines database relationships in the form of tables. The tables are related to each other - based on data common to each.</p>
+<p>Look at the following three tables "Customers", "Orders", and "Shippers" from the Northwind database:</p>
+<p>Customers Table</p>
+<table>
+<thead>
+<tr>
+<th>CustomerID</th>
+<th>CustomerName</th>
+<th>ContactName</th>
+<th>Address</th>
+<th>City</th>
+<th>PostalCode</th>
+<th>Country</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alfreds Futterkiste</td>
+<td>Maria Anders</td>
+<td>Obere Str. 57</td>
+<td>Berlin</td>
+<td>12209</td>
+<td>Germany</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ana Trujillo Emparedados y helados</td>
+<td>Ana Trujillo</td>
+<td>Avda. de la Constitución 2222</td>
+<td>México D.F.</td>
+<td>05021</td>
+<td>Mexico</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Antonio Moreno Taquería</td>
+<td>Antonio Moreno</td>
+<td>Mataderos 2312</td>
+<td>México D.F.</td>
+<td>05023</td>
+<td>Mexico</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Around the Horn</td>
+<td>Thomas Hardy</td>
+<td>120 Hanover Sq.</td>
+<td>London</td>
+<td>WA1 1DP</td>
+<td>UK</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Berglunds snabbköp</td>
+<td>Christina Berglund</td>
+<td>Berguvsvägen 8</td>
+<td>Luleå</td>
+<td>S-958 22</td>
+<td>Sweden</td>
+</tr>
+</tbody>
+</table>
+<p>The relationship between the "Customers" table and the "Orders" table is the CustomerID column:</p>
+<p>Orders Table</p>
+<table>
+<thead>
+<tr>
+<th>OrderID</th>
+<th>CustomerID</th>
+<th>EmployeeID</th>
+<th>OrderDate</th>
+<th>ShipperID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10248</td>
+<td>1</td>
+<td>5</td>
+<td>1996-07-04</td>
+<td>3</td>
+</tr>
+<tr>
+<td>10249</td>
+<td>2</td>
+<td>6</td>
+<td>1996-07-05</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10250</td>
+<td>3</td>
+<td>4</td>
+<td>1996-07-08</td>
+<td>2</td>
+</tr>
+<tr>
+<td>10251</td>
+<td>4</td>
+<td>3</td>
+<td>1996-07-08</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10252</td>
+<td>5</td>
+<td>4</td>
+<td>1996-07-09</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>The relationship between the "Orders" table and the "Shippers" table is the ShipperID column:</p>
+<p>Shippers Table</p>
+<table>
+<thead>
+<tr>
+<th>ShipperID</th>
+<th>ShipperName</th>
+<th>Phone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Speedy Express</td>
+<td>(503) 555-9831</td>
+</tr>
+<tr>
+<td>2</td>
+<td>United Package</td>
+<td>(503) 555-3199</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Federal Shipping</td>
+<td>(503) 555-9931</td>
+</tr>
+</tbody>
+</table>
+<p>that is all in a nutshell.<br/>
+There is so much information and to learn about relational databases and SQL that it would be impossible to cover it all here.<br/>
+This information can be found and learn at your leisure at a later time.<br/>
+when i started out this was all the info needed to at least get me started.</p>
+<h2 id="sql-basics">Sql Basics</h2>
+<p>SQL (Structured Query Language) is a standard language for managing and manipulating relational databases. It provides a way to interact with the data stored in a database, allowing you to perform various operations such as querying, inserting, updating, and deleting data.<br/>
+Some key features of SQL include:</p>
+<ul>
+<li>Enables Database Communication: SQL is the programming language that helps design, assess, maintain, protect, and maintain SQL databases.</li>
+<li>Declarative Language: SQL utilizes a declarative programming approach by describing what a program does without controlling its workflow.</li>
+<li>Wide range of usage: SQL is a popular programming language and adapted by almost all Relational Database Management Systems(RDMS) like MySQL, MS Access, Oracle, Postgres, and SQL Server.</li>
+<li>Easy syntax: SQL has a straightforward syntax and can be easy to learn and understand, even without any prior programming knowledge.</li>
+<li>Wide range of commands: SQL supports DQL (Data Query Language) commands like SELECT; DDL (Data Definition Language) commands like CREATE, DROP; DCL (Data Control Language) commands like GRANT, REVOKE; DML (Data Manipulation Language) commands like INSERT, UPDATE, DELETE; and TCL (Transaction Control Language) commands like COMMIT, ROLLBACK.</li>
+<li>Scalability and flexibility: As stated earlier, SQL can help add new tables, edit new tables, and delete old tables that are no longer in use. Hence, it can scale up/down to accommodate datasets according to business needs.</li>
+<li>Integrations with other non-SQL databases: SQL uses a third piece of middleware called an ODBC driver to connect to non-SQL databases like Oracle and Salesforce.</li>
+</ul>
+<p>Below website is the best resource to learn "SQL" from scratch for free. this will be your homework for the next week.<br/>
+<a href="https://sqlbolt.com/">SQLBolt</a></p>
+<h2 id="using-sqlite-with-python-and-our-example">Using SQLite with Python and our example</h2>
+<p>The SQLite database is available in Python, and according to the SQLite home page, it’s used more than all other database systems combined. <br/>
+It offers a full-featured relational database management system (RDBMS) that works with a single file to maintain all the database functionality.</p>
+<p>It also has the advantage of not requiring a separate database server to function. The database file format is cross-platform and accessible to any programming language that supports SQLite.</p>
+<p>when we look at our accompanying csv file. can you determine a table name. and column names?<br/>
+The table name could be "ip_addresses" and the column names could be:<br/>
+- ip_address<br/>
+- hostname<br/>
+- department<br/>
+- assigned_date<br/>
+- notes<br/>
+- id (we will add this one ourself as a <strong>primary key</strong>)</p>
+<p><strong>what is a primary key actually?</strong><br/>
+A primary key is a unique identifier for each record in a database table. It ensures that each record can be uniquely identified and accessed. <br/>
+A primary key must contain unique values and cannot contain NULL values. It is used to establish and enforce entity integrity within the table.</p>
+<p><strong>what is a null value?</strong><br/>
+A NULL value in a database represents the absence of a value or an unknown value. It is different from an empty string or a zero value, as those are considered actual values. <br/>
+NULL indicates that the value for a particular field is missing or not applicable.</p>
+<p>lets start up sqlite on our cli!!</p>
+<pre><code class="language-bash">sqlite3 ip_manager_cli_test.db
+</code></pre>
+<p>you will get something like this:</p>
+<pre><code class="language-bash">SQLite version 3.51.0 2025-06-12 13:14:41
+Enter ".help" for usage hints.
+sqlite&gt; 
+</code></pre>
+<p>and now we can learn to create a table in our database.</p>
+<pre><code class="language-sql">CREATE TABLE ip_addresses (
+    id INTEGER PRIMARY KEY,
+    ip_address TEXT NOT NULL,
+    hostname TEXT NOT NULL,
+    department TEXT,
+    assigned_date TEXT,
+    notes TEXT
+);
+</code></pre>
+<p>you can learn about creating tables and there options here: <a href="https://sqlbolt.com/lesson/creating_tables">SQLbolt</a><br/>
+lets explain:</p>
+<p>i start with the <strong>CREATE TABLE</strong> command. and it expects a name for the table. in our case "ip_addresses".<br/>
+then we open a parenthesis and start defining the columns of our table.<br/>
+the first column is "id" and it is of type INTEGER. and it is also the <strong>PRIMARY KEY</strong> of the table.<br/>
+the next column is "ip_address" and it is of type TEXT. and it is also defined as <strong>NOT NULL</strong>. meaning it must have a value.<br/>
+the next column is "hostname" and it is also of type TEXT and defined as <strong>NOT NULL</strong>.<br/>
+the next column is "department" and it is of type TEXT. but it is not defined as <strong>NOT NULL</strong>. meaning it can have a null value.<br/>
+the next column is "assigned_date" and it is of type TEXT. but it is not defined as <strong>NOT NULL</strong>. meaning it can have a null value.<br/>
+the last column is "notes" and it is of type TEXT. but it is not defined as <strong>NOT NULL</strong>. meaning it can have a null value.<br/>
+finally we close the parenthesis and end the command with a semicolon.</p>
+<p>now we can check if our table was created successfully with the following command:</p>
+<pre><code class="language-sql">.tables
+</code></pre>
+<p>and we see our table in there.<br/>
+but there is no data now. we can check that with the following command:</p>
+<pre><code class="language-sql">SELECT * FROM ip_addresses;
+</code></pre>
+<p>and we see nothing. because there is no data in the table yet.</p>
+<p>lets make some data entries with the following command:</p>
+<pre><code class="language-sql">INSERT INTO ip_addresses (ip_address, hostname, department, assigned_date, notes) VALUES
+('192.168.1.10', 'printer01', 'HR', '2023-01-15', 'Main office printer'),
+('192.168.1.20', 'laptop-alice', 'Marketing', '2023-02-05', 'Alice''s laptop'),
+('192.168.1.30', 'desktop-bob', 'Engineering', '2023-03-10', 'Bob''s workstation'),
+('192.168.1.40', 'server-file01', 'IT', '2023-01-20', 'File server'),
+('192.168.1.50', 'laptop-carol', 'Sales', '2023-02-12', 'Carol''s laptop'),
+('192.168.1.60', 'desktop-dave', 'Accounting', '2023-03-15', 'Dave''s workstation'),
+('192.168.1.100', 'server-db01', 'IT', '2023-01-10', 'Database server'),
+('192.168.1.101', 'printer02', 'Marketing', '2023-02-18', 'Marketing printer'),
+('192.168.1.102', 'ap-conference', 'IT', '2023-01-25', 'Conference room access point'),
+('192.168.1.200', 'router-main', 'IT', '2023-01-05', 'Main office router');
+</code></pre>
+<p>we can exit sqlite with the following command:</p>
+<pre><code class="language-sql">.quit
+</code></pre>
+<p>now that we have some information in our database table. we can play around with it. by using what we learned on the sqlbolt website.<br/>
+<a href="https://sqlbolt.com/">SQLbolt</a></p>
+<p>lets take a step back and look ar out csv again.<br/>
+we could make other tables from this data. so to group our data better together.<br/>
+can you see any other tables we could make from this data?<br/>
+we could make a table for departments. a table for devices. and a table for devices &lt;-&gt; users.</p>
+<p>we call these types relations.</p>
+<h1 id="one-to-many-relationships">one-to-many relationships:</h1>
+<p>A one-to-many relationship occurs when a record in one table can be associated with multiple records in another table. <br/>
+For example, in our IP address manager, one department can have many devices assigned to it.</p>
+<h4 id="example">Example:</h4>
+<p>A common scenario: Departments → Devices</p>
+<p>One department can have many devices.</p>
+<h5 id="department-table">Department Table</h5>
+<table>
+<thead>
+<tr>
+<th>dept_id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Marketing</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>4</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sales</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Accounting</td>
+</tr>
+</tbody>
+</table>
+<h5 id="device-table">Device Table</h5>
+<table>
+<thead>
+<tr>
+<th>device_id</th>
+<th>ip_address</th>
+<th>hostname</th>
+<th>assigned_date</th>
+<th>dept_id</th>
+<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>192.168.1.10</td>
+<td>printer01</td>
+<td>2023-01-15</td>
+<td>1</td>
+<td>Main office printer</td>
+</tr>
+<tr>
+<td>2</td>
+<td>192.168.1.20</td>
+<td>laptop-alice</td>
+<td>2023-02-05</td>
+<td>2</td>
+<td>Alice's laptop</td>
+</tr>
+</tbody>
+</table>
+<p>Relationship: Department.dept_id → Device.dept_id (One-to-Many)</p>
+<h1 id="many-to-many-relationships">many-to-many relationships:</h1>
+<p>A many-to-many relationship occurs when multiple records in one table can be associated with multiple records in another table.<br/>
+For example, in our IP address manager, a device can be assigned to multiple users, and a user can have multiple devices assigned to them.</p>
+<h4 id="example_1">Example:</h4>
+<p>A user can use multiple devices, and a device could be shared among multiple users.</p>
+<p>We need a junction table.</p>
+<h5 id="user-table">User Table</h5>
+<table>
+<thead>
+<tr>
+<th>user_id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Carol</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dave</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>device_id</th>
+<th>ip_address</th>
+<th>hostname</th>
+<th>assigned_date</th>
+<th>dept_id</th>
+<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>192.168.1.10</td>
+<td>printer01</td>
+<td>2023-01-15</td>
+<td>1</td>
+<td>Main office printer</td>
+</tr>
+<tr>
+<td>2</td>
+<td>192.168.1.20</td>
+<td>laptop-alice</td>
+<td>2023-02-05</td>
+<td>2</td>
+<td>Alice's laptop</td>
+</tr>
+</tbody>
+</table>
+<p>and then we need the "junction table" to connect them.</p>
+<h5 id="userdevice-table-junction">UserDevice Table (junction)</h5>
+<table>
+<thead>
+<tr>
+<th>user_id</th>
+<th>device_id</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>→ Alice uses laptop-alice</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>→ Bob uses desktop-bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>5</td>
+<td>→ Carol uses laptop-carol</td>
+</tr>
+<tr>
+<td>4</td>
+<td>6</td>
+<td>→ Dave uses desktop-dave</td>
+</tr>
+</tbody>
+</table>
+<p>note that is a very simplictic way of looking at it. but it is enough for now.<br/>
+you can study for 1000s of hours on relational database design and still not know everything about it.</p>
+<p>lets work with my simple yet not perfect example.</p>
+<h2 id="sql-schema-for-above-example">SQL Schema for above example</h2>
+<p>note: pasting this into the sqlite interface probably wont work because of the comments.<br/>
+so save below into a file: ip_manager_schema_and_fixtures.sql</p>
+<p>then start sqlite with a new database file and import the sql file like this:</p>
+<pre><code class="language-bash">sqlite3 ip_manager_full_example.db &lt; ip_manager_schema_and_fixtures.sql
+</code></pre>
+<pre><code class="language-sql">-- ===========================
+-- Drop old tables (if exist)
+-- ===========================
+DROP TABLE IF EXISTS UserDevice;
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Device;
+DROP TABLE IF EXISTS Department;
+
+-- ===========================
+-- Department Table
+-- ===========================
+CREATE TABLE Department (
+    dept_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+INSERT INTO Department (dept_id, name) VALUES
+(1, 'HR'),
+(2, 'Marketing'),
+(3, 'Engineering'),
+(4, 'IT'),
+(5, 'Sales'),
+(6, 'Accounting');
+
+-- ===========================
+-- Device Table
+-- ===========================
+CREATE TABLE Device (
+    device_id INTEGER PRIMARY KEY,
+    ip_address TEXT,
+    hostname TEXT,
+    assigned_date TEXT,
+    notes TEXT,
+    dept_id INTEGER,
+    FOREIGN KEY(dept_id) REFERENCES Department(dept_id)
+);
+
+INSERT INTO Device (device_id, ip_address, hostname, assigned_date, notes, dept_id) VALUES
+(1,'192.168.1.10','printer01','2023-01-15','Main office printer',1),
+(2,'192.168.1.20','laptop-alice','2023-02-05','Alice''s laptop',2),
+(3,'192.168.1.30','desktop-bob','2023-03-10','Bob''s workstation',3),
+(4,'192.168.1.40','server-file01','2023-01-20','File server',4),
+(5,'192.168.1.50','laptop-carol','2023-02-12','Carol''s laptop',5),
+(6,'192.168.1.60','desktop-dave','2023-03-15','Dave''s workstation',6),
+(7,'192.168.1.100','server-db01','2023-01-10','Database server',4),
+(8,'192.168.1.101','printer02','2023-02-18','Marketing printer',2),
+(9,'192.168.1.102','ap-conference','2023-01-25','Conference room access point',4),
+(10,'192.168.1.200','router-main','2023-01-05','Main office router',4);
+
+-- ===========================
+-- Users Table
+-- ===========================
+CREATE TABLE User (
+    user_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+INSERT INTO User (user_id, name) VALUES
+(1, 'Alice'),
+(2, 'Bob'),
+(3, 'Carol'),
+(4, 'Dave');
+
+-- ===========================
+-- UserDevice (Junction Table)
+-- ===========================
+CREATE TABLE UserDevice (
+    user_id INTEGER,
+    device_id INTEGER,
+    PRIMARY KEY (user_id, device_id),
+    FOREIGN KEY(user_id) REFERENCES Users(user_id),
+    FOREIGN KEY(device_id) REFERENCES Device(device_id)
+);
+
+INSERT INTO UserDevice (user_id, device_id) VALUES
+(1, 2),   -- Alice → laptop-alice
+(2, 3),   -- Bob → desktop-bob
+(3, 5),   -- Carol → laptop-carol
+(4, 6),   -- Dave → desktop-dave
+(1, 1),   -- Alice → printer01
+(2, 1);   -- Bob also uses printer01
+</code></pre>
+<h2 id="examples-of-querying-this-data">Examples of querying this data</h2>
+<pre><code class="language-sql">#1. Show all devices
+
+SELECT * FROM Device;
+
+#2. Show all departments
+
+SELECT * FROM Department;
+
+#3. Show all users
+
+SELECT * FROM User;
+
+
+#📊 One-to-Many Examples (Department → Device)
+
+#4. Devices in the IT department
+
+SELECT d.hostname, d.ip_address
+FROM Device d
+JOIN Department dep ON d.dept_id = dep.dept_id
+WHERE dep.name = 'IT';
+
+#5. Count devices per department
+
+SELECT dep.name AS department, COUNT(d.device_id) AS device_count
+FROM Department dep
+LEFT JOIN Device d ON dep.dept_id = d.dept_id
+GROUP BY dep.name;
+
+#6. Devices assigned after February 1, 2023
+
+SELECT hostname, assigned_date
+FROM Device
+WHERE assigned_date &gt; '2023-02-01';
+
+#🔀 Many-to-Many Examples (Users ↔ Devices)
+
+#7. Devices used by Alice
+
+SELECT u.name AS user, d.hostname, d.ip_address
+FROM User u
+JOIN UserDevice ud ON u.user_id = ud.user_id
+JOIN Device d ON ud.device_id = d.device_id
+WHERE u.name = 'Alice';
+
+#8. Who uses printer01?
+
+SELECT u.name
+FROM User u
+JOIN UserDevice ud ON u.user_id = ud.user_id
+JOIN Device d ON ud.device_id = d.device_id
+WHERE d.hostname = 'printer01';
+
+#9. All users and their devices
+
+SELECT u.name AS user, d.hostname AS device
+FROM User u
+JOIN UserDevice ud ON u.user_id = ud.user_id
+JOIN Device d ON ud.device_id = d.device_id
+ORDER BY u.name;
+
+#10. Which devices are shared by more than one user?
+
+SELECT d.hostname, COUNT(ud.user_id) AS user_count
+FROM Device d
+JOIN UserDevice ud ON d.device_id = ud.device_id
+GROUP BY d.device_id
+HAVING COUNT(ud.user_id) &gt; 1;
+
+#🧩 More Advanced
+
+#11. List each department with the users who use its devices
+
+SELECT dep.name AS department, u.name AS user, d.hostname AS device
+FROM Department dep
+JOIN Device d ON dep.dept_id = d.dept_id
+JOIN UserDevice ud ON d.device_id = ud.device_id
+JOIN User u ON ud.user_id = u.user_id
+ORDER BY dep.name, u.name;
+
+#12. Departments with no devices
+
+SELECT dep.name
+FROM Department dep
+LEFT JOIN Device d ON dep.dept_id = d.dept_id
+WHERE d.device_id IS NULL;
+
+</code></pre>
+<p>Below not working yet. is for later.</p>
+<p>we will use the following python script to create a database and a table in it. and then we will populate the table with data from our csv file.</p>
+<pre><code class="language-python">import sqlite3
+import csv
+from time import sleep  
+from sqlite3 import Error
+from typing import List, Dict, Any
+from contextlib import closing
+from pathlib import Path
+DB_FILE = "ip_manager.db"
+CSV_FILE = "ip_manager.csv"
+TABLE_NAME = "ip_addresses"
+
+def create_connection(db_file: str) -&gt; sqlite3.Connection:
+    """ create a database connection to the SQLite database
+        specified by db_file
+    :param db_file: database file
+    :return: Connection object or None
+    """
+    conn = None
+    try:
+        conn = sqlite3.connect(db_file)
+        print(f"Connected to database: {db_file}")
+    except Error as e:
+        print(e)
+    return conn
+
+def create_table(conn: sqlite3.Connection, create_table_sql: str) -&gt; None:
+    """ create a table from the create_table_sql statement
+    :param conn: Connection object
+    :param create_table_sql: a CREATE TABLE statement       
+    :return:
+    """
+    try:
+        with closing(conn.cursor()) as c:
+            c.execute(create_table_sql)
+            print(f"Table created or already exists.")
+    except Error as e:
+        print(e)
+
+def insert_entry(conn: sqlite3.Connection, entry: Dict[str, Any]) -&gt; int:
+    """ Create a new entry into the ip_addresses table
+    :param conn:
+    :param entry:
+    :return: entry id
+    """
+    sql = ''' INSERT INTO ip_addresses(ip_address,hostname,department,assigned_date,notes
+                ) VALUES(?,?,?,?,?) '''
+    cur = conn.cursor()
+    cur.execute(sql, (entry['ip_address'], entry['hostname'], entry['department'],
+                        entry['assigned_date'], entry['notes']))
+    conn.commit()
+    return cur.lastrowid
+
+def load_csv_data(filename: str) -&gt; List[Dict[str, Any]]:
+    data = []
+    with open(filename, newline='') as csvfile:
+        content = csv.DictReader(csvfile)
+        for row in content:
+            data.append(row)
+    return data
+
+def main():
+    database = DB_FILE
+    sql_create_ip_addresses_table = f""" CREATE TABLE IF NOT EXISTS {TABLE_NAME} (
+                                        id integer PRIMARY KEY,
+                                        ip_address text NOT NULL,
+                                        hostname text NOT NULL,
+                                        department text,
+                                        assigned_date text,
+                                        notes text
+                                    ); """
+    # create a database connection
+    conn = create_connection(database)
+    # create tables
+    if conn is not None:
+        # create ip_addresses table
+        create_table(conn, sql_create_ip_addresses_table)
+        # load data from csv file
+        csv_data = load_csv_data(CSV_FILE)
+        print(f"Loaded {len(csv_data)} entries from {CSV_FILE}")
+        # insert data into table
+        for entry in csv_data:
+            entry_id = insert_entry(conn, entry)
+            print(f"Inserted entry with id: {entry_id}")
+            sleep(0.1)  # simulate some delay
+        print("All data inserted.")
+    else:
+        print("Error! cannot create the database connection.")
+if __name__ == '__main__':
+    main()
+</code></pre></div>
+
+        <!-- Load Prism.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
+    </body>
+    </html>
+    
